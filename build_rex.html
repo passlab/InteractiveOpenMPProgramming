@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building REX &#8212; My sample book</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Decision Tree" href="decision_tree/decision_tree.html" />
+    <link rel="prev" title="Content with notebooks" href="notebooks.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">My sample book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="content.html">
+   Content in Jupyter Book
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="markdown.html">
+     Markdown Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks.html">
+     Content with notebooks
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Building REX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="decision_tree/decision_tree.html">
+     Decision Tree
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/build_rex.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fbuild_rex.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisite">
+   1. Prerequisite
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#os">
+     1.1 OS:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#software">
+     1.2 Software:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#environment">
+     1.3 Environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#edg-and-ompparser">
+     1.4 EDG and ompparser
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rex-compiler">
+   2. REX Compiler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tests">
+   3. Tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#miscellaneous">
+   4. Miscellaneous
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="building-rex">
+<h1>Building REX<a class="headerlink" href="#building-rex" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisite">
+<h2>1. Prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="os">
+<h3>1.1 OS:<a class="headerlink" href="#os" title="Permalink to this headline">¶</a></h3>
+<p>Ubuntu 20.04 LTS with GNU 9.x and 7.x, Ubuntu 18.04 LTS with GNU 7.x, and Ubuntu 16.04.6 LTS with GNU 5.x were all tested</p>
+</div>
+<div class="section" id="software">
+<h3>1.2 Software:<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo apt install -y openjdk-8-jdk <span class="o">&amp;&amp;</span> <span class="se">\</span>
+sudo apt install -y <span class="se">\</span>
+        autoconf <span class="se">\</span>
+        automake <span class="se">\</span>
+        autotools-dev <span class="se">\</span>
+        bc <span class="se">\</span>
+        binutils <span class="se">\</span>
+        bison <span class="se">\</span>
+        build-essential <span class="se">\</span>
+        cmake <span class="se">\</span>
+        cpufrequtils <span class="se">\</span>
+        curl <span class="se">\</span>
+        device-tree-compiler <span class="se">\</span>
+        dkms <span class="se">\</span>
+        doxygen <span class="se">\</span>
+        flex <span class="se">\</span>
+        gawk <span class="se">\</span>
+        gcc-multilib <span class="se">\</span>
+        gdb <span class="se">\</span>
+        gfortran <span class="se">\</span>
+        ghostscript <span class="se">\</span>
+        git <span class="se">\</span>
+        gperf <span class="se">\</span>
+        graphviz <span class="se">\</span>
+        libboost-all-dev <span class="se">\</span>
+        libgmp-dev <span class="se">\</span>
+        libhpdf-dev <span class="se">\</span>
+        libmpc-dev <span class="se">\</span>
+        libmpfr-dev <span class="se">\</span>
+        libomp-dev <span class="se">\</span>
+        libtool <span class="se">\</span>
+        libxml2-dev <span class="se">\</span>
+        patchutils <span class="se">\</span>
+        perl-doc <span class="se">\</span>
+        python3-dev <span class="se">\</span>
+        sqlite <span class="se">\</span>
+        texinfo <span class="se">\</span>
+        unzip <span class="se">\</span>
+        vim <span class="se">\</span>
+        wget <span class="se">\</span>
+        zip <span class="se">\</span>
+        zlib1g <span class="se">\</span>
+        zlib1g-dev
+</pre></div>
+</div>
+</div>
+<div class="section" id="environment">
+<h3>1.3 Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h3>
+<p>The compilation requires that <code class="docutils literal notranslate"><span class="pre">CC</span></code> and <code class="docutils literal notranslate"><span class="pre">CXX</span></code> point to the same compiler version. For example, it won’t work if <code class="docutils literal notranslate"><span class="pre">CC=gcc-5</span></code> and <code class="docutils literal notranslate"><span class="pre">CXX=g++-7</span></code>. On each of our systems, we used the shipped compiler.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CC</span><span class="o">=</span>/usr/bin/gcc
+<span class="nb">export</span> <span class="nv">CXX</span><span class="o">=</span>/usr/bin/g++
+</pre></div>
+</div>
+<p>However, if you wish to use another version, or find it necessary to do so, you can repeat the steps above:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CC</span><span class="o">=</span>/usr/bin/gcc-7
+<span class="nb">export</span> <span class="nv">CXX</span><span class="o">=</span>/usr/bin/g++-7
+</pre></div>
+</div>
+<p>So far OpenJDK 8 is tested. Even we remove the limit to JDK, other versions may not work as expected.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/java-8-openjdk-amd64
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/jre/lib/amd64/server:<span class="nv">$LD_LIBRARY_PATH</span>
+</pre></div>
+</div>
+<p>Assume we prepare a folder <code class="docutils literal notranslate"><span class="pre">$HOME/Projects/rexcompiler</span></code> for the compilation and installation. You could use other proper folder as well.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">REX_ROOT</span><span class="o">=</span><span class="nv">$HOME</span>/Projects/rexcompiler
+</pre></div>
+</div>
+</div>
+<div class="section" id="edg-and-ompparser">
+<h3>1.4 EDG and ompparser<a class="headerlink" href="#edg-and-ompparser" title="Permalink to this headline">¶</a></h3>
+<p>EDG and ompparser are part of REX compiler as git submodules. Thus no separate installation are needed.</p>
+</div>
+</div>
+<div class="section" id="rex-compiler">
+<h2>2. REX Compiler<a class="headerlink" href="#rex-compiler" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$REX_ROOT</span>
+git clone git@github.com:passlab/rexompiler.git rex_src
+mkdir rex_build
+<span class="nb">cd</span> rex_src
+git submodule update --init
+./build
+<span class="nb">cd</span> ../rex_build
+../rex_src/configure --prefix<span class="o">=</span><span class="nv">$REX_ROOT</span>/rex_install --with-boost<span class="o">=</span>/usr --with-boost-libdir<span class="o">=</span>/usr/lib/x86_64-linux-gnu/ --enable-languages<span class="o">=</span>c,c++,fortran --disable-tests-directory --disable-tutorial-directory
+make core -j6
+make install-core
+</pre></div>
+</div>
+<p>Now the compilation is completed and <code class="docutils literal notranslate"><span class="pre">REXCompiler</span></code> is installed in <code class="docutils literal notranslate"><span class="pre">$REX_ROOT/rex_install</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$REX_ROOT</span>/rex_install/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$REX_ROOT</span>/rex_install/bin:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tests">
+<h2>3. Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>There are at least three locations we need to test, which are <code class="docutils literal notranslate"><span class="pre">/tests/nonsmoke/functional/CompileTests/OpenMP_tests</span></code>, <code class="docutils literal notranslate"><span class="pre">/tests/nonsmoke/functional/roseTests/astInterfaceTests</span></code>, and <code class="docutils literal notranslate"><span class="pre">/tests/nonsmoke/functional/roseTests/ompLoweringTests</span></code>. However, at this moment we only enable the tests in the first two locations because the last one hasn’t been modified for <code class="docutils literal notranslate"><span class="pre">REXCompiler</span></code> yet.</p>
+<p><strong>The following tests should be passed locally before committing.</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$REX_ROOT</span>/rex_build/tests/nonsmoke/functional/CompileTests/OpenMP_tests
+make check
+<span class="nb">cd</span> <span class="nv">$REX_ROOT</span>/rex_build/tests/nonsmoke/functional/roseTests/astInterfaceTests
+make check
+</pre></div>
+</div>
+</div>
+<div class="section" id="miscellaneous">
+<h2>4. Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
+<p>Please notice that GitHub supports two ways to access the code using <code class="docutils literal notranslate"><span class="pre">https/password</span></code> and <code class="docutils literal notranslate"><span class="pre">git/SSH</span> <span class="pre">key</span></code>. In this tutorial, the <code class="docutils literal notranslate"><span class="pre">git/SSH</span> <span class="pre">key</span></code> is used. To use the other method, all the <code class="docutils literal notranslate"><span class="pre">git</span></code> link should be replaced with the <code class="docutils literal notranslate"><span class="pre">https</span></code> link. Check <a class="reference external" href="https://help.github.com/en/github/using-git/which-remote-url-should-i-use">here</a> for more details.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="notebooks.html" title="previous page">Content with notebooks</a>
+    <a class='right-next' id="next-link" href="decision_tree/decision_tree.html" title="next page">Decision Tree</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
