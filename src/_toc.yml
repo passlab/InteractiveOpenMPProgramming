@@ -1,0 +1,10 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+- file: intro
+- file: content
+  sections:
+    - file: markdown
+    - file: notebooks
+    - file: build_rex.md
+    - file: decision_tree/decision_tree.ipynb
