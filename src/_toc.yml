@@ -8,3 +8,4 @@
     - file: notebooks
     - file: build_rex.md
     - file: decision_tree/decision_tree.ipynb
+    - file: openmp_c/parallel_for.ipynb
