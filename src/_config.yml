@@ -10,6 +10,9 @@ logo: logo.png
 execute:
   execute_notebooks: no
 
+launch_buttons:
+  notebook_interface: "jupyterlab"
+
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
