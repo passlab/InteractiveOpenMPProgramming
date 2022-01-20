@@ -3,8 +3,7 @@ FROM ubuntu:20.04
 ENV TZ=US/Eastern
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN \
-    apt update && \
+RUN apt update && \
     apt install -y \
         apt-utils \
         curl \
@@ -12,10 +11,7 @@ RUN \
         software-properties-common \
         wget
 
-RUN curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
-
-RUN \
-    apt install -y python3-pip && \
+RUNapt install -y python3-pip && \
     apt install -y \ 
         bison \
         build-essential \
@@ -29,7 +25,6 @@ RUN \
         gfortran \
         git \
         libomp-dev \
-        nodejs \
         vim && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/*
