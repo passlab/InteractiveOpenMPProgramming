@@ -11,8 +11,7 @@ RUN apt update && \
         software-properties-common \
         wget
 
-RUNapt install -y python3-pip && \
-    apt install -y \ 
+RUN apt install -y \ 
         bison \
         build-essential \
         clang \
@@ -25,6 +24,7 @@ RUNapt install -y python3-pip && \
         gfortran \
         git \
         libomp-dev \
+        python3-pip \
         vim && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/*
