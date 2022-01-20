@@ -1,0 +1,18 @@
+{
+    // Theme
+    // @jupyterlab/apputils-extension:themes
+    // Theme manager settings.
+    // *************************************
+
+    // Theme CSS Overrides
+    // Override theme CSS variables by setting key-value pairs here
+    "overrides": {
+        "content-font-size1": "16px",
+        "code-font-size": "16px",
+        "ui-font-size1": "16px"
+    },
+
+    // Selected Theme
+    // Application-level visual styling theme
+    "theme": "base16-gruvbox-dark"
+}

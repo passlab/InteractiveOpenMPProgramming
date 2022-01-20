@@ -58,7 +58,7 @@ RUN pip install -r ./requirements.txt
 USER ${USER}
 
 RUN mkdir -p ${HOME}/.jupyter/lab/user-settings/@jupyterlab/apputils-extension && \
-    echo '{ "theme": "base16-gruvbox-dark" }' > ${HOME}/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings && \
+    cp ./config/themes.jupyterlab-settings ${HOME}/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/. && \
     mkdir -p ${HOME}/.jupyter/lab/user-settings/@jupyterlab/terminal-extension && \
     echo '{ "fontSize": 16 }' > ${HOME}/.jupyter/lab/user-settings/@jupyterlab/terminal-extension/plugin.jupyterlab-settings
 
