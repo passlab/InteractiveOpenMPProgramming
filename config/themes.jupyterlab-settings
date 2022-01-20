@@ -14,5 +14,5 @@
 
     // Selected Theme
     // Application-level visual styling theme
-    "theme": "base16-gruvbox-dark"
+    "theme": "JupyterLab Light"
 }

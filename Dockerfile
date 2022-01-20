@@ -38,8 +38,6 @@ RUN \
 RUN pip install --no-cache --upgrade pip && \
     pip install --no-cache notebook jupyterlab
     
-RUN jupyter labextension install @arbennett/base16-gruvbox-dark
-
 # create user with a home directory
 ARG NB_USER
 ARG NB_UID
@@ -53,14 +51,14 @@ RUN adduser --disabled-password \
 COPY . ${HOME}
 RUN chown -R ${NB_UID} ${HOME}
 WORKDIR ${HOME}
-RUN pip install -r ./requirements.txt
+RUN pip install --no-cache -r ./requirements.txt
 
 USER ${USER}
 
 RUN mkdir -p ${HOME}/.jupyter/lab/user-settings/@jupyterlab/apputils-extension && \
     cp ./config/themes.jupyterlab-settings ${HOME}/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/. && \
     mkdir -p ${HOME}/.jupyter/lab/user-settings/@jupyterlab/terminal-extension && \
-    echo '{ "fontSize": 16 }' > ${HOME}/.jupyter/lab/user-settings/@jupyterlab/terminal-extension/plugin.jupyterlab-settings
+    cp ./config/plugin.jupyterlab-settings ${HOME}/.jupyter/lab/user-settings/@jupyterlab/terminal-extension/.
 
 RUN install_native_kernel --user
 
