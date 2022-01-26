@@ -1,4 +1,4 @@
-Welcome to your Jupyter Book
+Welcome to the Book of Parallel Programming and Performance Optimization With OpenMP
 ============================
 
 This is a small sample book to give you a feel for how book content is
