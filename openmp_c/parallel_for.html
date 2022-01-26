@@ -284,23 +284,223 @@
 <span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Thread: %d, i = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">(),</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thread: 0, i = 0
-Thread: 0, i = 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thread: 3, i = 6
 Thread: 2, i = 4
+Thread: 3, i = 7
 Thread: 2, i = 5
+Thread: 0, i = 0
+Thread: 1, i = 2
 Thread: 4, i = 8
-Thread: 4, i = 9
 Thread: 5, i = 10
 Thread: 5, i = 11
-Thread: 1, i = 2
+Thread: 4, i = 9
+Thread: 0, i = 1
 Thread: 1, i = 3
-Thread: 3, i = 6
-Thread: 3, i = 7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%load https://passlab.github.io/ITSC3181/exercises/sum/sum_full.c</span>
+<span class="cm">/*</span>
+<span class="cm"> * Sum of a*X[N]</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/timeb.h&gt;</span><span class="cp"></span>
+
+<span class="cm">/* read timer in second */</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">read_timer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">timeb</span><span class="w"> </span><span class="n">tm</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ftime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tm</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">tm</span><span class="p">.</span><span class="n">time</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">tm</span><span class="p">.</span><span class="n">millitm</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cm">/* read timer in ms */</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">read_timer_ms</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">timeb</span><span class="w"> </span><span class="n">tm</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ftime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tm</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">tm</span><span class="p">.</span><span class="n">time</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000.0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">tm</span><span class="p">.</span><span class="n">millitm</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#define REAL float</span>
+<span class="cp">#define VECTOR_LENGTH 102400</span>
+
+<span class="cm">/* initialize a vector with random floating point numbers */</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="n">REAL</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">drand48</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">REAL</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">REAL</span><span class="w"> </span><span class="n">X</span><span class="p">[],</span><span class="w"> </span><span class="n">REAL</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">REAL</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VECTOR_LENGTH</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">elapsed</span><span class="p">;</span><span class="w"> </span><span class="cm">/* for timing */</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Usage: sum &lt;n&gt; (default %d)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="n">REAL</span><span class="w"> </span><span class="o">*</span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">REAL</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">REAL</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">REAL</span><span class="w"> </span><span class="o">*</span><span class="n">Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">REAL</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">REAL</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">srand48</span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="n">init</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">init</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">REAL</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1234</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* example run */</span><span class="w"></span>
+<span class="w">    </span><span class="n">elapsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_timer</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">REAL</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">elapsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">read_timer</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">elapsed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;======================================================================================================</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">Sum %d numbers</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;------------------------------------------------------------------------------------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Performance:</span><span class="se">\t\t</span><span class="s">Runtime (ms)</span><span class="se">\t</span><span class="s"> MFLOPS </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;------------------------------------------------------------------------------------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sum:</span><span class="se">\t\t\t</span><span class="s">%4f</span><span class="se">\t</span><span class="s">%4f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">elapsed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.0e3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0e6</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">elapsed</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/tmpvmwsz6j0.c: In function ‘read_timer’:
+/tmp/tmpvmwsz6j0.c:14:5: warning: ‘ftime’ is deprecated [-Wdeprecated-declarations]
+   14 |     ftime(&amp;tm);
+      |     ^~~~~
+In file included from /tmp/tmpvmwsz6j0.c:9:
+/usr/include/x86_64-linux-gnu/sys/timeb.h:39:12: note: declared here
+   39 | extern int ftime (struct timeb *__timebuf)
+      |            ^~~~~
+/tmp/tmpvmwsz6j0.c: In function ‘read_timer_ms’:
+/tmp/tmpvmwsz6j0.c:21:5: warning: ‘ftime’ is deprecated [-Wdeprecated-declarations]
+   21 |     ftime(&amp;tm);
+      |     ^~~~~
+In file included from /tmp/tmpvmwsz6j0.c:9:
+/usr/include/x86_64-linux-gnu/sys/timeb.h:39:12: note: declared here
+   39 | extern int ftime (struct timeb *__timebuf)
+      |            ^~~~~
+Usage: sum &lt;n&gt; (default 102400)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================================================
+	Sum 102400 numbers
+------------------------------------------------------------------------------------------------------
+Performance:		Runtime (ms)	 MFLOPS 
+------------------------------------------------------------------------------------------------------
+Sum:			0.000000	 inf
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">!!%</span><span class="n">compiler</span><span class="o">:</span><span class="w"> </span><span class="n">gfortran</span><span class="w"></span>
+<span class="o">!!%</span><span class="n">cflags</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="n">fopenmp</span><span class="w"></span>
+
+<span class="n">PROGRAM</span><span class="w"> </span><span class="n">Parallel_Hello_World</span><span class="w"></span>
+<span class="n">USE</span><span class="w"> </span><span class="n">OMP_LIB</span><span class="w"></span>
+
+<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">PRINT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello from process: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">OMP_GET_THREAD_NUM</span><span class="p">()</span><span class="w"></span>
+
+<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"></span>
+
+<span class="n">END</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Hello from process:            0
+ Hello from process:            7
+ Hello from process:           15
+ Hello from process:           19
+ Hello from process:            6
+ Hello from process:           71
+ Hello from process:           34
+ Hello from process:           67
+ Hello from process:           20
+ Hello from process:           45
+ Hello from process:           44
+ Hello from process:            5
+ Hello from process:           47
+ Hello from process:           46
+ Hello from process:           56
+ Hello from process:           61
+ Hello from process:           64
+ Hello from process:           65
+ Hello from process:           14
+ Hello from process:           37
+ Hello from process:           60
+ Hello from process:           36
+ Hello from process:           51
+ Hello from process:           68
+ Hello from process:           57
+ Hello from process:           70
+ Hello from process:            2
+ Hello from process:           49
+ Hello from process:           43
+ Hello from process:           50
+ Hello from process:           25
+ Hello from process:           55
+ Hello from process:           40
+ Hello from process:           53
+ Hello from process:           16
+ Hello from process:           30
+ Hello from process:           52
+ Hello from process:           31
+ Hello from process:           59
+ Hello from process:           33
+ Hello from process:            9
+ Hello from process:            8
+ Hello from process:           41
+ Hello from process:           27
+ Hello from process:           11
+ Hello from process:           32
+ Hello from process:           24
+ Hello from process:           42
+ Hello from process:           63
+ Hello from process:           35
+ Hello from process:            3
+ Hello from process:            1
+ Hello from process:           23
+ Hello from process:           10
+ Hello from process:           66
+ Hello from process:           38
+ Hello from process:           28
+ Hello from process:           21
+ Hello from process:           69
+ Hello from process:           39
+ Hello from process:            4
+ Hello from process:           29
+ Hello from process:           13
+ Hello from process:           22
+ Hello from process:           48
+ Hello from process:           62
+ Hello from process:           58
+ Hello from process:           12
+ Hello from process:           54
+ Hello from process:           18
+ Hello from process:           26
+ Hello from process:           17
 </pre></div>
 </div>
 </div>
