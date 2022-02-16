@@ -12,3 +12,6 @@ chapters:
 - file: openmp_c/parallel_for.ipynb
   sections:
   - file: build_rex.md
+-file: MultiCoreMultiCPU/SectionStarter1.md
+-file: SIMDandVectorArchitecture/SectionStarter2.md
+-file: GPUAccelerators/SectionStarter3.md
