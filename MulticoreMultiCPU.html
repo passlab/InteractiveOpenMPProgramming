@@ -253,6 +253,11 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-into-multicore-and-multi-cpu-machines">
+   Introduction into Multicore and Multi-CPU machines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multicore-and-multi-cpu-shared-memory-systems">
    1. Multicore and Multi-CPU shared memory systems.
   </a>
@@ -332,6 +337,11 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-into-multicore-and-multi-cpu-machines">
+   Introduction into Multicore and Multi-CPU machines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multicore-and-multi-cpu-shared-memory-systems">
    1. Multicore and Multi-CPU shared memory systems.
   </a>
@@ -401,6 +411,10 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="parallel-programming-for-multicore-and-multi-cpu-machines">
 <h1>Parallel Programming for Multicore and Multi-CPU Machines<a class="headerlink" href="#parallel-programming-for-multicore-and-multi-cpu-machines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction-into-multicore-and-multi-cpu-machines">
+<h2>Introduction into Multicore and Multi-CPU machines<a class="headerlink" href="#introduction-into-multicore-and-multi-cpu-machines" title="Permalink to this headline">¶</a></h2>
+<p>Moores’s Law states CPUs double in frequency every two years. This was possible by increasing the transistor density. As time has gone on this has proven to be more difficult because with more transistors more heat is produced. As this problem became more apparent Computer Architects turned to another solution, a cheaper yet effective solution. Which was the implementation of multiple cores within a CPU. IBM was the first to release a Multi-core CPU back in 2001. Intel’s attempt to release processors of this caliber came in 2002 with the Intel Pentium 4. This processor didn’t implement parallel computing more or less just hyperthreading. This allowed it to switch between programs really fast so it gave the appearance of doing multiple processes at once. Since then more and more computers have been implementing multicore CPUs, some even have multiple CPUs. Because of this computer scientists needed to find a way to utilize these extra cores, thus was the birth of parallel computing.</p>
+</div>
 <div class="section" id="multicore-and-multi-cpu-shared-memory-systems">
 <h2>1. Multicore and Multi-CPU shared memory systems.<a class="headerlink" href="#multicore-and-multi-cpu-shared-memory-systems" title="Permalink to this headline">¶</a></h2>
 <p>Describe the architecture which can be considered as MIMD architecture. Each thread/core has its own execution context and program counter. All threads/core shared memory, which could be NUMA, etc..
@@ -417,6 +431,8 @@ Divide into paragraphs and identify the content for each paragraph</p>
 </div>
 <div class="section" id="synchronization-between-threads-and-cores-e-g-mutual-exclusion-etc">
 <h3>Synchronization between threads and cores, e.g. mutual exclusion, etc<a class="headerlink" href="#synchronization-between-threads-and-cores-e-g-mutual-exclusion-etc" title="Permalink to this headline">¶</a></h3>
+<p>MIMD architecture consists of processors that operate independently and asynchronously from one another. MIMD architecture systems consist of many processors that can have much common memory or memory that is exclusive to one. These terms mean many processes can execute instructions at any time with any piece or segment of data. MIMD architecture consists of two different types of architecture; Shared Memory MIMD architecture and Distributed Memory MIMD architecture.</p>
+<p>Shared Memory MIMD systems have the following characteristics. Shared Memory MIMD groups processors and memory. Any processor can access that memory through a communication channel designated by the programmer. Finally, the memory addresses are shared between processors. On the other hand, Distributed Memory MIMD systems have their own set of characteristics. One, memory and processors are grouped together in pairs known as processing elements. Which is linked to other PEs through the use of communication channels. Finally, each PE communicates with each other by sending messages, communication isn’t as open like that of a Shared Memory MIMD system.</p>
 </div>
 </div>
 <div class="section" id="creating-spmd-parallelism-using-openmp-parallel-and-teams-directive">
@@ -429,6 +445,7 @@ Divide into paragraphs and identify the content for each paragraph</p>
 </div>
 <div class="section" id="synchronization-of-threads-using-barrier-and-order-directive">
 <h3>Synchronization of threads using barrier and order directive<a class="headerlink" href="#synchronization-of-threads-using-barrier-and-order-directive" title="Permalink to this headline">¶</a></h3>
+<p>Open-MP allows for the creation of shared-memory parallel programs. In this Chapter, we will be discussing Single Program, Multiple Data, or SPMD for short.  SPMD style uses a number of individual processors or threads to carry out the same program or computation on different sets of data simultaneously. SPMD style parallel programming is an example of a low-level thread-specific programming style. Which can be identified by the following characteristics:</p>
 </div>
 </div>
 <div class="section" id="asynchronous-tasking">
