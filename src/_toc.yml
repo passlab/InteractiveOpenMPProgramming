@@ -12,10 +12,9 @@ chapters:
 - file: openmp_c/parallel_for.ipynb
   sections:
   - file: build_rex.md
-- file: MulticoreMultiCPU
+- file: MulticoreMultiCPU/SectionStarter1.md
     sections:
-    -file: 2-1Multicoreintro.md #OMP multicore intro section
-    -file: SimpleOMP.ipynb #example for the OMP intro section
+    - file: 2-1Multicoreintro.md
 - file: SIMDVector
 - file: GPUAccel
 
