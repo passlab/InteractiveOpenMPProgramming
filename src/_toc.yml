@@ -13,6 +13,9 @@ chapters:
   sections:
   - file: build_rex.md
 - file: MulticoreMultiCPU
+    sections:
+    -file: 2-1Multicoreintro.md #OMP multicore intro section
+    -file: SimpleOMP.ipynb #example for the OMP intro section
 - file: SIMDVector
 - file: GPUAccel
 
