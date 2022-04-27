@@ -13,8 +13,6 @@ chapters:
   sections:
   - file: build_rex.md
 - file: MulticoreMultiCPU/SectionStarter1.md
-    sections:
-    - file: 2-1Multicoreintro.md
 - file: SIMDVector
 - file: GPUAccel
 
