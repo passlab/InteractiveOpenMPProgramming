@@ -8,6 +8,7 @@ chapters:
 - file: openmp_c/parallel_for.ipynb
   sections:
   - file: build_rex.md
+- file: MulticoreMultiCPU
 - file: MulticoreMultiCPU/2-1MultiCoreMultiCPU.ipynb
 - file: SIMDVector
 - file: GPUAccel
