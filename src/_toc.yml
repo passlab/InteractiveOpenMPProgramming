@@ -3,6 +3,8 @@
 #
 format: jb-book
 root: intro
+defaults:  # The defaults key will be applied to all chapters and sub-sections
+  titlesonly: True
 chapters:
 - file: content
 - file: openmp_c/parallel_for.ipynb
@@ -17,4 +19,3 @@ chapters:
   sections:
   - file: decision_tree/decision_tree.ipynb
   - file: notebooks
-
