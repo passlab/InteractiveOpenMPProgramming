@@ -10,7 +10,7 @@ chapters:
   - file: build_rex.md
 - file: MulticoreMultiCPU
   sections:
-  - file: MultiCoreMultiCPU/2-1MultiCoreMultiCPU.ipynb
+  - file: MultiCoreMultiCPU/MultiCoreMultiCPU.ipynb
 - file: SIMDVector
 - file: GPUAccel
 - file: markdown
