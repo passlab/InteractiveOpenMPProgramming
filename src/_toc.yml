@@ -10,11 +10,19 @@ chapters:
 #- file: openmp_c/parallel_for.ipynb
 #  sections:
 #  - file: build_rex.md
-- file: MultiCoreMultiCPU/MulticoreMultiCPU
+- file: OpenMP/parallel_for.ipynb
+- file: MultiCoreMultiCPU/0_Start.ipynb
   sections:
-  - file: MultiCoreMultiCPU/2-1MultiCoreMultiCPU.ipynb
-- file: SIMDandVectorArchitecture/SIMDVector
-- file: GPUAccelerators/GPUAccel
+  - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
+  - file: MultiCoreMultiCPU/2_UsingOpenMP.ipynb
+  - file: MultiCoreMultiCPU/3_SynchronizationThreads.ipynb
+  - file: MultiCoreMultiCPU/4_AsynchronousTasking.ipynb
+  - file: MultiCoreMultiCPU/5_ExplicitDistribution.ipynb
+- file: SIMDandVectorArchitecture/0_Start.ipynb
+- file: GPUAccelerators/0_Start.ipynb
+  sections:
+  - file: GPUAccelerators/1_DataMapping
+  - file: GPUAccelerators/2_Metadirective
 #- file: markdown
 #  sections:
 #  - file: decision_tree/decision_tree.ipynb
