@@ -7,9 +7,6 @@ defaults:  # The defaults key will be applied to all chapters and sub-sections
   titlesonly: True
 chapters:
 - file: content
-#- file: openmp_c/parallel_for.ipynb
-#  sections:
-#  - file: build_rex.md
 - file: parallel_for
 - file: MultiCoreMultiCPU/0_Start.ipynb
   sections:
