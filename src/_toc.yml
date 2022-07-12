@@ -5,7 +5,9 @@ format: jb-book
 root: intro
 chapters:
 - file: content
-- file: openmp_c/1_IntroductionOfOpenMP.ipynb
+- file: openmpIntro
+  sections:
+  - file: openmp_c/1_IntroductionOfOpenMP.ipynb
 - file: MulticoreMultiCPU
   sections:
   - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
