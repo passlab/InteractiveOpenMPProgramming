@@ -5,7 +5,16 @@ format: jb-book
 root: intro
 chapters:
 - file: content
-- file: MultiCoreMultiCPU
+- file: openmp_c/parallel_for.ipynb
   sections:
-  - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
+  - file: build_rex.md
+- file: MulticoreMultiCPU
+  sections:
+  - file: MulticoreMultiCPU/2-1MultiCoreMultiCPU.ipynb
+- file: SIMDVector
+- file: GPUAccel
+- file: markdown
+  sections:
+  - file: decision_tree/decision_tree.ipynb
+  - file: notebooks
 
