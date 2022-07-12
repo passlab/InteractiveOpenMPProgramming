@@ -5,16 +5,19 @@ format: jb-book
 root: intro
 chapters:
 - file: content
-- file: openmp_c/parallel_for.ipynb
+- file: openmpIntro
   sections:
-  - file: build_rex.md
+  - file: openmp_c/1_IntroductionOfOpenMP.ipynb
 - file: MulticoreMultiCPU
   sections:
-  - file: MulticoreMultiCPU/2-1MultiCoreMultiCPU.ipynb
+  - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
+  - file: MultiCoreMultiCPU/2_UsingOpenMP.ipynb
+  - file: MultiCoreMultiCPU/3_SynchronizationThreads.ipynb
+  - file: MultiCoreMultiCPU/4_AsynchronousTasking.ipynb
+  - file: MultiCoreMultiCPU/5_ExplicitDistribution.ipynb
 - file: SIMDVector
 - file: GPUAccel
-- file: markdown
   sections:
-  - file: decision_tree/decision_tree.ipynb
-  - file: notebooks
+  - file: GPUAccelerators/1_DataMapping.ipynb
+  - file: GPUAccelerators/2_Metadirective.ipynb
 
