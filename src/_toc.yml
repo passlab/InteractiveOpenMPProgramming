@@ -7,15 +7,15 @@ defaults:  # The defaults key will be applied to all chapters and sub-sections
   titlesonly: True
 chapters:
 - file: content
-- file: openmp_c/parallel_for.ipynb
-  sections:
-  - file: build_rex.md
-- file: MulticoreMultiCPU
+#- file: openmp_c/parallel_for.ipynb
+#  sections:
+#  - file: build_rex.md
+- file: MultiCoreMultiCPU/MulticoreMultiCPU
   sections:
   - file: MultiCoreMultiCPU/2-1MultiCoreMultiCPU.ipynb
-- file: SIMDVector
-- file: GPUAccel
-- file: markdown
-  sections:
-  - file: decision_tree/decision_tree.ipynb
-  - file: notebooks
+- file: SIMDandVectorArchitecture/SIMDVector
+- file: GPUAccelerators/GPUAccel
+#- file: markdown
+#  sections:
+#  - file: decision_tree/decision_tree.ipynb
+#  - file: notebooks
