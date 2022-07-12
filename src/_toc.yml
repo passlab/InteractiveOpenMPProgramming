@@ -6,12 +6,14 @@ root: intro
 chapters:
 - file: content
 - file: openmp_c/1_IntroductionOfOpenMP.ipynb
-  sections:
-  - file: build_rex.md
-  - file: openmp_c/parallel_for.ipynb
 - file: MulticoreMultiCPU
   sections:
   - file: MultiCoreMultiCPU/2-1MultiCoreMultiCPU.ipynb
+  - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
+  - file: MultiCoreMultiCPU/2_UsingOpenMP.ipynb
+  - file: MultiCoreMultiCPU/3_SynchronizationThreads.ipynb
+  - file: MultiCoreMultiCPU/4_AsynchronousTasking.ipynb
+  - file: MultiCoreMultiCPU/5_ExplicitDistribution.ipynb
 - file: SIMDVector
 - file: GPUAccel
 - file: markdown
