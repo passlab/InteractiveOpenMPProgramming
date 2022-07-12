@@ -9,3 +9,4 @@ chapters:
 - file: MultiCoreMultiCPU
   sections:
   - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
+
