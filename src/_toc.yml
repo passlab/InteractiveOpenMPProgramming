@@ -15,7 +15,7 @@ chapters:
   - file: MultiCoreMultiCPU/3_SynchronizationThreads.ipynb
   - file: MultiCoreMultiCPU/4_AsynchronousTasking.ipynb
   - file: MultiCoreMultiCPU/5_ExplicitDistribution.ipynb
-#- file: markdown
+- file: markdown
 #  sections:
 #  - file: decision_tree/decision_tree.ipynb
 #  - file: notebookscsdcsdcdscs
