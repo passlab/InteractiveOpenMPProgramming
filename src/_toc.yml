@@ -6,15 +6,6 @@ root: intro
 chapters:
 - file: content
 - file: OpenMP
-- file: MultiCoreMultiCPU
+- file: MulticoreMultiCPU
   sections:
   - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
-  - file: MultiCoreMultiCPU/2_UsingOpenMP.ipynb
-  - file: MultiCoreMultiCPU/3_SynchronizationThreads.ipynb
-  - file: MultiCoreMultiCPU/4_AsynchronousTasking.ipynb
-  - file: MultiCoreMultiCPU/5_ExplicitDistribution.ipynb
-
-#- file: markdown
-#  sections:
-#  - file: decision_tree/decision_tree.ipynb
-#  - file: notebookscsdcsdcdscs
