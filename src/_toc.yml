@@ -5,7 +5,7 @@ format: jb-book
 root: intro
 chapters:
 - file: content
-- file: openmp_c/parallel_for.ipynb
+- file: openmp_c/1_IntroductionOfOpenMP.ipynb
   sections:
   - file: build_rex.md
 - file: MulticoreMultiCPU
