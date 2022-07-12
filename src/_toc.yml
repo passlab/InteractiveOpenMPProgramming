@@ -7,16 +7,16 @@ defaults:  # The defaults key will be applied to all chapters and sub-sections
   titlesonly: True
 chapters:
 - file: content
-- file: parallel_for
-- file: MultiCoreMultiCPU/0_Start
+- file: OpenMP
+- file: MultiCoreMultiCPU
   sections:
   - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
   - file: MultiCoreMultiCPU/2_UsingOpenMP.ipynb
   - file: MultiCoreMultiCPU/3_SynchronizationThreads.ipynb
   - file: MultiCoreMultiCPU/4_AsynchronousTasking.ipynb
   - file: MultiCoreMultiCPU/5_ExplicitDistribution.ipynb
-- file: SIMDandVectorArchitecture/0_Start
-- file: GPUAccelerators/0_Start
+- file: SIMDandVectorArchitecture
+- file: GPUAccelerators
   sections:
   - file: GPUAccelerators/1_DataMapping
   - file: GPUAccelerators/2_Metadirective
