@@ -8,6 +8,7 @@ chapters:
 - file: openmp_c/1_IntroductionOfOpenMP.ipynb
   sections:
   - file: build_rex.md
+  - file: openmp_c/parallel_for.ipynb
 - file: MulticoreMultiCPU
   sections:
   - file: MultiCoreMultiCPU/2-1MultiCoreMultiCPU.ipynb
