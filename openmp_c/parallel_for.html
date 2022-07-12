@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>parallel for &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>&lt;no title&gt; &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Building REX" href="../build_rex.html" />
-    <link rel="prev" title="Content in Jupyter Book" href="../content.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -90,11 +88,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Parallel Programming and Performance Optimization With OpenMP</h1>
@@ -113,32 +106,25 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../content.html">
    Content in Jupyter Book
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     parallel
-    </span>
-    <span class="pre">
-     for
-    </span>
-   </code>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../openmpIntro.html">
+   OpenMP
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../build_rex.html">
-     Building REX
+    <a class="reference internal" href="1_IntroductionOfOpenMP.html">
+     What is OpenMP?
     </a>
    </li>
   </ul>
@@ -152,7 +138,32 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="simple">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/1_MIMDArchitecture.html">
+     Multicore and Multi-CPU shared memory systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/2_UsingOpenMP.html">
+     Creating SPMD parallelism using OpenMP parallel and teams directive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/3_SynchronizationThreads.html">
+     Synchronization of threads using barrier and order directive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/4_AsynchronousTasking.html">
+     Asynchronous tasking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/5_ExplicitDistribution.html">
+     Explicit distribution of work using single, sections, workshring-loop, and distribute construct
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -160,14 +171,9 @@ const thebe_selector_output = ".output, .cell_output"
    Parallel Programming for SIMD and Vector Architecture
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../GPUAccel.html">
    Parallel Programming for GPU Accelerators
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../markdown.html">
-   Markdown Files
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -176,13 +182,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../decision_tree/decision_tree.html">
-     Decision Tree
+    <a class="reference internal" href="../GPUAccelerators/1_DataMapping.html">
+     Data Mapping
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks.html">
-     Content with notebooks
+    <a class="reference internal" href="../GPUAccelerators/2_Metadirective.html">
+     Metadirective (possible separate section)
     </a>
    </li>
   </ul>
@@ -371,23 +377,50 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>parallel for</h1>
+                <h1><no title></h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -395,9 +428,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="parallel-for">
-<h1><code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code><a class="headerlink" href="#parallel-for" title="Permalink to this headline">#</a></h1>
-<p>A simple example using OpenMP <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code> directive:</p>
+  <p>A simple example using OpenMP <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code> directive:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
@@ -635,9 +666,6 @@ Sum:			0.000000	 inf
 </div>
 </div>
 </div>
-<div class="toctree-wrapper compound">
-</div>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -666,20 +694,6 @@ Sum:			0.000000	 inf
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../content.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Content in Jupyter Book</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../build_rex.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Building REX</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

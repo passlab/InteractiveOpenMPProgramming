@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Parallel Programming for Multicore and Multi-CPU Machines &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>Preface &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -88,11 +88,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Parallel Programming and Performance Optimization With OpenMP</h1>
@@ -118,15 +113,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../openmp_c/parallel_for.html">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     parallel
-    </span>
-    <span class="pre">
-     for
-    </span>
-   </code>
+  <a class="reference internal" href="../openmpIntro.html">
+   OpenMP
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -135,8 +123,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../build_rex.html">
-     Building REX
+    <a class="reference internal" href="../openmp_c/1_IntroductionOfOpenMP.html">
+     What is OpenMP?
     </a>
    </li>
   </ul>
@@ -150,7 +138,32 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="simple">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/1_MIMDArchitecture.html">
+     Multicore and Multi-CPU shared memory systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/2_UsingOpenMP.html">
+     Creating SPMD parallelism using OpenMP parallel and teams directive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/3_SynchronizationThreads.html">
+     Synchronization of threads using barrier and order directive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/4_AsynchronousTasking.html">
+     Asynchronous tasking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/5_ExplicitDistribution.html">
+     Explicit distribution of work using single, sections, workshring-loop, and distribute construct
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -158,14 +171,9 @@ const thebe_selector_output = ".output, .cell_output"
    Parallel Programming for SIMD and Vector Architecture
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../GPUAccel.html">
    Parallel Programming for GPU Accelerators
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../markdown.html">
-   Markdown Files
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -174,13 +182,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../decision_tree/decision_tree.html">
-     Decision Tree
+    <a class="reference internal" href="../GPUAccelerators/1_DataMapping.html">
+     Data Mapping
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks.html">
-     Content with notebooks
+    <a class="reference internal" href="../GPUAccelerators/2_Metadirective.html">
+     Metadirective (possible separate section)
     </a>
    </li>
   </ul>
@@ -275,7 +283,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FMultiCoreMultiCPU/SectionStarter1.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FSomethingMayUsefulInFuture/preface.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -303,7 +311,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/MultiCoreMultiCPU/SectionStarter1.md"
+        <a href="../_sources/SomethingMayUsefulInFuture/preface.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -352,7 +360,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Parallel Programming for Multicore and Multi-CPU Machines</h1>
+                <h1>Preface</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -364,9 +372,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="parallel-programming-for-multicore-and-multi-cpu-machines">
-<h1>Parallel Programming for Multicore and Multi-CPU Machines<a class="headerlink" href="#parallel-programming-for-multicore-and-multi-cpu-machines" title="Permalink to this headline">#</a></h1>
-<p>Temporary page indicating start of a section</p>
+  <section id="preface">
+<h1>Preface<a class="headerlink" href="#preface" title="Permalink to this headline">#</a></h1>
+<p>======</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -382,7 +390,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./MultiCoreMultiCPU"
+            path: "./SomethingMayUsefulInFuture"
         },
         predefinedOutput: true
     }

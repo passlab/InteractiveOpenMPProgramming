@@ -89,11 +89,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Parallel Programming and Performance Optimization With OpenMP</h1>
@@ -119,15 +114,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="openmp_c/parallel_for.html">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     parallel
-    </span>
-    <span class="pre">
-     for
-    </span>
-   </code>
+  <a class="reference internal" href="openmpIntro.html">
+   OpenMP
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -136,8 +124,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="build_rex.html">
-     Building REX
+    <a class="reference internal" href="openmp_c/1_IntroductionOfOpenMP.html">
+     What is OpenMP?
     </a>
    </li>
   </ul>
@@ -151,7 +139,32 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="simple">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MultiCoreMultiCPU/1_MIMDArchitecture.html">
+     Multicore and Multi-CPU shared memory systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MultiCoreMultiCPU/2_UsingOpenMP.html">
+     Creating SPMD parallelism using OpenMP parallel and teams directive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MultiCoreMultiCPU/3_SynchronizationThreads.html">
+     Synchronization of threads using barrier and order directive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MultiCoreMultiCPU/4_AsynchronousTasking.html">
+     Asynchronous tasking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MultiCoreMultiCPU/5_ExplicitDistribution.html">
+     Explicit distribution of work using single, sections, workshring-loop, and distribute construct
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -159,14 +172,9 @@ const thebe_selector_output = ".output, .cell_output"
    Parallel Programming for SIMD and Vector Architecture
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="GPUAccel.html">
    Parallel Programming for GPU Accelerators
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="markdown.html">
-   Markdown Files
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -175,13 +183,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="decision_tree/decision_tree.html">
-     Decision Tree
+    <a class="reference internal" href="GPUAccelerators/1_DataMapping.html">
+     Data Mapping
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="notebooks.html">
-     Content with notebooks
+    <a class="reference internal" href="GPUAccelerators/2_Metadirective.html">
+     Metadirective (possible separate section)
     </a>
    </li>
   </ul>
