@@ -10,7 +10,7 @@ chapters:
 #- file: openmp_c/parallel_for.ipynb
 #  sections:
 #  - file: build_rex.md
-- file: OpenMP/parallel_for.ipynb
+- file: OpenMP/parallel_for
 - file: MultiCoreMultiCPU/0_Start.ipynb
   sections:
   - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
