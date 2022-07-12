@@ -6,6 +6,6 @@ root: intro
 chapters:
 - file: content
 - file: OpenMP
-- file: MulticoreMultiCPU
+- file: MultiCoreMultiCPU
   sections:
   - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
