@@ -9,6 +9,7 @@ chapters:
   sections:
   - file: openmp_c/1_IntroductionOfOpenMP.ipynb
   - file: openmp_c/2_Syntax.ipynb
+  - file: openmp_c/3_performance.ipynb
 - file: MulticoreMultiCPU
   sections:
   - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
