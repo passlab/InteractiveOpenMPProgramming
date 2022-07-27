@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction of OpenMP &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>1.1. Introduction of OpenMP &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.2. Creating a Parallel Program with OpenMP" href="2_Syntax.html" />
+    <link rel="prev" title="1. Overview of OpenMP Programming" href="../Ch1_openmpIntro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -101,12 +103,105 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
+                <a class="reference internal" href="../Ch0_intro.html">
                     Introduction
                 </a>
             </li>
         </ul>
-        
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Ch1_openmpIntro.html">
+   1. Overview of OpenMP Programming
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.1. Introduction of OpenMP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Syntax.html">
+     1.2. Creating a Parallel Program with OpenMP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_performance.html">
+     1.3. Performance Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">
+   2. Parallel Programming for Multicore and Multi-CPU Machines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/1_MIMDArchitecture.html">
+     2.1. Multicore and Multi-CPU shared memory systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/2_UsingOpenMP.html">
+     2.2. Creating SPMD parallelism using OpenMP parallel and teams directive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/3_SynchronizationThreads.html">
+     2.3. Synchronization of threads using barrier and order directive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/4_AsynchronousTasking.html">
+     2.4. Asynchronous tasking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/5_ExplicitDistribution.html">
+     2.5. Explicit distribution of work using single, sections, workshring-loop, and distribute construct
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3_SIMDVector.html">
+   3. Parallel Programming for SIMD and Vector Architecture
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch4_GPUAccel.html">
+   4. Parallel Programming for GPU Accelerators
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../GPUAccelerators/1_DataMapping.html">
+     4.1. Data Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../GPUAccelerators/2_Metadirective.html">
+     4.2. Metadirective (possible separate section)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
     </div>
 </nav></div>
         <div class="bd-sidebar__bottom">
@@ -313,27 +408,27 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-openmp">
-   What is OpenMP?
+   1.1.1. What is OpenMP?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#why-do-we-use-openmp">
-   Why do we use OpenMP?
+   1.1.2. Why do we use OpenMP?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#openmp-fork-join-excution-model">
-   OpenMP Fork-Join Excution Model
+   1.1.3. OpenMP Fork-Join Excution Model
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spmd-program-models">
-   SPMD Program Models
+   1.1.4. SPMD Program Models
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#openmp-memory-model">
-   OpenMP Memory Model
+   1.1.5. OpenMP Memory Model
   </a>
  </li>
 </ul>
@@ -357,27 +452,27 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-openmp">
-   What is OpenMP?
+   1.1.1. What is OpenMP?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#why-do-we-use-openmp">
-   Why do we use OpenMP?
+   1.1.2. Why do we use OpenMP?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#openmp-fork-join-excution-model">
-   OpenMP Fork-Join Excution Model
+   1.1.3. OpenMP Fork-Join Excution Model
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spmd-program-models">
-   SPMD Program Models
+   1.1.4. SPMD Program Models
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#openmp-memory-model">
-   OpenMP Memory Model
+   1.1.5. OpenMP Memory Model
   </a>
  </li>
 </ul>
@@ -391,16 +486,16 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-of-openmp">
-<h1>Introduction of OpenMP<a class="headerlink" href="#introduction-of-openmp" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">1.1. </span>Introduction of OpenMP<a class="headerlink" href="#introduction-of-openmp" title="Permalink to this headline">#</a></h1>
 <p>In this section, we will first introduce what OpenMP is and some advantages of using OpenMP, and then we will introduce the execution model and memory model of OpenMP.</p>
 <section id="what-is-openmp">
-<h2>What is OpenMP?<a class="headerlink" href="#what-is-openmp" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.1.1. </span>What is OpenMP?<a class="headerlink" href="#what-is-openmp" title="Permalink to this headline">#</a></h2>
 <p>OpenMP is a standard parallel programming API for shared memory environments, written in C, C++, or FORTRAN.
 It consists of a set of compiler directives with a “lightweight” syntax, library routines, and environment variables that influence run-time behavior. OpenMP is governed by OpenMP Architecture Review Board (or OpenMP ARB), and is defined by several hardware and software vendors.</p>
 <p>OpenMP behavior is directly dependent on the OpenMP implementation. Capabilities of this implementation can enable the programmer to separate the program into serial and parallel regions rather than just concurrently running threads, hides stack management, and provides synchronization of constructs. That being said OpenMP will not guarantee speedup, parallelize dependencies, or prevent data racing. Data racing, keeping track of dependencies, and working towards a speedup are all up to the programmer.</p>
 </section>
 <section id="why-do-we-use-openmp">
-<h2>Why do we use OpenMP?<a class="headerlink" href="#why-do-we-use-openmp" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.1.2. </span>Why do we use OpenMP?<a class="headerlink" href="#why-do-we-use-openmp" title="Permalink to this headline">#</a></h2>
 <p>OpenMP has received considerable attention in the past decade and is considered by many to be an ideal solution for parallel programming because it has unique advantages as a mainstream directive-based programming model.</p>
 <p>First of all, OpenMP provides a cross-platform, cross-compiler solution. It supports lots of platforms such as Linux, macOS, and Windows. Mainstream compilers including GCC, LLVM/Clang, Intel Fortran, and C/C++ compilers provide OpenMP good support. Also, with the rapid development of OpenMP, many researchers and computer vendors are constantly exploring how to optimize the execution efficiency of OpenMP programs and continue to propose improvements for existing compilers or develop new compilers. What’s more. OpenMP is a standard specification, and all compilers that support it implement the same set of standards, and there are no portability issues.</p>
 <p>Secondly, using OpenMP can be very convenient and flexible to modify the number of threads. To solve the scalability problem of the number of CPU cores. In the multi-core era, the number of threads needs to change according to the number of CPU cores. OpenMP has irreplaceable advantages in this regard.</p>
@@ -408,7 +503,7 @@ It consists of a set of compiler directives with a “lightweight” syntax, lib
 <p>To sum up, OpenMP has irreplaceable advantages in parallel programming. More and more new directives are being added to achieve more functions, and they are playing an important role on many different platforms.</p>
 </section>
 <section id="openmp-fork-join-excution-model">
-<h2>OpenMP Fork-Join Excution Model<a class="headerlink" href="#openmp-fork-join-excution-model" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.1.3. </span>OpenMP Fork-Join Excution Model<a class="headerlink" href="#openmp-fork-join-excution-model" title="Permalink to this headline">#</a></h2>
 <p>The parallel model used by OpenMP is called the fork-join model, as shown in the following figure:
 <img alt="fork-join_model1" src="../_images/20190720101130709.png" />
 <img alt="fork-join_model1" src="../_images/0_13209261094r4F.png" /></p>
@@ -419,7 +514,7 @@ These threads can execute tasks in parallel and are uniformly dispatched by the 
 <p>Thread management is done by the runtime library, which maintains a pool of worker threads that can be used to work on parallel regions. It will allocate or reclaim the threads based on the OpenMP instructions and sometimes adjust the number of threads to allocate based on the availability of threads.</p>
 </section>
 <section id="spmd-program-models">
-<h2>SPMD Program Models<a class="headerlink" href="#spmd-program-models" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.1.4. </span>SPMD Program Models<a class="headerlink" href="#spmd-program-models" title="Permalink to this headline">#</a></h2>
 <p>The program model in the parallel region is Single Program, Multiple Data (SPMD). Processor Elements (PE) execute the same program in parallel, but has its own data. Each PE uses a unique ID to access its portion of data and different PEs can follow different paths through the same code.
 Each PE knows its own ID, and while programming, we can use conditional statements to control one or more threads.
 The commonly used format to follow is</p>
@@ -430,7 +525,7 @@ The commonly used format to follow is</p>
 <p>SPMD is by far the most commonly used pattern for structuring parallel programs. In addition to openmp, other common parallel programming languages, such as MPI that can be applied to distributed memory systems, and CUDA that can be applied to CPU+GPU heterogeneous systems, all adopt this model.</p>
 </section>
 <section id="openmp-memory-model">
-<h2>OpenMP Memory Model<a class="headerlink" href="#openmp-memory-model" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">1.1.5. </span>OpenMP Memory Model<a class="headerlink" href="#openmp-memory-model" title="Permalink to this headline">#</a></h2>
 <p>At the beginning of this part, we briefly introduce two common memory models, namely shared memory and distributed memory. Shared memory means that multiple cores share a single memory, while distributed memory means that each computing node (possibly one or more cores) has its own memory. General large computers combine distributed memory and shared memory models, that is, shared memory within each computing node and distributed memory between nodes.</p>
 <p>OpenMP supports the shared memory model that reduces execution time by creating multithreading to distribute parallelizable loads to multiple physical computing cores.
 Before the support for heterogeneous computing in OpenMP 4.0, there was only one address space.</p>
@@ -471,6 +566,20 @@ Before the support for heterogeneous computing in OpenMP 4.0, there was only one
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Ch1_openmpIntro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>Overview of OpenMP Programming</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2_Syntax.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1.2. </span>Creating a Parallel Program with OpenMP</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

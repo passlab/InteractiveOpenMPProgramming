@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Multicore and Multi-CPU shared memory systems &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>2.1. Multicore and Multi-CPU shared memory systems &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.2. Creating SPMD parallelism using OpenMP parallel and teams directive" href="2_UsingOpenMP.html" />
+    <link rel="prev" title="2. Parallel Programming for Multicore and Multi-CPU Machines" href="../Ch2_MulticoreMultiCPU.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -101,12 +103,105 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
+                <a class="reference internal" href="../Ch0_intro.html">
                     Introduction
                 </a>
             </li>
         </ul>
-        
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch1_openmpIntro.html">
+   1. Overview of OpenMP Programming
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../openmp_c/1_IntroductionOfOpenMP.html">
+     1.1. Introduction of OpenMP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../openmp_c/2_Syntax.html">
+     1.2. Creating a Parallel Program with OpenMP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../openmp_c/3_performance.html">
+     1.3. Performance Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">
+   2. Parallel Programming for Multicore and Multi-CPU Machines
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.1. Multicore and Multi-CPU shared memory systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_UsingOpenMP.html">
+     2.2. Creating SPMD parallelism using OpenMP parallel and teams directive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_SynchronizationThreads.html">
+     2.3. Synchronization of threads using barrier and order directive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_AsynchronousTasking.html">
+     2.4. Asynchronous tasking
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_ExplicitDistribution.html">
+     2.5. Explicit distribution of work using single, sections, workshring-loop, and distribute construct
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3_SIMDVector.html">
+   3. Parallel Programming for SIMD and Vector Architecture
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch4_GPUAccel.html">
+   4. Parallel Programming for GPU Accelerators
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../GPUAccelerators/1_DataMapping.html">
+     4.1. Data Mapping
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../GPUAccelerators/2_Metadirective.html">
+     4.2. Metadirective (possible separate section)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
     </div>
 </nav></div>
         <div class="bd-sidebar__bottom">
@@ -313,27 +408,27 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mimd-architecture">
-   MIMD Architecture
+   2.1.1. MIMD Architecture
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multi-cpu-systems">
-   Multi-CPU Systems
+   2.1.2. Multi-CPU Systems
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multicore-systems">
-   Multicore Systems
+   2.1.3. Multicore Systems
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparation-of-multi-cpu-systems-and-multicore-systems">
-   Comparation of Multi-CPU Systems and Multicore Systems
+   2.1.4. Comparation of Multi-CPU Systems and Multicore Systems
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multithreading">
-   Multithreading
+   2.1.5. Multithreading
   </a>
  </li>
 </ul>
@@ -357,27 +452,27 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mimd-architecture">
-   MIMD Architecture
+   2.1.1. MIMD Architecture
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multi-cpu-systems">
-   Multi-CPU Systems
+   2.1.2. Multi-CPU Systems
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multicore-systems">
-   Multicore Systems
+   2.1.3. Multicore Systems
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparation-of-multi-cpu-systems-and-multicore-systems">
-   Comparation of Multi-CPU Systems and Multicore Systems
+   2.1.4. Comparation of Multi-CPU Systems and Multicore Systems
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multithreading">
-   Multithreading
+   2.1.5. Multithreading
   </a>
  </li>
 </ul>
@@ -391,16 +486,16 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="multicore-and-multi-cpu-shared-memory-systems">
-<h1>Multicore and Multi-CPU shared memory systems<a class="headerlink" href="#multicore-and-multi-cpu-shared-memory-systems" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">2.1. </span>Multicore and Multi-CPU shared memory systems<a class="headerlink" href="#multicore-and-multi-cpu-shared-memory-systems" title="Permalink to this headline">#</a></h1>
 <p>In this section, we will introduce the MIMD architecture, multi-CPU systems, multi-core systems, and multithreading. Through this section, the readers will understand the structure of computers for parallel computing. To lay the foundation for the  introduction to OpenMP programming.</p>
 <section id="mimd-architecture">
-<h2>MIMD Architecture<a class="headerlink" href="#mimd-architecture" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.1.1. </span>MIMD Architecture<a class="headerlink" href="#mimd-architecture" title="Permalink to this headline">#</a></h2>
 <p>Multiple Instruction Multiple Data(MIMD) architecture consists of processors that operate independently and asynchronously from one another. MIMD architecture systems consist of many processors that can have much common memory or memory that is exclusive to one. These terms mean many processes can execute instructions at any time with any piece or segment of data. MIMD architecture consists of two different types of architecture: Shared Memory MIMD architecture and Distributed Memory MIMD architecture.</p>
 <p>Shared Memory MIMD systems have the following characteristics. Shared Memory MIMD groups processors and memory. Any processor can access that memory through a communication channel designated by the programmer. Finally, the memory addresses are shared between processors. On the other hand, Distributed Memory MIMD systems have their own set of characteristics. First, memory and processors are grouped together in pairs known as processing elements. Which is linked to other PEs through the use of communication channels. Second, each PE communicates with each other by sending messages, communication isn’t as open like that of a Shared Memory MIMD system.</p>
 <p>The multi-CPU systems and multicore systems we introduce next both belong to the MIMD Architectures.</p>
 </section>
 <section id="multi-cpu-systems">
-<h2>Multi-CPU Systems<a class="headerlink" href="#multi-cpu-systems" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.1.2. </span>Multi-CPU Systems<a class="headerlink" href="#multi-cpu-systems" title="Permalink to this headline">#</a></h2>
 <p>A multiple CPU machine is made up of two or more CPUs, sharing system bus, memory and I/O.
 Multiple CPU machines were the original attempt at increasing computational power but since the birth of Multicore machines, most consumer computers have adopted that approach. That being said there is still a purpose for Multiple CPU machines, you will find them in supercomputers, servers, and other nonconsumer equipment that need raw computing power.</p>
 <p>Multi-CPU systems can be divided into two types according to different memory systems, one uses a shared memory system, and the other uses a distributed memory system. As shown below:</p>
@@ -408,7 +503,7 @@ Multiple CPU machines were the original attempt at increasing computational powe
 <p>On the left is a diagram of a multi-core CPU, where each core has a small local cache, but all cores have direct access to large shared memory. The diagram on the right shows a distributed memory system where multiple CPUs, each with their own local memory, are connected via a high-speed network. Distributed memory systems are common in distributed clusters and can communicate using MPI. Since OpenMP only supports shared memory systems, we won’t discuss distributed memory systems here.</p>
 </section>
 <section id="multicore-systems">
-<h2>Multicore Systems<a class="headerlink" href="#multicore-systems" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.1.3. </span>Multicore Systems<a class="headerlink" href="#multicore-systems" title="Permalink to this headline">#</a></h2>
 <p>Multicore machines just mean that the computer has “n” number of central processing units. Although these processors have multiple cores they still fit in one CPU slot on a motherboard all using the same power, cooling, and other hardware.</p>
 <p>Let’s look at a multi-core example as shown below:
 <img alt="Multi_CPU_systems_model1" src="../_images/CPU_architecture.png" /></p>
@@ -416,7 +511,7 @@ Multiple CPU machines were the original attempt at increasing computational powe
 Each core has L1 and L2 caches that only it can access, but they share the same memory system. For multi-core systems, the difference from multi-CPU systems is that all processors are on the same chip. The operating system treats each core as a separate processor, and each core can work independently.</p>
 </section>
 <section id="comparation-of-multi-cpu-systems-and-multicore-systems">
-<h2>Comparation of Multi-CPU Systems and Multicore Systems<a class="headerlink" href="#comparation-of-multi-cpu-systems-and-multicore-systems" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.1.4. </span>Comparation of Multi-CPU Systems and Multicore Systems<a class="headerlink" href="#comparation-of-multi-cpu-systems-and-multicore-systems" title="Permalink to this headline">#</a></h2>
 <p>Both systems have their own advantages and disadvantages.</p>
 <p><strong>For multi-CPU systems:</strong></p>
 <p><em>Advantages</em>:</p>
@@ -444,7 +539,7 @@ Each core has L1 and L2 caches that only it can access, but they share the same 
 <p>But the readers may have noticed that although the two approaches are slightly different in how fast the processors work together and how they access memory, their design is very similar. And the important thing is that the working logic of OpenMP is the same, which is to create multiple threads and allocate them on different cores. Therefore, we treat them as the same.</p>
 </section>
 <section id="multithreading">
-<h2>Multithreading<a class="headerlink" href="#multithreading" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.1.5. </span>Multithreading<a class="headerlink" href="#multithreading" title="Permalink to this headline">#</a></h2>
 <p>Next we will introduce a concept that is very important to OpenMP programming - multithreading.
 Multithreading is a technology that implements concurrent execution of multiple threads on software or hardware. Thread is usually a concept at the software level and is the actual operating unit in the operating system process.
 We can divide one huge task into multiple small tasks at the software level and load these tasks on different threads for execution.</p>
@@ -489,6 +584,20 @@ Different threads in the same core share the L1 and L2 cache, and different core
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Ch2_MulticoreMultiCPU.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Parallel Programming for Multicore and Multi-CPU Machines</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2_UsingOpenMP.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>Creating SPMD parallelism using OpenMP parallel and teams directive</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
