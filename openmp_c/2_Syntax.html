@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1.2. Creating a Parallel Program with OpenMP &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>Creating a Parallel Program with OpenMP &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.3. Performance Analysis" href="3_performance.html" />
-    <link rel="prev" title="1.1. Introduction of OpenMP" href="1_IntroductionOfOpenMP.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,36 +106,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../openmpIntro.html">
-   1. Chapter 1 OpenMP
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_IntroductionOfOpenMP.html">
-     1.1. Introduction of OpenMP
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     1.2. Creating a Parallel Program with OpenMP
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_performance.html">
-     1.3. Performance Analysis
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
+        
     </div>
 </nav></div>
         <div class="bd-sidebar__bottom">
@@ -344,22 +313,22 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-to-compile-openmp-programs">
-   1.2.1. How to compile OpenMP programs?
+   How to compile OpenMP programs?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#openmp-directives-and-syntax">
-   1.2.2. OpenMP Directives and Syntax
+   OpenMP Directives and Syntax
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#openmp-parallel-regions">
-   1.2.3. OpenMP Parallel Regions
+   OpenMP Parallel Regions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creating-a-simple-openmp-program">
-   1.2.4. Creating a simple OpenMP Program
+   Creating a simple OpenMP Program
   </a>
  </li>
 </ul>
@@ -383,22 +352,22 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-to-compile-openmp-programs">
-   1.2.1. How to compile OpenMP programs?
+   How to compile OpenMP programs?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#openmp-directives-and-syntax">
-   1.2.2. OpenMP Directives and Syntax
+   OpenMP Directives and Syntax
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#openmp-parallel-regions">
-   1.2.3. OpenMP Parallel Regions
+   OpenMP Parallel Regions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creating-a-simple-openmp-program">
-   1.2.4. Creating a simple OpenMP Program
+   Creating a simple OpenMP Program
   </a>
  </li>
 </ul>
@@ -412,10 +381,10 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="creating-a-parallel-program-with-openmp">
-<h1><span class="section-number">1.2. </span>Creating a Parallel Program with OpenMP<a class="headerlink" href="#creating-a-parallel-program-with-openmp" title="Permalink to this headline">#</a></h1>
+<h1>Creating a Parallel Program with OpenMP<a class="headerlink" href="#creating-a-parallel-program-with-openmp" title="Permalink to this headline">#</a></h1>
 <p>In this section, we will introduce the syntax of OpenMP, how to compile OpenMP programs, and give the readers an overall picture of OpenMP programs through two simple examples.</p>
 <section id="how-to-compile-openmp-programs">
-<h2><span class="section-number">1.2.1. </span>How to compile OpenMP programs?<a class="headerlink" href="#how-to-compile-openmp-programs" title="Permalink to this headline">#</a></h2>
+<h2>How to compile OpenMP programs?<a class="headerlink" href="#how-to-compile-openmp-programs" title="Permalink to this headline">#</a></h2>
 <p>When compiling OpenMP programs, you need to use comiler flags to enable OpenMP, such as –openmp, -xopenmp, -fopenmp, -mp</p>
 <p>In this book, all our examples are compiled using LLVM/Clang on Ubuntu 20.04. LLVM/Clang has the advantages of fast compilation speed, less memory usage, and modular design.
 To execute OpenMP code, you need to add -fopenmp when compiling. The full command to compile is</p>
@@ -425,7 +394,7 @@ To execute OpenMP code, you need to add -fopenmp when compiling. The full comman
 <p>It is also worth mentioning that when writing OpenMP programs, you need to include the &lt;omp.h&gt; header file.</p>
 </section>
 <section id="openmp-directives-and-syntax">
-<h2><span class="section-number">1.2.2. </span>OpenMP Directives and Syntax<a class="headerlink" href="#openmp-directives-and-syntax" title="Permalink to this headline">#</a></h2>
+<h2>OpenMP Directives and Syntax<a class="headerlink" href="#openmp-directives-and-syntax" title="Permalink to this headline">#</a></h2>
 <p>A series of directives and clauses in OpenMP identify code blocks as parallel regions. Programmers only need to insert these directives into the code, so OpenMP is defined as a kind of directive_based language.
 In C/C++, the directive is based on the #pragma omp construct. In Fortran, instructions begin with ! $omp. This is a regular language pragma (in C/C++) or a regular comment (in Fortran) for Compilers. So special option is need when the compiler is required to generate OpenMP code. Otherwise the compiler won’t recognize it and simply ignore it.</p>
 <p>The basic format of OpenMP directive in C/C++ is as follows:</p>
@@ -449,7 +418,7 @@ Clause is equivalent to the modification of directive, which can be used to spec
 <p>• otherwise it is end directive-name unless otherwise specified.</p>
 </section>
 <section id="openmp-parallel-regions">
-<h2><span class="section-number">1.2.3. </span>OpenMP Parallel Regions<a class="headerlink" href="#openmp-parallel-regions" title="Permalink to this headline">#</a></h2>
+<h2>OpenMP Parallel Regions<a class="headerlink" href="#openmp-parallel-regions" title="Permalink to this headline">#</a></h2>
 <p>As we have mentioned in the previous section, parallel region is a block of code executed by all threads in a team simultaneously. A block is a logically connected group of program statements considered as a unit. Next, let’s take a look at how code blocks are defined in C/C++ and fortran.
 In C/C++, a block is a single statement or a group of statement between opening and closing curly braces. for example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp parallel</span>
@@ -488,7 +457,7 @@ In C/C++, a block is a single statement or a group of statement between opening 
 <p>In fortran, OpenMP directives specify a paired end directive. Therefore, in the above two examples, the statements between the OpenMP directive and the corresponding end directive form a code block, which is also a parallel region.</p>
 </section>
 <section id="creating-a-simple-openmp-program">
-<h2><span class="section-number">1.2.4. </span>Creating a simple OpenMP Program<a class="headerlink" href="#creating-a-simple-openmp-program" title="Permalink to this headline">#</a></h2>
+<h2>Creating a simple OpenMP Program<a class="headerlink" href="#creating-a-simple-openmp-program" title="Permalink to this headline">#</a></h2>
 <p>This simple OpenMP program execute in parallel using multiple threads, and each thread outputs a ‘Hello World’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -581,20 +550,6 @@ Hello World
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="1_IntroductionOfOpenMP.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">1.1. </span>Introduction of OpenMP</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="3_performance.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.3. </span>Performance Analysis</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>
