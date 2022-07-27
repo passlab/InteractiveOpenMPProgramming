@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Chapter 2 Parallel Programming for Multicore and Multi-CPU Machines &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>2. Chapter 2 Parallel Programming for Multicore and Multi-CPU Machines &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Multicore and Multi-CPU shared memory systems" href="MultiCoreMultiCPU/1_MIMDArchitecture.html" />
-    <link rel="prev" title="Performance Analysis" href="openmp_c/3_performance.html" />
+    <link rel="next" title="2.1. Multicore and Multi-CPU shared memory systems" href="MultiCoreMultiCPU/1_MIMDArchitecture.html" />
+    <link rel="prev" title="1.3. Performance Analysis" href="openmp_c/3_performance.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +111,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="openmpIntro.html">
-   Chapter 1 OpenMP
+   1. Chapter 1 OpenMP
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -121,24 +121,24 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="openmp_c/1_IntroductionOfOpenMP.html">
-     Introduction of OpenMP
+     1.1. Introduction of OpenMP
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="openmp_c/2_Syntax.html">
-     Creating a Parallel Program with OpenMP
+     1.2. Creating a Parallel Program with OpenMP
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="openmp_c/3_performance.html">
-     Performance Analysis
+     1.3. Performance Analysis
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Chapter 2 Parallel Programming for Multicore and Multi-CPU Machines
+   2. Chapter 2 Parallel Programming for Multicore and Multi-CPU Machines
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -148,39 +148,39 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="MultiCoreMultiCPU/1_MIMDArchitecture.html">
-     Multicore and Multi-CPU shared memory systems
+     2.1. Multicore and Multi-CPU shared memory systems
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="MultiCoreMultiCPU/2_UsingOpenMP.html">
-     Creating SPMD parallelism using OpenMP parallel and teams directive
+     2.2. Creating SPMD parallelism using OpenMP parallel and teams directive
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="MultiCoreMultiCPU/3_SynchronizationThreads.html">
-     Synchronization of threads using barrier and order directive
+     2.3. Synchronization of threads using barrier and order directive
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="MultiCoreMultiCPU/4_AsynchronousTasking.html">
-     Asynchronous tasking
+     2.4. Asynchronous tasking
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="MultiCoreMultiCPU/5_ExplicitDistribution.html">
-     Explicit distribution of work using single, sections, workshring-loop, and distribute construct
+     2.5. Explicit distribution of work using single, sections, workshring-loop, and distribute construct
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="SIMDVector.html">
-   Chapter 3 Parallel Programming for SIMD and Vector Architecture
+   3. Chapter 3 Parallel Programming for SIMD and Vector Architecture
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="GPUAccel.html">
-   Chapter 4 Parallel Programming for GPU Accelerators
+   4. Chapter 4 Parallel Programming for GPU Accelerators
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -190,12 +190,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="GPUAccelerators/1_DataMapping.html">
-     Data Mapping
+     4.1. Data Mapping
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="GPUAccelerators/2_Metadirective.html">
-     Metadirective (possible separate section)
+     4.2. Metadirective (possible separate section)
     </a>
    </li>
   </ul>
@@ -380,7 +380,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-2-parallel-programming-for-multicore-and-multi-cpu-machines">
-<h1>Chapter 2 Parallel Programming for Multicore and Multi-CPU Machines<a class="headerlink" href="#chapter-2-parallel-programming-for-multicore-and-multi-cpu-machines" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">2. </span>Chapter 2 Parallel Programming for Multicore and Multi-CPU Machines<a class="headerlink" href="#chapter-2-parallel-programming-for-multicore-and-multi-cpu-machines" title="Permalink to this headline">#</a></h1>
 <p>Moores’s Law states CPUs double in frequency every two years. This was possible by increasing the transistor density. As time has gone on this has proven to be more difficult because with more transistors more heat is produced. As this problem became more apparent Computer Architects turned to another solution, a cheaper yet effective solution. Which was the implementation of multiple cores within a CPU. IBM was the first to release a Multi-core CPU back in 2001. Intel’s attempt to release processors of this caliber came in 2002 with the Intel Pentium 4. This processor didn’t implement parallel computing more or less just hyperthreading. This allowed it to switch between programs really fast so it gave the appearance of doing multiple processes at once. Since then more and more computers have been implementing multicore CPUs, some even have multiple CPUs. Because of this computer scientists needed to find a way to utilize these extra cores, thus was the birth of parallel computing.</p>
 <p>In this book, we will be discussing multicore and multi CPU machines and how they work, how to use them, and how to optimize your code to use them effectively.</p>
 <div class="toctree-wrapper compound">
@@ -418,13 +418,13 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Performance Analysis</p>
+            <p class="prev-next-title"><span class="section-number">1.3. </span>Performance Analysis</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="MultiCoreMultiCPU/1_MIMDArchitecture.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Multicore and Multi-CPU shared memory systems</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Multicore and Multi-CPU shared memory systems</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
