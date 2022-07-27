@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Synchronization of threads using barrier and order directive &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>Vector Architectures &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Asynchronous tasking" href="4_AsynchronousTasking.html" />
-    <link rel="prev" title="Creating SPMD parallelism using OpenMP parallel and teams directive" href="2_UsingOpenMP.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,7 +106,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../content.html">
    Content in Jupyter Book
@@ -141,38 +139,38 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../MulticoreMultiCPU.html">
    Parallel Programming for Multicore and Multi-CPU Machines
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="1_MIMDArchitecture.html">
+    <a class="reference internal" href="../MultiCoreMultiCPU/1_MIMDArchitecture.html">
      Multicore and Multi-CPU shared memory systems
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2_UsingOpenMP.html">
+    <a class="reference internal" href="../MultiCoreMultiCPU/2_UsingOpenMP.html">
      Creating SPMD parallelism using OpenMP parallel and teams directive
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../MultiCoreMultiCPU/3_SynchronizationThreads.html">
      Synchronization of threads using barrier and order directive
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4_AsynchronousTasking.html">
+    <a class="reference internal" href="../MultiCoreMultiCPU/4_AsynchronousTasking.html">
      Asynchronous tasking
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="5_ExplicitDistribution.html">
+    <a class="reference internal" href="../MultiCoreMultiCPU/5_ExplicitDistribution.html">
      Explicit distribution of work using single, sections, workshring-loop, and distribute construct
     </a>
    </li>
@@ -194,12 +192,12 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../GPUAccelerators/1_DataMapping.html">
+    <a class="reference internal" href="1_DataMapping.html">
      Data Mapping
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../GPUAccelerators/2_Metadirective.html">
+    <a class="reference internal" href="2_Metadirective.html">
      Metadirective (possible separate section)
     </a>
    </li>
@@ -264,7 +262,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/XinyaoYI/OpenMPProgrammingBookTest/main?urlpath=lab/tree/src/MultiCoreMultiCPU/3_SynchronizationThreads.ipynb"
+        <a href="https://mybinder.org/v2/gh/XinyaoYI/OpenMPProgrammingBookTest/main?urlpath=lab/tree/src/GPUAccelerators/1_architecture.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -324,7 +322,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/XinyaoYI/OpenMPProgrammingBookTest/issues/new?title=Issue%20on%20page%20%2FMultiCoreMultiCPU/3_SynchronizationThreads.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/XinyaoYI/OpenMPProgrammingBookTest/issues/new?title=Issue%20on%20page%20%2FGPUAccelerators/1_architecture.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -352,7 +350,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/MultiCoreMultiCPU/3_SynchronizationThreads.ipynb"
+        <a href="../_sources/GPUAccelerators/1_architecture.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -401,7 +399,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Synchronization of threads using barrier and order directive</h1>
+                <h1>Vector Architectures</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -413,8 +411,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="synchronization-of-threads-using-barrier-and-order-directive">
-<h1>Synchronization of threads using barrier and order directive<a class="headerlink" href="#synchronization-of-threads-using-barrier-and-order-directive" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="vector-architectures">
+<h1>Vector Architectures<a class="headerlink" href="#vector-architectures" title="Permalink to this headline">#</a></h1>
+<p>The SIMD model is shown in the following figure and usually consists of two parts, a front-end computer, and a processor array.</p>
+<p>A processor array is a collection of identical synchronous processing elements, each processor in the array has a small local memory in which distributed data resides during parallel processing.
+The front end performs the application program in the usual serial method, but the problem commands the processor array to carry out SIMD operations in parallel.</p>
+<p>Vector architectures have advanced and changed significantly in the last decade, particularly from dedicated vector architecture machines to general-purpose CPUs with vector extensions. In 2011, Intel shipped general-purpose CPUs with the second version of the Advanced Vector Extensions (AVX2), followed by the AVX-512 extensions in 2013. The AVX2 extensions contain 256-bit lane widths and are very common in consumer CPUs. The AVX-512 extensions bring 512-bit lane widths into a few high-end consumer CPUs and high-performance CPU product lines. Beyond increasing lane width to 512 bits, AVX-512 brings many advanced features, most notably masking, an ideal solution for stridden loads and stores. The Arm architecture is another notable example of extending general-purpose CPUs to support SIMD. In 2016, Arm announced its Scalable Vector Extension (SVE) vector architecture for its high-end Arm CPUs to extend the aging NEON SIMD extensions.
+The recent Fukagu supercomputer (ranked #1 in the November 2021 Top500 list and uses Fujitsu’s Arm A64FX CPU with 512-bit vector length) represents the adoption of the Arm SVE architecture in production.
+Arm SVE takes a unique approach to support SIMD architecture of different vector lane widths. Rather than creating a new set of extensions for higher lane widths as Intel does, SVE provides a vector length agnostic model, which allows the same code to run on different hardware with varying vector lengths. In other words, vendors can create vectors as long or short as needed, and the same machine code will run on any hardware.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -430,7 +434,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./MultiCoreMultiCPU"
+            path: "./GPUAccelerators"
         },
         predefinedOutput: true
     }
@@ -444,20 +448,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="2_UsingOpenMP.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Creating SPMD parallelism using OpenMP parallel and teams directive</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="4_AsynchronousTasking.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Asynchronous tasking</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

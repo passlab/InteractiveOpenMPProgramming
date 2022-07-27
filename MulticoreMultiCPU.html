@@ -21,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -37,7 +37,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Multicore and Multi-CPU shared memory systems" href="MultiCoreMultiCPU/1_MIMDArchitecture.html" />
-    <link rel="prev" title="What is OpenMP?" href="openmp_c/1_IntroductionOfOpenMP.html" />
+    <link rel="prev" title="Performance Analysis" href="openmp_c/3_performance.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -126,7 +126,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="openmp_c/1_IntroductionOfOpenMP.html">
-     What is OpenMP?
+     Introduction of OpenMP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="openmp_c/2_Syntax.html">
+     Creating a Parallel Program with OpenMP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="openmp_c/3_performance.html">
+     Performance Analysis
     </a>
    </li>
   </ul>
@@ -268,7 +278,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/passlab/OpenMPProgrammingBook"
+        <a href="https://github.com/XinyaoYI/OpenMPProgrammingBookTest"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -285,7 +295,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FMulticoreMultiCPU.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/XinyaoYI/OpenMPProgrammingBookTest/issues/new?title=Issue%20on%20page%20%2FMulticoreMultiCPU.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -376,7 +386,8 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="parallel-programming-for-multicore-and-multi-cpu-machines">
 <h1>Parallel Programming for Multicore and Multi-CPU Machines<a class="headerlink" href="#parallel-programming-for-multicore-and-multi-cpu-machines" title="Permalink to this headline">#</a></h1>
-<p>In this section, we will introduce …..</p>
+<p>Moores’s Law states CPUs double in frequency every two years. This was possible by increasing the transistor density. As time has gone on this has proven to be more difficult because with more transistors more heat is produced. As this problem became more apparent Computer Architects turned to another solution, a cheaper yet effective solution. Which was the implementation of multiple cores within a CPU. IBM was the first to release a Multi-core CPU back in 2001. Intel’s attempt to release processors of this caliber came in 2002 with the Intel Pentium 4. This processor didn’t implement parallel computing more or less just hyperthreading. This allowed it to switch between programs really fast so it gave the appearance of doing multiple processes at once. Since then more and more computers have been implementing multicore CPUs, some even have multiple CPUs. Because of this computer scientists needed to find a way to utilize these extra cores, thus was the birth of parallel computing.</p>
+<p>In this book, we will be discussing multicore and multi CPU machines and how they work, how to use them, and how to optimize your code to use them effectively.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -408,11 +419,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="openmp_c/1_IntroductionOfOpenMP.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="openmp_c/3_performance.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">What is OpenMP?</p>
+            <p class="prev-next-title">Performance Analysis</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="MultiCoreMultiCPU/1_MIMDArchitecture.html" title="next page">
