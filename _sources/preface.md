@@ -1,4 +1,2 @@
-# OpenMP Programming Book
-=================
-
-Author: 
+# preface
+This is preface from the author
