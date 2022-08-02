@@ -2,25 +2,29 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
 format: jb-book
-root: Ch0_intro
-options:
-  numbered: true
-chapters:
-- file: Ch1_openmpIntro
-  sections:
-  - file: openmp_c/1_IntroductionOfOpenMP.ipynb
-  - file: openmp_c/2_Syntax.ipynb
-  - file: openmp_c/3_performance.ipynb
-- file: Ch2_MulticoreMultiCPU
-  sections:
-  - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
-  - file: MultiCoreMultiCPU/2_UsingOpenMP.ipynb
-  - file: MultiCoreMultiCPU/3_SynchronizationThreads.ipynb
-  - file: MultiCoreMultiCPU/4_AsynchronousTasking.ipynb
-  - file: MultiCoreMultiCPU/5_ExplicitDistribution.ipynb
-- file: Ch3_SIMDVector
-- file: Ch4_GPUAccel
-  sections:
-  - file: GPUAccelerators/1_DataMapping.ipynb
-  - file: GPUAccelerators/2_Metadirective.ipynb
-
+root: cover
+parts:
+  - chapters:
+    - file: copyright
+    - file: book_intro
+    - file: foreword
+    - file: preface
+  - numbered: True
+    chapters:
+    - file: Ch1_openmpIntro
+      sections:
+      - file: openmp_c/1_IntroductionOfOpenMP.ipynb
+      - file: openmp_c/2_Syntax.ipynb
+      - file: openmp_c/3_performance.ipynb
+    - file: Ch2_MulticoreMultiCPU
+      sections:
+      - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
+      - file: MultiCoreMultiCPU/2_UsingOpenMP.ipynb
+      - file: MultiCoreMultiCPU/3_SynchronizationThreads.ipynb
+      - file: MultiCoreMultiCPU/4_AsynchronousTasking.ipynb
+      - file: MultiCoreMultiCPU/5_ExplicitDistribution.ipynb
+      - file: Ch3_SIMDVector
+    - file: Ch4_GPUAccel
+      sections:
+      - file: GPUAccelerators/1_DataMapping.ipynb
+      - file: GPUAccelerators/2_Metadirective.ipynb
