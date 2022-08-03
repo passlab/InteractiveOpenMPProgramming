@@ -171,7 +171,15 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     2.2. Creating SPMD parallelism using OpenMP parallel and teams directive
+     2.2. Creating SPMD parallelism using OpenMP
+     <strong>
+      parallel
+     </strong>
+     and
+     <strong>
+      teams
+     </strong>
+     directive
     </a>
    </li>
    <li class="toctree-l2">
@@ -425,8 +433,38 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   2.2.1.
+  <a class="reference internal nav-link" href="#semantics-and-syntax">
+   2.2.1. Semantics and Syntax
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallel-directive">
+     2.2.1.1.
+     <strong>
+      parallel
+     </strong>
+     Directive
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#teams-directive">
+     2.2.1.2.
+     <strong>
+      teams
+     </strong>
+     Directive
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clauses">
+   2.2.2. Clauses
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples">
+   2.2.3. Examples
   </a>
  </li>
 </ul>
@@ -449,8 +487,38 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   2.2.1.
+  <a class="reference internal nav-link" href="#semantics-and-syntax">
+   2.2.1. Semantics and Syntax
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallel-directive">
+     2.2.1.1.
+     <strong>
+      parallel
+     </strong>
+     Directive
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#teams-directive">
+     2.2.1.2.
+     <strong>
+      teams
+     </strong>
+     Directive
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clauses">
+   2.2.2. Clauses
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples">
+   2.2.3. Examples
   </a>
  </li>
 </ul>
@@ -464,9 +532,67 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="creating-spmd-parallelism-using-openmp-parallel-and-teams-directive">
-<h1><span class="section-number">2.2. </span>Creating SPMD parallelism using OpenMP parallel and teams directive<a class="headerlink" href="#creating-spmd-parallelism-using-openmp-parallel-and-teams-directive" title="Permalink to this headline">#</a></h1>
-<section id="id1">
-<h2><span class="section-number">2.2.1. </span><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h1><span class="section-number">2.2. </span>Creating SPMD parallelism using OpenMP <strong>parallel</strong> and <strong>teams</strong> directive<a class="headerlink" href="#creating-spmd-parallelism-using-openmp-parallel-and-teams-directive" title="Permalink to this headline">#</a></h1>
+<p>From this part, we begin to introduce how to use OpenMP directives to write programs. We first introduce the most basic and most commonly used <strong>parallel</strong> directive and <strong>teams</strong> directive.</p>
+<section id="semantics-and-syntax">
+<h2><span class="section-number">2.2.1. </span>Semantics and Syntax<a class="headerlink" href="#semantics-and-syntax" title="Permalink to this headline">#</a></h2>
+<section id="parallel-directive">
+<h3><span class="section-number">2.2.1.1. </span><strong>parallel</strong> Directive<a class="headerlink" href="#parallel-directive" title="Permalink to this headline">#</a></h3>
+<p>The <strong>parallel</strong> directive is used to mark a parallel region. When a thread encounters a parallel region, a group of threads is created to execute the parallel region. Its syntax in C is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp parallel [clause[ [,] clause] ... ] new-line</span>
+    <span class="n">structured</span><span class="o">-</span><span class="n">block</span>
+</pre></div>
+</div>
+<p>The syntax in Fortran is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!$omp parallel do [clause[ [,] clause] ... ]
+    loop-nest
+[!$omp end parallel do]
+</pre></div>
+</div>
+<p>The original thread that executed the serial part will be the primary thread of the new team. All threads in the team execute parallel regions together. After a team is created, the number of threads in the team remains constant for the duration of that parallel region.
+Within a parallel region, the thread number uniquely identifies each thread. A thread can obtain its own thread number by calling the <em>omp_get_thread_num</em> library routine.</p>
+<blockquote>
+<div><p>Primary thread is also known as the master thread</p>
+</div></blockquote>
+<p>When a thread team is created, the primary thread will implicitly create as many tasks as the number of threads, each task is assigned and bounded to one thread.
+When threads are all occupied, implicit tasks that have not been allocated will be suspended waiting for idle threads.</p>
+</section>
+<section id="teams-directive">
+<h3><span class="section-number">2.2.1.2. </span><strong>teams</strong> Directive<a class="headerlink" href="#teams-directive" title="Permalink to this headline">#</a></h3>
+<p>The <strong>teams</strong> directive indicates that the loop that follows is split among multiple thread teams, one thread team computing one part of the task. Developers can use the <strong>teams</strong> directive to use a large number of thread teams.
+Its syntax is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp teams [clause[ [,] clause] ... ] new-line</span>
+    <span class="n">structured</span><span class="o">-</span><span class="n">block</span>
+</pre></div>
+</div>
+<p>The syntax in Fortran is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!$omp teams [clause[ [,] clause] ... ]
+    loosely-structured-block
+!$omp end teams
+</pre></div>
+</div>
+<p>The following figure shows the execution model of the <strong>teams</strong> directive:
+<img alt="teams_directive" src="../_images/teams.jpeg" /></p>
+<p>A league of teams is created when a thread encounters a <strong>teams</strong> construct. Each team is an initial team, and the initial thread in each team executes the team area.
+After a team is created, the number of initial teams remains the same for the duration of the <strong>teams</strong> region.
+Within a <strong>teams</strong> region, the initial team number uniquely identifies each initial team. A thread can obtain its own initial team number by calling the <em>omp_get_team_num</em> library routine.
+The teams directive has the following characteristics:</p>
+<ul class="simple">
+<li><p>the <strong>teams</strong> directive can spawn one or more thread teams with the same number of threads</p></li>
+<li><p>code is portable for one thread team or multiple thread teams</p></li>
+<li><p>only the primary thread of each team continues to execute</p></li>
+<li><p>no synchronization between thread teams</p></li>
+<li><p>programmers don’t need to think about how to decompose loops</p></li>
+</ul>
+<p>OpenMP was originally designed for multithreading on shared-memory parallel computers, so the parallel directive only creates a single layer of parallelism.
+The team instruction is used to express the second level of scalable parallelization, which can be used not only on the CPU, but also on the GPU.</p>
+</section>
+</section>
+<section id="clauses">
+<h2><span class="section-number">2.2.2. </span>Clauses<a class="headerlink" href="#clauses" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="examples">
+<h2><span class="section-number">2.2.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
 </section>
 </section>
 

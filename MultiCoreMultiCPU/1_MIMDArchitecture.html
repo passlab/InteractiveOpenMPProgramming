@@ -171,7 +171,15 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2_UsingOpenMP.html">
-     2.2. Creating SPMD parallelism using OpenMP parallel and teams directive
+     2.2. Creating SPMD parallelism using OpenMP
+     <strong>
+      parallel
+     </strong>
+     and
+     <strong>
+      teams
+     </strong>
+     directive
     </a>
    </li>
    <li class="toctree-l2">
@@ -523,7 +531,7 @@ Multiple CPU machines were the original attempt at increasing computational powe
 <section id="multicore-systems">
 <h2><span class="section-number">2.1.3. </span>Multicore Systems<a class="headerlink" href="#multicore-systems" title="Permalink to this headline">#</a></h2>
 <p>Multicore machines just mean that the computer has “n” number of central processing units. Although these processors have multiple cores they still fit in one CPU slot on a motherboard all using the same power, cooling, and other hardware.</p>
-<p>Let’s look at a multi-core example as shown below:
+<p>A multi-core example is shown below:
 <img alt="Multi_CPU_systems_model1" src="../_images/CPU_architecture.png" /></p>
 <p>Only two cores are shown in this diagram, but real multi-core processors tend to use more cores. Multiple threads can be loaded onto a core for execution.
 Each core has L1 and L2 caches that only it can access, but they share the same memory system. For multi-core systems, the difference from multi-CPU systems is that all processors are on the same chip. The operating system treats each core as a separate processor, and each core can work independently.</p>
@@ -612,7 +620,7 @@ Different threads in the same core share the L1 and L2 cache, and different core
     <a class='right-next' id="next-link" href="2_UsingOpenMP.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.2. </span>Creating SPMD parallelism using OpenMP parallel and teams directive</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>Creating SPMD parallelism using OpenMP <strong>parallel</strong> and <strong>teams</strong> directive</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
