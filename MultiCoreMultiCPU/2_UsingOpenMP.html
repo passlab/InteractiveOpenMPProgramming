@@ -538,39 +538,223 @@ title="Print to PDF"
 <h2><span class="section-number">2.2.1. </span>Semantics and Syntax<a class="headerlink" href="#semantics-and-syntax" title="Permalink to this headline">#</a></h2>
 <section id="parallel-directive">
 <h3><span class="section-number">2.2.1.1. </span><strong>parallel</strong> Directive<a class="headerlink" href="#parallel-directive" title="Permalink to this headline">#</a></h3>
-<p>The <strong>parallel</strong> directive is used to mark a parallel region. When a thread encounters a parallel region, a group of threads is created to execute the parallel region. Its syntax in C is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp parallel [clause[ [,] clause] ... ] new-line</span>
-    <span class="n">structured</span><span class="o">-</span><span class="n">block</span>
-</pre></div>
-</div>
-<p>The syntax in Fortran is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!$omp parallel do [clause[ [,] clause] ... ]
-    loop-nest
-[!$omp end parallel do]
-</pre></div>
-</div>
-<p>The original thread that executed the serial part will be the primary thread of the new team. All threads in the team execute parallel regions together. After a team is created, the number of threads in the team remains constant for the duration of that parallel region.
-Within a parallel region, the thread number uniquely identifies each thread. A thread can obtain its own thread number by calling the <em>omp_get_thread_num</em> library routine.</p>
+<p>The <strong>parallel</strong> directive is used to mark a parallel region. When a thread encounters a parallel region, a group of threads is created to execute the parallel region.
+The original thread that executed the serial part will be the primary thread of the new team. All threads in the team execute parallel regions together. After a team is created, the number of threads in the team remains constant for the duration of that parallel region.</p>
 <blockquote>
 <div><p>Primary thread is also known as the master thread</p>
 </div></blockquote>
 <p>When a thread team is created, the primary thread will implicitly create as many tasks as the number of threads, each task is assigned and bounded to one thread.
 When threads are all occupied, implicit tasks that have not been allocated will be suspended waiting for idle threads.</p>
-</section>
-<section id="teams-directive">
-<h3><span class="section-number">2.2.1.2. </span><strong>teams</strong> Directive<a class="headerlink" href="#teams-directive" title="Permalink to this headline">#</a></h3>
-<p>The <strong>teams</strong> directive indicates that the loop that follows is split among multiple thread teams, one thread team computing one part of the task. Developers can use the <strong>teams</strong> directive to use a large number of thread teams.
-Its syntax is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp teams [clause[ [,] clause] ... ] new-line</span>
+<p>The following example from Chapter 1 shows how to use the parallel directive in C.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
+<span class="c1">//%cflags: -fopenmp</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#pragma omp parallel</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+</pre></div>
+</div>
+</div>
+</div>
+<p>This example prints <em>Hello World</em> 8 times, which means 8 threads are created by defualt. The default number of threads is determined by the computer hardware, 8 threads are created on the author’s computer.
+The following example shows how to use the num_threads clause in the parallel directive to specify the number of threads to create.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
+<span class="c1">//%cflags: -fopenmp</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#pragma omp parallel num_threads(4)</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World
+Hello World
+Hello World
+Hello World
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, we use the <strong>num_threads</strong> clause to specify the use of 4 threads to execute the parallel region. When the master thread encounters OpenMP constructs, three threads are created, and together with these three threads, a thread group of 4 is formed.
+<em>Hello World</em> is printed four times, once per thread.</p>
+<p>Through the above examples, it is not difficult to find that the syntax of parallel directive in C is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp parallel [clause[ [,] clause] ... ] new-line</span>
     <span class="n">structured</span><span class="o">-</span><span class="n">block</span>
 </pre></div>
 </div>
-<p>The syntax in Fortran is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!$omp teams [clause[ [,] clause] ... ]
-    loosely-structured-block
-!$omp end teams
+<p>And the syntax of <strong>num_threads</strong> clause is：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_threads</span><span class="p">(</span><span class="n">integer</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>The next two examples show how to use <strong>paralle</strong> diretcive in Fortran, and they have exactly same meaning as the two examples in C above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">!!%</span><span class="n">compiler</span><span class="o">:</span><span class="w"> </span><span class="n">gfortran</span><span class="w"></span>
+<span class="o">!!%</span><span class="n">cflags</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="n">fopenmp</span><span class="w"></span>
+
+<span class="n">PROGRAM</span><span class="w"> </span><span class="n">Parallel_Hello_World</span><span class="w"></span>
+<span class="n">USE</span><span class="w"> </span><span class="n">OMP_LIB</span><span class="w"></span>
+
+<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">PRINT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="w"></span>
+
+<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"></span>
+
+<span class="n">END</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Hello World
+ Hello World
+ Hello World
+ Hello World
+ Hello World
+ Hello World
+ Hello World
+ Hello World
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">!!%</span><span class="n">compiler</span><span class="o">:</span><span class="w"> </span><span class="n">gfortran</span><span class="w"></span>
+<span class="o">!!%</span><span class="n">cflags</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="n">fopenmp</span><span class="w"></span>
+
+<span class="n">PROGRAM</span><span class="w"> </span><span class="n">Parallel_Hello_World</span><span class="w"></span>
+<span class="n">USE</span><span class="w"> </span><span class="n">OMP_LIB</span><span class="w"></span>
+
+<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"> </span><span class="n">num_threads</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">PRINT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="w"></span>
+
+<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"></span>
+
+<span class="n">END</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Hello World
+ Hello World
+ Hello World
+ Hello World
+</pre></div>
+</div>
+</div>
+</div>
+<p>The syntax of <strong>parallel</strong> directive in Fortran is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!$omp parallel do [clause[ [,] clause] ... ]
+    loop-nest
+[!$omp end parallel do]
+</pre></div>
+</div>
+<p>Within a parallel region, the thread number uniquely identifies each thread. A thread can obtain its own thread number by calling the <strong>omp_get_thread_num</strong> library routine.</p>
+<p>The following example is a little more complicated. It shows how to use the <strong>omp_get_thread_num</strong> library routine, and shows how to use two other clauses, the <strong>default</strong> clause and the <strong>private</strong> clause. It assigns tasks to each thread explicitly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
+<span class="c1">//%cflags: -fopenmp</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">subdomain</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ipoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ipoints</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">       </span>
+<span class="w">         </span><span class="n">x</span><span class="p">[</span><span class="n">istart</span><span class="o">+</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">123.456</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">npoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">iam</span><span class="p">,</span><span class="w"> </span><span class="n">nt</span><span class="p">,</span><span class="w"> </span><span class="n">ipoints</span><span class="p">,</span><span class="w"> </span><span class="n">istart</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="cp">#pragma omp parallel default(shared) private(iam,nt,ipoints,istart)</span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">iam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">nt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_num_threads</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">ipoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">npoints</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">nt</span><span class="p">;</span><span class="w"> </span><span class="cm">/* size of partition */</span><span class="w"></span>
+<span class="w">        </span><span class="n">istart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iam</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ipoints</span><span class="p">;</span><span class="w"> </span><span class="cm">/* starting array index */</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iam</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nt</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="cm">/* last thread may do more */</span><span class="w"></span>
+<span class="w">            </span><span class="n">ipoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">npoints</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">istart</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">subdomain</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">ipoints</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">npoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">npoints</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">++</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">sub</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123.456001 123.456001 123.456001 123.456001 123.456001 
+123.456001 123.456001 123.456001 123.456001 123.456001 
+123.456001 123.456001 123.456001 123.456001 123.456001 
+123.456001 123.456001 123.456001 123.456001 123.456001 
+123.456001 123.456001 123.456001 123.456001 123.456001 
+123.456001 123.456001 123.456001 123.456001 123.456001 
+123.456001 123.456001 123.456001 123.456001 123.456001 
+123.456001 123.456001 123.456001 123.456001 123.456001 
+123.456001 123.456001 123.456001 123.456001 123.456001 
+123.456001 123.456001 123.456001 123.456001 123.456001 
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above example, we use the default number of threads to perform assignment operations on 100 elements in the array. Tasks are evenly distributed to each thread, and when the number of tasks is not divisible by the number of threads, the remaining tasks will be completed by the last thread.</p>
+<p>When programming in parallel, the most important and hardest part is how to assign tasks and manage threads. We already introduced that a thread can get its own id through the <strong>omp_get_thread_num</strong> routine. Another important routine is <strong>omp_get_num_threads</strong>, which returns the number of threads in the current team.</p>
+<p>In the above example, variable <em>npoints</em> presents the total number of elements in the array, and it is divided into <em>nt</em> parts, each of size <em>ipoints</em>. The starting address of each part is <em>istart</em>. Each part is completed by one thread, and a total of 8 threads execute tasks in parallel.</p>
+<p>The <strong>default</strong> clause is used to define the default data-sharing attributes of variables that are referenced in a parallel, teams, or task generating construct. In the above example, <em>default(shared)</em> indicates that by default, the variables in the parallel region are shared variables.
+The <strong>private</strong> clause is used to explicitly specify variables that are private in each task or SIMD lane (SIMD will be introduced in the next chapter). In the above example, the variables <em>iam, nt, ipoints</em> and <em>istart</em> are private variables for each thread, which means a thread cannot access these variables of another thread.</p>
+<p>Both of these two clauses belong to the data-sharing attribute clauses, which we will introduce in detail in the section of clauses later.</p>
+</section>
+<section id="teams-directive">
+<h3><span class="section-number">2.2.1.2. </span><strong>teams</strong> Directive<a class="headerlink" href="#teams-directive" title="Permalink to this headline">#</a></h3>
+<p>The <strong>teams</strong> directive indicates that the loop that follows is split among multiple thread teams, one thread team computing one part of the task. Developers can use the <strong>teams</strong> directive to use a large number of thread teams.</p>
 <p>The following figure shows the execution model of the <strong>teams</strong> directive:
 <img alt="teams_directive" src="../_images/teams.jpeg" /></p>
 <p>A league of teams is created when a thread encounters a <strong>teams</strong> construct. Each team is an initial team, and the initial thread in each team executes the team area.
@@ -585,7 +769,86 @@ The teams directive has the following characteristics:</p>
 <li><p>programmers don’t need to think about how to decompose loops</p></li>
 </ul>
 <p>OpenMP was originally designed for multithreading on shared-memory parallel computers, so the parallel directive only creates a single layer of parallelism.
-The team instruction is used to express the second level of scalable parallelization, which can be used not only on the CPU, but also on the GPU.</p>
+The team instruction is used to express the second level of scalable parallelization. Before OpenMP 5.0, it can be only used on the GPU (with an associated target construct). In OpenMP 5.0 the <strong>teams</strong> construct was extended to enable the host to execute a teams region.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
+<span class="c1">//%cflags: -fopenmp</span>
+
+<span class="c1">// Need to update the native kernel, or specified that our kernel doesn&#39;t support OpenMP 5.0</span>
+
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span><span class="cp"></span>
+<span class="cp">#define N 1000</span>
+<span class="w"> </span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nteams_required</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">max_thrds</span><span class="p">,</span><span class="w"> </span><span class="n">tm_id</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">sp_x</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">sp_y</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">sp_a</span><span class="o">=</span><span class="mf">0.0001e0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">dp_x</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">dp_y</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">dp_a</span><span class="o">=</span><span class="mf">0.0001e0</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Create 2 teams, each team works in a different precision</span>
+<span class="w">    </span><span class="cp">#pragma omp teams num_teams(nteams_required) thread_limit(max_thrds) private(tm_id)</span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">tm_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_team_num</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">omp_get_num_teams</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="c1">//if only getting 1, quit </span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;error: Insufficient teams on host, 2 required</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">tm_id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">// Do Single Precision Work (SAXPY) with this team</span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="cp">#pragma omp parallel</span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="cp">#pragma omp for </span><span class="c1">//init</span>
+<span class="w">                </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="n">sp_x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="mf">0.0001</span><span class="p">;</span><span class="w"> </span><span class="n">sp_y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="cp">#pragma omp for simd simdlen(8)</span>
+<span class="w">                </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="n">sp_x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp_a</span><span class="o">*</span><span class="n">sp_x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sp_y</span><span class="p">[</span><span class="n">i</span><span class="p">];}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">tm_id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">// Do Double Precision Work (DAXPY) with this team</span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="cp">#pragma omp parallel</span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="cp">#pragma omp for </span><span class="c1">//init</span>
+<span class="w">                </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="n">dp_x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="mf">0.0001</span><span class="p">;</span><span class="w"> </span><span class="n">dp_y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="cp">#pragma omp for simd simdlen(4)</span>
+<span class="w">                </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span><span class="n">dp_x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp_a</span><span class="o">*</span><span class="n">dp_x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dp_y</span><span class="p">[</span><span class="n">i</span><span class="p">];}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i=%d sp|dp %f %f </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">N</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="n">sp_x</span><span class="p">[</span><span class="n">N</span><span class="mi">-1</span><span class="p">],</span><span class="w"> </span><span class="n">dp_x</span><span class="p">[</span><span class="n">N</span><span class="mi">-1</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;i=%d sp|dp %f %f </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">sp_x</span><span class="p">[</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">dp_x</span><span class="p">[</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//OUTPUT1:i=999 sp|dp 999.000000 999.000010</span>
+<span class="w">    </span><span class="c1">//OUTPUT2:i=500 sp|dp 500.000000 500.000005</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/tmpwit3re_h.c:16:5: error: orphaned &#39;omp teams&#39; directives are prohibited; perhaps you forget to enclose the directive into a target region?
+    #pragma omp teams num_teams(nteams_required) thread_limit(max_thrds) private(tm_id)
+    ^
+1 error generated.
+[Native kernel] clang exited with code 1, the executable will not be executed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Its syntax is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp teams [clause[ [,] clause] ... ] new-line</span>
+    <span class="n">structured</span><span class="o">-</span><span class="n">block</span>
+</pre></div>
+</div>
+<p>The syntax in Fortran is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!$omp teams [clause[ [,] clause] ... ]
+    loosely-structured-block
+!$omp end teams
+</pre></div>
+</div>
 </section>
 </section>
 <section id="clauses">
@@ -605,16 +868,16 @@ The team instruction is used to express the second level of scalable paralleliza
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "native"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "native",
             path: "./MultiCoreMultiCPU"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'native'</script>
 
               </div>
               
