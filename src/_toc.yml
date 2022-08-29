@@ -19,10 +19,11 @@ parts:
     - file: Ch2_MulticoreMultiCPU
       sections:
       - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
-      - file: MultiCoreMultiCPU/2_UsingOpenMP.ipynb
-      - file: MultiCoreMultiCPU/3_SynchronizationThreads.ipynb
-      - file: MultiCoreMultiCPU/4_AsynchronousTasking.ipynb
-      - file: MultiCoreMultiCPU/5_ExplicitDistribution.ipynb
+      - file: MultiCoreMultiCPU/2_UsingOpenMP_parallel.ipynb
+      - file: MultiCoreMultiCPU/3_UsingOpenMP_teams.ipynb
+      - file: MultiCoreMultiCPU/4_SynchronizationThreads.ipynb
+      - file: MultiCoreMultiCPU/5_AsynchronousTasking.ipynb
+      - file: MultiCoreMultiCPU/6_ExplicitDistribution.ipynb
       - file: Ch3_SIMDVector
     - file: Ch4_GPUAccel
       sections:
