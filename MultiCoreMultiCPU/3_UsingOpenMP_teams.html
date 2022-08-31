@@ -624,11 +624,12 @@ The team instruction is used to express the second level of scalable paralleliza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/tmpwit3re_h.c:16:5: error: orphaned &#39;omp teams&#39; directives are prohibited; perhaps you forget to enclose the directive into a target region?
-    #pragma omp teams num_teams(nteams_required) thread_limit(max_thrds) private(tm_id)
-    ^
-1 error generated.
-[Native kernel] clang exited with code 1, the executable will not be executed
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OMP: Warning #96: Cannot form a team with 12 threads, using 6 instead.
+OMP: Hint Consider unsetting KMP_DEVICE_THREAD_LIMIT (KMP_ALL_THREADS), KMP_TEAMS_THREAD_LIMIT, and OMP_THREAD_LIMIT (if any are set).
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i=999 sp|dp 999.000000 999.000010 
+i=500 sp|dp 500.000000 500.000005 
 </pre></div>
 </div>
 </div>

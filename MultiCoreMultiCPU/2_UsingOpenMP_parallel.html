@@ -628,6 +628,10 @@ The following example shows how to use the num_threads clause in the parallel di
  Hello World
  Hello World
  Hello World
+ Hello World
+ Hello World
+ Hello World
+ Hello World
 </pre></div>
 </div>
 </div>
@@ -671,6 +675,7 @@ The following example shows how to use the num_threads clause in the parallel di
 <div class="cell_input docutils container">
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
 <span class="c1">//%cflags: -fopenmp</span>
+<span class="c1">//This example is from https://www.openmp.org/wp-content/uploads/openmp-examples-5.1.pdf. The size of array and output are changed</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
@@ -679,7 +684,7 @@ The following example shows how to use the num_threads clause in the parallel di
 <span class="kt">void</span><span class="w"> </span><span class="nf">subdomain</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ipoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ipoints</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">       </span>
-<span class="w">         </span><span class="n">x</span><span class="p">[</span><span class="n">istart</span><span class="o">+</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">123.456</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="n">x</span><span class="p">[</span><span class="n">istart</span><span class="o">+</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart</span><span class="o">+</span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">npoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -698,9 +703,7 @@ The following example shows how to use the num_threads clause in the parallel di
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">npoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">npoints</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">++</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.5f &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
@@ -714,16 +717,7 @@ The following example shows how to use the num_threads clause in the parallel di
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123.456001 123.456001 123.456001 123.456001 123.456001 
-123.456001 123.456001 123.456001 123.456001 123.456001 
-123.456001 123.456001 123.456001 123.456001 123.456001 
-123.456001 123.456001 123.456001 123.456001 123.456001 
-123.456001 123.456001 123.456001 123.456001 123.456001 
-123.456001 123.456001 123.456001 123.456001 123.456001 
-123.456001 123.456001 123.456001 123.456001 123.456001 
-123.456001 123.456001 123.456001 123.456001 123.456001 
-123.456001 123.456001 123.456001 123.456001 123.456001 
-123.456001 123.456001 123.456001 123.456001 123.456001 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00000 1.00000 2.00000 3.00000 4.00000 5.00000 6.00000 7.00000 8.00000 9.00000 10.00000 11.00000 12.00000 13.00000 14.00000 15.00000 16.00000 17.00000 18.00000 19.00000 20.00000 21.00000 22.00000 23.00000 24.00000 25.00000 26.00000 27.00000 28.00000 29.00000 30.00000 31.00000 32.00000 33.00000 34.00000 35.00000 36.00000 37.00000 38.00000 39.00000 40.00000 41.00000 42.00000 43.00000 44.00000 45.00000 46.00000 47.00000 48.00000 49.00000 50.00000 51.00000 52.00000 53.00000 54.00000 55.00000 56.00000 57.00000 58.00000 59.00000 60.00000 61.00000 62.00000 63.00000 64.00000 65.00000 66.00000 67.00000 68.00000 69.00000 70.00000 71.00000 72.00000 73.00000 74.00000 75.00000 76.00000 77.00000 78.00000 79.00000 80.00000 81.00000 82.00000 83.00000 84.00000 85.00000 86.00000 87.00000 88.00000 89.00000 90.00000 91.00000 92.00000 93.00000 94.00000 95.00000 96.00000 97.00000 98.00000 99.00000 
 </pre></div>
 </div>
 </div>
@@ -734,6 +728,68 @@ The following example shows how to use the num_threads clause in the parallel di
 <p>The <strong>default</strong> clause is used to define the default data-sharing attributes of variables that are referenced in a parallel, teams, or task generating construct. In the above example, <em>default(shared)</em> indicates that by default, the variables in the parallel region are shared variables.
 The <strong>private</strong> clause is used to explicitly specify variables that are private in each task or SIMD lane (SIMD will be introduced in the next chapter). In the above example, the variables <em>iam, nt, ipoints</em> and <em>istart</em> are private variables for each thread, which means a thread cannot access these variables of another thread.</p>
 <p>Both of these two clauses belong to the data-sharing attribute clauses, which we will introduce in detail in the section of clauses later.</p>
+<p>The corresponding Fortran program is shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>!!%compiler: gfortran
+!!%cflags: -fopenmp
+
+    SUBROUTINE SUBDOMAIN(X, ISTART, IPOINTS)
+        INTEGER ISTART, IPOINTS
+        REAL X(0:99)
+
+        INTEGER I
+
+        DO 100 I=0,IPOINTS-1
+            X(ISTART+I) = ISTART+I
+100     CONTINUE
+
+    END SUBROUTINE SUBDOMAIN
+
+    SUBROUTINE SUB(X, NPOINTS)
+        INCLUDE &quot;omp_lib.h&quot; ! or USE OMP_LIB
+
+        REAL X(0:99)
+        INTEGER NPOINTS
+        INTEGER IAM, NT, IPOINTS, ISTART
+
+!$OMP PARALLEL DEFAULT(PRIVATE) SHARED(X,NPOINTS)
+
+        IAM = OMP_GET_THREAD_NUM()
+        NT = OMP_GET_NUM_THREADS()
+        IPOINTS = NPOINTS/NT
+        ISTART = IAM * IPOINTS
+        IF (IAM .EQ. NT-1) THEN
+            IPOINTS = NPOINTS - ISTART
+        ENDIF
+        CALL SUBDOMAIN(X,ISTART,IPOINTS)
+
+!$OMP END PARALLEL
+    END SUBROUTINE SUB
+    
+    SUBROUTINE print(X, NPOINTS)
+        INTEGER I
+        REAL X(0:99)
+        INTEGER NPOINTS
+        DO I = 0,NPOINTS-1
+            WRITE(*,&#39;(1x,f9.5,$)&#39;) X(I)
+        END DO
+    END SUBROUTINE PRINT
+
+    PROGRAM PAREXAMPLE
+        REAL ARRAY(100)
+        CALL SUB(ARRAY, 100)
+        CALL PRINT(ARRAY, 100)
+    END PROGRAM PAREXAMPLE
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.00000   1.00000   2.00000   3.00000   4.00000   5.00000   6.00000   7.00000   8.00000   9.00000  10.00000  11.00000  12.00000  13.00000  14.00000  15.00000  16.00000  17.00000  18.00000  19.00000  20.00000  21.00000  22.00000  23.00000  24.00000  25.00000  26.00000  27.00000  28.00000  29.00000  30.00000  31.00000  32.00000  33.00000  34.00000  35.00000  36.00000  37.00000  38.00000  39.00000  40.00000  41.00000  42.00000  43.00000  44.00000  45.00000  46.00000  47.00000  48.00000  49.00000  50.00000  51.00000  52.00000  53.00000  54.00000  55.00000  56.00000  57.00000  58.00000  59.00000  60.00000  61.00000  62.00000  63.00000  64.00000  65.00000  66.00000  67.00000  68.00000  69.00000  70.00000  71.00000  72.00000  73.00000  74.00000  75.00000  76.00000  77.00000  78.00000  79.00000  80.00000  81.00000  82.00000  83.00000  84.00000  85.00000  86.00000  87.00000  88.00000  89.00000  90.00000  91.00000  92.00000  93.00000  94.00000  95.00000  96.00000  97.00000  98.00000  99.00000
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="clauses">
