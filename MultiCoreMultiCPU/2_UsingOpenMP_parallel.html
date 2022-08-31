@@ -588,6 +588,14 @@ The following example shows how to use the num_threads clause in the parallel di
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World
+Hello World
+Hello World
+Hello World
+</pre></div>
+</div>
+</div>
 </div>
 <p>In this example, we use the <strong>num_threads</strong> clause to specify the use of 4 threads to execute the parallel region. When the master thread encounters OpenMP constructs, three threads are created, and together with these three threads, a thread group of 4 is formed.
 <em>Hello World</em> is printed four times, once per thread.</p>
