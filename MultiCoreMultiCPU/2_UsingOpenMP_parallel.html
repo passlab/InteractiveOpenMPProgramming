@@ -521,6 +521,42 @@ title="Print to PDF"
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copyin-clause">
+     2.2.2.4.
+     <strong>
+      copyin
+     </strong>
+     Clause
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reduction-clause">
+     2.2.2.5.
+     <strong>
+      reduction
+     </strong>
+     Clause
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proc-bind-clause">
+     2.2.2.6.
+     <strong>
+      proc_bind
+     </strong>
+     Clause
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#allocate-clause">
+     2.2.2.7.
+     <strong>
+      allocate
+     </strong>
+     Clause
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -639,6 +675,42 @@ title="Print to PDF"
       </a>
      </li>
     </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copyin-clause">
+     2.2.2.4.
+     <strong>
+      copyin
+     </strong>
+     Clause
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reduction-clause">
+     2.2.2.5.
+     <strong>
+      reduction
+     </strong>
+     Clause
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proc-bind-clause">
+     2.2.2.6.
+     <strong>
+      proc_bind
+     </strong>
+     Clause
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#allocate-clause">
+     2.2.2.7.
+     <strong>
+      allocate
+     </strong>
+     Clause
+    </a>
    </li>
   </ul>
  </li>
@@ -814,7 +886,7 @@ Hello World
 [!$omp end parallel do]
 </pre></div>
 </div>
-<p>We used the <strong>num_threads</strong> clause in the previous example to indicate the number of threads used to execute parallel regions. As we have already introduced in chapter 1, clauses are used to specify additional information with the directive.
+<p>As we have already introduced in chapter 1, clauses are used to specify additional information with the directive.
 Ten clauses can be used with the <strong>parallel</strong> directive, listing as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">([</span> <span class="n">parallel</span> <span class="p">:]</span> <span class="n">scalar</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
 <span class="n">num_threads</span><span class="p">(</span><span class="n">integer</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
@@ -846,7 +918,8 @@ Ten clauses can be used with the <strong>parallel</strong> directive, listing as
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_threads</span><span class="p">(</span><span class="n">integer</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>It is used to explicitly set the number of threads used by the parallel region. The number of threads in the parallel region is determined by <em>integer-expression</em>. At most one <strong>num_threads</strong> clause can be used in each parallel construct. Because the number of threads used must be uniquely determined when entering the parallel region， whether explicitly specified by the programmer using <strong>num_threads</strong> clause or implicitly specified by the compiler. Of course, the <em>scaler-expression</em> must be an integer greater than zero.</p>
+<p>We used the <strong>num_threads</strong> clause in the previous example to indicate the number of threads used to execute parallel regions.
+The number of threads in the parallel region is determined by <em>integer-expression</em>. At most one <strong>num_threads</strong> clause can be used in each parallel construct. Because the number of threads used must be uniquely determined when entering the parallel region， whether explicitly specified by the programmer using <strong>num_threads</strong> clause or implicitly specified by the compiler. Of course, the <em>scaler-expression</em> must be an integer greater than zero.</p>
 </section>
 <section id="data-sharing-attribute-clauses">
 <h3><span class="section-number">2.2.2.3. </span>Data-Sharing Attribute Clauses<a class="headerlink" href="#data-sharing-attribute-clauses" title="Permalink to this headline">#</a></h3>
@@ -909,6 +982,29 @@ equals to : we have clause <strong>shared(a)</strong> <br />
 <p>You may ask, if the <strong>default</strong> clause is not used, what data-sharing attribute is the variable that is not explicitly listed in other clauses? In fact, OpenMP defines a set of implicit scope rules. It determines the data-sharing attribute of a variable based on the characteristics of the variable being accessed. For example, for threads in a group, a variable is scoped to <em>shared</em> if using this variable in the parallel region does not result in a data race condition. A variable is scoped to <em>private</em> if, in each thread executing the parallel region, the variable is always written before being read by the same thread. The detailed rules can be found in the OpenMP specification.</p>
 <p>Although OpenMP proposes as detailed and explicit rules as possible for implicit scoping, there is still a high possibility of unpredictable errors. Therefore, it is undoubtedly the best choice for programmers to use clauses to explicitly specify the data-sharing attributes of variables. This is an important aspect of OpenMP program optimization.</p>
 </section>
+</section>
+<section id="copyin-clause">
+<h3><span class="section-number">2.2.2.4. </span><strong>copyin</strong> Clause<a class="headerlink" href="#copyin-clause" title="Permalink to this headline">#</a></h3>
+<p>The <strong>copyin</strong> clause is the one of two data copying clauses that can be used on the <strong>parallel</strong> construct or combined parallel worksharing constructs. The other one is the <strong>copyprivate</strong> clause which is only allowed on the <strong>single</strong> construct.</p>
+<p>Before introducing these two clauses, we need to introduce a new data-sharing attribute, named <em>threadprivate</em>. The difference between private variables and thread private variables can be briefly described as follows:</p>
+<ul class="simple">
+<li><p>Private variables are local to a region and are placed on the stack most of the time. The lifetime of a private variable is the duration defined by the data scope clause. Every thread, including the main thread, makes a private copy of the original variable, and the new variable is no longer storage-associated to the original.</p></li>
+<li><p>Threadprivate variables are persist across regions, most likely to be placed in the heap or in thread-local storage, which can be seen as being stored in a local memory local to the thread. The main thread uses the original variable and other threads make private copies of the original variable. The host variable is still store-associated with the original variable.</p></li>
+</ul>
+<p>The syntax of the <strong>copyin</strong> Clause is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">copyin</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It can copy the value of the main thread’s threadprivate variable into the threadprivate variable of every other member in the team that is executing the parallel region.</p>
+</section>
+<section id="reduction-clause">
+<h3><span class="section-number">2.2.2.5. </span><strong>reduction</strong> Clause<a class="headerlink" href="#reduction-clause" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="proc-bind-clause">
+<h3><span class="section-number">2.2.2.6. </span><strong>proc_bind</strong> Clause<a class="headerlink" href="#proc-bind-clause" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="allocate-clause">
+<h3><span class="section-number">2.2.2.7. </span><strong>allocate</strong> Clause<a class="headerlink" href="#allocate-clause" title="Permalink to this headline">#</a></h3>
 </section>
 </section>
 <section id="more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">
