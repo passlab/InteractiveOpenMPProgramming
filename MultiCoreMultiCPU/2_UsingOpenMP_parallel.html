@@ -457,12 +457,20 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#if-clause">
-     2.2.2.1. if clause
+     2.2.2.1.
+     <strong>
+      if
+     </strong>
+     Clause
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#num-threads-clause">
-     2.2.2.2. num_threads clause
+     2.2.2.2.
+     <strong>
+      num_threads
+     </strong>
+     Clause
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -472,17 +480,43 @@ title="Print to PDF"
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#private-clause">
-       2.2.2.3.1. private clause
+       2.2.2.3.1.
+       <strong>
+        private
+       </strong>
+       Clause
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#firstprivate-clause">
+       2.2.2.3.2.
+       <strong>
+        firstprivate
+       </strong>
+       Clause
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#shared-clause">
+       2.2.2.3.3.
+       <strong>
+        shared
+       </strong>
+       Clause
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#default-clause">
-       2.2.2.3.2. default clause
+       2.2.2.3.4.
+       <strong>
+        default
+       </strong>
+       Clause
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       2.2.2.3.3. private clause
+      <a class="reference internal nav-link" href="#implicit-scoping-rules">
+       2.2.2.3.5. Implicit Scoping Rules
       </a>
      </li>
     </ul>
@@ -495,7 +529,7 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#id1">
    2.2.4.
    <em>
     if
@@ -542,12 +576,20 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#if-clause">
-     2.2.2.1. if clause
+     2.2.2.1.
+     <strong>
+      if
+     </strong>
+     Clause
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#num-threads-clause">
-     2.2.2.2. num_threads clause
+     2.2.2.2.
+     <strong>
+      num_threads
+     </strong>
+     Clause
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -557,17 +599,43 @@ title="Print to PDF"
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#private-clause">
-       2.2.2.3.1. private clause
+       2.2.2.3.1.
+       <strong>
+        private
+       </strong>
+       Clause
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#firstprivate-clause">
+       2.2.2.3.2.
+       <strong>
+        firstprivate
+       </strong>
+       Clause
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#shared-clause">
+       2.2.2.3.3.
+       <strong>
+        shared
+       </strong>
+       Clause
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#default-clause">
-       2.2.2.3.2. default clause
+       2.2.2.3.4.
+       <strong>
+        default
+       </strong>
+       Clause
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       2.2.2.3.3. private clause
+      <a class="reference internal nav-link" href="#implicit-scoping-rules">
+       2.2.2.3.5. Implicit Scoping Rules
       </a>
      </li>
     </ul>
@@ -580,7 +648,7 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#id1">
    2.2.4.
    <em>
     if
@@ -638,16 +706,12 @@ Hello World
 Hello World
 Hello World
 Hello World
-Hello World
-Hello World
-Hello World
-Hello World
 </pre></div>
 </div>
 </div>
 </div>
 <p>This example prints <em>Hello World</em> 8 times, which means 8 threads are created by default. The default number of threads is determined by the computer hardware, 8 threads are created on the author’s computer.
-The following example shows how to use the num_threads clause in the parallel directive to specify the number of threads to create.</p>
+The following example shows how to use the <strong>num_threads</strong> clause in the parallel directive to specify the number of threads to create.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
@@ -705,10 +769,6 @@ Hello World
  Hello World
  Hello World
  Hello World
- Hello World
- Hello World
- Hello World
- Hello World
 </pre></div>
 </div>
 </div>
@@ -754,8 +814,8 @@ Hello World
 [!$omp end parallel do]
 </pre></div>
 </div>
-<p>We used the <em>num_threads</em> clause in the above example to indicate the number of threads used to execute parallel regions. As we have already introduced in chapter 1, clauses are used to specify additional information with the directive.
-Ten clauses can be used with the <strong>parallel</strong> directive, which are if, num_threads, default, private, firstprivate, shared, copyin, reduction, proc_bind and allocate.</p>
+<p>We used the <strong>num_threads</strong> clause in the previous example to indicate the number of threads used to execute parallel regions. As we have already introduced in chapter 1, clauses are used to specify additional information with the directive.
+Ten clauses can be used with the <strong>parallel</strong> directive, listing as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">([</span> <span class="n">parallel</span> <span class="p">:]</span> <span class="n">scalar</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
 <span class="n">num_threads</span><span class="p">(</span><span class="n">integer</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
 <span class="n">default</span><span class="p">(</span><span class="n">data</span><span class="o">-</span><span class="n">sharing</span><span class="o">-</span><span class="n">attribute</span><span class="p">)</span>
@@ -769,8 +829,8 @@ Ten clauses can be used with the <strong>parallel</strong> directive, which are 
 </pre></div>
 </div>
 <section id="if-clause">
-<h3><span class="section-number">2.2.2.1. </span>if clause<a class="headerlink" href="#if-clause" title="Permalink to this headline">#</a></h3>
-<p><em>if</em> clause can achieve conditional parallelism, it can be used with many directives, such as <strong>parallel</strong>, <strong>task</strong>, <strong>simd</strong>, etc., its effect depends on the construct to which it is applied . Its syntax is as follows:</p>
+<h3><span class="section-number">2.2.2.1. </span><strong>if</strong> Clause<a class="headerlink" href="#if-clause" title="Permalink to this headline">#</a></h3>
+<p>The <strong>if</strong> clause is used to achieve conditional parallelism. It can be used with many directives, such as <strong>parallel</strong> directive, <strong>task</strong> directive, <strong>simd</strong> directive, etc. Its effect depends on the construct to which it is applied. The syntax is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">([</span> <span class="n">directive</span><span class="o">-</span><span class="n">name</span><span class="o">-</span><span class="n">modifier</span> <span class="p">:]</span> <span class="n">scalar</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -778,49 +838,84 @@ Ten clauses can be used with the <strong>parallel</strong> directive, which are 
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">([</span> <span class="n">directive</span><span class="o">-</span><span class="n">name</span><span class="o">-</span><span class="n">modifier</span> <span class="p">:]</span> <span class="n">scalar</span><span class="o">-</span><span class="n">logical</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The directive-name-modifier is optional and is very useful in combined constructs, which we will cover later. When the if claue is used with the parallel directive, only parallel can be used as the directive-name-modifier. Its semantics are that the parallel region is active when the scaler-expression or scalar-logical-expression is true, otherwise the parallel region that follows will be inactive.</p>
+<p>The <em>directive-name-modifier</em> is optional and is very useful in combined constructs, which we will cover in the later chapters. When the <strong>if</strong> claue is used with the <strong>parallel</strong> directive, only <em>parallel</em> can be used as the <em>directive-name-modifier</em>. Its semantics are that the parallel region is active when the <em>scaler-expression</em> or <em>scalar-logical-expression</em> is true, otherwise the parallel region that follows will be inactive. At most one <strong>if</strong> clause can be used in each parallel construct.</p>
 </section>
 <section id="num-threads-clause">
-<h3><span class="section-number">2.2.2.2. </span>num_threads clause<a class="headerlink" href="#num-threads-clause" title="Permalink to this headline">#</a></h3>
-<p>The syntax for <em>num_threads</em> is as follows:</p>
+<h3><span class="section-number">2.2.2.2. </span><strong>num_threads</strong> Clause<a class="headerlink" href="#num-threads-clause" title="Permalink to this headline">#</a></h3>
+<p>The syntax for <strong>num_threads</strong> is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_threads</span><span class="p">(</span><span class="n">integer</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>It is used to explicitly set the number of threads used by the parallel region. The number of threads in the parallel region is determined by integer-expression.</p>
+<p>It is used to explicitly set the number of threads used by the parallel region. The number of threads in the parallel region is determined by <em>integer-expression</em>. At most one <strong>num_threads</strong> clause can be used in each parallel construct. Because the number of threads used must be uniquely determined when entering the parallel region， whether explicitly specified by the programmer using <strong>num_threads</strong> clause or implicitly specified by the compiler. Of course, the <em>scaler-expression</em> must be an integer greater than zero.</p>
 </section>
 <section id="data-sharing-attribute-clauses">
 <h3><span class="section-number">2.2.2.3. </span>Data-Sharing Attribute Clauses<a class="headerlink" href="#data-sharing-attribute-clauses" title="Permalink to this headline">#</a></h3>
-<p>There are four Data-Sharing Attribute Clauses that can be used with the parallel directive, namely default clause, private clause, firstprivate clause and shared clause. Data-Sharing Attribute Clauses are used to control the data-sharing attributes of variables.</p>
-<p>We first introduce the private clause, firstprivate clause and shared clause, which represent three data-sharing attributes of the variables respectively.</p>
+<p>Data-sharing attribute clauses are used to control the data-sharing attributes of variables.</p>
+<p>There are four data-sharing attribute clauses that can be used with the <strong>parallel</strong> directive, namely <strong>default</strong> clause, <strong>private</strong> clause, <strong>firstprivate</strong> clause and <strong>shared</strong> clause. The <strong>lastprivate</strong> clause and <strong>linear</strong> clause are two other data-sharing attribute clauses. They cannot be used with <strong>parallel</strong> directives, so we will skip them for now and describe them in detail in later chapters.</p>
+<p>We first introduce the <strong>private</strong> clause, <strong>firstprivate</strong> clause and <strong>shared</strong> clause.</p>
 <section id="private-clause">
-<h4><span class="section-number">2.2.2.3.1. </span>private clause<a class="headerlink" href="#private-clause" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">2.2.2.3.1. </span><strong>private</strong> Clause<a class="headerlink" href="#private-clause" title="Permalink to this headline">#</a></h4>
+<p>The syntax of the <strong>private</strong> clause is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">private</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As mentioned before, a set of implicit tasks, equal in number to the number of threads in the team, is generated by the master thread when it encountering the parallel region.
+The <strong>private</strong> caluse is used to declare private variable(s) in the <em>list</em> for a task or a SIMD lane. A private variable has a different address in the execution context of every thread. These variables are private to threads, and threads cannot access private variables owned by other threads. Programmers can use the <strong>private</strong> clause as many times as needed.</p>
+</section>
+<section id="firstprivate-clause">
+<h4><span class="section-number">2.2.2.3.2. </span><strong>firstprivate</strong> Clause<a class="headerlink" href="#firstprivate-clause" title="Permalink to this headline">#</a></h4>
+<p>The <strong>firstprivate</strong> clause is very similar to the <strong>private</strong> clause. They both indicate that the variables in the <em>list</em> are private to the thread. Its syntax is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">firstprivate</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But unlike the <strong>private</strong> clause, the variables in the <em>list</em> are initialized to the initial value that the original item had in the serial area. Like <strong>private</strong> clause, the <strong>firstprivate</strong> clause can be used multiple times in the parallel construct.</p>
+</section>
+<section id="shared-clause">
+<h4><span class="section-number">2.2.2.3.3. </span><strong>shared</strong> Clause<a class="headerlink" href="#shared-clause" title="Permalink to this headline">#</a></h4>
+<p>The <strong>shared</strong> clause is used to declare that one or more items in the <em>list</em> can be shared by tasks or SIMD lane. Its syntax is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shared</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Shared variables have the same address in the execution context of every thread. In a parallel region, all threads or SIMD lanes can access these variables. The <strong>shared</strong> clause can also be used multiple times within a parallel struct.</p>
 </section>
 <section id="default-clause">
-<h4><span class="section-number">2.2.2.3.2. </span>default clause<a class="headerlink" href="#default-clause" title="Permalink to this headline">#</a></h4>
-<p>The syntax of <em>default</em> clause：</p>
+<h4><span class="section-number">2.2.2.3.4. </span><strong>default</strong> Clause<a class="headerlink" href="#default-clause" title="Permalink to this headline">#</a></h4>
+<p>The syntax of <strong>default</strong> clause：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default</span><span class="p">(</span><span class="n">data</span><span class="o">-</span><span class="n">sharing</span><span class="o">-</span><span class="n">attribute</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The default clause is used to define the default data-sharing attributes of variables that are referenced in a parallel, teams, or task-generating construct.
-The data-sharing-attribute is one of the following:</p>
+<p>The <strong>default</strong> clause is used to define the default data-sharing attribute of variables in a parallel construct(it also can be used in a teams, or task-generating construct).
+The <em>data-sharing-attribute</em> is one of the following:</p>
 <blockquote>
-<div><p>shared <br />
+<div><p>private <br />
 firstprivate <br />
-private <br />
+shared <br />
 none</p>
 </div></blockquote>
+<p>When the data-sharing attribute of a variable is not specified, the data-sharing attribute of this variable will be set to the attribute specified in the <strong>default</strong> clause. If we have a variable <em>a</em> and the <em>data-sharing-attribute</em> in the <strong>default</strong> clause is <em>shared</em>, then we can understand it like this:</p>
+<blockquote>
+<div><p>if(variable <em>a</em> is not assigned data-sharing attribute &amp;&amp; we have clause <strong>default(shared)</strong>) { <br />
+equals to : we have clause <strong>shared(a)</strong> <br />
+}</p>
+</div></blockquote>
+<p>A special note for the <strong>default(none)</strong> clause:</p>
+<blockquote>
+<div><p>The <strong>default(none)</strong> clause means that we do not define any data-sharing attribute for variables. The compiler does not implicitly define this for us, therefore, the variables need to be listed explicitly in other data-sharing attribute clauses.</p>
+</div></blockquote>
+<p>Unlike the above three clauses, <strong>default</strong> clause can only appear once in a directive.</p>
 </section>
-<section id="id1">
-<h4><span class="section-number">2.2.2.3.3. </span>private clause<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<section id="implicit-scoping-rules">
+<h4><span class="section-number">2.2.2.3.5. </span>Implicit Scoping Rules<a class="headerlink" href="#implicit-scoping-rules" title="Permalink to this headline">#</a></h4>
+<p>You may ask, if the <strong>default</strong> clause is not used, what data-sharing attribute is the variable that is not explicitly listed in other clauses? In fact, OpenMP defines a set of implicit scope rules. It determines the data-sharing attribute of a variable based on the characteristics of the variable being accessed. For example, for threads in a group, a variable is scoped to <em>shared</em> if using this variable in the parallel region does not result in a data race condition. A variable is scoped to <em>private</em> if, in each thread executing the parallel region, the variable is always written before being read by the same thread. The detailed rules can be found in the OpenMP specification.</p>
+<p>Although OpenMP proposes as detailed and explicit rules as possible for implicit scoping, there is still a high possibility of unpredictable errors. Therefore, it is undoubtedly the best choice for programmers to use clauses to explicitly specify the data-sharing attributes of variables. This is an important aspect of OpenMP program optimization.</p>
 </section>
 </section>
 </section>
 <section id="more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">
 <h2><span class="section-number">2.2.3. </span>More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement<a class="headerlink" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement" title="Permalink to this headline">#</a></h2>
 </section>
-<section id="id2">
-<h2><span class="section-number">2.2.4. </span><em>if</em> clause<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<p><em>if</em> clause可以实现有条件的并行，它可以跟很多directives一起使用，例如<strong>parallel</strong>，<strong>task</strong>， <strong>simd</strong>等，，我们会在后面的章节中慢慢介绍，在此我们介绍当</p>
+<section id="id1">
+<h2><span class="section-number">2.2.4. </span><em>if</em> clause<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>//在CPU上，决定性能的因素有很多，回忆在上个章节中提到的能够改善性能的因素，</p>
 <ul class="simple">
 <li><p>Thread load balancing</p></li>
@@ -963,16 +1058,6 @@ The <strong>private</strong> clause is used to explicitly specify variables that
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  
-   0.00000   1.00000   2.00000   3.00000   4.00000   5.00000   6.00000   7.00000   8.00000   9.00000  
-  10.00000  11.00000  12.00000  13.00000  14.00000  15.00000  16.00000  17.00000  18.00000  19.00000  
-  20.00000  21.00000  22.00000  23.00000  24.00000  25.00000  26.00000  27.00000  28.00000  29.00000  
-  30.00000  31.00000  32.00000  33.00000  34.00000  35.00000  36.00000  37.00000  38.00000  39.00000  
-  40.00000  41.00000  42.00000  43.00000  44.00000  45.00000  46.00000  47.00000  48.00000  49.00000  
-  50.00000  51.00000  52.00000  53.00000  54.00000  55.00000  56.00000  57.00000  58.00000  59.00000  
-  60.00000  61.00000  62.00000  63.00000  64.00000  65.00000  66.00000  67.00000  68.00000  69.00000  
-  70.00000  71.00000  72.00000  73.00000  74.00000  75.00000  76.00000  77.00000  78.00000  79.00000  
-  80.00000  81.00000  82.00000  83.00000  84.00000  85.00000  86.00000  87.00000  88.00000  89.00000  
-  90.00000  91.00000  92.00000  93.00000  94.00000  95.00000  96.00000  97.00000  98.00000  99.00000
 </pre></div>
 </div>
 </div>
