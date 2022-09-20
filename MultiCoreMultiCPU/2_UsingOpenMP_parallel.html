@@ -966,11 +966,11 @@ shared <br />
 none</p>
 </div></blockquote>
 <p>When the data-sharing attribute of a variable is not specified, the data-sharing attribute of this variable will be set to the attribute specified in the <strong>default</strong> clause. If we have a variable <em>a</em> and the <em>data-sharing-attribute</em> in the <strong>default</strong> clause is <em>shared</em>, then we can understand it like this:</p>
-<blockquote>
-<div><p>if(variable <em>a</em> is not assigned data-sharing attribute &amp;&amp; we have clause <strong>default(shared)</strong>) { <br />
-equals to : we have clause <strong>shared(a)</strong> <br />
-}</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">variable</span> <span class="n">a</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">assigned</span> <span class="n">data</span><span class="o">-</span><span class="n">sharing</span> <span class="n">attribute</span> <span class="o">&amp;&amp;</span> <span class="n">we</span> <span class="n">have</span> <span class="n">clause</span> <span class="n">default</span><span class="p">(</span><span class="n">shared</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">equals</span> <span class="n">to</span> <span class="p">:</span> <span class="n">we</span> <span class="n">have</span> <span class="n">clause</span> <span class="n">shared</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>A special note for the <strong>default(none)</strong> clause:</p>
 <blockquote>
 <div><p>The <strong>default(none)</strong> clause means that we do not define any data-sharing attribute for variables. The compiler does not implicitly define this for us, therefore, the variables need to be listed explicitly in other data-sharing attribute clauses.</p>
