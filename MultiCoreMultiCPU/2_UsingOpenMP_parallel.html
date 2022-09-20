@@ -999,6 +999,142 @@ equals to : we have clause <strong>shared(a)</strong> <br />
 </section>
 <section id="reduction-clause">
 <h3><span class="section-number">2.2.2.5. </span><strong>reduction</strong> Clause<a class="headerlink" href="#reduction-clause" title="Permalink to this headline">#</a></h3>
+<p>The <strong>reduction</strong> clause belongs to the <em>reduction scoping clauses</em> and the <em>reduction participating clauses</em>. The <em>reduction scoping clauses</em> define the region of a reduction computed by a task or a SIMD lane. The <em>reduction participating clauses</em> are used to define a task or SIMD channel as a reduction participant. The <strong>reduction</strong> clause is specifically designed for reduction operations, and it allows the user to specify one or more thread-private variables that accept reduction operation at the end of the parallel region.</p>
+<p>The syntax of the <strong>reduction</strong> clause is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reduction</span><span class="p">([</span> <span class="n">reduction</span><span class="o">-</span><span class="n">modifier</span><span class="p">,]</span><span class="n">reduction</span><span class="o">-</span><span class="n">identifier</span> <span class="p">:</span> <span class="nb">list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <em>reduction-modifier</em> is optional and is used to describe the characteristics of the reduction operation. It can be one of the following:</p>
+<blockquote>
+<div><p>inscan <br />
+task <br />
+default</p>
+</div></blockquote>
+<p>When the <em>reduction-modifier</em> is <em>inscan</em>, the list items on each iteration of a loop nest will be updated with scan computation.
+When <em>inscan</em> is used, one list item must be as a list item in an <strong>inclusive</strong> or <strong>exclusive</strong> clause on a <strong>scan</strong> directive enclosed by the construct.
+It separates the items in the list from the reduction operations, and decides whether the storage statement includes or excludes the scan input of the present iteration.</p>
+<p>When the <em>reduction-modifier</em> is <em>task</em>, an indeterminate number of additional private copies will be generated to support task reduction, and these reduction-related copies will be initialized before they are accessed by the tasks.</p>
+<p>When <em>reduction-modifier</em> is <em>default</em> or when no <em>reduction-modifier</em> is specified, the behavior will be relative to the construct in which the reduction is located. For <strong>parallel</strong>, <strong>scope</strong> and <strong>simd</strong> construcrs, one or more private copies of each list item are created for each implicit task (for <strong>parallel</strong> and <strong>scope</strong>) or SIMD lane (for <strong>simd</strong>), as if the <strong>private</strong> clause had been used. Some other rules for other constructs can be found in the OpenMP specification and we will not go into details here.</p>
+<p>The <em>reduction-identifier</em> is used to specify the reduction operator.
+According to the OpenMP specification, the <em>reduction-identifier</em> has the following syntax:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>For C language，a <em>reduction-identifier</em> is either an identifier or one of the following operators: +, - (deprecated), *, &amp;, |, ^, &amp;&amp; and ||.</p></li>
+<li><p>For C++, a <em>reduction-identifier</em> is either an id-expression or one of the following operators: +, - (deprecated), *, &amp;, |, ^, &amp;&amp; and ||.</p></li>
+<li><p>For Fortran， a <em>reduction-identifier</em> is either a base language identifier, or a user-defined operator, or one of the following operators: +, - (deprecated), *, .and., .or., .eqv., .neqv., or one of the following intrinsic procedure names: max, min, iand, ior, ieor.</p></li>
+</ul>
+</div></blockquote>
+<p>The following two tables, also from the OpenMP specification, show implicitly declared reduction-identifiers for numeric and logical types, including the initial value settings, and semantics for the reduction-identifiers.</p>
+<p>For C/C++:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Identifier</p></th>
+<th class="head"><p>Initializer</p></th>
+<th class="head"><p>Combiner</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>+</p></td>
+<td><p>omp_priv = 0</p></td>
+<td><p>omp_out += omp_in</p></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>omp_priv = 0</p></td>
+<td><p>omp_out += omp_in</p></td>
+</tr>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>omp_priv = 1</p></td>
+<td><p>omp_out *= omp_in</p></td>
+</tr>
+<tr class="row-odd"><td><p>&amp;</p></td>
+<td><p>omp_priv = ~ 0</p></td>
+<td><p>omp_out &amp;= omp_in</p></td>
+</tr>
+<tr class="row-even"><td><p>|</p></td>
+<td><p>omp_priv = 0</p></td>
+<td><p>omp_out |= omp_in</p></td>
+</tr>
+<tr class="row-odd"><td><p>^</p></td>
+<td><p>omp_priv = 0</p></td>
+<td><p>omp_out ^= omp_in</p></td>
+</tr>
+<tr class="row-even"><td><p>&amp;&amp;</p></td>
+<td><p>omp_priv = 1</p></td>
+<td><p>omp_out = omp_in &amp;&amp; omp_out</p></td>
+</tr>
+<tr class="row-odd"><td><p>||</p></td>
+<td><p>omp_priv = 0</p></td>
+<td><p>omp_out = omp_in</p></td>
+</tr>
+<tr class="row-even"><td><p>max</p></td>
+<td><p>omp_priv = Minimal representable number in the reduction list item type</p></td>
+<td><p>omp_out = omp_in &gt; omp_out ? omp_in : omp_out</p></td>
+</tr>
+<tr class="row-odd"><td><p>min</p></td>
+<td><p>omp_priv = Maximal representable number in the reduction list item type</p></td>
+<td><p>omp_out = omp_in &lt; omp_out ? omp_in : omp_out</p></td>
+</tr>
+</tbody>
+</table>
+<p>For Fortran：</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Identifier</p></th>
+<th class="head"><p>Initializer</p></th>
+<th class="head"><p>Combiner</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>+</p></td>
+<td><p>omp_priv = 0</p></td>
+<td><p>omp_out = omp_in + omp_out</p></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>omp_priv = 0</p></td>
+<td><p>omp_out = omp_in + omp_out</p></td>
+</tr>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>omp_priv = 1</p></td>
+<td><p>omp_out = omp_in * omp_out</p></td>
+</tr>
+<tr class="row-odd"><td><p>.and.</p></td>
+<td><p>omp_priv = .true.</p></td>
+<td><p>omp_out = omp_in .and. omp_out</p></td>
+</tr>
+<tr class="row-even"><td><p>.or.</p></td>
+<td><p>omp_priv = .false.</p></td>
+<td><p>omp_out = omp_in .or. omp_out</p></td>
+</tr>
+<tr class="row-odd"><td><p>.eqv.</p></td>
+<td><p>omp_priv = .true.</p></td>
+<td><p>omp_out = omp_in .eqv. omp_out</p></td>
+</tr>
+<tr class="row-even"><td><p>.neqv.</p></td>
+<td><p>omp_priv = .false.</p></td>
+<td><p>omp_out = omp_in .neqv. omp_out</p></td>
+</tr>
+<tr class="row-odd"><td><p>max</p></td>
+<td><p>omp_priv = Minimal representable number in the reduction list item type</p></td>
+<td><p>omp_out = max(omp_in, omp_out)</p></td>
+</tr>
+<tr class="row-even"><td><p>min</p></td>
+<td><p>omp_priv = Maximal representable number in the reduction list item type</p></td>
+<td><p>omp_out = min(omp_in, omp_out)</p></td>
+</tr>
+<tr class="row-odd"><td><p>iand</p></td>
+<td><p>omp_priv = All bits on</p></td>
+<td><p>omp_out = iand(omp_in, omp_out)</p></td>
+</tr>
+<tr class="row-even"><td><p>ior</p></td>
+<td><p>omp_priv = 0</p></td>
+<td><p>omp_out = ior(omp_in, omp_out)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ieor</p></td>
+<td><p>omp_priv = 0</p></td>
+<td><p>omp_out = ieor(omp_in, omp_out)</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="proc-bind-clause">
 <h3><span class="section-number">2.2.2.6. </span><strong>proc_bind</strong> Clause<a class="headerlink" href="#proc-bind-clause" title="Permalink to this headline">#</a></h3>
