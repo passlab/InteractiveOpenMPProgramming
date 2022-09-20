@@ -1017,13 +1017,11 @@ It separates the items in the list from the reduction operations, and decides wh
 <p>When <em>reduction-modifier</em> is <em>default</em> or when no <em>reduction-modifier</em> is specified, the behavior will be relative to the construct in which the reduction is located. For <strong>parallel</strong>, <strong>scope</strong> and <strong>simd</strong> construcrs, one or more private copies of each list item are created for each implicit task (for <strong>parallel</strong> and <strong>scope</strong>) or SIMD lane (for <strong>simd</strong>), as if the <strong>private</strong> clause had been used. Some other rules for other constructs can be found in the OpenMP specification and we will not go into details here.</p>
 <p>The <em>reduction-identifier</em> is used to specify the reduction operator.
 According to the OpenMP specification, the <em>reduction-identifier</em> has the following syntax:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>For C language，a <em>reduction-identifier</em> is either an identifier or one of the following operators: +, - (deprecated), *, &amp;, |, ^, &amp;&amp; and ||.</p></li>
 <li><p>For C++, a <em>reduction-identifier</em> is either an id-expression or one of the following operators: +, - (deprecated), *, &amp;, |, ^, &amp;&amp; and ||.</p></li>
 <li><p>For Fortran， a <em>reduction-identifier</em> is either a base language identifier, or a user-defined operator, or one of the following operators: +, - (deprecated), *, .and., .or., .eqv., .neqv., or one of the following intrinsic procedure names: max, min, iand, ior, ieor.</p></li>
 </ul>
-</div></blockquote>
 <p>The following two tables, also from the OpenMP specification, show implicitly declared reduction-identifiers for numeric and logical types, including the initial value settings, and semantics for the reduction-identifiers.</p>
 <p>For C/C++:</p>
 <table class="colwidths-auto table">
