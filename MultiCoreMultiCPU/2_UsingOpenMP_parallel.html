@@ -1136,9 +1136,32 @@ According to the OpenMP specification, the <em>reduction-identifier</em> has the
 </section>
 <section id="proc-bind-clause">
 <h3><span class="section-number">2.2.2.6. </span><strong>proc_bind</strong> Clause<a class="headerlink" href="#proc-bind-clause" title="Permalink to this headline">#</a></h3>
+<p>The <strong>proc_bind</strong> clause is used to specify a mapping of OpenMP threads to places within the current place partition for implicit tasks of the encountering threads. Its syntax is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proc_bind</span><span class="p">(</span><span class="n">affinity</span><span class="o">-</span><span class="n">policy</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>and the <em>affinity-policy</em> is one of the following：</p>
+<blockquote>
+<div><p>primary <br />
+master [deprecated] <br />
+close  <br />
+spread</p>
+</div></blockquote>
+<p>When <em>affinity-policy</em> is specified as <em>primary</em>, it means that the execution environment assigns each thread in the group to the same location as the primary thread.
+The <em>master</em> affinity policy has been deprecated, it has identical semantics as <em>prime</em>.</p>
+<p>The <em>close</em> thread affinity policy instructs the execution environment to assign threads in the group closer to the parent thread’s location. When the number of threads <strong>P</strong> in the group is less than the number of locations <strong>P</strong> in the partition where the parent thread is located, each thread will be assigned one place, otherwise, <strong>T/P</strong> threads will be assigned to one place. When <strong>P</strong> does not divide <strong>T</strong> equally, the exact number of threads at a particular place is implementation-defined. The principle of allocation is that the thread number with the thread with the smallest thread number is executed at the position of the parent thread, and then the threads are allocated backward in the order of increasing thread number, and wrap-around with respect to the place partition of the primary thread.</p>
+<p>The <em>spread</em> thread affinity policy is to create <strong>P</strong> sub-partitions in the parent partition and distribute the threads in these sub-partitions, thus achieving a sparse distribution.
+When the number of threads is equal to or less than <strong>P</strong>, the number of sub-partitions is equal to the number of threads <strong>T</strong>, and the threads are distributed in the first position of each partition in order of thread number from small to large. Conversely, when the number of threads is greater than <strong>P</strong>, <strong>T/P</strong> threads with consecutive thread numbers are allocated to each sub-partition.
+Sorted by thread number, the first <strong>T/P</strong> threads are allocated in the subpartition that contains the place of the parent thread. The remaining thread groups are allocated backward in turn, with a wrap-around with respect to the original place partition of the primary thread.</p>
 </section>
 <section id="allocate-clause">
 <h3><span class="section-number">2.2.2.7. </span><strong>allocate</strong> Clause<a class="headerlink" href="#allocate-clause" title="Permalink to this headline">#</a></h3>
+<p>The <strong>allocate</strong> clause is used to specify the memory allocator used to obtain storage of the private variables. When it is used with <strong>parallel</strong> construct, the syntax is shown as following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">allocate</span><span class="p">([</span><span class="n">allocator</span><span class="p">:]</span> <span class="nb">list</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>In C/C++, the <em>allocator</em> is an expression of the omp_allocator_handle_t type. In Fortran, the <em>allocator</em> is an integer expression of the omp_allocator_handle_kindkind.
+We will not list these allocators here, readers can find them in the OpenMP specification, but we will explain some commonly used allocators in the examples in the following section.</p>
 </section>
 </section>
 <section id="more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">
