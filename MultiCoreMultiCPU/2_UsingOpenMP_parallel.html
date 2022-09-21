@@ -995,7 +995,7 @@ none</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">copyin</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>It can copy the value of the main thread’s threadprivate variable into the threadprivate variable of every other member in the team that is executing the parallel region.</p>
+<p>It can copy the value of the main thread’s threadprivate variable into the threadprivate variable of every other member in the team that is executing the parallel region. And it can be used multiple times within a parallel struct.</p>
 </section>
 <section id="reduction-clause">
 <h3><span class="section-number">2.2.2.5. </span><strong>reduction</strong> Clause<a class="headerlink" href="#reduction-clause" title="Permalink to this headline">#</a></h3>
@@ -1133,10 +1133,11 @@ According to the OpenMP specification, the <em>reduction-identifier</em> has the
 </tr>
 </tbody>
 </table>
+<p>The <strong>reduction</strong> clause can be used multiple times as needed within a parallel struct.</p>
 </section>
 <section id="proc-bind-clause">
 <h3><span class="section-number">2.2.2.6. </span><strong>proc_bind</strong> Clause<a class="headerlink" href="#proc-bind-clause" title="Permalink to this headline">#</a></h3>
-<p>The <strong>proc_bind</strong> clause is used to specify a mapping of OpenMP threads to places within the current place partition for implicit tasks of the encountering threads. Its syntax is as follows:</p>
+<p>The <strong>proc_bind</strong> clause is used to specify a mapping of OpenMP threads to places within the current place partition for implicit tasks of the encountering threads. At most one proc_bind clause can appear on the directive. Its syntax is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proc_bind</span><span class="p">(</span><span class="n">affinity</span><span class="o">-</span><span class="n">policy</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -1162,6 +1163,7 @@ Sorted by thread number, the first <strong>T/P</strong> threads are allocated in
 </div>
 <p>In C/C++, the <em>allocator</em> is an expression of the omp_allocator_handle_t type. In Fortran, the <em>allocator</em> is an integer expression of the omp_allocator_handle_kindkind.
 We will not list these allocators here, readers can find them in the OpenMP specification, but we will explain some commonly used allocators in the examples in the following section.</p>
+<p>The <strong>allocate</strong> clause can be used multiple times as needed within a parallel struct.</p>
 </section>
 </section>
 <section id="more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">
