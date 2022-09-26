@@ -563,9 +563,20 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">
    2.2.3. More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2.2.3.1.
+     <strong>
+      if
+     </strong>
+     clause
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#id2">
    2.2.4.
    <em>
     if
@@ -718,9 +729,20 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">
    2.2.3. More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2.2.3.1.
+     <strong>
+      if
+     </strong>
+     clause
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#id2">
    2.2.4.
    <em>
     if
@@ -1168,20 +1190,87 @@ We will not list these allocators here, readers can find them in the OpenMP spec
 </section>
 <section id="more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">
 <h2><span class="section-number">2.2.3. </span>More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement<a class="headerlink" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement" title="Permalink to this headline">#</a></h2>
-</section>
+<p>In the above section, we have introduced the syntax and semantics of all the clauses that can be used with the parallel directive. In this section, we introduce some examples of how to use these clauses.</p>
+<p>Meanwhile, in some of the examples, we will show some ways to improve performance, and discuss some potential possibilities for improving performance.</p>
 <section id="id1">
-<h2><span class="section-number">2.2.4. </span><em>if</em> clause<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
-<p>//在CPU上，决定性能的因素有很多，回忆在上个章节中提到的能够改善性能的因素，</p>
-<ul class="simple">
-<li><p>Thread load balancing</p></li>
-<li><p>Minimizing synchronization.</p></li>
-<li><p>Using more efficient directives. For example, using PARALLEL DO/FOR instead of worksharing DO/FOR directives in parallel regions.</p></li>
-<li><p>Expansion or merging of parallel regions</p></li>
-<li><p>Improving cache hit rate</p></li>
-<li><p>Optimization of round-robin scheduling</p></li>
-<li><p>Variable property optimization</p></li>
-<li><p>Optimization to reduce false sharing problem</p></li>
-</ul>
+<h3><span class="section-number">2.2.3.1. </span><strong>if</strong> clause<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>The if clause can achieve conditional parallelism. In the following example, we use three cases to display the effect of the if clause. No if clause is used in case 1, we can get the output from four threads. The scalar expression in the if clause in case 2 is evaluated to be false, so the statements following the openMP directive (maybe code block in other cases) will be executed serially.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
+<span class="c1">//%cflags: -fopenmp</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//case 1</span>
+<span class="w">    </span><span class="cp">#pragma omp parallel num_threads(4)</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World in case 1 from thread %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-------------------------------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">//case 2</span>
+<span class="w">    </span><span class="cp">#pragma omp parallel num_threads(4) if(M &gt; 10)</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World in case 2 from thread %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-------------------------------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">//case 3</span>
+<span class="w">    </span><span class="cp">#pragma omp parallel num_threads(4) if(M &lt;= 10)</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World in case 3 from thread %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World in case 1 from thread 0
+Hello World in case 1 from thread 2
+Hello World in case 1 from thread 3
+Hello World in case 1 from thread 1
+-------------------------------------------------
+Hello World in case 2 from thread 0
+-------------------------------------------------
+Hello World in case 3 from thread 0
+Hello World in case 3 from thread 1
+Hello World in case 3 from thread 3
+Hello World in case 3 from thread 2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id2">
+<h2><span class="section-number">2.2.4. </span><em>if</em> clause<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//%</span><span class="n">compiler</span><span class="p">:</span> <span class="n">clang</span>
+<span class="o">//%</span><span class="n">cflags</span><span class="p">:</span> <span class="o">-</span><span class="n">fopenmp</span>
+
+<span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;stdlib.h&gt;</span>
+<span class="c1">#include &lt;omp.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+<span class="nb">int</span> <span class="n">M</span> <span class="o">=</span><span class="mi">900</span><span class="p">;</span>
+    <span class="c1">#pragma omp parallel if(M &gt; 800)</span>
+<span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span> <span class="n">M</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">tid</span> <span class="o">=</span> <span class="n">omp_get_thread_num</span><span class="p">();</span>
+ <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Hello World from thread = </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">tid</span><span class="p">);</span>
+<span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>#pragma omp parallel f if(M &gt; 800)
+for(j=0;j&lt; M; j++)
+{
+aa[j] =alpha*bb[j] + cc[j];
+}</p>
 <p>Within a parallel region, the thread number uniquely identifies each thread. A thread can obtain its own thread number by calling the <strong>omp_get_thread_num</strong> library routine.</p>
 <p>The following example is a little more complicated. It shows how to use the <strong>omp_get_thread_num</strong> library routine and shows how to use two other clauses, the <strong>default</strong> clause and the <strong>private</strong> clause. It assigns tasks to each thread explicitly.</p>
 <div class="cell docutils container">
