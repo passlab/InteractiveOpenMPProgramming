@@ -510,12 +510,12 @@ title="Print to PDF"
 <h2>Prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span> <span class="k">as</span> <span class="n">dt</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">plot_tree</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import re
+import pandas as pd;
+import math
+from sklearn.tree import DecisionTreeClassifier as dt
+from sklearn.tree import plot_tree
+import matplotlib
 </pre></div>
 </div>
 </div>
@@ -525,56 +525,56 @@ title="Print to PDF"
 <h2>Basic Classes<a class="headerlink" href="#basic-classes" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; Node class for a decision tree. &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Node:
+    &quot;&quot;&quot; Node class for a decision tree. &quot;&quot;&quot;
+    def __init__(self, names):
+        self.names = names
 
-    <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Handled by the subclasses. &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="kc">None</span>
+    def classify(x):
+        &quot;&quot;&quot; Handled by the subclasses. &quot;&quot;&quot;
+        return None
 
-    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Handled by the subclasses. &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="kc">None</span>
-
-
-<span class="k">class</span> <span class="nc">Leaf</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="n">Node</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-
-    <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span>
-
-    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    def dump(self, indent):
+        &quot;&quot;&quot; Handled by the subclasses. &quot;&quot;&quot;
+        return None
 
 
-<span class="k">class</span> <span class="nc">Split</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
-        <span class="n">Node</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">var</span> <span class="o">=</span> <span class="n">var</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
+class Leaf(Node):
+    def __init__(self, names, value):
+        Node.__init__(self, names)
+        self.value = value
 
-    <span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">var</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    def classify(self, x):
+        return self.value
+
+    def dump(self, indent):
+        print(&#39; %d&#39; % self.value)
+
+
+class Split(Node):
+    def __init__(self, names, var, left, right):
+        Node.__init__(self, names)
+        self.var = var
+        self.left = left
+        self.right = right
+
+    def classify(self, x):
+        if x[self.var] == 0:
+            return self.left.classify(x)
+        else:
+            return self.right.classify(x)
       
-    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">indent</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">indent</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;| &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> = 0 :&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">var</span><span class="p">],</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">indent</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">indent</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;| &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> = 1 :&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">var</span><span class="p">],</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">indent</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    def dump(self, indent):
+        if indent &gt; 0:
+            print(&#39;&#39;)
+        for i in range(0, indent):
+            print(&#39;| &#39;, end=&#39;&#39;)
+        print(&#39;%s = 0 :&#39; % self.names[self.var],end=&#39;&#39;)
+        self.left.dump(indent+1)
+        for i in range(0, indent):
+            print(&#39;| &#39;, end=&#39;&#39;)
+        print(&#39;%s = 1 :&#39; % self.names[self.var],end=&#39;&#39;)
+        self.right.dump(indent+1)
 </pre></div>
 </div>
 </div>
@@ -582,14 +582,14 @@ title="Print to PDF"
 <p>Helper function computes entropy of Bernoulli distribution with parameter p</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def entropy(p):
 
-    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
+    if p == 0 or p == 1:
+        return 0
     
-    <span class="n">result</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">))</span>
+    result = -(p * math.log2(p) + (1 - p) * math.log2(1 - p))
     
-    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    return result;
 </pre></div>
 </div>
 </div>
@@ -600,20 +600,20 @@ title="Print to PDF"
 <p>py : number of ocurrences of y=1</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">infogain</span><span class="p">(</span><span class="n">py_pxi</span><span class="p">,</span> <span class="n">pxi</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">total</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def infogain(py_pxi, pxi, py, total):
 
-    <span class="n">Hs</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">py</span><span class="o">/</span><span class="n">total</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">pxi</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">H1</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">H1</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">py_pxi</span><span class="o">/</span><span class="n">pxi</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">pxi</span> <span class="o">==</span> <span class="n">total</span><span class="p">:</span>
-        <span class="n">H0</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">H0</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">((</span><span class="n">py</span> <span class="o">-</span> <span class="n">py_pxi</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">total</span> <span class="o">-</span> <span class="n">pxi</span><span class="p">))</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">Hs</span> <span class="o">-</span> <span class="p">(</span><span class="n">pxi</span><span class="o">/</span><span class="n">total</span><span class="p">)</span> <span class="o">*</span> <span class="n">H1</span> <span class="o">-</span> <span class="p">((</span><span class="n">total</span> <span class="o">-</span> <span class="n">pxi</span><span class="p">)</span><span class="o">/</span><span class="n">total</span><span class="p">)</span> <span class="o">*</span> <span class="n">H0</span>
+    Hs = entropy(py/total)
+    if pxi == 0:
+        H1 = 0
+    else:
+        H1 = entropy(py_pxi/pxi)
+    if pxi == total:
+        H0 = 0
+    else:
+        H0 = entropy((py - py_pxi)/(total - pxi))
+    result = Hs - (pxi/total) * H1 - ((total - pxi)/total) * H0
         
-    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    return result;
 </pre></div>
 </div>
 </div>
@@ -624,17 +624,17 @@ title="Print to PDF"
 <p>-partition data based on a given variable</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data from a file</span>
-<span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">header</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-    <span class="n">varnames</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
-    <span class="n">namehash</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">())])</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">varnames</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Load data from a file
+def read_data(filename):
+    f = open(filename, &#39;r&#39;)
+    p = re.compile(&#39;,&#39;)
+    data = []
+    header = f.readline().strip()
+    varnames = p.split(header)
+    namehash = {}
+    for l in f:
+        data.append([int(x) for x in p.split(l.strip())])
+    return (data, varnames)
 </pre></div>
 </div>
 </div>
@@ -642,66 +642,67 @@ title="Print to PDF"
 <p>Build tree in a top-down manner, selecting splits until we hit a pure leaf or all splits look bad.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_tree</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">varnames</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def build_tree(data, varnames):
     
-    <span class="n">dataSize</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    dataSize = len(data)
     
-    <span class="c1"># if there&#39;s only one class left, the current node will be a leaf node</span>
-    <span class="n">py</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">py</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">py</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">Leaf</span><span class="p">(</span><span class="n">varnames</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">py</span> <span class="o">==</span> <span class="n">dataSize</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">Leaf</span><span class="p">(</span><span class="n">varnames</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    # if there&#39;s only one class left, the current node will be a leaf node
+    py = 0
+    for v in data:
+        if v[-1] == 1:
+            py += 1
+    if py == 0:
+        return Leaf(varnames, 0)
+    elif py == dataSize:
+        return Leaf(varnames, 1)
 
     
-    <span class="c1"># otherwise, the different info gains will be checked</span>
-    <span class="n">maxGain</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="n">maxFeatureIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    # otherwise, the different info gains will be checked
+    maxGain = -1
+    maxFeatureIndex = -1
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">varnames</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">varnames</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">py_pxi</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="n">pxi</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="n">py</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                        <span class="n">py</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                        <span class="n">py_pxi</span> <span class="o">+=</span> <span class="mi">1</span>
-                        <span class="n">py</span> <span class="o">+=</span> <span class="mi">1</span>
-                    <span class="n">pxi</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="c1"># calculate the info gain based on the current feature, and update the maximum info gain and corresponding feature index</span>
-            <span class="n">currentGain</span> <span class="o">=</span> <span class="n">infogain</span><span class="p">(</span><span class="n">py_pxi</span><span class="p">,</span> <span class="n">pxi</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">dataSize</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">currentGain</span> <span class="o">&gt;</span> <span class="n">maxGain</span><span class="p">:</span>
-                <span class="n">maxGain</span> <span class="o">=</span> <span class="n">currentGain</span>
-                <span class="n">maxFeatureIndex</span> <span class="o">=</span> <span class="n">i</span>
+    for i in range(len(varnames) - 1):
+        if varnames[i] != None:
+            py_pxi = 0
+            pxi = 0
+            py = 0
+            for v in data:
+                if v[i] == 0:
+                    if v[-1] == 1:
+                        py += 1
+                else:
+                    if v[-1] == 1:
+                        py_pxi += 1
+                        py += 1
+                    pxi += 1
+            # calculate the info gain based on the current feature, and update the maximum info gain and corresponding feature index
+            currentGain = infogain(py_pxi, pxi, py, dataSize)
+            if currentGain &gt; maxGain:
+                maxGain = currentGain
+                maxFeatureIndex = i
         
-    <span class="c1"># divide the data set based on the selected feature</span>
-    <span class="n">leftData</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">rightData</span> <span class="o">=</span> <span class="p">[]</span>
+    # divide the data set based on the selected feature
+    leftData = []
+    rightData = []
     
-    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="n">maxFeatureIndex</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">leftData</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">rightData</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    for v in data:
+        if v[maxFeatureIndex] == 0:
+            leftData.append(v)
+        else:
+            rightData.append(v)
     
-    <span class="c1"># disable the features that have been checked</span>
-    <span class="n">leftNames</span> <span class="o">=</span> <span class="n">varnames</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">rightNames</span> <span class="o">=</span> <span class="n">varnames</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">leftNames</span><span class="p">[</span><span class="n">maxFeatureIndex</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">rightNames</span><span class="p">[</span><span class="n">maxFeatureIndex</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    # disable the features that have been checked
+    leftNames = varnames.copy()
+    rightNames = varnames.copy()
+    leftNames[maxFeatureIndex] = None
+    rightNames[maxFeatureIndex] = None
     
-    <span class="c1"># build the subtrees</span>
-    <span class="n">leftNode</span> <span class="o">=</span> <span class="n">build_tree</span><span class="p">(</span><span class="n">leftData</span><span class="p">,</span> <span class="n">leftNames</span><span class="p">)</span>
-    <span class="n">rightNode</span> <span class="o">=</span> <span class="n">build_tree</span><span class="p">(</span><span class="n">rightData</span><span class="p">,</span> <span class="n">rightNames</span><span class="p">)</span>
-    <span class="c1"># return the current node after building the subtrees</span>
-    <span class="k">return</span> <span class="n">Split</span><span class="p">(</span><span class="n">varnames</span><span class="p">,</span> <span class="n">maxFeatureIndex</span><span class="p">,</span> <span class="n">leftNode</span><span class="p">,</span> <span class="n">rightNode</span><span class="p">)</span>
+    # build the subtrees
+    leftNode = build_tree(leftData, leftNames)
+    rightNode = build_tree(rightData, rightNames)
+    # return the current node after building the subtrees
+    return Split(varnames, maxFeatureIndex, leftNode, rightNode)
+
 </pre></div>
 </div>
 </div>
@@ -713,17 +714,17 @@ title="Print to PDF"
 Each example is a list of attribute values, where the last element in the list is the class value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">varnames</span><span class="p">)</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s1">&#39;agaricuslepiotatrain1.csv&#39;</span><span class="p">)</span>
-<span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">testvarnames</span><span class="p">)</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s1">&#39;agaricuslepiotatest1.csv&#39;</span><span class="p">)</span>
-<span class="c1">#(train, varnames) = read_data(&#39;training_set.csv&#39;)</span>
-<span class="c1">#(test, testvarnames) = read_data(&#39;test_set.csv&#39;) </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(train, varnames) = read_data(&#39;agaricuslepiotatrain1.csv&#39;)
+(test, testvarnames) = read_data(&#39;agaricuslepiotatest1.csv&#39;)
+#(train, varnames) = read_data(&#39;training_set.csv&#39;)
+#(test, testvarnames) = read_data(&#39;test_set.csv&#39;) 
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">train</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pd.DataFrame(train).head()
 </pre></div>
 </div>
 </div>
@@ -897,7 +898,7 @@ Each example is a list of attribute values, where the last element in the list i
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#varnames</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#varnames
 </pre></div>
 </div>
 </div>
@@ -905,14 +906,15 @@ Each example is a list of attribute values, where the last element in the list i
 <p>Build the decision tree</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="n">build_tree</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">varnames</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>root = build_tree(train, varnames)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>root.dump(0)
+
 </pre></div>
 </div>
 </div>
@@ -940,18 +942,18 @@ odor-foul = 1 : 1
 <p>Calcuating the accuracy</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="c1"># The position of the class label is the last element in the list.</span>
-    <span class="n">yi</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-    <span class="c1"># Classification is done recursively by the node class.</span>
-    <span class="c1"># This should work as-is.</span>
-        <span class="n">pred</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">pred</span> <span class="o">==</span> <span class="n">x</span><span class="p">[</span><span class="n">yi</span><span class="p">]:</span>
-            <span class="n">correct</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">acc</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">correct</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">acc</span><span class="p">;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def accuracy(data):
+    correct = 0
+    # The position of the class label is the last element in the list.
+    yi = len(data[0]) - 1
+    for x in data:
+    # Classification is done recursively by the node class.
+    # This should work as-is.
+        pred = root.classify(x)
+        if pred == x[yi]:
+            correct += 1
+        acc = float(correct)/len(data)
+    return acc;
    
 </pre></div>
 </div>
@@ -962,7 +964,7 @@ odor-foul = 1 : 1
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Train Accuracy: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span><span class="p">(</span><span class="n">train</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> print(&quot;Train Accuracy: {}&quot;.format(accuracy(train)))
 </pre></div>
 </div>
 </div>
@@ -974,7 +976,7 @@ odor-foul = 1 : 1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Accuracy: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span><span class="p">(</span><span class="n">test</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> print(&quot;Test Accuracy: {}&quot;.format(accuracy(test)))
 </pre></div>
 </div>
 </div>
