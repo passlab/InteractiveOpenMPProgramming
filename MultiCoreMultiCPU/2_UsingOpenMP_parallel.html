@@ -565,16 +565,20 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#if-clause-and-num-threads-clause">
      2.2.3.1.
      <strong>
       if
+     </strong>
+     clause and
+     <strong>
+      num_threads
      </strong>
      clause
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
+    <a class="reference internal nav-link" href="#id1">
      2.2.3.2. Data-Sharing Attribute Clauses
     </a>
    </li>
@@ -727,16 +731,20 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#if-clause-and-num-threads-clause">
      2.2.3.1.
      <strong>
       if
+     </strong>
+     clause and
+     <strong>
+      num_threads
      </strong>
      clause
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
+    <a class="reference internal nav-link" href="#id1">
      2.2.3.2. Data-Sharing Attribute Clauses
     </a>
    </li>
@@ -1184,9 +1192,9 @@ We will not list these allocators here, readers can find them in the OpenMP spec
 <h2><span class="section-number">2.2.3. </span>More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement<a class="headerlink" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement" title="Permalink to this headline">#</a></h2>
 <p>In the above section, we have introduced the syntax and semantics of all the clauses that can be used with the parallel directive. In this section, we introduce some examples of how to use these clauses.</p>
 <p>Meanwhile, in some of the examples, we will show some ways to improve performance, and discuss some potential possibilities for improving performance.</p>
-<section id="id1">
-<h3><span class="section-number">2.2.3.1. </span><strong>if</strong> clause<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-<p>The if clause can achieve conditional parallelism. In the following example, we use three cases to display the effect of the if clause. No if clause is used in case 1, we can get the output from four threads. The scalar expression in the if clause in case 2 is evaluated to be false, so the statements following the openMP directive (maybe code block in other cases) will be executed serially.</p>
+<section id="if-clause-and-num-threads-clause">
+<h3><span class="section-number">2.2.3.1. </span><strong>if</strong> clause and <strong>num_threads</strong> clause<a class="headerlink" href="#if-clause-and-num-threads-clause" title="Permalink to this headline">#</a></h3>
+<p>The <strong>if</strong> clause can achieve conditional parallelism and the <strong>num_threads</strong> clause will identify the number of threads used. In the following example, we use three cases to display the effect of the if clause and the <strong>num_trheads</strong> clause. No <strong>if</strong> clause is used in case 1, and the <strong>num_threads</strong> clause indicated we should use 4 threads, so we can get the output from four threads in parallel. The scalar expression in the <strong>if</strong> clause in case 2 is evaluated to be false, so the statements following the openMP directive (maybe code block in other cases) will be executed serially by only one thread. And in case 3, the scalar expression is evaluated to be true, so the statements following the openMP directive will be executed parallel by four threads.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
@@ -1237,8 +1245,8 @@ Hello World in case 3 from thread 2
 </div>
 <p>Within a parallel region, the thread number uniquely identifies each thread. A thread can obtain its own thread number by calling the <strong>omp_get_thread_num</strong> library routine.</p>
 </section>
-<section id="id2">
-<h3><span class="section-number">2.2.3.2. </span>Data-Sharing Attribute Clauses<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<section id="id1">
+<h3><span class="section-number">2.2.3.2. </span>Data-Sharing Attribute Clauses<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>The following example is a little more complicated. It shows how to use the <strong>omp_get_thread_num</strong> library routine and shows how to use two other clauses, the <strong>default</strong> clause and the <strong>private</strong> clause. It assigns tasks to each thread explicitly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
