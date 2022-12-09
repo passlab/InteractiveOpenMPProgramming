@@ -1430,6 +1430,9 @@ The <strong>private</strong> clause is used to explicitly specify variables that
 </div>
 </div>
 </div>
+<p>In the above example, we explored how to use the <strong>firstprivate</strong> clause. The size and values of the array or pointer appearing in the list of the <strong>firstprivate</strong> clause depend on the original arrays or pointers in the serial part.
+The type of A is array of two arrays of two ints. B and C are function variables, which will be adjusted according to the type defined in the function. The type of B is pointer to array of n ints, and the type of C is pointer to int. The type of D is exactly the same as A, and the type of E is array of n arrays of n ints.</p>
+<p>In the example, we use multiple assert statements to check whether B, C, D, and E have the expected types and values. Thus to verify the function of the <strong>firstprivate</strong> clause.</p>
 </section>
 </section>
 </section>
