@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>2.2. Creating SPMD parallelism using OpenMP parallel directive &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,57 +62,99 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'MultiCoreMultiCPU/2_UsingOpenMP_parallel';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="2.3. Creating SPMD parallelism using OpenMP teams directive" href="3_UsingOpenMP_teams.html" />
     <link rel="prev" title="2.1. Multicore and Multi-CPU shared memory systems" href="1_MIMDArchitecture.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Parallel Programming and Performance Optimization With OpenMP</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+  
+
+<a class="navbar-brand logo" href="../cover.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Parallel Programming and Performance Optimization With OpenMP</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -110,661 +164,266 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../copyright.html">
-   copyright
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../foreword.html">
-   foreword
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../preface.html">
-   preface
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreword.html">foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">preface</a></li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Ch1_openmpIntro.html">
-   1. Overview of OpenMP Programming
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../openmp_c/1_IntroductionOfOpenMP.html">
-     1.1. Introduction of OpenMP
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../openmp_c/2_Syntax.html">
-     1.2. Creating a Parallel Program with OpenMP
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../openmp_c/3_performance.html">
-     1.3. Performance Analysis
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">
-   2. Parallel Programming for Multicore and Multi-CPU Machines
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="1_MIMDArchitecture.html">
-     2.1. Multicore and Multi-CPU shared memory systems
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     2.2. Creating SPMD parallelism using OpenMP
-     <strong>
-      parallel
-     </strong>
-     directive
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3_UsingOpenMP_teams.html">
-     2.3. Creating SPMD parallelism using OpenMP
-     <strong>
-      teams
-     </strong>
-     directive
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4_SynchronizationThreads.html">
-     2.4. Synchronization of threads using barrier and order directive
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="5_AsynchronousTasking.html">
-     2.5. Asynchronous tasking
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="6_ExplicitDistribution.html">
-     2.6. Explicit distribution of work using single, sections, workshring-loop, and distribute construct
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch3_SIMDVector.html">
-     2.7. Parallel Programming for SIMD and Vector Architecture
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Ch4_GPUAccel.html">
-   3. Parallel Programming for GPU Accelerators
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../GPUAccelerators/1_DataMapping.html">
-     3.1. Data Mapping
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../GPUAccelerators/2_Metadirective.html">
-     3.2. Metadirective (possible separate section)
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch1_openmpIntro.html">1. Overview of OpenMP Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../openmp_c/1_IntroductionOfOpenMP.html">1.1. Introduction of OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openmp_c/2_Syntax.html">1.2. Creating a Parallel Program with OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openmp_c/3_performance.html">1.3. Performance Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">2. Parallel Programming for Multicore and Multi-CPU Machines</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_MIMDArchitecture.html">2.1. Multicore and Multi-CPU shared memory systems</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_UsingOpenMP_teams.html">2.3. Creating SPMD parallelism using OpenMP <strong>teams</strong> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads.html">2.4. Synchronization of threads using barrier and order directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_AsynchronousTasking.html">2.5. Asynchronous tasking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_ExplicitDistribution.html">2.6. Explicit distribution of work using single, sections, workshring-loop, and distribute construct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ch3_SIMDVector.html">2.7. Parallel Programming for SIMD and Vector Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">3. Parallel Programming for GPU Accelerators</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_DataMapping.html">3.1. Data Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_Metadirective.html">3.2. Metadirective (possible separate section)</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/MultiCoreMultiCPU/2_UsingOpenMP_parallel.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/passlab/OpenMPProgrammingBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FMultiCoreMultiCPU/2_UsingOpenMP_parallel.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/MultiCoreMultiCPU/2_UsingOpenMP_parallel.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/passlab/OpenMPProgrammingBook"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FMultiCoreMultiCPU/2_UsingOpenMP_parallel.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/MultiCoreMultiCPU/2_UsingOpenMP_parallel.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#get-started-with-parallel-directive-to-create-parallelism">
-   2.2.1. Get Started with
-   <strong>
-    Parallel
-   </strong>
-   Directive to Create Parallelism
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#syntax-and-semantics-of-parallel-directive-and-its-clauses">
-   2.2.2. Syntax and Semantics of
-   <strong>
-    Parallel
-   </strong>
-   Directive and Its Clauses
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#if-clause">
-     2.2.2.1.
-     <strong>
-      if
-     </strong>
-     Clause
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#num-threads-clause">
-     2.2.2.2.
-     <strong>
-      num_threads
-     </strong>
-     Clause
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-sharing-attribute-clauses">
-     2.2.2.3. Data-Sharing Attribute Clauses
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#private-clause">
-       2.2.2.3.1.
-       <strong>
-        private
-       </strong>
-       Clause
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#firstprivate-clause">
-       2.2.2.3.2.
-       <strong>
-        firstprivate
-       </strong>
-       Clause
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#shared-clause">
-       2.2.2.3.3.
-       <strong>
-        shared
-       </strong>
-       Clause
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#default-clause">
-       2.2.2.3.4.
-       <strong>
-        default
-       </strong>
-       Clause
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#implicit-scoping-rules">
-       2.2.2.3.5. Implicit Scoping Rules
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#copyin-clause">
-     2.2.2.4.
-     <strong>
-      copyin
-     </strong>
-     Clause
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reduction-clause">
-     2.2.2.5.
-     <strong>
-      reduction
-     </strong>
-     Clause
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#proc-bind-clause">
-     2.2.2.6.
-     <strong>
-      proc_bind
-     </strong>
-     Clause
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#allocate-clause">
-     2.2.2.7.
-     <strong>
-      allocate
-     </strong>
-     Clause
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">
-   2.2.3. More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#if-clause-and-num-threads-clause">
-     2.2.3.1.
-     <strong>
-      if
-     </strong>
-     clause and
-     <strong>
-      num_threads
-     </strong>
-     clause
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     2.2.3.2. Data-Sharing Attribute Clauses
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Creating SPMD parallelism using OpenMP parallel directive</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#get-started-with-parallel-directive-to-create-parallelism">
-   2.2.1. Get Started with
-   <strong>
-    Parallel
-   </strong>
-   Directive to Create Parallelism
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#syntax-and-semantics-of-parallel-directive-and-its-clauses">
-   2.2.2. Syntax and Semantics of
-   <strong>
-    Parallel
-   </strong>
-   Directive and Its Clauses
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#if-clause">
-     2.2.2.1.
-     <strong>
-      if
-     </strong>
-     Clause
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#num-threads-clause">
-     2.2.2.2.
-     <strong>
-      num_threads
-     </strong>
-     Clause
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-sharing-attribute-clauses">
-     2.2.2.3. Data-Sharing Attribute Clauses
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#private-clause">
-       2.2.2.3.1.
-       <strong>
-        private
-       </strong>
-       Clause
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#firstprivate-clause">
-       2.2.2.3.2.
-       <strong>
-        firstprivate
-       </strong>
-       Clause
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#shared-clause">
-       2.2.2.3.3.
-       <strong>
-        shared
-       </strong>
-       Clause
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#default-clause">
-       2.2.2.3.4.
-       <strong>
-        default
-       </strong>
-       Clause
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#implicit-scoping-rules">
-       2.2.2.3.5. Implicit Scoping Rules
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#copyin-clause">
-     2.2.2.4.
-     <strong>
-      copyin
-     </strong>
-     Clause
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reduction-clause">
-     2.2.2.5.
-     <strong>
-      reduction
-     </strong>
-     Clause
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#proc-bind-clause">
-     2.2.2.6.
-     <strong>
-      proc_bind
-     </strong>
-     Clause
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#allocate-clause">
-     2.2.2.7.
-     <strong>
-      allocate
-     </strong>
-     Clause
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">
-   2.2.3. More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#if-clause-and-num-threads-clause">
-     2.2.3.1.
-     <strong>
-      if
-     </strong>
-     clause and
-     <strong>
-      num_threads
-     </strong>
-     clause
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     2.2.3.2. Data-Sharing Attribute Clauses
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Creating SPMD parallelism using OpenMP parallel directive</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-parallel-directive-to-create-parallelism">2.2.1. Get Started with <strong>Parallel</strong> Directive to Create Parallelism</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-semantics-of-parallel-directive-and-its-clauses">2.2.2. Syntax and Semantics of <strong>Parallel</strong> Directive and Its Clauses</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-clause">2.2.2.1. <strong>if</strong> Clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#num-threads-clause">2.2.2.2. <strong>num_threads</strong> Clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sharing-attribute-clauses">2.2.2.3. Data-Sharing Attribute Clauses</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#private-clause">2.2.2.3.1. <strong>private</strong> Clause</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#firstprivate-clause">2.2.2.3.2. <strong>firstprivate</strong> Clause</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-clause">2.2.2.3.3. <strong>shared</strong> Clause</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#default-clause">2.2.2.3.4. <strong>default</strong> Clause</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-scoping-rules">2.2.2.3.5. Implicit Scoping Rules</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copyin-clause">2.2.2.4. <strong>copyin</strong> Clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduction-clause">2.2.2.5. <strong>reduction</strong> Clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proc-bind-clause">2.2.2.6. <strong>proc_bind</strong> Clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#allocate-clause">2.2.2.7. <strong>allocate</strong> Clause</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">2.2.3. More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-clause-and-num-threads-clause">2.2.3.1. <strong>if</strong> clause and <strong>num_threads</strong> clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.2.3.2. Data-Sharing Attribute Clauses</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="creating-spmd-parallelism-using-openmp-parallel-directive">
-<h1><span class="section-number">2.2. </span>Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive<a class="headerlink" href="#creating-spmd-parallelism-using-openmp-parallel-directive" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">2.2. </span>Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive<a class="headerlink" href="#creating-spmd-parallelism-using-openmp-parallel-directive" title="Permalink to this heading">#</a></h1>
 <p>From this part, we begin to introduce how to use OpenMP directives to write programs. We first introduce the most basic and most commonly used <strong>parallel</strong> directive.</p>
 <section id="get-started-with-parallel-directive-to-create-parallelism">
-<h2><span class="section-number">2.2.1. </span>Get Started with <strong>Parallel</strong> Directive to Create Parallelism<a class="headerlink" href="#get-started-with-parallel-directive-to-create-parallelism" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.2.1. </span>Get Started with <strong>Parallel</strong> Directive to Create Parallelism<a class="headerlink" href="#get-started-with-parallel-directive-to-create-parallelism" title="Permalink to this heading">#</a></h2>
 <p>The <strong>parallel</strong> directive is used to mark a parallel region. When a thread encounters a parallel region, a group of threads is created to execute the parallel region.
 The original thread that executed the serial part will be the primary thread of the new team. All threads in the team execute parallel regions together. After a team is created, the number of threads in the team remains constant for the duration of that parallel region.</p>
 <blockquote>
@@ -778,16 +437,16 @@ When threads are all occupied, implicit tasks that have not been allocated will 
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
 <span class="c1">//%cflags: -fopenmp</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
 <span class="w">    </span><span class="cp">#pragma omp parallel</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
 <span class="w">    </span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -811,16 +470,16 @@ The following example shows how to use the <strong>num_threads</strong> clause i
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
 <span class="c1">//%cflags: -fopenmp</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
 <span class="w">    </span><span class="cp">#pragma omp parallel num_threads(4)</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
 <span class="w">    </span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -838,19 +497,19 @@ Hello World
 <p>The next two examples show how to use the <strong>parallel</strong> directive in Fortran, and they have the exactly same meaning as the two examples in C above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">!!%</span><span class="n">compiler</span><span class="o">:</span><span class="w"> </span><span class="n">gfortran</span><span class="w"></span>
-<span class="o">!!%</span><span class="n">cflags</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="n">fopenmp</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">!!%</span><span class="n">compiler</span><span class="o">:</span><span class="w"> </span><span class="n">gfortran</span>
+<span class="o">!!%</span><span class="n">cflags</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="n">fopenmp</span>
 
-<span class="n">PROGRAM</span><span class="w"> </span><span class="n">Parallel_Hello_World</span><span class="w"></span>
-<span class="n">USE</span><span class="w"> </span><span class="n">OMP_LIB</span><span class="w"></span>
+<span class="n">PROGRAM</span><span class="w"> </span><span class="n">Parallel_Hello_World</span>
+<span class="n">USE</span><span class="w"> </span><span class="n">OMP_LIB</span>
 
-<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"></span>
+<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">PARALLEL</span>
 
-<span class="w">  </span><span class="n">PRINT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="n">PRINT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span>
 
-<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"></span>
+<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">PARALLEL</span>
 
-<span class="n">END</span><span class="w"></span>
+<span class="n">END</span>
 </pre></div>
 </div>
 </div>
@@ -869,19 +528,19 @@ Hello World
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">!!%</span><span class="n">compiler</span><span class="o">:</span><span class="w"> </span><span class="n">gfortran</span><span class="w"></span>
-<span class="o">!!%</span><span class="n">cflags</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="n">fopenmp</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">!!%</span><span class="n">compiler</span><span class="o">:</span><span class="w"> </span><span class="n">gfortran</span>
+<span class="o">!!%</span><span class="n">cflags</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="n">fopenmp</span>
 
-<span class="n">PROGRAM</span><span class="w"> </span><span class="n">Parallel_Hello_World</span><span class="w"></span>
-<span class="n">USE</span><span class="w"> </span><span class="n">OMP_LIB</span><span class="w"></span>
+<span class="n">PROGRAM</span><span class="w"> </span><span class="n">Parallel_Hello_World</span>
+<span class="n">USE</span><span class="w"> </span><span class="n">OMP_LIB</span>
 
-<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"> </span><span class="n">num_threads</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"> </span><span class="n">num_threads</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
-<span class="w">  </span><span class="n">PRINT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="n">PRINT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span>
 
-<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"></span>
+<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">PARALLEL</span>
 
-<span class="n">END</span><span class="w"></span>
+<span class="n">END</span>
 </pre></div>
 </div>
 </div>
@@ -896,7 +555,7 @@ Hello World
 </div>
 </section>
 <section id="syntax-and-semantics-of-parallel-directive-and-its-clauses">
-<h2><span class="section-number">2.2.2. </span>Syntax and Semantics of <strong>Parallel</strong> Directive and Its Clauses<a class="headerlink" href="#syntax-and-semantics-of-parallel-directive-and-its-clauses" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.2.2. </span>Syntax and Semantics of <strong>Parallel</strong> Directive and Its Clauses<a class="headerlink" href="#syntax-and-semantics-of-parallel-directive-and-its-clauses" title="Permalink to this heading">#</a></h2>
 <p>Through the examples shown in the last section, it is not difficult to conclude that the syntax of the <strong>parallel</strong> directive in C is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp parallel [clause[ [,] clause] ... ] new-line</span>
     <span class="n">structured</span><span class="o">-</span><span class="n">block</span>
@@ -923,7 +582,7 @@ Ten clauses can be used with the <strong>parallel</strong> directive, listing as
 </pre></div>
 </div>
 <section id="if-clause">
-<h3><span class="section-number">2.2.2.1. </span><strong>if</strong> Clause<a class="headerlink" href="#if-clause" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.2.2.1. </span><strong>if</strong> Clause<a class="headerlink" href="#if-clause" title="Permalink to this heading">#</a></h3>
 <p>The <strong>if</strong> clause is used to achieve conditional parallelism. It can be used with many directives, such as <strong>parallel</strong> directive, <strong>task</strong> directive, <strong>simd</strong> directive, etc. Its effect depends on the construct to which it is applied. The syntax is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">([</span> <span class="n">directive</span><span class="o">-</span><span class="n">name</span><span class="o">-</span><span class="n">modifier</span> <span class="p">:]</span> <span class="n">scalar</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
 </pre></div>
@@ -935,7 +594,7 @@ Ten clauses can be used with the <strong>parallel</strong> directive, listing as
 <p>The <em>directive-name-modifier</em> is optional and is very useful in combined constructs, which we will cover in the later chapters. When the <strong>if</strong> claue is used with the <strong>parallel</strong> directive, only <em>parallel</em> can be used as the <em>directive-name-modifier</em>. Its semantics are that the parallel region is active when the <em>scaler-expression</em> or <em>scalar-logical-expression</em> is true, otherwise the parallel region that follows will be inactive. At most one <strong>if</strong> clause can be used in each parallel construct.</p>
 </section>
 <section id="num-threads-clause">
-<h3><span class="section-number">2.2.2.2. </span><strong>num_threads</strong> Clause<a class="headerlink" href="#num-threads-clause" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.2.2.2. </span><strong>num_threads</strong> Clause<a class="headerlink" href="#num-threads-clause" title="Permalink to this heading">#</a></h3>
 <p>The syntax for <strong>num_threads</strong> is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_threads</span><span class="p">(</span><span class="n">integer</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
 </pre></div>
@@ -944,12 +603,12 @@ Ten clauses can be used with the <strong>parallel</strong> directive, listing as
 The number of threads in the parallel region is determined by <em>integer-expression</em>. At most one <strong>num_threads</strong> clause can be used in each parallel construct. Because the number of threads used must be uniquely determined when entering the parallel region， whether explicitly specified by the programmer using <strong>num_threads</strong> clause or implicitly specified by the compiler. Of course, the <em>scaler-expression</em> must be an integer greater than zero.</p>
 </section>
 <section id="data-sharing-attribute-clauses">
-<h3><span class="section-number">2.2.2.3. </span>Data-Sharing Attribute Clauses<a class="headerlink" href="#data-sharing-attribute-clauses" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.2.2.3. </span>Data-Sharing Attribute Clauses<a class="headerlink" href="#data-sharing-attribute-clauses" title="Permalink to this heading">#</a></h3>
 <p>Data-sharing attribute clauses are used to control the data-sharing attributes of variables.</p>
 <p>There are four data-sharing attribute clauses that can be used with the <strong>parallel</strong> directive, namely <strong>default</strong> clause, <strong>private</strong> clause, <strong>firstprivate</strong> clause and <strong>shared</strong> clause. The <strong>lastprivate</strong> clause and <strong>linear</strong> clause are two other data-sharing attribute clauses. They cannot be used with <strong>parallel</strong> directives, so we will skip them for now and describe them in detail in later chapters.</p>
 <p>We first introduce the <strong>private</strong> clause, <strong>firstprivate</strong> clause and <strong>shared</strong> clause.</p>
 <section id="private-clause">
-<h4><span class="section-number">2.2.2.3.1. </span><strong>private</strong> Clause<a class="headerlink" href="#private-clause" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">2.2.2.3.1. </span><strong>private</strong> Clause<a class="headerlink" href="#private-clause" title="Permalink to this heading">#</a></h4>
 <p>The syntax of the <strong>private</strong> clause is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">private</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 </pre></div>
@@ -958,7 +617,7 @@ The number of threads in the parallel region is determined by <em>integer-expres
 The <strong>private</strong> caluse is used to declare private variable(s) in the <em>list</em> for a task or a SIMD lane. A private variable has a different address in the execution context of every thread. These variables are private to threads, and threads cannot access private variables owned by other threads. Programmers can use the <strong>private</strong> clause as many times as needed.</p>
 </section>
 <section id="firstprivate-clause">
-<h4><span class="section-number">2.2.2.3.2. </span><strong>firstprivate</strong> Clause<a class="headerlink" href="#firstprivate-clause" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">2.2.2.3.2. </span><strong>firstprivate</strong> Clause<a class="headerlink" href="#firstprivate-clause" title="Permalink to this heading">#</a></h4>
 <p>The <strong>firstprivate</strong> clause is very similar to the <strong>private</strong> clause. They both indicate that the variables in the <em>list</em> are private to the thread. Its syntax is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">firstprivate</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 </pre></div>
@@ -966,7 +625,7 @@ The <strong>private</strong> caluse is used to declare private variable(s) in th
 <p>But unlike the <strong>private</strong> clause, the variables in the <em>list</em> are initialized to the initial value that the original item had in the serial area. Like <strong>private</strong> clause, the <strong>firstprivate</strong> clause can be used multiple times in the parallel construct.</p>
 </section>
 <section id="shared-clause">
-<h4><span class="section-number">2.2.2.3.3. </span><strong>shared</strong> Clause<a class="headerlink" href="#shared-clause" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">2.2.2.3.3. </span><strong>shared</strong> Clause<a class="headerlink" href="#shared-clause" title="Permalink to this heading">#</a></h4>
 <p>The <strong>shared</strong> clause is used to declare that one or more items in the <em>list</em> can be shared by tasks or SIMD lane. Its syntax is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shared</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 </pre></div>
@@ -974,7 +633,7 @@ The <strong>private</strong> caluse is used to declare private variable(s) in th
 <p>Shared variables have the same address in the execution context of every thread. In a parallel region, all threads or SIMD lanes can access these variables. The <strong>shared</strong> clause can also be used multiple times within a parallel struct.</p>
 </section>
 <section id="default-clause">
-<h4><span class="section-number">2.2.2.3.4. </span><strong>default</strong> Clause<a class="headerlink" href="#default-clause" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">2.2.2.3.4. </span><strong>default</strong> Clause<a class="headerlink" href="#default-clause" title="Permalink to this heading">#</a></h4>
 <p>The syntax of <strong>default</strong> clause：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default</span><span class="p">(</span><span class="n">data</span><span class="o">-</span><span class="n">sharing</span><span class="o">-</span><span class="n">attribute</span><span class="p">)</span>
 </pre></div>
@@ -1000,13 +659,13 @@ none</p>
 <p>Unlike the above three clauses, <strong>default</strong> clause can only appear once in a directive.</p>
 </section>
 <section id="implicit-scoping-rules">
-<h4><span class="section-number">2.2.2.3.5. </span>Implicit Scoping Rules<a class="headerlink" href="#implicit-scoping-rules" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">2.2.2.3.5. </span>Implicit Scoping Rules<a class="headerlink" href="#implicit-scoping-rules" title="Permalink to this heading">#</a></h4>
 <p>You may ask, if the <strong>default</strong> clause is not used, what data-sharing attribute is the variable that is not explicitly listed in other clauses? In fact, OpenMP defines a set of implicit scope rules. It determines the data-sharing attribute of a variable based on the characteristics of the variable being accessed. For example, for threads in a group, a variable is scoped to <em>shared</em> if using this variable in the parallel region does not result in a data race condition. A variable is scoped to <em>private</em> if, in each thread executing the parallel region, the variable is always written before being read by the same thread. The detailed rules can be found in the OpenMP specification.</p>
 <p>Although OpenMP proposes as detailed and explicit rules as possible for implicit scoping, there is still a high possibility of unpredictable errors. Therefore, it is undoubtedly the best choice for programmers to use clauses to explicitly specify the data-sharing attributes of variables. This is an important aspect of OpenMP program optimization.</p>
 </section>
 </section>
 <section id="copyin-clause">
-<h3><span class="section-number">2.2.2.4. </span><strong>copyin</strong> Clause<a class="headerlink" href="#copyin-clause" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.2.2.4. </span><strong>copyin</strong> Clause<a class="headerlink" href="#copyin-clause" title="Permalink to this heading">#</a></h3>
 <p>The <strong>copyin</strong> clause is the one of two data copying clauses that can be used on the <strong>parallel</strong> construct or combined parallel worksharing constructs. The other one is the <strong>copyprivate</strong> clause which is only allowed on the <strong>single</strong> construct.</p>
 <p>Before introducing these two clauses, we need to introduce a new data-sharing attribute, named <em>threadprivate</em>. The difference between private variables and thread private variables can be briefly described as follows:</p>
 <ul class="simple">
@@ -1020,7 +679,7 @@ none</p>
 <p>It can copy the value of the main thread’s threadprivate variable into the threadprivate variable of every other member in the team that is executing the parallel region. And it can be used multiple times within a parallel struct.</p>
 </section>
 <section id="reduction-clause">
-<h3><span class="section-number">2.2.2.5. </span><strong>reduction</strong> Clause<a class="headerlink" href="#reduction-clause" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.2.2.5. </span><strong>reduction</strong> Clause<a class="headerlink" href="#reduction-clause" title="Permalink to this heading">#</a></h3>
 <p>The <strong>reduction</strong> clause belongs to the <em>reduction scoping clauses</em> and the <em>reduction participating clauses</em>. The <em>reduction scoping clauses</em> define the region of a reduction computed by a task or a SIMD lane. The <em>reduction participating clauses</em> are used to define a task or SIMD channel as a reduction participant. The <strong>reduction</strong> clause is specifically designed for reduction operations, and it allows the user to specify one or more thread-private variables that accept reduction operation at the end of the parallel region.</p>
 <p>The syntax of the <strong>reduction</strong> clause is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reduction</span><span class="p">([</span> <span class="n">reduction</span><span class="o">-</span><span class="n">modifier</span><span class="p">,]</span><span class="n">reduction</span><span class="o">-</span><span class="n">identifier</span> <span class="p">:</span> <span class="nb">list</span><span class="p">)</span>
@@ -1046,7 +705,7 @@ According to the OpenMP specification, the <em>reduction-identifier</em> has the
 </ul>
 <p>The following two tables, also from the OpenMP specification, show implicitly declared reduction-identifiers for numeric and logical types, including the initial value settings, and semantics for the reduction-identifiers.</p>
 <p>For C/C++:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Identifier</p></th>
 <th class="head"><p>Initializer</p></th>
@@ -1097,7 +756,7 @@ According to the OpenMP specification, the <em>reduction-identifier</em> has the
 </tbody>
 </table>
 <p>For Fortran：</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Identifier</p></th>
 <th class="head"><p>Initializer</p></th>
@@ -1158,7 +817,7 @@ According to the OpenMP specification, the <em>reduction-identifier</em> has the
 <p>The <strong>reduction</strong> clause can be used multiple times as needed within a parallel struct.</p>
 </section>
 <section id="proc-bind-clause">
-<h3><span class="section-number">2.2.2.6. </span><strong>proc_bind</strong> Clause<a class="headerlink" href="#proc-bind-clause" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.2.2.6. </span><strong>proc_bind</strong> Clause<a class="headerlink" href="#proc-bind-clause" title="Permalink to this heading">#</a></h3>
 <p>The <strong>proc_bind</strong> clause is used to specify a mapping of OpenMP threads to places within the current place partition for implicit tasks of the encountering threads. At most one proc_bind clause can appear on the directive. Its syntax is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proc_bind</span><span class="p">(</span><span class="n">affinity</span><span class="o">-</span><span class="n">policy</span><span class="p">)</span> 
 </pre></div>
@@ -1178,7 +837,7 @@ When the number of threads is equal to or less than <strong>P</strong>, the numb
 Sorted by thread number, the first <strong>T/P</strong> threads are allocated in the subpartition that contains the place of the parent thread. The remaining thread groups are allocated backward in turn, with a wrap-around with respect to the original place partition of the primary thread.</p>
 </section>
 <section id="allocate-clause">
-<h3><span class="section-number">2.2.2.7. </span><strong>allocate</strong> Clause<a class="headerlink" href="#allocate-clause" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.2.2.7. </span><strong>allocate</strong> Clause<a class="headerlink" href="#allocate-clause" title="Permalink to this heading">#</a></h3>
 <p>The <strong>allocate</strong> clause is used to specify the memory allocator used to obtain storage of the private variables. When it is used with <strong>parallel</strong> construct, the syntax is shown as following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">allocate</span><span class="p">([</span><span class="n">allocator</span><span class="p">:]</span> <span class="nb">list</span><span class="p">)</span> 
 </pre></div>
@@ -1189,41 +848,41 @@ We will not list these allocators here, readers can find them in the OpenMP spec
 </section>
 </section>
 <section id="more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">
-<h2><span class="section-number">2.2.3. </span>More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement<a class="headerlink" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">2.2.3. </span>More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement<a class="headerlink" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement" title="Permalink to this heading">#</a></h2>
 <p>In the above section, we have introduced the syntax and semantics of all the clauses that can be used with the parallel directive. In this section, we introduce some examples of how to use these clauses.</p>
 <p>Meanwhile, in some of the examples, we will show some ways to improve performance, and discuss some potential possibilities for improving performance.</p>
 <section id="if-clause-and-num-threads-clause">
-<h3><span class="section-number">2.2.3.1. </span><strong>if</strong> clause and <strong>num_threads</strong> clause<a class="headerlink" href="#if-clause-and-num-threads-clause" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.2.3.1. </span><strong>if</strong> clause and <strong>num_threads</strong> clause<a class="headerlink" href="#if-clause-and-num-threads-clause" title="Permalink to this heading">#</a></h3>
 <p>The <strong>if</strong> clause can achieve conditional parallelism and the <strong>num_threads</strong> clause will identify the number of threads used. In the following example, we use three cases to display the effect of the if clause and the <strong>num_trheads</strong> clause. No <strong>if</strong> clause is used in case 1, and the <strong>num_threads</strong> clause indicated we should use 4 threads, so we can get the output from four threads in parallel. The scalar expression in the <strong>if</strong> clause in case 2 is evaluated to be false, so the statements following the openMP directive (maybe code block in other cases) will be executed serially by only one thread. And in case 3, the scalar expression is evaluated to be true, so the statements following the openMP directive will be executed parallel by four threads.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
 <span class="c1">//%cflags: -fopenmp</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
 <span class="w">    </span><span class="c1">//case 1</span>
 <span class="w">    </span><span class="cp">#pragma omp parallel num_threads(4)</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World in case 1 from thread %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World in case 1 from thread %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span>
 
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-------------------------------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-------------------------------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="c1">//case 2</span>
 <span class="w">    </span><span class="cp">#pragma omp parallel num_threads(4) if(M &gt; 10)</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World in case 2 from thread %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World in case 2 from thread %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span>
 
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-------------------------------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-------------------------------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="c1">//case 3</span>
 <span class="w">    </span><span class="cp">#pragma omp parallel num_threads(4) if(M &lt;= 10)</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World in case 3 from thread %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World in case 3 from thread %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span>
 <span class="w">    </span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -1246,7 +905,7 @@ Hello World in case 3 from thread 2
 <p>Within a parallel region, the thread number uniquely identifies each thread. A thread can obtain its own thread number by calling the <strong>omp_get_thread_num</strong> library routine.</p>
 </section>
 <section id="id1">
-<h3><span class="section-number">2.2.3.2. </span>Data-Sharing Attribute Clauses<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">2.2.3.2. </span>Data-Sharing Attribute Clauses<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>The following example is a little more complicated. It shows how to use the <strong>omp_get_thread_num</strong> library routine and shows how to use two other clauses, the <strong>default</strong> clause and the <strong>private</strong> clause. It assigns tasks to each thread explicitly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1254,44 +913,44 @@ Hello World in case 3 from thread 2
 <span class="c1">//%cflags: -fopenmp</span>
 <span class="c1">//This example is from https://www.openmp.org/wp-content/uploads/openmp-examples-5.1.pdf. The size of array and output are changed</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">subdomain</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ipoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">subdomain</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ipoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ipoints</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">       </span>
-<span class="w">         </span><span class="n">x</span><span class="p">[</span><span class="n">istart</span><span class="o">+</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart</span><span class="o">+</span><span class="n">i</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">         </span><span class="n">x</span><span class="p">[</span><span class="n">istart</span><span class="o">+</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart</span><span class="o">+</span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">npoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">iam</span><span class="p">,</span><span class="w"> </span><span class="n">nt</span><span class="p">,</span><span class="w"> </span><span class="n">ipoints</span><span class="p">,</span><span class="w"> </span><span class="n">istart</span><span class="p">;</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">npoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">iam</span><span class="p">,</span><span class="w"> </span><span class="n">nt</span><span class="p">,</span><span class="w"> </span><span class="n">ipoints</span><span class="p">,</span><span class="w"> </span><span class="n">istart</span><span class="p">;</span>
 <span class="w">    </span><span class="cp">#pragma omp parallel default(shared) private(iam,nt,ipoints,istart)</span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">iam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">nt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_num_threads</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">ipoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">npoints</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">nt</span><span class="p">;</span><span class="w"> </span><span class="cm">/* size of partition */</span><span class="w"></span>
-<span class="w">        </span><span class="n">istart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iam</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ipoints</span><span class="p">;</span><span class="w"> </span><span class="cm">/* starting array index */</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iam</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nt</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="cm">/* last thread may do more */</span><span class="w"></span>
-<span class="w">            </span><span class="n">ipoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">npoints</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">istart</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">subdomain</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">ipoints</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">iam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">();</span>
+<span class="w">        </span><span class="n">nt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_num_threads</span><span class="p">();</span>
+<span class="w">        </span><span class="n">ipoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">npoints</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">nt</span><span class="p">;</span><span class="w"> </span><span class="cm">/* size of partition */</span>
+<span class="w">        </span><span class="n">istart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iam</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ipoints</span><span class="p">;</span><span class="w"> </span><span class="cm">/* starting array index */</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iam</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nt</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="cm">/* last thread may do more */</span>
+<span class="w">            </span><span class="n">ipoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">npoints</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">istart</span><span class="p">;</span>
+<span class="w">        </span><span class="n">subdomain</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">ipoints</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">npoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">npoints</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.5f &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">npoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">npoints</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.5f &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="n">sub</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="w">    </span><span class="n">sub</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -1396,36 +1055,36 @@ The <strong>private</strong> clause is used to explicitly specify variables that
 <span class="c1">//%cflags: -fopenmp</span>
 <span class="c1">//This example is from https://www.openmp.org/wp-content/uploads/openmp-examples-5.1.pdf.</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;assert.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;assert.h&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">};</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">};</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">n</span><span class="p">],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">C</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">};</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">E</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">n</span><span class="p">];</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">n</span><span class="p">],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">C</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">};</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">E</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>
 
-<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">E</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">E</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
 
 <span class="w">    </span><span class="cp">#pragma omp parallel firstprivate(B, C, D, E)</span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)[</span><span class="n">n</span><span class="p">]));</span><span class="w"></span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">));</span><span class="w"></span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">D</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w"></span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)[</span><span class="n">n</span><span class="p">]));</span>
+<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">D</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
 
-<span class="w">        </span><span class="cm">/* Private B and C have values of original B and C. */</span><span class="w"></span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">C</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="n">E</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="cm">/* Private B and C have values of original B and C. */</span>
+<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">C</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="n">E</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -1449,7 +1108,7 @@ The type of A is array of two arrays of two ints. B and C are function variables
             mode: "native"
         },
         kernelOptions: {
-            kernelName: "native",
+            name: "native",
             path: "./MultiCoreMultiCPU"
         },
         predefinedOutput: true
@@ -1457,50 +1116,124 @@ The type of A is array of two arrays of two ints. B and C are function variables
     </script>
     <script>kernelName = 'native'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="1_MIMDArchitecture.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">2.1. </span>Multicore and Multi-CPU shared memory systems</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1_MIMDArchitecture.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Multicore and Multi-CPU shared memory systems</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="3_UsingOpenMP_teams.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="3_UsingOpenMP_teams.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">2.3. </span>Creating SPMD parallelism using OpenMP <strong>teams</strong> directive</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-parallel-directive-to-create-parallelism">2.2.1. Get Started with <strong>Parallel</strong> Directive to Create Parallelism</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-semantics-of-parallel-directive-and-its-clauses">2.2.2. Syntax and Semantics of <strong>Parallel</strong> Directive and Its Clauses</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-clause">2.2.2.1. <strong>if</strong> Clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#num-threads-clause">2.2.2.2. <strong>num_threads</strong> Clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sharing-attribute-clauses">2.2.2.3. Data-Sharing Attribute Clauses</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#private-clause">2.2.2.3.1. <strong>private</strong> Clause</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#firstprivate-clause">2.2.2.3.2. <strong>firstprivate</strong> Clause</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-clause">2.2.2.3.3. <strong>shared</strong> Clause</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#default-clause">2.2.2.3.4. <strong>default</strong> Clause</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-scoping-rules">2.2.2.3.5. Implicit Scoping Rules</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copyin-clause">2.2.2.4. <strong>copyin</strong> Clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduction-clause">2.2.2.5. <strong>reduction</strong> Clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proc-bind-clause">2.2.2.6. <strong>proc_bind</strong> Clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#allocate-clause">2.2.2.7. <strong>allocate</strong> Clause</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">2.2.3. More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-clause-and-num-threads-clause">2.2.3.1. <strong>if</strong> clause and <strong>num_threads</strong> clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.2.3.2. Data-Sharing Attribute Clauses</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Michael Womack, Anjia Wang, Patrick Flynn, Xinyao Yi, Yonghong Yan<br/>
-  
-      &copy; <a href="../copyright.html">Copyright</a> 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Michael Womack, Anjia Wang, Patrick Flynn, Xinyao Yi, Yonghong Yan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © <a href="../copyright.html">Copyright</a> 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
