@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Parallel Programming and Performance Optimization With OpenMP
-author: Michael Womack, Anjia Wang, Patrick Flynn, Xinyao Yi, Yonghong Yan
+author: Xinyao Yi, Anjia Wang, and Yonghong Yan
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
