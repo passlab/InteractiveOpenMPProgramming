@@ -12,6 +12,7 @@ execute:
 
 launch_buttons:
   notebook_interface: "jupyterlab"
+  binderhub_url: "https://mybinder.org"
 
 # Define the name of the latex output file for PDF builds
 latex:
