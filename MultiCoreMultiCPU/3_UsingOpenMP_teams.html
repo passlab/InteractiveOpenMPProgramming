@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2.3. Creating SPMD parallelism using OpenMP teams directive &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'MultiCoreMultiCPU/3_UsingOpenMP_teams';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -77,10 +72,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -121,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -153,7 +150,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Parallel Programming and Performance Optimization With OpenMP</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -479,18 +487,18 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="creating-spmd-parallelism-using-openmp-teams-directive">
-<h1><span class="section-number">2.3. </span>Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive<a class="headerlink" href="#creating-spmd-parallelism-using-openmp-teams-directive" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.3. </span>Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive<a class="headerlink" href="#creating-spmd-parallelism-using-openmp-teams-directive" title="Link to this heading">#</a></h1>
 <p>In OpenMP, the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive plays a crucial role, especially in the context of offloading computations to devices such as GPUs.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive in OpenMP is used to create a league of thread teams, each of which can execute concurrently. This directive is particularly useful in scenarios where a hierarchical parallelism model is desired. For example, in GPU programming, a common pattern is to distribute work among multiple teams of threads, where each team can further parallelize the work among its member threads.</p>
 <p>Unlike the <code class="docutils literal notranslate"><span class="pre">parallel</span></code> directive, which is used to create a single team of threads, the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive allows for the creation of multiple teams, providing an additional level of parallelism. This makes the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive a powerful tool for exploiting the parallel capabilities of modern hardware architectures, especially in the context of heterogeneous computing.</p>
 <p>In this chapter, we will explore the basic usage of the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive, its interaction with other OpenMP directives, and how it can be used to target parallel execution on devices like GPUs. By the end of this chapter, you should have a solid understanding of the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive and how to leverage it to write efficient parallel programs with OpenMP.</p>
 <section id="basic-usage">
-<h2><span class="section-number">2.3.1. </span>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.1. </span>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
 <section id="teams-directive">
-<h3><span class="section-number">2.3.1.1. </span><code class="docutils literal notranslate"><span class="pre">teams</span></code> Directive<a class="headerlink" href="#teams-directive" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.1.1. </span><code class="docutils literal notranslate"><span class="pre">teams</span></code> Directive<a class="headerlink" href="#teams-directive" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive indicates that the loop that follows is split among multiple thread teams, one thread team computing one part of the task. Developers can use the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive to use a large number of thread teams.</p>
 <p>The following figure shows the execution model of the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive:
 <img alt="teams_directive" src="../_images/teams.jpeg" /></p>
@@ -528,7 +536,7 @@ The team instruction is used to express the second level of scalable paralleliza
 <p>This will create a league of teams, with the number of teams and the number of threads per team determined by the implementation. Typically, the number of teams is chosen to match the number of available processing units, such as cores or GPU compute units.</p>
 </section>
 <section id="example-creating-teams">
-<h3><span class="section-number">2.3.1.2. </span>Example: Creating Teams<a class="headerlink" href="#example-creating-teams" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.1.2. </span>Example: Creating Teams<a class="headerlink" href="#example-creating-teams" title="Link to this heading">#</a></h3>
 <p>Here’s a basic example that demonstrates the use of the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -554,10 +562,10 @@ The team instruction is used to express the second level of scalable paralleliza
 </section>
 </section>
 <section id="interaction-with-other-directives">
-<h2><span class="section-number">2.3.2. </span>Interaction with Other Directives<a class="headerlink" href="#interaction-with-other-directives" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.2. </span>Interaction with Other Directives<a class="headerlink" href="#interaction-with-other-directives" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive in OpenMP is often used in conjunction with other directives to create a hierarchical parallelism model. This section explores how the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive interacts with the <code class="docutils literal notranslate"><span class="pre">distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">parallel</span></code>, and <code class="docutils literal notranslate"><span class="pre">target</span></code> directives.</p>
 <section id="teams-and-distribute-directives">
-<h3><span class="section-number">2.3.2.1. </span>Teams and Distribute Directives<a class="headerlink" href="#teams-and-distribute-directives" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.2.1. </span>Teams and Distribute Directives<a class="headerlink" href="#teams-and-distribute-directives" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">distribute</span></code> directive is used to distribute the iterations of a loop across the teams created by the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive. This combination is particularly useful for data parallelism where each team works on a different portion of the data.</p>
 <p><strong>Example:</strong> Distributing loop iterations across teams to perform a parallel reduction.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -587,7 +595,7 @@ The team instruction is used to express the second level of scalable paralleliza
 <p>In this example, the loop iterations are distributed across teams, and each team contributes to the reduction operation to calculate the sum of the array elements.</p>
 </section>
 <section id="teams-and-parallel-directives">
-<h3><span class="section-number">2.3.2.2. </span>Teams and Parallel Directives<a class="headerlink" href="#teams-and-parallel-directives" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.2.2. </span>Teams and Parallel Directives<a class="headerlink" href="#teams-and-parallel-directives" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive can also be combined with the <code class="docutils literal notranslate"><span class="pre">parallel</span></code> directive to create nested parallelism. Within each team, the <code class="docutils literal notranslate"><span class="pre">parallel</span></code> directive creates a parallel region where multiple threads can work concurrently.</p>
 <p><strong>Example:</strong> Using nested parallelism with the <code class="docutils literal notranslate"><span class="pre">teams</span></code> and <code class="docutils literal notranslate"><span class="pre">parallel</span></code> directives to perform matrix multiplication.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -627,7 +635,7 @@ The team instruction is used to express the second level of scalable paralleliza
 <p>In this example, the outer loop iterations (over <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>) are distributed across teams, and within each team, the loop iterations are executed in parallel by the team’s threads.</p>
 </section>
 <section id="teams-and-target-directives">
-<h3><span class="section-number">2.3.2.3. </span>Teams and Target Directives<a class="headerlink" href="#teams-and-target-directives" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.2.3. </span>Teams and Target Directives<a class="headerlink" href="#teams-and-target-directives" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive is commonly used with the <code class="docutils literal notranslate"><span class="pre">target</span></code> directive for offloading computations to a device, such as a GPU. The <code class="docutils literal notranslate"><span class="pre">target</span></code> directive specifies that the code block should be executed on the device, and the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive creates teams of threads on the device to execute the code.</p>
 <p><strong>Example:</strong> Offloading a computation to a device and using teams to perform the computation in parallel.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -659,15 +667,15 @@ The team instruction is used to express the second level of scalable paralleliza
 <p>In this example, the computation of the element-wise sum of two arrays is offloaded to a device. The <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive is used to create teams of threads on the device, and the <code class="docutils literal notranslate"><span class="pre">distribute</span> <span class="pre">parallel</span> <span class="pre">for</span></code> construct is used to distribute the loop iterations across the teams and execute them in parallel.</p>
 </section>
 <section id="summary">
-<h3><span class="section-number">2.3.2.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.2.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive provides a flexible way to create a hierarchical parallelism model in OpenMP. By combining the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive with the <code class="docutils literal notranslate"><span class="pre">distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">parallel</span></code>, and <code class="docutils literal notranslate"><span class="pre">target</span></code> directives, developers can efficiently utilize the parallel capabilities of both CPUs and GPUs for a wide range of applications.</p>
 </section>
 </section>
 <section id="data-environment">
-<h2><span class="section-number">2.3.3. </span>Data Environment<a class="headerlink" href="#data-environment" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.3. </span>Data Environment<a class="headerlink" href="#data-environment" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive in OpenMP creates a new data environment for the region of code it encloses. This section discusses the data-sharing attributes and other aspects of the data environment created by the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive.</p>
 <section id="data-sharing-attributes">
-<h3><span class="section-number">2.3.3.1. </span>Data-Sharing Attributes<a class="headerlink" href="#data-sharing-attributes" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.3.1. </span>Data-Sharing Attributes<a class="headerlink" href="#data-sharing-attributes" title="Link to this heading">#</a></h3>
 <p>Within a <code class="docutils literal notranslate"><span class="pre">teams</span></code> region, variables can have one of the following data-sharing attributes: shared, private, firstprivate, or reduction. The default data-sharing attribute for variables in a <code class="docutils literal notranslate"><span class="pre">teams</span></code> region is determined by the default clause if present; otherwise, it follows the rules of the OpenMP specification.</p>
 <ul class="simple">
 <li><p><strong>Shared:</strong> Variables with the shared attribute are shared among all threads in all teams. Each team accesses the same storage location for shared variables.</p></li>
@@ -677,7 +685,7 @@ The team instruction is used to express the second level of scalable paralleliza
 </ul>
 </section>
 <section id="example-data-sharing-attributes-in-teams-region">
-<h3><span class="section-number">2.3.3.2. </span>Example: Data-Sharing Attributes in Teams Region<a class="headerlink" href="#example-data-sharing-attributes-in-teams-region" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.3.2. </span>Example: Data-Sharing Attributes in Teams Region<a class="headerlink" href="#example-data-sharing-attributes-in-teams-region" title="Link to this heading">#</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
@@ -704,15 +712,15 @@ The team instruction is used to express the second level of scalable paralleliza
 <p>In this example, <code class="docutils literal notranslate"><span class="pre">shared_var</span></code> is shared among all teams and threads, while <code class="docutils literal notranslate"><span class="pre">private_var</span></code> is private to each thread. The value of <code class="docutils literal notranslate"><span class="pre">shared_var</span></code> is modified through a reduction operation within the parallel region inside the teams region.</p>
 </section>
 <section id="id1">
-<h3><span class="section-number">2.3.3.3. </span>Summary<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.3.3. </span>Summary<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Understanding the data environment and data-sharing attributes in a <code class="docutils literal notranslate"><span class="pre">teams</span></code> region is crucial for writing correct and efficient parallel programs with OpenMP. Properly managing the data environment ensures that data is correctly shared or privatized among teams and threads, avoiding data races and other concurrency issues.</p>
 </section>
 </section>
 <section id="clauses">
-<h2><span class="section-number">2.3.4. </span>Clauses<a class="headerlink" href="#clauses" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.4. </span>Clauses<a class="headerlink" href="#clauses" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive in OpenMP can be used with several clauses to control the behavior of the teams and the data environment. This section discusses the clauses with the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive.</p>
 <section id="num-teams-clause">
-<h3><span class="section-number">2.3.4.1. </span>num_teams Clause<a class="headerlink" href="#num-teams-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4.1. </span>num_teams Clause<a class="headerlink" href="#num-teams-clause" title="Link to this heading">#</a></h3>
 <p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">num_teams(integer-expression)</span></code></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">num_teams</span></code> clause specifies the number of teams to be created in the teams region.</p>
 <p><strong>Example:</strong></p>
@@ -730,7 +738,7 @@ The team instruction is used to express the second level of scalable paralleliza
 </div>
 </section>
 <section id="thread-limit-clause">
-<h3><span class="section-number">2.3.4.2. </span>thread_limit Clause<a class="headerlink" href="#thread-limit-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4.2. </span>thread_limit Clause<a class="headerlink" href="#thread-limit-clause" title="Link to this heading">#</a></h3>
 <p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">thread_limit(integer-expression)</span></code></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">thread_limit</span></code> clause specifies the maximum number of threads that can be part of each team.</p>
 <p><strong>Example:</strong></p>
@@ -751,7 +759,7 @@ The team instruction is used to express the second level of scalable paralleliza
 </div>
 </section>
 <section id="reduction-clause">
-<h3><span class="section-number">2.3.4.3. </span>reduction Clause<a class="headerlink" href="#reduction-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4.3. </span>reduction Clause<a class="headerlink" href="#reduction-clause" title="Link to this heading">#</a></h3>
 <p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">reduction(operator:</span> <span class="pre">list)</span></code></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">reduction</span></code> clause is used to perform a reduction operation on variables that are private to each thread but shared across the teams.</p>
 <p><strong>Example:</strong></p>
@@ -777,7 +785,7 @@ The team instruction is used to express the second level of scalable paralleliza
 </div>
 </section>
 <section id="default-clause">
-<h3><span class="section-number">2.3.4.4. </span>default Clause<a class="headerlink" href="#default-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4.4. </span>default Clause<a class="headerlink" href="#default-clause" title="Link to this heading">#</a></h3>
 <p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">default(shared</span> <span class="pre">|</span> <span class="pre">none)</span></code></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">default</span></code> clause sets the default data-sharing attribute for variables in the teams region.</p>
 <p><strong>Example:</strong></p>
@@ -796,7 +804,7 @@ The team instruction is used to express the second level of scalable paralleliza
 </div>
 </section>
 <section id="allocate-clause">
-<h3><span class="section-number">2.3.4.5. </span>allocate Clause<a class="headerlink" href="#allocate-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4.5. </span>allocate Clause<a class="headerlink" href="#allocate-clause" title="Link to this heading">#</a></h3>
 <p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">allocate([allocator:]</span> <span class="pre">list)</span></code></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">allocate</span></code> clause specifies the allocator to be used for the variables in the list.</p>
 <p><strong>Example:</strong></p>
@@ -814,7 +822,7 @@ The team instruction is used to express the second level of scalable paralleliza
 </div>
 </section>
 <section id="shared-clause">
-<h3><span class="section-number">2.3.4.6. </span>shared Clause<a class="headerlink" href="#shared-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4.6. </span>shared Clause<a class="headerlink" href="#shared-clause" title="Link to this heading">#</a></h3>
 <p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">shared(list)</span></code></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">shared</span></code> clause specifies that the data within a parallel region is shared among all threads.</p>
 <p><strong>Example:</strong></p>
@@ -832,7 +840,7 @@ The team instruction is used to express the second level of scalable paralleliza
 </div>
 </section>
 <section id="private-clause">
-<h3><span class="section-number">2.3.4.7. </span>private Clause<a class="headerlink" href="#private-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4.7. </span>private Clause<a class="headerlink" href="#private-clause" title="Link to this heading">#</a></h3>
 <p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">private(list)</span></code></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">private</span></code> clause specifies that each thread should have its own instance of a variable.</p>
 <p><strong>Example:</strong></p>
@@ -850,7 +858,7 @@ The team instruction is used to express the second level of scalable paralleliza
 </div>
 </section>
 <section id="firstprivate-clause">
-<h3><span class="section-number">2.3.4.8. </span>firstprivate Clause<a class="headerlink" href="#firstprivate-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4.8. </span>firstprivate Clause<a class="headerlink" href="#firstprivate-clause" title="Link to this heading">#</a></h3>
 <p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">firstprivate(list)</span></code></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">firstprivate</span></code> clause provides each thread with its own copy of a variable and initializes each copy with the value of the variable at the time the parallel region is entered.</p>
 <p><strong>Example:</strong></p>
@@ -868,15 +876,15 @@ The team instruction is used to express the second level of scalable paralleliza
 </div>
 </section>
 <section id="id2">
-<h3><span class="section-number">2.3.4.9. </span>Summary<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4.9. </span>Summary<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Clauses provide a powerful way to customize the behavior of the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive in OpenMP. By using clauses like <code class="docutils literal notranslate"><span class="pre">num_teams</span></code>, <code class="docutils literal notranslate"><span class="pre">thread_limit</span></code>, <code class="docutils literal notranslate"><span class="pre">reduction</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">allocate</span></code>, <code class="docutils literal notranslate"><span class="pre">shared</span></code>, <code class="docutils literal notranslate"><span class="pre">private</span></code>, and <code class="docutils literal notranslate"><span class="pre">firstprivate</span></code>, programmers can control various aspects of the teams’ behavior and the data environment.</p>
 </section>
 </section>
 <section id="targeting-devices">
-<h2><span class="section-number">2.3.5. </span>Targeting Devices<a class="headerlink" href="#targeting-devices" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.5. </span>Targeting Devices<a class="headerlink" href="#targeting-devices" title="Link to this heading">#</a></h2>
 <p>In modern computing, harnessing the power of specialized hardware such as Graphics Processing Units (GPUs) is essential for achieving high performance in parallel computing. OpenMP provides a seamless way to offload computations to these devices using the <code class="docutils literal notranslate"><span class="pre">target</span></code> and <code class="docutils literal notranslate"><span class="pre">teams</span></code> directives.</p>
 <section id="offloading-with-target-and-teams-directives">
-<h3><span class="section-number">2.3.5.1. </span>Offloading with Target and Teams Directives<a class="headerlink" href="#offloading-with-target-and-teams-directives" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.5.1. </span>Offloading with Target and Teams Directives<a class="headerlink" href="#offloading-with-target-and-teams-directives" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">target</span></code> directive instructs the compiler to execute the enclosed code block on a specified device, typically a GPU. The <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive, when used in conjunction with <code class="docutils literal notranslate"><span class="pre">target</span></code>, creates a league of thread teams to execute the code in parallel on the device.</p>
 <p><strong>Example: Vector Addition on a GPU</strong></p>
 <p>Consider the following example where two arrays are added element-wise and the result is stored in a third array:</p>
@@ -914,23 +922,23 @@ The team instruction is used to express the second level of scalable paralleliza
 <p>In this example, the <code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">teams</span></code> directive offloads the addition of arrays <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> to a GPU. The <code class="docutils literal notranslate"><span class="pre">map</span></code> clauses specify how data is transferred between the host and the device. The <code class="docutils literal notranslate"><span class="pre">distribute</span> <span class="pre">parallel</span> <span class="pre">for</span></code> directive ensures that the computation is performed in parallel by the teams of threads on the device.</p>
 </section>
 <section id="leveraging-device-parallelism">
-<h3><span class="section-number">2.3.5.2. </span>Leveraging Device Parallelism<a class="headerlink" href="#leveraging-device-parallelism" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.5.2. </span>Leveraging Device Parallelism<a class="headerlink" href="#leveraging-device-parallelism" title="Link to this heading">#</a></h3>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive with the <code class="docutils literal notranslate"><span class="pre">target</span></code> directive enables you to harness the parallel processing capabilities of devices like GPUs. It allows for scalable parallel execution where the workload is distributed across multiple teams of threads, each executing concurrently on the device.</p>
 </section>
 <section id="id3">
-<h3><span class="section-number">2.3.5.3. </span>Summary<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.5.3. </span>Summary<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>The integration of the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive with the <code class="docutils literal notranslate"><span class="pre">target</span></code> directive in OpenMP provides a powerful and flexible approach to offloading computations to devices. This capability allows programmers to efficiently utilize the parallel processing power of GPUs and other devices, thereby enhancing the performance of parallel applications. In the following chapters, we will delve deeper into the <code class="docutils literal notranslate"><span class="pre">map</span></code> clause and explore other aspects of device offloading in OpenMP.</p>
 </section>
 </section>
 <section id="best-practices-for-effective-use-of-teams-directive">
-<h2><span class="section-number">2.3.6. </span>Best Practices for Effective Use of Teams Directive<a class="headerlink" href="#best-practices-for-effective-use-of-teams-directive" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.6. </span>Best Practices for Effective Use of Teams Directive<a class="headerlink" href="#best-practices-for-effective-use-of-teams-directive" title="Link to this heading">#</a></h2>
 <p>Optimizing the use of the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive in OpenMP is crucial for harnessing the full potential of parallel computing, especially when offloading computations to devices such as GPUs. Here are some essential best practices to keep in mind:</p>
 <section id="optimal-team-configuration">
-<h3><span class="section-number">2.3.6.1. </span>Optimal Team Configuration<a class="headerlink" href="#optimal-team-configuration" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.6.1. </span>Optimal Team Configuration<a class="headerlink" href="#optimal-team-configuration" title="Link to this heading">#</a></h3>
 <p>Selecting the appropriate number of teams is pivotal. It should be aligned with the target device’s architecture and the computational workload. For GPUs, a rule of thumb is to create a number of teams that corresponds to a multiple of the device’s compute units.</p>
 </section>
 <section id="workload-distribution">
-<h3><span class="section-number">2.3.6.2. </span>Workload Distribution<a class="headerlink" href="#workload-distribution" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.6.2. </span>Workload Distribution<a class="headerlink" href="#workload-distribution" title="Link to this heading">#</a></h3>
 <p>Achieving a balanced distribution of work among teams is key to avoiding performance bottlenecks. Utilize the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> directive in tandem with <code class="docutils literal notranslate"><span class="pre">teams</span></code> to ensure an equitable assignment of loop iterations or other computational tasks across the teams.</p>
 <p><strong>Example: Workload Distribution</strong></p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -959,7 +967,7 @@ The team instruction is used to express the second level of scalable paralleliza
 </div>
 </section>
 <section id="minimizing-data-movement">
-<h3><span class="section-number">2.3.6.3. </span>Minimizing Data Movement<a class="headerlink" href="#minimizing-data-movement" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.6.3. </span>Minimizing Data Movement<a class="headerlink" href="#minimizing-data-movement" title="Link to this heading">#</a></h3>
 <p>Data transfer between the host and the device can significantly impact performance. Employ the <code class="docutils literal notranslate"><span class="pre">map</span></code> clause with precision to reduce unnecessary data movement. Additionally, explore techniques like data prefetching and overlapping data transfers with computation to enhance data locality.</p>
 <p><strong>Example: Efficient Data Movement</strong></p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -990,7 +998,7 @@ The team instruction is used to express the second level of scalable paralleliza
 </div>
 </section>
 <section id="efficient-reductions">
-<h3><span class="section-number">2.3.6.4. </span>Efficient Reductions<a class="headerlink" href="#efficient-reductions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.6.4. </span>Efficient Reductions<a class="headerlink" href="#efficient-reductions" title="Link to this heading">#</a></h3>
 <p>Ensure that reductions are performed efficiently, especially when using the <code class="docutils literal notranslate"><span class="pre">reduction</span></code> clause with the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive. Implement parallel reduction algorithms that leverage the device’s parallel processing capabilities to avoid bottlenecks.</p>
 <p><strong>Example: Parallel Reduction</strong></p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -1024,19 +1032,19 @@ The team instruction is used to express the second level of scalable paralleliza
 </div>
 </section>
 <section id="debugging-and-profiling">
-<h3><span class="section-number">2.3.6.5. </span>Debugging and Profiling<a class="headerlink" href="#debugging-and-profiling" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.6.5. </span>Debugging and Profiling<a class="headerlink" href="#debugging-and-profiling" title="Link to this heading">#</a></h3>
 <p>Leverage OpenMP-aware debugging and profiling tools to identify and address performance bottlenecks. Regularly verify the correctness of parallel execution to ensure the expected behavior of your application.</p>
 </section>
 <section id="conclusion">
-<h3><span class="section-number">2.3.6.6. </span>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.6.6. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h3>
 <p>Adhering to these best practices will enable you to maximize the efficiency and correctness of your parallel applications using the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive in OpenMP. Tailor your approach to the specific requirements of your application and the capabilities of your target device for optimal results.</p>
 </section>
 </section>
 <section id="advanced-topics">
-<h2><span class="section-number">2.3.7. </span>Advanced Topics<a class="headerlink" href="#advanced-topics" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.7. </span>Advanced Topics<a class="headerlink" href="#advanced-topics" title="Link to this heading">#</a></h2>
 <p>While the basic usage of the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive provides a powerful tool for parallel computing, there are several advanced topics that can further enhance the performance and flexibility of your OpenMP applications. Here are some advanced topics related to the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive:</p>
 <section id="nested-parallelism">
-<h3><span class="section-number">2.3.7.1. </span>Nested Parallelism<a class="headerlink" href="#nested-parallelism" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.7.1. </span>Nested Parallelism<a class="headerlink" href="#nested-parallelism" title="Link to this heading">#</a></h3>
 <p>OpenMP supports nested parallelism, where a parallel region can be defined inside another parallel region. This can be particularly useful when using the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive to create a hierarchical parallelism model.</p>
 <p><strong>Example: Nested Parallelism</strong></p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -1059,7 +1067,7 @@ The team instruction is used to express the second level of scalable paralleliza
 <p>In this example, an outer parallel region is created by the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive, and an inner parallel region is created by the <code class="docutils literal notranslate"><span class="pre">parallel</span></code> directive. Each team of threads executes the inner parallel region independently.</p>
 </section>
 <section id="simd-parallelism">
-<h3><span class="section-number">2.3.7.2. </span>SIMD Parallelism<a class="headerlink" href="#simd-parallelism" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.7.2. </span>SIMD Parallelism<a class="headerlink" href="#simd-parallelism" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive can be combined with SIMD (Single Instruction, Multiple Data) constructs to exploit vector parallelism on devices that support SIMD instructions.</p>
 <p><strong>Example: SIMD Parallelism</strong></p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -1092,7 +1100,7 @@ The team instruction is used to express the second level of scalable paralleliza
 <p>In this example, the <code class="docutils literal notranslate"><span class="pre">simd</span></code> directive is used within the loop to enable SIMD parallelism, allowing multiple elements of the array to be processed simultaneously by SIMD instructions.</p>
 </section>
 <section id="interoperability-with-other-programming-models">
-<h3><span class="section-number">2.3.7.3. </span>Interoperability with Other Programming Models<a class="headerlink" href="#interoperability-with-other-programming-models" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.7.3. </span>Interoperability with Other Programming Models<a class="headerlink" href="#interoperability-with-other-programming-models" title="Link to this heading">#</a></h3>
 <p>OpenMP can interoperate with other programming models, such as MPI (Message Passing Interface) or CUDA, to take advantage of specific features of different parallel programming approaches.</p>
 <p><strong>Example: Interoperability with MPI</strong></p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -1118,12 +1126,12 @@ The team instruction is used to express the second level of scalable paralleliza
 <p>In this example, OpenMP is used in conjunction with MPI, where each MPI process executes an OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> region on a device. This allows for a hybrid parallel programming approach that combines distributed memory parallelism (MPI) with shared memory parallelism (OpenMP).</p>
 </section>
 <section id="id4">
-<h3><span class="section-number">2.3.7.4. </span>Summary<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.7.4. </span>Summary<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Exploring advanced topics related to the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive can unlock new levels of performance and flexibility in your OpenMP applications. Whether it’s leveraging nested parallelism, exploiting SIMD instructions, or interoperating with other programming models, these advanced techniques can help you tackle complex parallel computing challenges.</p>
 </section>
 </section>
 <section id="id5">
-<h2><span class="section-number">2.3.8. </span>Summary<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.8. </span>Summary<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive is a powerful feature in OpenMP that enables the creation of a league of thread teams for parallel execution, particularly on devices such as GPUs. This chapter has covered the fundamental concepts, usage, and best practices associated with the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive, along with advanced topics for further exploration.</p>
 <p>Key takeaways from this chapter include:</p>
 <ul class="simple">
@@ -1136,7 +1144,7 @@ The team instruction is used to express the second level of scalable paralleliza
 <p>By mastering the use of the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive, you can unlock new levels of parallelism and performance in your applications, making them more scalable and efficient on modern computing architectures.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">2.3.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3.9. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Nested Parallelism:</strong> Modify the example code for nested parallelism to create a hierarchy of parallel regions using the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive. Experiment with different numbers of teams and threads to observe the performance impact.</p></li>
 <li><p><strong>SIMD Parallelism:</strong> Implement a matrix multiplication algorithm using SIMD parallelism within the <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive. Compare the performance of the SIMD-parallelized version with a non-parallelized version.</p></li>
@@ -1208,6 +1216,7 @@ The team instruction is used to express the second level of scalable paralleliza
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1293,7 +1302,7 @@ By Xinyao Yi, Anjia Wang, and Yonghong Yan
 
   <p class="copyright">
     
-      © <a href="../copyright.html">Copyright</a> 2022.
+      © <a href="../copyright.html">Copyright</a> 2023.
       <br/>
     
   </p>
@@ -1317,8 +1326,8 @@ By Xinyao Yi, Anjia Wang, and Yonghong Yan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

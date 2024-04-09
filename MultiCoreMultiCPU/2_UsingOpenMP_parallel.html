@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2.2. Creating SPMD parallelism using OpenMP parallel directive &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
   
@@ -19,49 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'MultiCoreMultiCPU/2_UsingOpenMP_parallel';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -77,10 +72,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -121,11 +115,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -153,7 +150,18 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Parallel Programming and Performance Optimization With OpenMP</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -448,13 +456,13 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="creating-spmd-parallelism-using-openmp-parallel-directive">
-<h1><span class="section-number">2.2. </span>Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive<a class="headerlink" href="#creating-spmd-parallelism-using-openmp-parallel-directive" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.2. </span>Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive<a class="headerlink" href="#creating-spmd-parallelism-using-openmp-parallel-directive" title="Link to this heading">#</a></h1>
 <p>From this part, we begin to introduce how to use OpenMP directives to write programs. We first introduce the most basic and most commonly used <strong>parallel</strong> directive.</p>
 <section id="get-started-with-parallel-directive-to-create-parallelism">
-<h2><span class="section-number">2.2.1. </span>Get Started with <strong>Parallel</strong> Directive to Create Parallelism<a class="headerlink" href="#get-started-with-parallel-directive-to-create-parallelism" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.1. </span>Get Started with <strong>Parallel</strong> Directive to Create Parallelism<a class="headerlink" href="#get-started-with-parallel-directive-to-create-parallelism" title="Link to this heading">#</a></h2>
 <p>The <strong>parallel</strong> directive is used to mark a parallel region. When a thread encounters a parallel region, a group of threads is created to execute the parallel region.
 The original thread that executed the serial part will be the primary thread of the new team. All threads in the team execute parallel regions together. After a team is created, the number of threads in the team remains constant for the duration of that parallel region.</p>
 <blockquote>
@@ -586,7 +594,7 @@ Hello World
 </div>
 </section>
 <section id="syntax-and-semantics-of-parallel-directive-and-its-clauses">
-<h2><span class="section-number">2.2.2. </span>Syntax and Semantics of <strong>Parallel</strong> Directive and Its Clauses<a class="headerlink" href="#syntax-and-semantics-of-parallel-directive-and-its-clauses" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.2. </span>Syntax and Semantics of <strong>Parallel</strong> Directive and Its Clauses<a class="headerlink" href="#syntax-and-semantics-of-parallel-directive-and-its-clauses" title="Link to this heading">#</a></h2>
 <p>Through the examples shown in the last section, it is not difficult to conclude that the syntax of the <strong>parallel</strong> directive in C is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp parallel [clause[ [,] clause] ... ] new-line</span>
     <span class="n">structured</span><span class="o">-</span><span class="n">block</span>
@@ -613,7 +621,7 @@ Ten clauses can be used with the <strong>parallel</strong> directive, listing as
 </pre></div>
 </div>
 <section id="if-clause">
-<h3><span class="section-number">2.2.2.1. </span><strong>if</strong> Clause<a class="headerlink" href="#if-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.2.1. </span><strong>if</strong> Clause<a class="headerlink" href="#if-clause" title="Link to this heading">#</a></h3>
 <p>The <strong>if</strong> clause is used to achieve conditional parallelism. It can be used with many directives, such as <strong>parallel</strong> directive, <strong>task</strong> directive, <strong>simd</strong> directive, etc. Its effect depends on the construct to which it is applied. The syntax is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">([</span> <span class="n">directive</span><span class="o">-</span><span class="n">name</span><span class="o">-</span><span class="n">modifier</span> <span class="p">:]</span> <span class="n">scalar</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
 </pre></div>
@@ -625,7 +633,7 @@ Ten clauses can be used with the <strong>parallel</strong> directive, listing as
 <p>The <em>directive-name-modifier</em> is optional and is very useful in combined constructs, which we will cover in the later chapters. When the <strong>if</strong> claue is used with the <strong>parallel</strong> directive, only <em>parallel</em> can be used as the <em>directive-name-modifier</em>. Its semantics are that the parallel region is active when the <em>scaler-expression</em> or <em>scalar-logical-expression</em> is true, otherwise the parallel region that follows will be inactive. At most one <strong>if</strong> clause can be used in each parallel construct.</p>
 </section>
 <section id="num-threads-clause">
-<h3><span class="section-number">2.2.2.2. </span><strong>num_threads</strong> Clause<a class="headerlink" href="#num-threads-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.2.2. </span><strong>num_threads</strong> Clause<a class="headerlink" href="#num-threads-clause" title="Link to this heading">#</a></h3>
 <p>The syntax for <strong>num_threads</strong> is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_threads</span><span class="p">(</span><span class="n">integer</span><span class="o">-</span><span class="n">expression</span><span class="p">)</span>
 </pre></div>
@@ -634,12 +642,12 @@ Ten clauses can be used with the <strong>parallel</strong> directive, listing as
 The number of threads in the parallel region is determined by <em>integer-expression</em>. At most one <strong>num_threads</strong> clause can be used in each parallel construct. Because the number of threads used must be uniquely determined when entering the parallel region， whether explicitly specified by the programmer using <strong>num_threads</strong> clause or implicitly specified by the compiler. Of course, the <em>scaler-expression</em> must be an integer greater than zero.</p>
 </section>
 <section id="data-sharing-attribute-clauses">
-<h3><span class="section-number">2.2.2.3. </span>Data-Sharing Attribute Clauses<a class="headerlink" href="#data-sharing-attribute-clauses" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.2.3. </span>Data-Sharing Attribute Clauses<a class="headerlink" href="#data-sharing-attribute-clauses" title="Link to this heading">#</a></h3>
 <p>Data-sharing attribute clauses are used to control the data-sharing attributes of variables.</p>
 <p>There are four data-sharing attribute clauses that can be used with the <strong>parallel</strong> directive, namely <strong>default</strong> clause, <strong>private</strong> clause, <strong>firstprivate</strong> clause and <strong>shared</strong> clause. The <strong>lastprivate</strong> clause and <strong>linear</strong> clause are two other data-sharing attribute clauses. They cannot be used with <strong>parallel</strong> directives, so we will skip them for now and describe them in detail in later chapters.</p>
 <p>We first introduce the <strong>private</strong> clause, <strong>firstprivate</strong> clause and <strong>shared</strong> clause.</p>
 <section id="private-clause">
-<h4><span class="section-number">2.2.2.3.1. </span><strong>private</strong> Clause<a class="headerlink" href="#private-clause" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">2.2.2.3.1. </span><strong>private</strong> Clause<a class="headerlink" href="#private-clause" title="Link to this heading">#</a></h4>
 <p>The syntax of the <strong>private</strong> clause is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">private</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 </pre></div>
@@ -648,7 +656,7 @@ The number of threads in the parallel region is determined by <em>integer-expres
 The <strong>private</strong> caluse is used to declare private variable(s) in the <em>list</em> for a task or a SIMD lane. A private variable has a different address in the execution context of every thread. These variables are private to threads, and threads cannot access private variables owned by other threads. Programmers can use the <strong>private</strong> clause as many times as needed.</p>
 </section>
 <section id="firstprivate-clause">
-<h4><span class="section-number">2.2.2.3.2. </span><strong>firstprivate</strong> Clause<a class="headerlink" href="#firstprivate-clause" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">2.2.2.3.2. </span><strong>firstprivate</strong> Clause<a class="headerlink" href="#firstprivate-clause" title="Link to this heading">#</a></h4>
 <p>The <strong>firstprivate</strong> clause is very similar to the <strong>private</strong> clause. They both indicate that the variables in the <em>list</em> are private to the thread. Its syntax is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">firstprivate</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 </pre></div>
@@ -656,7 +664,7 @@ The <strong>private</strong> caluse is used to declare private variable(s) in th
 <p>But unlike the <strong>private</strong> clause, the variables in the <em>list</em> are initialized to the initial value that the original item had in the serial area. Like <strong>private</strong> clause, the <strong>firstprivate</strong> clause can be used multiple times in the parallel construct.</p>
 </section>
 <section id="shared-clause">
-<h4><span class="section-number">2.2.2.3.3. </span><strong>shared</strong> Clause<a class="headerlink" href="#shared-clause" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">2.2.2.3.3. </span><strong>shared</strong> Clause<a class="headerlink" href="#shared-clause" title="Link to this heading">#</a></h4>
 <p>The <strong>shared</strong> clause is used to declare that one or more items in the <em>list</em> can be shared by tasks or SIMD lane. Its syntax is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shared</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 </pre></div>
@@ -664,7 +672,7 @@ The <strong>private</strong> caluse is used to declare private variable(s) in th
 <p>Shared variables have the same address in the execution context of every thread. In a parallel region, all threads or SIMD lanes can access these variables. The <strong>shared</strong> clause can also be used multiple times within a parallel struct.</p>
 </section>
 <section id="default-clause">
-<h4><span class="section-number">2.2.2.3.4. </span><strong>default</strong> Clause<a class="headerlink" href="#default-clause" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">2.2.2.3.4. </span><strong>default</strong> Clause<a class="headerlink" href="#default-clause" title="Link to this heading">#</a></h4>
 <p>The syntax of <strong>default</strong> clause：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default</span><span class="p">(</span><span class="n">data</span><span class="o">-</span><span class="n">sharing</span><span class="o">-</span><span class="n">attribute</span><span class="p">)</span>
 </pre></div>
@@ -690,13 +698,13 @@ none</p>
 <p>Unlike the above three clauses, <strong>default</strong> clause can only appear once in a directive.</p>
 </section>
 <section id="implicit-scoping-rules">
-<h4><span class="section-number">2.2.2.3.5. </span>Implicit Scoping Rules<a class="headerlink" href="#implicit-scoping-rules" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">2.2.2.3.5. </span>Implicit Scoping Rules<a class="headerlink" href="#implicit-scoping-rules" title="Link to this heading">#</a></h4>
 <p>You may ask, if the <strong>default</strong> clause is not used, what data-sharing attribute is the variable that is not explicitly listed in other clauses? In fact, OpenMP defines a set of implicit scope rules. It determines the data-sharing attribute of a variable based on the characteristics of the variable being accessed. For example, for threads in a group, a variable is scoped to <em>shared</em> if using this variable in the parallel region does not result in a data race condition. A variable is scoped to <em>private</em> if, in each thread executing the parallel region, the variable is always written before being read by the same thread. The detailed rules can be found in the OpenMP specification.</p>
 <p>Although OpenMP proposes as detailed and explicit rules as possible for implicit scoping, there is still a high possibility of unpredictable errors. Therefore, it is undoubtedly the best choice for programmers to use clauses to explicitly specify the data-sharing attributes of variables. This is an important aspect of OpenMP program optimization.</p>
 </section>
 </section>
 <section id="copyin-clause">
-<h3><span class="section-number">2.2.2.4. </span><strong>copyin</strong> Clause<a class="headerlink" href="#copyin-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.2.4. </span><strong>copyin</strong> Clause<a class="headerlink" href="#copyin-clause" title="Link to this heading">#</a></h3>
 <p>The <strong>copyin</strong> clause is the one of two data copying clauses that can be used on the <strong>parallel</strong> construct or combined parallel worksharing constructs. The other one is the <strong>copyprivate</strong> clause which is only allowed on the <strong>single</strong> construct.</p>
 <p>Before introducing these two clauses, we need to introduce a new data-sharing attribute, named <em>threadprivate</em>. The difference between private variables and thread private variables can be briefly described as follows:</p>
 <ul class="simple">
@@ -710,7 +718,7 @@ none</p>
 <p>It can copy the value of the main thread’s threadprivate variable into the threadprivate variable of every other member in the team that is executing the parallel region. And it can be used multiple times within a parallel struct.</p>
 </section>
 <section id="reduction-clause">
-<h3><span class="section-number">2.2.2.5. </span><strong>reduction</strong> Clause<a class="headerlink" href="#reduction-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.2.5. </span><strong>reduction</strong> Clause<a class="headerlink" href="#reduction-clause" title="Link to this heading">#</a></h3>
 <p>The <strong>reduction</strong> clause belongs to the <em>reduction scoping clauses</em> and the <em>reduction participating clauses</em>. The <em>reduction scoping clauses</em> define the region of a reduction computed by a task or a SIMD lane. The <em>reduction participating clauses</em> are used to define a task or SIMD channel as a reduction participant. The <strong>reduction</strong> clause is specifically designed for reduction operations, and it allows the user to specify one or more thread-private variables that accept reduction operation at the end of the parallel region.</p>
 <p>The syntax of the <strong>reduction</strong> clause is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reduction</span><span class="p">([</span> <span class="n">reduction</span><span class="o">-</span><span class="n">modifier</span><span class="p">,]</span><span class="n">reduction</span><span class="o">-</span><span class="n">identifier</span> <span class="p">:</span> <span class="nb">list</span><span class="p">)</span>
@@ -848,7 +856,7 @@ According to the OpenMP specification, the <em>reduction-identifier</em> has the
 <p>The <strong>reduction</strong> clause can be used multiple times as needed within a parallel struct.</p>
 </section>
 <section id="proc-bind-clause">
-<h3><span class="section-number">2.2.2.6. </span><strong>proc_bind</strong> Clause<a class="headerlink" href="#proc-bind-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.2.6. </span><strong>proc_bind</strong> Clause<a class="headerlink" href="#proc-bind-clause" title="Link to this heading">#</a></h3>
 <p>The <strong>proc_bind</strong> clause is used to specify a mapping of OpenMP threads to places within the current place partition for implicit tasks of the encountering threads. At most one proc_bind clause can appear on the directive. Its syntax is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proc_bind</span><span class="p">(</span><span class="n">affinity</span><span class="o">-</span><span class="n">policy</span><span class="p">)</span> 
 </pre></div>
@@ -868,7 +876,7 @@ When the number of threads is equal to or less than <strong>P</strong>, the numb
 Sorted by thread number, the first <strong>T/P</strong> threads are allocated in the subpartition that contains the place of the parent thread. The remaining thread groups are allocated backward in turn, with a wrap-around with respect to the original place partition of the primary thread.</p>
 </section>
 <section id="allocate-clause">
-<h3><span class="section-number">2.2.2.7. </span><strong>allocate</strong> Clause<a class="headerlink" href="#allocate-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.2.7. </span><strong>allocate</strong> Clause<a class="headerlink" href="#allocate-clause" title="Link to this heading">#</a></h3>
 <p>The <strong>allocate</strong> clause is used to specify the memory allocator used to obtain storage of the private variables. When it is used with <strong>parallel</strong> construct, the syntax is shown as following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">allocate</span><span class="p">([</span><span class="n">allocator</span><span class="p">:]</span> <span class="nb">list</span><span class="p">)</span> 
 </pre></div>
@@ -879,11 +887,11 @@ We will not list these allocators here, readers can find them in the OpenMP spec
 </section>
 </section>
 <section id="more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement">
-<h2><span class="section-number">2.2.3. </span>More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement<a class="headerlink" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.3. </span>More Advanced Examples of Using Other Clauses and the Analysis of Performance and Improvement<a class="headerlink" href="#more-advanced-examples-of-using-other-clauses-and-the-analysis-of-performance-and-improvement" title="Link to this heading">#</a></h2>
 <p>In the above section, we have introduced the syntax and semantics of all the clauses that can be used with the parallel directive. In this section, we introduce some examples of how to use these clauses.</p>
 <p>Meanwhile, in some of the examples, we will show some ways to improve performance, and discuss some potential possibilities for improving performance.</p>
 <section id="if-clause-and-num-threads-clause">
-<h3><span class="section-number">2.2.3.1. </span><strong>if</strong> clause and <strong>num_threads</strong> clause<a class="headerlink" href="#if-clause-and-num-threads-clause" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.3.1. </span><strong>if</strong> clause and <strong>num_threads</strong> clause<a class="headerlink" href="#if-clause-and-num-threads-clause" title="Link to this heading">#</a></h3>
 <p>The <strong>if</strong> clause can achieve conditional parallelism and the <strong>num_threads</strong> clause will identify the number of threads used. In the following example, we use three cases to display the effect of the if clause and the <strong>num_trheads</strong> clause. No <strong>if</strong> clause is used in case 1, and the <strong>num_threads</strong> clause indicated we should use 4 threads, so we can get the output from four threads in parallel. The scalar expression in the <strong>if</strong> clause in case 2 is evaluated to be false, so the statements following the openMP directive (maybe code block in other cases) will be executed serially by only one thread. And in case 3, the scalar expression is evaluated to be true, so the statements following the openMP directive will be executed parallel by four threads.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -936,7 +944,7 @@ Hello World in case 3 from thread 2
 <p>Within a parallel region, the thread number uniquely identifies each thread. A thread can obtain its own thread number by calling the <strong>omp_get_thread_num</strong> library routine.</p>
 </section>
 <section id="id1">
-<h3><span class="section-number">2.2.3.2. </span>Data-Sharing Attribute Clauses<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.3.2. </span>Data-Sharing Attribute Clauses<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>The following example is a little more complicated. It shows how to use the <strong>omp_get_thread_num</strong> library routine and shows how to use two other clauses, the <strong>default</strong> clause and the <strong>private</strong> clause. It assigns tasks to each thread explicitly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1008,59 +1016,59 @@ The <strong>private</strong> clause is used to explicitly specify variables that
 <p>The corresponding Fortran program is shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span>!!%compiler: gfortran
-!!%cflags: -fopenmp
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">!!%</span><span class="n">compiler</span><span class="o">:</span><span class="w"> </span><span class="n">gfortran</span>
+<span class="o">!!%</span><span class="n">cflags</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="n">fopenmp</span>
 
-    SUBROUTINE SUBDOMAIN(X, ISTART, IPOINTS)
-        INTEGER ISTART, IPOINTS
-        REAL X(0:99)
+<span class="w">    </span><span class="n">SUBROUTINE</span><span class="w"> </span><span class="n">SUBDOMAIN</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">ISTART</span><span class="p">,</span><span class="w"> </span><span class="n">IPOINTS</span><span class="p">)</span>
+<span class="w">        </span><span class="n">INTEGER</span><span class="w"> </span><span class="n">ISTART</span><span class="p">,</span><span class="w"> </span><span class="n">IPOINTS</span>
+<span class="w">        </span><span class="n">REAL</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mi">99</span><span class="p">)</span>
 
-        INTEGER I
+<span class="w">        </span><span class="n">INTEGER</span><span class="w"> </span><span class="n">I</span>
 
-        DO 100 I=0,IPOINTS-1
-            X(ISTART+I) = ISTART+I
-100     CONTINUE
+<span class="w">        </span><span class="n">DO</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="n">I</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">IPOINTS</span><span class="mi">-1</span>
+<span class="w">            </span><span class="n">X</span><span class="p">(</span><span class="n">ISTART</span><span class="o">+</span><span class="n">I</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ISTART</span><span class="o">+</span><span class="n">I</span>
+<span class="mi">100</span><span class="w">     </span><span class="n">CONTINUE</span>
 
-    END SUBROUTINE SUBDOMAIN
+<span class="w">    </span><span class="n">END</span><span class="w"> </span><span class="n">SUBROUTINE</span><span class="w"> </span><span class="n">SUBDOMAIN</span>
 
-    SUBROUTINE SUB(X, NPOINTS)
-        INCLUDE &quot;omp_lib.h&quot; ! or USE OMP_LIB
+<span class="w">    </span><span class="n">SUBROUTINE</span><span class="w"> </span><span class="n">SUB</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">NPOINTS</span><span class="p">)</span>
+<span class="w">        </span><span class="n">INCLUDE</span><span class="w"> </span><span class="s">&quot;omp_lib.h&quot;</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">USE</span><span class="w"> </span><span class="n">OMP_LIB</span>
 
-        REAL X(0:99)
-        INTEGER NPOINTS
-        INTEGER IAM, NT, IPOINTS, ISTART
+<span class="w">        </span><span class="n">REAL</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mi">99</span><span class="p">)</span>
+<span class="w">        </span><span class="n">INTEGER</span><span class="w"> </span><span class="n">NPOINTS</span>
+<span class="w">        </span><span class="n">INTEGER</span><span class="w"> </span><span class="n">IAM</span><span class="p">,</span><span class="w"> </span><span class="n">NT</span><span class="p">,</span><span class="w"> </span><span class="n">IPOINTS</span><span class="p">,</span><span class="w"> </span><span class="n">ISTART</span>
 
-!$OMP PARALLEL DEFAULT(PRIVATE) SHARED(X,NPOINTS)
+<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"> </span><span class="n">DEFAULT</span><span class="p">(</span><span class="n">PRIVATE</span><span class="p">)</span><span class="w"> </span><span class="n">SHARED</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">NPOINTS</span><span class="p">)</span>
 
-        IAM = OMP_GET_THREAD_NUM()
-        NT = OMP_GET_NUM_THREADS()
-        IPOINTS = NPOINTS/NT
-        ISTART = IAM * IPOINTS
-        IF (IAM .EQ. NT-1) THEN
-            IPOINTS = NPOINTS - ISTART
-        ENDIF
-        CALL SUBDOMAIN(X,ISTART,IPOINTS)
+<span class="w">        </span><span class="n">IAM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OMP_GET_THREAD_NUM</span><span class="p">()</span>
+<span class="w">        </span><span class="n">NT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OMP_GET_NUM_THREADS</span><span class="p">()</span>
+<span class="w">        </span><span class="n">IPOINTS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NPOINTS</span><span class="o">/</span><span class="n">NT</span>
+<span class="w">        </span><span class="n">ISTART</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IAM</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IPOINTS</span>
+<span class="w">        </span><span class="n">IF</span><span class="w"> </span><span class="p">(</span><span class="n">IAM</span><span class="w"> </span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="w"> </span><span class="n">NT</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="n">THEN</span>
+<span class="w">            </span><span class="n">IPOINTS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NPOINTS</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ISTART</span>
+<span class="w">        </span><span class="n">ENDIF</span>
+<span class="w">        </span><span class="n">CALL</span><span class="w"> </span><span class="n">SUBDOMAIN</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">ISTART</span><span class="p">,</span><span class="n">IPOINTS</span><span class="p">)</span>
 
-!$OMP END PARALLEL
-    END SUBROUTINE SUB
-    
-    SUBROUTINE print(X, NPOINTS)
-        INTEGER I
-        REAL X(0:99)
-        INTEGER NPOINTS
-        DO I = 0,NPOINTS-1
-            IF (mod(I,10) .EQ. 0) THEN
-                print*,&#39; &#39;
-            END IF
-            WRITE(*,&#39;(1x,f9.5,$)&#39;) X(I)
-        END DO
-    END SUBROUTINE PRINT
+<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">PARALLEL</span>
+<span class="w">    </span><span class="n">END</span><span class="w"> </span><span class="n">SUBROUTINE</span><span class="w"> </span><span class="n">SUB</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">SUBROUTINE</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">NPOINTS</span><span class="p">)</span>
+<span class="w">        </span><span class="n">INTEGER</span><span class="w"> </span><span class="n">I</span>
+<span class="w">        </span><span class="n">REAL</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mi">99</span><span class="p">)</span>
+<span class="w">        </span><span class="n">INTEGER</span><span class="w"> </span><span class="n">NPOINTS</span>
+<span class="w">        </span><span class="n">DO</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="n">NPOINTS</span><span class="mi">-1</span>
+<span class="w">            </span><span class="n">IF</span><span class="w"> </span><span class="p">(</span><span class="n">mod</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">THEN</span>
+<span class="w">                </span><span class="n">print</span><span class="o">*</span><span class="p">,</span><span class="sc">&#39; &#39;</span>
+<span class="w">            </span><span class="n">END</span><span class="w"> </span><span class="n">IF</span>
+<span class="w">            </span><span class="n">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="err">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="n">x</span><span class="p">,</span><span class="n">f9</span><span class="mf">.5</span><span class="p">,</span><span class="n">$</span><span class="p">)</span><span class="err">&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="w">        </span><span class="n">END</span><span class="w"> </span><span class="n">DO</span>
+<span class="w">    </span><span class="n">END</span><span class="w"> </span><span class="n">SUBROUTINE</span><span class="w"> </span><span class="n">PRINT</span>
 
-    PROGRAM PAREXAMPLE
-        REAL ARRAY(100)
-        CALL SUB(ARRAY, 100)
-        CALL PRINT(ARRAY, 100)
-    END PROGRAM PAREXAMPLE
+<span class="w">    </span><span class="n">PROGRAM</span><span class="w"> </span><span class="n">PAREXAMPLE</span>
+<span class="w">        </span><span class="n">REAL</span><span class="w"> </span><span class="n">ARRAY</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CALL</span><span class="w"> </span><span class="n">SUB</span><span class="p">(</span><span class="n">ARRAY</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CALL</span><span class="w"> </span><span class="n">PRINT</span><span class="p">(</span><span class="n">ARRAY</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+<span class="w">    </span><span class="n">END</span><span class="w"> </span><span class="n">PROGRAM</span><span class="w"> </span><span class="n">PAREXAMPLE</span>
 </pre></div>
 </div>
 </div>
@@ -1184,6 +1192,7 @@ The type of A is array of two arrays of two ints. B and C are function variables
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -1237,7 +1246,7 @@ By Xinyao Yi, Anjia Wang, and Yonghong Yan
 
   <p class="copyright">
     
-      © <a href="../copyright.html">Copyright</a> 2022.
+      © <a href="../copyright.html">Copyright</a> 2023.
       <br/>
     
   </p>
@@ -1261,8 +1270,8 @@ By Xinyao Yi, Anjia Wang, and Yonghong Yan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
