@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Preface &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>1. Overview of OpenMP Programming &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
   
   
   
@@ -18,49 +18,53 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'SomethingMayUsefulInFuture/preface';</script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Ch1_OpenmpIntro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="1.1. Introduction of OpenMP" href="Openmp_C/1_IntroductionOfOpenMP.html" />
+    <link rel="prev" title="preface" href="preface.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -96,7 +100,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="../search.html"
+      action="search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -122,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -140,7 +142,7 @@
 
   
 
-<a class="navbar-brand logo" href="../cover.html">
+<a class="navbar-brand logo" href="cover.html">
   
   
   
@@ -151,8 +153,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Parallel Programming and Performance Optimization With OpenMP - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Parallel Programming and Performance Optimization With OpenMP - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Parallel Programming and Performance Optimization With OpenMP - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Parallel Programming and Performance Optimization With OpenMP - Home"/>`);</script>
   
   
 </a></div>
@@ -172,36 +174,41 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../cover.html">
+                <a class="reference internal" href="cover.html">
                     OpenMP Programming Book
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../copyright.html">copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../foreword.html">foreword</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preface.html">preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preface.html">preface</a></li>
 </ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch1_openmpIntro.html">1. Overview of OpenMP Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../openmp_c/1_IntroductionOfOpenMP.html">1.1. Introduction of OpenMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../openmp_c/2_Syntax.html">1.2. Creating a Parallel Program with OpenMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../openmp_c/3_performance.html">1.3. Performance Analysis</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">2. Parallel Programming for Multicore and Multi-CPU Machines</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/1_MIMDArchitecture.html">2.1. Multicore and Multi-CPU shared memory systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/2_UsingOpenMP_parallel.html">2.2. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/3_UsingOpenMP_teams.html">2.3. Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/4_SynchronizationThreads.html">2.4. Synchronization of threads using barrier and order directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/5_AsynchronousTasking.html">2.5. Asynchronous tasking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/6_ExplicitDistribution.html">2.6. Explicit distribution of work using single, sections, workshring-loop, and distribute construct</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Ch3_SIMDVector.html">2.7. Parallel Programming for SIMD and Vector Architecture</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">1. Overview of OpenMP Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Openmp_C/1_IntroductionOfOpenMP.html">1.1. Introduction of OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Openmp_C/2_Syntax.html">1.2. Creating a Parallel Program with OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Openmp_C/3_Performance.html">1.3. Performance Analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">3. Parallel Programming for GPU Accelerators</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_DataMapping.html">3.1. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_Metadirective.html">3.2. Metadirective (possible separate section)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Ch2_MulticoreMultiCPU.html">2. Parallel Programming for Multicore and Multi-CPU Machines</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="MultiCoreMultiCPU/1_MIMDArchitecture.html">2.1. Multicore and Multi-CPU shared memory systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiCoreMultiCPU/2_UsingOpenMP_parallel.html">2.2. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiCoreMultiCPU/3_UsingOpenMP_teams.html">2.3. Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiCoreMultiCPU/4_SynchronizationThreads.html">2.4. Synchronization of threads using barrier and order directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiCoreMultiCPU/5_AsynchronousTasking.html">2.5. Asynchronous tasking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiCoreMultiCPU/6_ExplicitDistribution.html">2.6. Explicit distribution of work using single, sections, workshring-loop, and distribute construct</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="SIMDandVectorArchitecture/plan.html">3.1. Parallel Programming for SIMD and Vector Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="GPUAccelerators/1_architecture.html">4.1. Vector Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GPUAccelerators/1_DataMapping.html">4.2. Data Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GPUAccelerators/2_Metadirective.html">4.3. Metadirective (possible separate section)</a></li>
 </ul>
 </li>
 </ul>
@@ -275,7 +282,7 @@
       
       
       
-      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FSomethingMayUsefulInFuture/preface.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FCh1_OpenmpIntro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +312,7 @@
       
       
       
-      <li><a href="../_sources/SomethingMayUsefulInFuture/preface.md" target="_blank"
+      <li><a href="_sources/Ch1_OpenmpIntro.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -387,7 +394,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Preface</h1>
+    <h1>Overview of OpenMP Programming</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -401,9 +408,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="preface">
-<h1>Preface<a class="headerlink" href="#preface" title="Link to this heading">#</a></h1>
-<p>======</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="overview-of-openmp-programming">
+<h1><span class="section-number">1. </span>Overview of OpenMP Programming<a class="headerlink" href="#overview-of-openmp-programming" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -419,7 +427,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./SomethingMayUsefulInFuture"
+            path: "./."
         },
         predefinedOutput: true
     }
@@ -436,6 +444,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="preface.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">preface</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Openmp_C/1_IntroductionOfOpenMP.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1.1. </span>Introduction of OpenMP</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -464,7 +490,7 @@ By Xinyao Yi, Anjia Wang, and Yonghong Yan
 
   <p class="copyright">
     
-      © <a href="../copyright.html">Copyright</a> 2023.
+      © <a href="copyright.html">Copyright</a> 2023.
       <br/>
     
   </p>
@@ -488,8 +514,8 @@ By Xinyao Yi, Anjia Wang, and Yonghong Yan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

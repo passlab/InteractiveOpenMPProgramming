@@ -42,7 +42,7 @@
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -179,14 +179,15 @@
         </ul>
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../foreword.html">foreword</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface.html">preface</a></li>
 </ul>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch1_openmpIntro.html">1. Overview of OpenMP Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../openmp_c/1_IntroductionOfOpenMP.html">1.1. Introduction of OpenMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../openmp_c/2_Syntax.html">1.2. Creating a Parallel Program with OpenMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../openmp_c/3_performance.html">1.3. Performance Analysis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch1_OpenmpIntro.html">1. Overview of OpenMP Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/1_IntroductionOfOpenMP.html">1.1. Introduction of OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/2_Syntax.html">1.2. Creating a Parallel Program with OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/3_Performance.html">1.3. Performance Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">2. Parallel Programming for Multicore and Multi-CPU Machines</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -196,12 +197,16 @@
 <li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads.html">2.4. Synchronization of threads using barrier and order directive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_AsynchronousTasking.html">2.5. Asynchronous tasking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_ExplicitDistribution.html">2.6. Explicit distribution of work using single, sections, workshring-loop, and distribute construct</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Ch3_SIMDVector.html">2.7. Parallel Programming for SIMD and Vector Architecture</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">3. Parallel Programming for GPU Accelerators</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_DataMapping.html">3.1. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_Metadirective.html">3.2. Metadirective (possible separate section)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/plan.html">3.1. Parallel Programming for SIMD and Vector Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_architecture.html">4.1. Vector Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_DataMapping.html">4.2. Data Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_Metadirective.html">4.3. Metadirective (possible separate section)</a></li>
 </ul>
 </li>
 </ul>
@@ -479,18 +484,18 @@ When threads are all occupied, implicit tasks that have not been allocated will 
 <p>The following example from Chapter 1 shows how to use the parallel directive in C.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
-<span class="c1">//%cflags: -fopenmp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">//%</span><span class="k">compiler</span>: clang
+<span class="o">//%</span><span class="k">cflags</span>: -fopenmp
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;stdlib.h&gt;</span>
+<span class="c1">#include &lt;omp.h&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
-<span class="w">    </span><span class="cp">#pragma omp parallel</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="c1">#pragma omp parallel</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -512,18 +517,18 @@ Hello World
 The following example shows how to use the <strong>num_threads</strong> clause in the parallel directive to specify the number of threads to create.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
-<span class="c1">//%cflags: -fopenmp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">//%</span><span class="k">compiler</span>: clang
+<span class="o">//%</span><span class="k">cflags</span>: -fopenmp
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;stdlib.h&gt;</span>
+<span class="c1">#include &lt;omp.h&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
-<span class="w">    </span><span class="cp">#pragma omp parallel num_threads(4)</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="c1">#pragma omp parallel num_threads(4)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -542,17 +547,17 @@ Hello World
 <p>The next two examples show how to use the <strong>parallel</strong> directive in Fortran, and they have the exactly same meaning as the two examples in C above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">!!%</span><span class="n">compiler</span><span class="o">:</span><span class="w"> </span><span class="n">gfortran</span>
-<span class="o">!!%</span><span class="n">cflags</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="n">fopenmp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!!</span>%compiler:<span class="w"> </span>gfortran
+<span class="o">!!</span>%cflags:<span class="w"> </span>-fopenmp
 
-<span class="n">PROGRAM</span><span class="w"> </span><span class="n">Parallel_Hello_World</span>
-<span class="n">USE</span><span class="w"> </span><span class="n">OMP_LIB</span>
+<span class="n">PROGRAM</span> <span class="n">Parallel_Hello_World</span>
+<span class="n">USE</span> <span class="n">OMP_LIB</span>
 
-<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">PARALLEL</span>
+<span class="o">!</span><span class="nv">$OMP</span><span class="w"> </span>PARALLEL
 
-<span class="w">  </span><span class="n">PRINT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span>
+  <span class="n">PRINT</span> <span class="o">*</span><span class="p">,</span> <span class="s2">&quot;Hello World&quot;</span>
 
-<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">PARALLEL</span>
+<span class="o">!</span><span class="nv">$OMP</span><span class="w"> </span>END<span class="w"> </span>PARALLEL
 
 <span class="n">END</span>
 </pre></div>
@@ -573,17 +578,17 @@ Hello World
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">!!%</span><span class="n">compiler</span><span class="o">:</span><span class="w"> </span><span class="n">gfortran</span>
-<span class="o">!!%</span><span class="n">cflags</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="n">fopenmp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!!</span>%compiler:<span class="w"> </span>gfortran
+<span class="o">!!</span>%cflags:<span class="w"> </span>-fopenmp
 
-<span class="n">PROGRAM</span><span class="w"> </span><span class="n">Parallel_Hello_World</span>
-<span class="n">USE</span><span class="w"> </span><span class="n">OMP_LIB</span>
+<span class="n">PROGRAM</span> <span class="n">Parallel_Hello_World</span>
+<span class="n">USE</span> <span class="n">OMP_LIB</span>
 
-<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"> </span><span class="n">num_threads</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">!</span><span class="nv">$OMP</span><span class="w"> </span>PARALLEL<span class="w"> </span>num_threads<span class="o">(</span><span class="m">4</span><span class="o">)</span>
 
-<span class="w">  </span><span class="n">PRINT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span>
+  <span class="n">PRINT</span> <span class="o">*</span><span class="p">,</span> <span class="s2">&quot;Hello World&quot;</span>
 
-<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">PARALLEL</span>
+<span class="o">!</span><span class="nv">$OMP</span><span class="w"> </span>END<span class="w"> </span>PARALLEL
 
 <span class="n">END</span>
 </pre></div>
@@ -901,32 +906,32 @@ We will not list these allocators here, readers can find them in the OpenMP spec
 <p>The <strong>if</strong> clause can achieve conditional parallelism and the <strong>num_threads</strong> clause will identify the number of threads used. In the following example, we use three cases to display the effect of the if clause and the <strong>num_trheads</strong> clause. No <strong>if</strong> clause is used in case 1, and the <strong>num_threads</strong> clause indicated we should use 4 threads, so we can get the output from four threads in parallel. The scalar expression in the <strong>if</strong> clause in case 2 is evaluated to be false, so the statements following the openMP directive (maybe code block in other cases) will be executed serially by only one thread. And in case 3, the scalar expression is evaluated to be true, so the statements following the openMP directive will be executed parallel by four threads.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
-<span class="c1">//%cflags: -fopenmp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">//%</span><span class="k">compiler</span>: clang
+<span class="o">//%</span><span class="k">cflags</span>: -fopenmp
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;stdlib.h&gt;</span>
+<span class="c1">#include &lt;omp.h&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
-<span class="w">    </span><span class="c1">//case 1</span>
-<span class="w">    </span><span class="cp">#pragma omp parallel num_threads(4)</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World in case 1 from thread %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="nb">int</span> <span class="n">M</span> <span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+    <span class="o">//</span><span class="n">case</span> <span class="mi">1</span>
+    <span class="c1">#pragma omp parallel num_threads(4)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Hello World in case 1 from thread </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">omp_get_thread_num</span><span class="p">());</span>
 
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-------------------------------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c1">//case 2</span>
-<span class="w">    </span><span class="cp">#pragma omp parallel num_threads(4) if(M &gt; 10)</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World in case 2 from thread %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;-------------------------------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    
+    <span class="o">//</span><span class="n">case</span> <span class="mi">2</span>
+    <span class="c1">#pragma omp parallel num_threads(4) if(M &gt; 10)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Hello World in case 2 from thread </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">omp_get_thread_num</span><span class="p">());</span>
 
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;-------------------------------------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c1">//case 3</span>
-<span class="w">    </span><span class="cp">#pragma omp parallel num_threads(4) if(M &lt;= 10)</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World in case 3 from thread %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;-------------------------------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    
+    <span class="o">//</span><span class="n">case</span> <span class="mi">3</span>
+    <span class="c1">#pragma omp parallel num_threads(4) if(M &lt;= 10)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Hello World in case 3 from thread </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">omp_get_thread_num</span><span class="p">());</span>
+    
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -954,47 +959,47 @@ Hello World in case 3 from thread 2
 <p>The following example is a little more complicated. It shows how to use the <strong>omp_get_thread_num</strong> library routine and shows how to use two other clauses, the <strong>default</strong> clause and the <strong>private</strong> clause. It assigns tasks to each thread explicitly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
-<span class="c1">//%cflags: -fopenmp</span>
-<span class="c1">//This example is from https://www.openmp.org/wp-content/uploads/openmp-examples-5.1.pdf. The size of array and output are changed</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">//%</span><span class="k">compiler</span>: clang
+<span class="o">//%</span><span class="k">cflags</span>: -fopenmp
+<span class="o">//</span><span class="n">This</span> <span class="n">example</span> <span class="ow">is</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">openmp</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wp</span><span class="o">-</span><span class="n">content</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span><span class="n">openmp</span><span class="o">-</span><span class="n">examples</span><span class="o">-</span><span class="mf">5.1</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span> <span class="n">The</span> <span class="n">size</span> <span class="n">of</span> <span class="n">array</span> <span class="ow">and</span> <span class="n">output</span> <span class="n">are</span> <span class="n">changed</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;stdlib.h&gt;</span>
+<span class="c1">#include &lt;omp.h&gt;</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">subdomain</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ipoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ipoints</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">       </span>
-<span class="w">         </span><span class="n">x</span><span class="p">[</span><span class="n">istart</span><span class="o">+</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">istart</span><span class="o">+</span><span class="n">i</span><span class="p">;</span>
+<span class="n">void</span> <span class="n">subdomain</span><span class="p">(</span><span class="nb">float</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">istart</span><span class="p">,</span> <span class="nb">int</span> <span class="n">ipoints</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ipoints</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>       
+         <span class="n">x</span><span class="p">[</span><span class="n">istart</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">istart</span><span class="o">+</span><span class="n">i</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">npoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">iam</span><span class="p">,</span><span class="w"> </span><span class="n">nt</span><span class="p">,</span><span class="w"> </span><span class="n">ipoints</span><span class="p">,</span><span class="w"> </span><span class="n">istart</span><span class="p">;</span>
-<span class="w">    </span><span class="cp">#pragma omp parallel default(shared) private(iam,nt,ipoints,istart)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">iam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">();</span>
-<span class="w">        </span><span class="n">nt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_num_threads</span><span class="p">();</span>
-<span class="w">        </span><span class="n">ipoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">npoints</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">nt</span><span class="p">;</span><span class="w"> </span><span class="cm">/* size of partition */</span>
-<span class="w">        </span><span class="n">istart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iam</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ipoints</span><span class="p">;</span><span class="w"> </span><span class="cm">/* starting array index */</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iam</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nt</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="cm">/* last thread may do more */</span>
-<span class="w">            </span><span class="n">ipoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">npoints</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">istart</span><span class="p">;</span>
-<span class="w">        </span><span class="n">subdomain</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">istart</span><span class="p">,</span><span class="w"> </span><span class="n">ipoints</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="n">void</span> <span class="n">sub</span><span class="p">(</span><span class="nb">float</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">npoints</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="n">iam</span><span class="p">,</span> <span class="n">nt</span><span class="p">,</span> <span class="n">ipoints</span><span class="p">,</span> <span class="n">istart</span><span class="p">;</span>
+    <span class="c1">#pragma omp parallel default(shared) private(iam,nt,ipoints,istart)</span>
+    <span class="p">{</span>
+        <span class="n">iam</span> <span class="o">=</span> <span class="n">omp_get_thread_num</span><span class="p">();</span>
+        <span class="n">nt</span> <span class="o">=</span> <span class="n">omp_get_num_threads</span><span class="p">();</span>
+        <span class="n">ipoints</span> <span class="o">=</span> <span class="n">npoints</span> <span class="o">/</span> <span class="n">nt</span><span class="p">;</span> <span class="o">/*</span> <span class="n">size</span> <span class="n">of</span> <span class="n">partition</span> <span class="o">*/</span>
+        <span class="n">istart</span> <span class="o">=</span> <span class="n">iam</span> <span class="o">*</span> <span class="n">ipoints</span><span class="p">;</span> <span class="o">/*</span> <span class="n">starting</span> <span class="n">array</span> <span class="n">index</span> <span class="o">*/</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">iam</span> <span class="o">==</span> <span class="n">nt</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/*</span> <span class="n">last</span> <span class="n">thread</span> <span class="n">may</span> <span class="n">do</span> <span class="n">more</span> <span class="o">*/</span>
+            <span class="n">ipoints</span> <span class="o">=</span> <span class="n">npoints</span> <span class="o">-</span> <span class="n">istart</span><span class="p">;</span>
+        <span class="n">subdomain</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">istart</span><span class="p">,</span> <span class="n">ipoints</span><span class="p">);</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">npoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">npoints</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.5f &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="n">void</span> <span class="nb">print</span><span class="p">(</span><span class="nb">float</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">npoints</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">npoints</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.5f</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-<span class="w">    </span><span class="n">sub</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
-<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">float</span> <span class="n">array</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+    <span class="n">sub</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1022,59 +1027,59 @@ The <strong>private</strong> clause is used to explicitly specify variables that
 <p>The corresponding Fortran program is shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">!!%</span><span class="n">compiler</span><span class="o">:</span><span class="w"> </span><span class="n">gfortran</span>
-<span class="o">!!%</span><span class="n">cflags</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="n">fopenmp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!!</span>%compiler:<span class="w"> </span>gfortran
+<span class="o">!!</span>%cflags:<span class="w"> </span>-fopenmp
 
-<span class="w">    </span><span class="n">SUBROUTINE</span><span class="w"> </span><span class="n">SUBDOMAIN</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">ISTART</span><span class="p">,</span><span class="w"> </span><span class="n">IPOINTS</span><span class="p">)</span>
-<span class="w">        </span><span class="n">INTEGER</span><span class="w"> </span><span class="n">ISTART</span><span class="p">,</span><span class="w"> </span><span class="n">IPOINTS</span>
-<span class="w">        </span><span class="n">REAL</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mi">99</span><span class="p">)</span>
+    <span class="n">SUBROUTINE</span> <span class="n">SUBDOMAIN</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ISTART</span><span class="p">,</span> <span class="n">IPOINTS</span><span class="p">)</span>
+        <span class="n">INTEGER</span> <span class="n">ISTART</span><span class="p">,</span> <span class="n">IPOINTS</span>
+        <span class="n">REAL</span> <span class="n">X</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">99</span><span class="p">)</span>
 
-<span class="w">        </span><span class="n">INTEGER</span><span class="w"> </span><span class="n">I</span>
+        <span class="n">INTEGER</span> <span class="n">I</span>
 
-<span class="w">        </span><span class="n">DO</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="n">I</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">IPOINTS</span><span class="mi">-1</span>
-<span class="w">            </span><span class="n">X</span><span class="p">(</span><span class="n">ISTART</span><span class="o">+</span><span class="n">I</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ISTART</span><span class="o">+</span><span class="n">I</span>
-<span class="mi">100</span><span class="w">     </span><span class="n">CONTINUE</span>
+        <span class="n">DO</span> <span class="mi">100</span> <span class="n">I</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">IPOINTS</span><span class="o">-</span><span class="mi">1</span>
+            <span class="n">X</span><span class="p">(</span><span class="n">ISTART</span><span class="o">+</span><span class="n">I</span><span class="p">)</span> <span class="o">=</span> <span class="n">ISTART</span><span class="o">+</span><span class="n">I</span>
+<span class="mi">100</span>     <span class="n">CONTINUE</span>
 
-<span class="w">    </span><span class="n">END</span><span class="w"> </span><span class="n">SUBROUTINE</span><span class="w"> </span><span class="n">SUBDOMAIN</span>
+    <span class="n">END</span> <span class="n">SUBROUTINE</span> <span class="n">SUBDOMAIN</span>
 
-<span class="w">    </span><span class="n">SUBROUTINE</span><span class="w"> </span><span class="n">SUB</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">NPOINTS</span><span class="p">)</span>
-<span class="w">        </span><span class="n">INCLUDE</span><span class="w"> </span><span class="s">&quot;omp_lib.h&quot;</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">USE</span><span class="w"> </span><span class="n">OMP_LIB</span>
+    <span class="n">SUBROUTINE</span> <span class="n">SUB</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">NPOINTS</span><span class="p">)</span>
+        <span class="n">INCLUDE</span> <span class="s2">&quot;omp_lib.h&quot;</span> <span class="o">!</span><span class="w"> </span>or<span class="w"> </span>USE<span class="w"> </span>OMP_LIB
 
-<span class="w">        </span><span class="n">REAL</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mi">99</span><span class="p">)</span>
-<span class="w">        </span><span class="n">INTEGER</span><span class="w"> </span><span class="n">NPOINTS</span>
-<span class="w">        </span><span class="n">INTEGER</span><span class="w"> </span><span class="n">IAM</span><span class="p">,</span><span class="w"> </span><span class="n">NT</span><span class="p">,</span><span class="w"> </span><span class="n">IPOINTS</span><span class="p">,</span><span class="w"> </span><span class="n">ISTART</span>
+        <span class="n">REAL</span> <span class="n">X</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">99</span><span class="p">)</span>
+        <span class="n">INTEGER</span> <span class="n">NPOINTS</span>
+        <span class="n">INTEGER</span> <span class="n">IAM</span><span class="p">,</span> <span class="n">NT</span><span class="p">,</span> <span class="n">IPOINTS</span><span class="p">,</span> <span class="n">ISTART</span>
 
-<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">PARALLEL</span><span class="w"> </span><span class="n">DEFAULT</span><span class="p">(</span><span class="n">PRIVATE</span><span class="p">)</span><span class="w"> </span><span class="n">SHARED</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">NPOINTS</span><span class="p">)</span>
+<span class="o">!</span><span class="nv">$OMP</span><span class="w"> </span>PARALLEL<span class="w"> </span>DEFAULT<span class="o">(</span>PRIVATE<span class="o">)</span><span class="w"> </span>SHARED<span class="o">(</span>X,NPOINTS<span class="o">)</span>
 
-<span class="w">        </span><span class="n">IAM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OMP_GET_THREAD_NUM</span><span class="p">()</span>
-<span class="w">        </span><span class="n">NT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OMP_GET_NUM_THREADS</span><span class="p">()</span>
-<span class="w">        </span><span class="n">IPOINTS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NPOINTS</span><span class="o">/</span><span class="n">NT</span>
-<span class="w">        </span><span class="n">ISTART</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IAM</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IPOINTS</span>
-<span class="w">        </span><span class="n">IF</span><span class="w"> </span><span class="p">(</span><span class="n">IAM</span><span class="w"> </span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="w"> </span><span class="n">NT</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="n">THEN</span>
-<span class="w">            </span><span class="n">IPOINTS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NPOINTS</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ISTART</span>
-<span class="w">        </span><span class="n">ENDIF</span>
-<span class="w">        </span><span class="n">CALL</span><span class="w"> </span><span class="n">SUBDOMAIN</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">ISTART</span><span class="p">,</span><span class="n">IPOINTS</span><span class="p">)</span>
+        <span class="n">IAM</span> <span class="o">=</span> <span class="n">OMP_GET_THREAD_NUM</span><span class="p">()</span>
+        <span class="n">NT</span> <span class="o">=</span> <span class="n">OMP_GET_NUM_THREADS</span><span class="p">()</span>
+        <span class="n">IPOINTS</span> <span class="o">=</span> <span class="n">NPOINTS</span><span class="o">/</span><span class="n">NT</span>
+        <span class="n">ISTART</span> <span class="o">=</span> <span class="n">IAM</span> <span class="o">*</span> <span class="n">IPOINTS</span>
+        <span class="n">IF</span> <span class="p">(</span><span class="n">IAM</span> <span class="o">.</span><span class="n">EQ</span><span class="o">.</span> <span class="n">NT</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">THEN</span>
+            <span class="n">IPOINTS</span> <span class="o">=</span> <span class="n">NPOINTS</span> <span class="o">-</span> <span class="n">ISTART</span>
+        <span class="n">ENDIF</span>
+        <span class="n">CALL</span> <span class="n">SUBDOMAIN</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">ISTART</span><span class="p">,</span><span class="n">IPOINTS</span><span class="p">)</span>
 
-<span class="o">!</span><span class="n">$OMP</span><span class="w"> </span><span class="n">END</span><span class="w"> </span><span class="n">PARALLEL</span>
-<span class="w">    </span><span class="n">END</span><span class="w"> </span><span class="n">SUBROUTINE</span><span class="w"> </span><span class="n">SUB</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="n">SUBROUTINE</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">NPOINTS</span><span class="p">)</span>
-<span class="w">        </span><span class="n">INTEGER</span><span class="w"> </span><span class="n">I</span>
-<span class="w">        </span><span class="n">REAL</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mi">99</span><span class="p">)</span>
-<span class="w">        </span><span class="n">INTEGER</span><span class="w"> </span><span class="n">NPOINTS</span>
-<span class="w">        </span><span class="n">DO</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="n">NPOINTS</span><span class="mi">-1</span>
-<span class="w">            </span><span class="n">IF</span><span class="w"> </span><span class="p">(</span><span class="n">mod</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="n">EQ</span><span class="p">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">THEN</span>
-<span class="w">                </span><span class="n">print</span><span class="o">*</span><span class="p">,</span><span class="sc">&#39; &#39;</span>
-<span class="w">            </span><span class="n">END</span><span class="w"> </span><span class="n">IF</span>
-<span class="w">            </span><span class="n">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="err">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="n">x</span><span class="p">,</span><span class="n">f9</span><span class="mf">.5</span><span class="p">,</span><span class="n">$</span><span class="p">)</span><span class="err">&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
-<span class="w">        </span><span class="n">END</span><span class="w"> </span><span class="n">DO</span>
-<span class="w">    </span><span class="n">END</span><span class="w"> </span><span class="n">SUBROUTINE</span><span class="w"> </span><span class="n">PRINT</span>
+<span class="o">!</span><span class="nv">$OMP</span><span class="w"> </span>END<span class="w"> </span>PARALLEL
+    <span class="n">END</span> <span class="n">SUBROUTINE</span> <span class="n">SUB</span>
+    
+    <span class="n">SUBROUTINE</span> <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">NPOINTS</span><span class="p">)</span>
+        <span class="n">INTEGER</span> <span class="n">I</span>
+        <span class="n">REAL</span> <span class="n">X</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">99</span><span class="p">)</span>
+        <span class="n">INTEGER</span> <span class="n">NPOINTS</span>
+        <span class="n">DO</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="n">NPOINTS</span><span class="o">-</span><span class="mi">1</span>
+            <span class="n">IF</span> <span class="p">(</span><span class="n">mod</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="o">.</span><span class="n">EQ</span><span class="o">.</span> <span class="mi">0</span><span class="p">)</span> <span class="n">THEN</span>
+                <span class="nb">print</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39; &#39;</span>
+            <span class="n">END</span> <span class="n">IF</span>
+            <span class="n">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(1x,f9.5,$)&#39;</span><span class="p">)</span> <span class="n">X</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+        <span class="n">END</span> <span class="n">DO</span>
+    <span class="n">END</span> <span class="n">SUBROUTINE</span> <span class="n">PRINT</span>
 
-<span class="w">    </span><span class="n">PROGRAM</span><span class="w"> </span><span class="n">PAREXAMPLE</span>
-<span class="w">        </span><span class="n">REAL</span><span class="w"> </span><span class="n">ARRAY</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CALL</span><span class="w"> </span><span class="n">SUB</span><span class="p">(</span><span class="n">ARRAY</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CALL</span><span class="w"> </span><span class="n">PRINT</span><span class="p">(</span><span class="n">ARRAY</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
-<span class="w">    </span><span class="n">END</span><span class="w"> </span><span class="n">PROGRAM</span><span class="w"> </span><span class="n">PAREXAMPLE</span>
+    <span class="n">PROGRAM</span> <span class="n">PAREXAMPLE</span>
+        <span class="n">REAL</span> <span class="n">ARRAY</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">CALL</span> <span class="n">SUB</span><span class="p">(</span><span class="n">ARRAY</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="n">CALL</span> <span class="n">PRINT</span><span class="p">(</span><span class="n">ARRAY</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">END</span> <span class="n">PROGRAM</span> <span class="n">PAREXAMPLE</span>
 </pre></div>
 </div>
 </div>
@@ -1096,39 +1101,39 @@ The <strong>private</strong> clause is used to explicitly specify variables that
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//%compiler: clang</span>
-<span class="c1">//%cflags: -fopenmp</span>
-<span class="c1">//This example is from https://www.openmp.org/wp-content/uploads/openmp-examples-5.1.pdf.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">//%</span><span class="k">compiler</span>: clang
+<span class="o">//%</span><span class="k">cflags</span>: -fopenmp
+<span class="o">//</span><span class="n">This</span> <span class="n">example</span> <span class="ow">is</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">openmp</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wp</span><span class="o">-</span><span class="n">content</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span><span class="n">openmp</span><span class="o">-</span><span class="n">examples</span><span class="o">-</span><span class="mf">5.1</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span>
 
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;assert.h&gt;</span>
+<span class="c1">#include &lt;assert.h&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">};</span>
+<span class="nb">int</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">n</span><span class="p">],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">C</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">};</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">E</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>
+<span class="n">void</span> <span class="n">f</span><span class="p">(</span><span class="nb">int</span> <span class="n">n</span><span class="p">,</span> <span class="nb">int</span> <span class="n">B</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">n</span><span class="p">],</span> <span class="nb">int</span> <span class="n">C</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+    <span class="nb">int</span> <span class="n">E</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>
 
-<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
-<span class="w">    </span><span class="n">E</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">E</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 
-<span class="w">    </span><span class="cp">#pragma omp parallel firstprivate(B, C, D, E)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)[</span><span class="n">n</span><span class="p">]));</span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">));</span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">D</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="c1">#pragma omp parallel firstprivate(B, C, D, E)</span>
+    <span class="p">{</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="o">==</span> <span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span> <span class="p">(</span><span class="o">*</span><span class="p">)[</span><span class="n">n</span><span class="p">]));</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="o">==</span> <span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="o">*</span><span class="p">));</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">));</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">sizeof</span><span class="p">(</span><span class="n">E</span><span class="p">)</span> <span class="o">==</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">));</span>
 
-<span class="w">        </span><span class="cm">/* Private B and C have values of original B and C. */</span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">C</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
-<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="n">E</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+        <span class="o">/*</span> <span class="n">Private</span> <span class="n">B</span> <span class="ow">and</span> <span class="n">C</span> <span class="n">have</span> <span class="n">values</span> <span class="n">of</span> <span class="n">original</span> <span class="n">B</span> <span class="ow">and</span> <span class="n">C</span><span class="o">.</span> <span class="o">*/</span>
+        <span class="k">assert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+        <span class="k">assert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">C</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">E</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1150,16 +1155,16 @@ The type of A is array of two arrays of two ints. B and C are function variables
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "native"
+            mode: "python"
         },
         kernelOptions: {
-            name: "native",
+            name: "python3",
             path: "./MultiCoreMultiCPU"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'native'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               

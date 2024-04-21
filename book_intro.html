@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>Introduction &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
   
   
   
@@ -42,7 +42,7 @@
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
@@ -177,16 +177,17 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">copyright</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foreword.html">foreword</a></li>
 <li class="toctree-l1"><a class="reference internal" href="preface.html">preface</a></li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Ch1_openmpIntro.html">1. Overview of OpenMP Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="openmp_c/1_IntroductionOfOpenMP.html">1.1. Introduction of OpenMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="openmp_c/2_Syntax.html">1.2. Creating a Parallel Program with OpenMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="openmp_c/3_performance.html">1.3. Performance Analysis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Ch1_OpenmpIntro.html">1. Overview of OpenMP Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Openmp_C/1_IntroductionOfOpenMP.html">1.1. Introduction of OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Openmp_C/2_Syntax.html">1.2. Creating a Parallel Program with OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Openmp_C/3_Performance.html">1.3. Performance Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Ch2_MulticoreMultiCPU.html">2. Parallel Programming for Multicore and Multi-CPU Machines</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -196,12 +197,16 @@
 <li class="toctree-l2"><a class="reference internal" href="MultiCoreMultiCPU/4_SynchronizationThreads.html">2.4. Synchronization of threads using barrier and order directive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MultiCoreMultiCPU/5_AsynchronousTasking.html">2.5. Asynchronous tasking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MultiCoreMultiCPU/6_ExplicitDistribution.html">2.6. Explicit distribution of work using single, sections, workshring-loop, and distribute construct</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Ch3_SIMDVector.html">2.7. Parallel Programming for SIMD and Vector Architecture</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Ch4_GPUAccel.html">3. Parallel Programming for GPU Accelerators</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="GPUAccelerators/1_DataMapping.html">3.1. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GPUAccelerators/2_Metadirective.html">3.2. Metadirective (possible separate section)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="SIMDandVectorArchitecture/plan.html">3.1. Parallel Programming for SIMD and Vector Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="GPUAccelerators/1_architecture.html">4.1. Vector Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GPUAccelerators/1_DataMapping.html">4.2. Data Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GPUAccelerators/2_Metadirective.html">4.3. Metadirective (possible separate section)</a></li>
 </ul>
 </li>
 </ul>
@@ -376,9 +381,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -389,19 +392,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Introduction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -411,7 +406,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>This is a brief introduction to give you a feel for how book content is structured.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>This is a brief introduction to give you a feel for how book content is structured.</p>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -468,20 +466,7 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
