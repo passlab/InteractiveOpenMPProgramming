@@ -11,11 +11,11 @@ parts:
     - file: preface
   - numbered: True
     chapters:
-    - file: Ch1_openmpIntro
+    - file: Ch1_OpenmpIntro
       sections:
-      - file: openmp_c/1_IntroductionOfOpenMP.ipynb
-      - file: openmp_c/2_Syntax.ipynb
-      - file: openmp_c/3_performance.ipynb
+      - file: Openmp_C/1_IntroductionOfOpenMP.ipynb
+      - file: Openmp_C/2_Syntax.ipynb
+      - file: Openmp_C/3_Performance.ipynb
     - file: Ch2_MulticoreMultiCPU
       sections:
       - file: MultiCoreMultiCPU/1_MIMDArchitecture.ipynb
@@ -24,8 +24,11 @@ parts:
       - file: MultiCoreMultiCPU/4_SynchronizationThreads.ipynb
       - file: MultiCoreMultiCPU/5_AsynchronousTasking.ipynb
       - file: MultiCoreMultiCPU/6_ExplicitDistribution.ipynb
-      - file: Ch3_SIMDVector
+    - file: Ch3_SIMDVector
+      sections: 
+      - file: SIMDandVectorArchitecture/plan.md
     - file: Ch4_GPUAccel
-      sections:
+      sections: 
+      - file: GPUAccelerators/1_architecture.ipynb
       - file: GPUAccelerators/1_DataMapping.ipynb
       - file: GPUAccelerators/2_Metadirective.ipynb
