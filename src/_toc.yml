@@ -22,6 +22,8 @@ parts:
       - file: MultiCoreMultiCPU/2_UsingOpenMP_parallel.ipynb
       - file: MultiCoreMultiCPU/3_UsingOpenMP_teams.ipynb
       - file: MultiCoreMultiCPU/4_SynchronizationThreads.ipynb
+      - file: MultiCoreMultiCPU/4_SynchronizationThreads_Gemini.ipynb
+      - file: MultiCoreMultiCPU/4_SynchronizationThreads_Claude.ipynb       
       - file: MultiCoreMultiCPU/5_AsynchronousTasking.ipynb
       - file: MultiCoreMultiCPU/6_ExplicitDistribution.ipynb
     - file: Ch3_SIMDVector
