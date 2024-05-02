@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="2.5. Asynchronous tasking" href="5_AsynchronousTasking.html" />
+    <link rel="next" title="2.5. Synchronization of Threads Using Barrier and Ordered Directive" href="4_SynchronizationThreads_Gemini.html" />
     <link rel="prev" title="2.3. Creating SPMD parallelism using OpenMP teams directive" href="3_UsingOpenMP_teams.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -195,8 +195,10 @@
 <li class="toctree-l2"><a class="reference internal" href="2_UsingOpenMP_parallel.html">2.2. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_UsingOpenMP_teams.html">2.3. Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.4. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_AsynchronousTasking.html">2.5. Asynchronous tasking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_ExplicitDistribution.html">2.6. Explicit distribution of work using single, sections, workshring-loop, and distribute construct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Gemini.html">2.5. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Claude.html">2.6. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_AsynchronousTasking.html">2.7. Asynchronous tasking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_ExplicitDistribution.html">2.8. Explicit distribution of work using single, sections, workshring-loop, and distribute construct</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -472,11 +474,10 @@ document.write(`
 <h2><span class="section-number">2.4.1. </span>Introduction to Synchronization in Parallel Programming with OpenMP<a class="headerlink" href="#introduction-to-synchronization-in-parallel-programming-with-openmp" title="Link to this heading">#</a></h2>
 <p>In parallel programming, synchronization is a fundamental concept that ensures that multiple threads or processes execute concurrently in a controlled manner. Synchronization mechanisms are crucial for maintaining the correctness and efficiency of parallel programs, particularly when multiple threads interact or share resources.</p>
 <p>OpenMP, a widely used directive-based parallel programming model, provides various synchronization constructs that help manage the complexities of concurrent execution. Among these, the barrier and ordered directives play pivotal roles in controlling the flow and order of execution across threads. Understanding these directives is essential for developing robust and efficient parallel applications.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Barrier Directive: This directive is used to align threads at a synchronization point before any of them can proceed further. It ensures that all threads in a team reach a certain point in the execution before moving on. This is particularly useful when subsequent operations depend on the completion of certain tasks by all threads.
-
-ordered Directive: This directive controls the sequence of execution within loop iterations, making it possible to enforce a specific order when needed. It is essential in situations where the order of operations affects the outcome, such as in numerical simulations or cumulative operations.
-</pre></div>
-</div>
+<ul class="simple">
+<li><p>Barrier Directive: This directive is used to align threads at a synchronization point before any of them can proceed further. It ensures that all threads in a team reach a certain point in the execution before moving on. This is particularly useful when subsequent operations depend on the completion of certain tasks by all threads.</p></li>
+<li><p>Ordered Directive: This directive controls the sequence of execution within loop iterations, making it possible to enforce a specific order when needed. It is essential in situations where the order of operations affects the outcome, such as in numerical simulations or cumulative operations.</p></li>
+</ul>
 <p>The correct use of these directives not only enhances the performance of parallel programs but also prevents common issues such as race conditions, deadlocks, and inconsistent outputs. In the following sections, we will explore each of these synchronization mechanisms in detail, providing usage examples and best practices to integrate them effectively into your OpenMP programs.</p>
 </section>
 <section id="barrier-directive">
@@ -700,11 +701,11 @@ ordered Directive: This directive controls the sequence of execution within loop
       </div>
     </a>
     <a class="right-next"
-       href="5_AsynchronousTasking.html"
+       href="4_SynchronizationThreads_Gemini.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.5. </span>Asynchronous tasking</p>
+        <p class="prev-next-title"><span class="section-number">2.5. </span>Synchronization of Threads Using Barrier and Ordered Directive</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

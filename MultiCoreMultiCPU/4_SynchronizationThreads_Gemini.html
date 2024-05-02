@@ -1,0 +1,745 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.5. Synchronization of Threads Using Barrier and Ordered Directive &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'MultiCoreMultiCPU/4_SynchronizationThreads_Gemini';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="2.6. Synchronization of Threads Using Barrier and Ordered Directive" href="4_SynchronizationThreads_Claude.html" />
+    <link rel="prev" title="2.4. Synchronization of Threads Using Barrier and Ordered Directive" href="4_SynchronizationThreads.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Parallel Programming and Performance Optimization With OpenMP - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Parallel Programming and Performance Optimization With OpenMP - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../cover.html">
+                    OpenMP Programming Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book_intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../foreword.html">foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">preface</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch1_OpenmpIntro.html">1. Overview of OpenMP Programming</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/1_IntroductionOfOpenMP.html">1.1. Introduction of OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/2_Syntax.html">1.2. Creating a Parallel Program with OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/3_Performance.html">1.3. Performance Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">2. Parallel Programming for Multicore and Multi-CPU Machines</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_MIMDArchitecture.html">2.1. Multicore and Multi-CPU shared memory systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_UsingOpenMP_parallel.html">2.2. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_UsingOpenMP_teams.html">2.3. Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads.html">2.4. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.5. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Claude.html">2.6. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_AsynchronousTasking.html">2.7. Asynchronous tasking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_ExplicitDistribution.html">2.8. Explicit distribution of work using single, sections, workshring-loop, and distribute construct</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/plan.html">3.1. Parallel Programming for SIMD and Vector Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_architecture.html">4.1. Vector Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_DataMapping.html">4.2. Data Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_Metadirective.html">4.3. Metadirective (possible separate section)</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/MultiCoreMultiCPU/4_SynchronizationThreads_Gemini.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/passlab/OpenMPProgrammingBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FMultiCoreMultiCPU/4_SynchronizationThreads_Gemini.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/MultiCoreMultiCPU/4_SynchronizationThreads_Gemini.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Synchronization of Threads Using Barrier and Ordered Directive</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.5.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barrier-directive">2.5.2. Barrier Directive</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#establishing-synchronization-points">2.5.2.1. Establishing Synchronization Points</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">2.5.2.2. Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ordered-directive-maintaining-sequential-steps">2.5.3. The Ordered Directive: Maintaining Sequential Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enforcing-order-in-the-parallel-ballet">2.5.3.1. Enforcing Order in the Parallel Ballet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doacross-clause-specifying-dependencies">2.5.3.2. doacross Clause: Specifying Dependencies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-barriers-automatic-synchronization">2.5.4. Implicit Barriers: Automatic Synchronization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-implicit-barriers-with-nowait">2.5.4.1. Removing Implicit Barriers with nowait</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-using-barrier-and-ordered-directives-achieving-synchronization-zen">2.5.5. Best Practices for Using Barrier and Ordered Directives: Achieving Synchronization Zen</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="synchronization-of-threads-using-barrier-and-ordered-directive">
+<h1><span class="section-number">2.5. </span>Synchronization of Threads Using Barrier and Ordered Directive<a class="headerlink" href="#synchronization-of-threads-using-barrier-and-ordered-directive" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">2.5.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>OpenMP provides a selection of tools to achieve synchronization between threads, ensuring smooth collaboration and preventing the pitfalls of concurrent execution. Among these, the <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives stand as pillars of thread coordination, each playing a distinct role in maintaining order and predictability within parallel regions.</p>
+<ul class="simple">
+<li><p><strong>Barrier Directive</strong>: Acting as a synchronization point, the barrier directive ensures all threads within a team reach a designated point before any are allowed to proceed. This is crucial in preventing race conditions, where multiple threads accessing and modifying shared data simultaneously can lead to unpredictable and erroneous results.</p></li>
+<li><p><strong>Ordered Directive</strong>: For scenarios where the order of execution is critical, the ordered directive ensures specific sections within a parallelized loop are executed sequentially, respecting the order of iterations. This is essential for maintaining deterministic behavior in situations like I/O operations or when data dependencies exist between iterations.</p></li>
+</ul>
+</section>
+<section id="barrier-directive">
+<h2><span class="section-number">2.5.2. </span>Barrier Directive<a class="headerlink" href="#barrier-directive" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">barrier</span></code> directive acts as a crucial tool for orchestrating thread synchronization within a parallel region. It establishes designated points where all threads within a team must converge before any are permitted to proceed. This mechanism is vital for preventing race conditions and maintaining data consistency in shared-memory parallel programs, ensuring predictable and reliable results.</p>
+<section id="establishing-synchronization-points">
+<h3><span class="section-number">2.5.2.1. </span>Establishing Synchronization Points<a class="headerlink" href="#establishing-synchronization-points" title="Link to this heading">#</a></h3>
+<p>The syntax for employing the barrier directive is straightforward and consistent across both C/C++ and Fortran:</p>
+<p><strong>C/C++:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp barrier</span>
+</pre></div>
+</div>
+<p><strong>Fortran:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!$omp barrier
+</pre></div>
+</div>
+<p>By strategically placing this directive within a parallel region, you create explicit synchronization points. Let’s delve into a concrete example to illustrate this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp parallel</span>
+<span class="p">{</span>
+  <span class="o">//</span> <span class="n">Each</span> <span class="n">thread</span> <span class="n">performs</span> <span class="n">its</span> <span class="n">independent</span> <span class="n">calculations</span> <span class="n">on</span> <span class="n">a</span> <span class="n">portion</span> <span class="n">of</span> <span class="n">data</span><span class="o">...</span>
+  <span class="c1">#pragma omp barrier</span>
+  <span class="o">//</span> <span class="n">All</span> <span class="n">threads</span> <span class="n">synchronize</span> <span class="n">here</span><span class="p">,</span> <span class="n">ensuring</span> <span class="n">consistent</span> <span class="n">data</span> <span class="n">before</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">step</span>
+  <span class="o">//</span> <span class="n">Combine</span> <span class="n">the</span> <span class="n">partial</span> <span class="n">results</span> <span class="kn">from</span> <span class="nn">each</span> <span class="n">thread</span> <span class="n">into</span> <span class="n">a</span> <span class="n">final</span> <span class="n">result</span><span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this scenario, each thread works on its assigned portion of data before encountering the barrier. The <code class="docutils literal notranslate"><span class="pre">barrier</span></code> directive acts as a gatekeeper, halting each thread until all threads within the team have reached this point. This guarantees that all partial calculations are complete and the shared data is in a consistent state before moving on to combine the partial results.</p>
+</section>
+<section id="example">
+<h3><span class="section-number">2.5.2.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">//%</span><span class="k">compiler</span>: clang
+<span class="o">//%</span><span class="k">cflags</span>: -fopenmp
+
+<span class="c1">#include &lt;omp.h&gt;</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">int</span> <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">#pragma omp parallel shared(sum)</span>
+    <span class="p">{</span>
+        <span class="nb">int</span> <span class="n">tid</span> <span class="o">=</span> <span class="n">omp_get_thread_num</span><span class="p">();</span>
+        <span class="nb">int</span> <span class="n">local_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="o">//</span> <span class="n">Each</span> <span class="n">thread</span> <span class="n">calculates</span> <span class="n">a</span> <span class="n">local</span> <span class="nb">sum</span> <span class="k">for</span> <span class="n">a</span> <span class="n">portion</span> <span class="n">of</span> <span class="n">data</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">tid</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">tid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">local_sum</span> <span class="o">+=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="c1">#pragma omp critical</span>
+        <span class="nb">sum</span> <span class="o">+=</span> <span class="n">local_sum</span><span class="p">;</span> <span class="o">//</span> <span class="n">Add</span> <span class="n">each</span> <span class="n">thread</span><span class="s1">&#39;s local sum to the global sum</span>
+        
+        <span class="c1">#pragma omp barrier // All threads wait here before printing</span>
+        
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Thread </span><span class="si">%d</span><span class="s2"> finished with local sum </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">tid</span><span class="p">,</span> <span class="n">local_sum</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Final sum: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-ordered-directive-maintaining-sequential-steps">
+<h2><span class="section-number">2.5.3. </span>The Ordered Directive: Maintaining Sequential Steps<a class="headerlink" href="#the-ordered-directive-maintaining-sequential-steps" title="Link to this heading">#</a></h2>
+<p>In the realm of parallelized loops, where iterations dance across threads, maintaining a specific execution order for certain sections of code becomes essential. The ordered directive steps onto the stage, ensuring that designated portions of a loop are executed sequentially, respecting the order of iterations even when the loop itself is parallelized and iterations might be executed concurrently.</p>
+<section id="enforcing-order-in-the-parallel-ballet">
+<h3><span class="section-number">2.5.3.1. </span>Enforcing Order in the Parallel Ballet<a class="headerlink" href="#enforcing-order-in-the-parallel-ballet" title="Link to this heading">#</a></h3>
+<p>The syntax for invoking the ordered directive is clear and consistent across C/C++ and Fortran:</p>
+<p><strong>C/C++:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp ordered</span>
+<span class="n">structured</span><span class="o">-</span><span class="n">block</span>
+<span class="c1">#pragma omp end ordered</span>
+</pre></div>
+</div>
+<p><strong>Fortran:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!$omp ordered
+structured-block
+!$omp end ordered
+</pre></div>
+</div>
+<p>Let’s explore a simple example to grasp the essence of the ordered directive:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp parallel for ordered</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="o">//</span> <span class="n">Perform</span> <span class="n">calculations</span> <span class="n">specific</span> <span class="n">to</span> <span class="n">iteration</span> <span class="n">i</span><span class="o">...</span>
+  <span class="c1">#pragma omp ordered</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Iteration </span><span class="si">%d</span><span class="s2"> from thread </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">omp_get_thread_num</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this scenario, even though the loop iterations might be scattered across threads and executed concurrently, the printf statement within the ordered region will always print in the order of the loop iterations (0, 1, 2, …). The ordered directive guarantees that each thread executes this section sequentially, respecting the natural order of the loop.</p>
+</section>
+<section id="doacross-clause-specifying-dependencies">
+<h3><span class="section-number">2.5.3.2. </span>doacross Clause: Specifying Dependencies<a class="headerlink" href="#doacross-clause-specifying-dependencies" title="Link to this heading">#</a></h3>
+<p>For more intricate scenarios involving loops with cross-iteration dependencies, the doacross clause comes to the rescue. It allows you to pinpoint specific dependences between iterations that must be honored during parallel execution. By using the doacross clause, you provide explicit instructions to the compiler regarding the required order of operations, ensuring correctness even in the presence of complex data dependencies.</p>
+</section>
+</section>
+<section id="implicit-barriers-automatic-synchronization">
+<h2><span class="section-number">2.5.4. </span>Implicit Barriers: Automatic Synchronization<a class="headerlink" href="#implicit-barriers-automatic-synchronization" title="Link to this heading">#</a></h2>
+<p>OpenMP provides automatic synchronization with implicit barriers placed at the end of worksharing constructs (like for and sections) and at the end of parallel regions. These invisible barriers guarantee that all threads have finished their assigned work within the construct before moving on to the next section of code.
+<strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp parallel for</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Work</span> <span class="n">on</span> <span class="n">iteration</span> <span class="n">i</span><span class="o">...</span>
+<span class="p">}</span>
+<span class="o">//</span> <span class="n">Implicit</span> <span class="n">barrier</span> <span class="o">-</span> <span class="nb">all</span> <span class="n">threads</span> <span class="n">wait</span> <span class="n">here</span> <span class="n">before</span> <span class="n">proceeding</span>
+</pre></div>
+</div>
+<section id="removing-implicit-barriers-with-nowait">
+<h3><span class="section-number">2.5.4.1. </span>Removing Implicit Barriers with nowait<a class="headerlink" href="#removing-implicit-barriers-with-nowait" title="Link to this heading">#</a></h3>
+<p>While implicit barriers provide convenient synchronization, they might introduce unnecessary overhead in certain scenarios. The nowait clause allows you to remove these implicit barriers, enabling threads to proceed without waiting for others. However, use this clause judiciously and ensure proper explicit synchronization mechanisms are in place to avoid race conditions.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#pragma omp parallel for nowait</span>
+<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Work</span> <span class="n">on</span> <span class="n">iteration</span> <span class="n">i</span><span class="o">...</span>
+<span class="p">}</span>
+<span class="o">//</span> <span class="n">No</span> <span class="n">implicit</span> <span class="n">barrier</span> <span class="o">-</span> <span class="n">threads</span> <span class="k">continue</span> <span class="n">immediately</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="best-practices-for-using-barrier-and-ordered-directives-achieving-synchronization-zen">
+<h2><span class="section-number">2.5.5. </span>Best Practices for Using Barrier and Ordered Directives: Achieving Synchronization Zen<a class="headerlink" href="#best-practices-for-using-barrier-and-ordered-directives-achieving-synchronization-zen" title="Link to this heading">#</a></h2>
+<p>While the barrier and ordered directives are powerful tools for orchestrating thread synchronization, their effectiveness hinges on understanding their nuances and applying them strategically. Here are some guiding principles to help you achieve synchronization zen and unlock the full potential of these directives:</p>
+<ul class="simple">
+<li><p>Barrier Mindfulness: Barriers, while essential for preventing race conditions, can introduce overhead due to thread idling and synchronization costs. Use them judiciously and only when necessary to ensure data consistency and correctness. Explore alternative synchronization mechanisms like locks or atomic operations when appropriate.</p></li>
+<li><p>Embrace Implicit Barriers: Leverage the convenience and efficiency of implicit barriers automatically inserted at the end of worksharing constructs and parallel regions. Be mindful of their presence and consider the nowait clause only when you are confident about the absence of race conditions and its impact on correctness.</p></li>
+<li><p>Order with Purpose: Apply the ordered directive selectively to code sections within a loop where maintaining the order of execution is critical. Overusing the ordered directive can diminish the benefits of parallelization, so carefully analyze your code’s data dependencies and apply it only when necessary.</p></li>
+<li><p>Data Dependencies Awareness: Gain a deep understanding of the data dependencies within your code, both within iterations and across iterations. This knowledge is crucial for selecting the appropriate synchronization directives and ensuring that threads access and modify shared data in a controlled manner.</p></li>
+<li><p>Performance as the Guiding Light: Employ performance profiling tools to identify and address potential bottlenecks arising from synchronization overhead. Optimize your code by minimizing unnecessary barriers and restructuring your loops to reduce cross-iteration dependencies, striking a balance between synchronization and parallel efficiency.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "native"
+        },
+        kernelOptions: {
+            name: "native",
+            path: "./MultiCoreMultiCPU"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'native'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="4_SynchronizationThreads.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2.4. </span>Synchronization of Threads Using Barrier and Ordered Directive</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="4_SynchronizationThreads_Claude.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.6. </span>Synchronization of Threads Using Barrier and Ordered Directive</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.5.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barrier-directive">2.5.2. Barrier Directive</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#establishing-synchronization-points">2.5.2.1. Establishing Synchronization Points</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">2.5.2.2. Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ordered-directive-maintaining-sequential-steps">2.5.3. The Ordered Directive: Maintaining Sequential Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enforcing-order-in-the-parallel-ballet">2.5.3.1. Enforcing Order in the Parallel Ballet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doacross-clause-specifying-dependencies">2.5.3.2. doacross Clause: Specifying Dependencies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-barriers-automatic-synchronization">2.5.4. Implicit Barriers: Automatic Synchronization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-implicit-barriers-with-nowait">2.5.4.1. Removing Implicit Barriers with nowait</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-using-barrier-and-ordered-directives-achieving-synchronization-zen">2.5.5. Best Practices for Using Barrier and Ordered Directives: Achieving Synchronization Zen</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Xinyao Yi, Anjia Wang, and Yonghong Yan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © <a href="../copyright.html">Copyright</a> 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
