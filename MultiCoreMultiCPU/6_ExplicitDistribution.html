@@ -414,7 +414,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -430,6 +432,52 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.8.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-construct">2.8.2. Single Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-clauses">2.8.2.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">2.8.2.2. Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections-construct">2.8.3. Sections Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.8.3.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.8.3.2. Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksharing-loop-constructs">2.8.4. Worksharing-Loop Constructs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.8.4.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.8.4.2. Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scheduling-clauses">2.8.4.3. Scheduling Clauses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribute-construct">2.8.5. Distribute Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.8.5.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.8.5.2. Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-with-other-constructs">2.8.5.3. Interaction with Other Constructs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-constructs-for-efficient-work-distribution">2.8.6. Combining Constructs for Efficient Work Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-parallelism-using-single-sections-and-worksharing-loop-constructs">2.8.6.1. Nested Parallelism using Single, Sections, and Worksharing-Loop Constructs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-distribute-construct-with-worksharing-loop-constructs">2.8.6.2. Using the Distribute Construct with Worksharing-Loop Constructs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-demonstrating-the-combination-of-constructs">2.8.6.3. Example Demonstrating the Combination of Constructs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-and-performance-considerations">2.8.7. Best Practices and Performance Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-appropriate-construct">2.8.7.1. Choosing the Appropriate Construct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-avoiding-work-imbalance">2.8.7.2. Load Balancing and Avoiding Work Imbalance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimizing-synchronization-overhead">2.8.7.3. Minimizing Synchronization Overhead</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leveraging-data-locality-and-reducing-data-movement">2.8.7.4. Leveraging Data Locality and Reducing Data Movement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-performance-analysis">2.8.7.5. Profiling and Performance Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-optimization-and-tuning">2.8.7.6. Continuous Optimization and Tuning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.8.8. Summary</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -441,6 +489,543 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="explicit-distribution-of-work-using-single-sections-workshring-loop-and-distribute-construct">
 <h1><span class="section-number">2.8. </span>Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct<a class="headerlink" href="#explicit-distribution-of-work-using-single-sections-workshring-loop-and-distribute-construct" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">2.8.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Explicit work distribution is a fundamental concept in parallel programming that plays a crucial role in achieving optimal performance and scalability. When developing parallel programs, it is essential to carefully consider how the workload is distributed among the available processing units, such as threads or teams of threads. Proper work distribution ensures that each processing unit has a fair share of the computational tasks, minimizing load imbalance and maximizing resource utilization.</p>
+<p>OpenMP provides several constructs that facilitate explicit work distribution. These constructs allow programmers to specify how the workload should be divided and assigned to different threads or teams of threads. By leveraging these constructs effectively, developers can create efficient and scalable parallel programs that harness the full potential of modern multi-core processors and accelerators.</p>
+<p>In this section, we will explore four key OpenMP constructs for explicit work distribution: single, sections, worksharing-loop, and distribute. Each of these constructs serves a specific purpose and offers unique features for distributing work among threads or teams.</p>
+<p>The single construct ensures that a specific code block is executed by only one thread, which can be useful for initializing shared variables or performing I/O operations. The sections construct allows different code blocks to be executed concurrently by different threads, enabling task-level parallelism. Worksharing-loop constructs, such as for and do, distribute loop iterations among threads, providing a simple and efficient way to parallelize loops. Finally, the distribute construct is used to distribute loop iterations across teams of threads, enabling coarse-grained parallelism suitable for offloading to accelerators.</p>
+<p>Throughout this section, we will delve into the syntax, clauses, and usage of each construct, providing examples to illustrate their application in real-world scenarios. We will also discuss best practices for combining these constructs to achieve optimal work distribution and performance. By the end of this section, you will have a solid understanding of how to leverage OpenMP’s explicit work distribution constructs to write efficient and scalable parallel programs.</p>
+</section>
+<section id="single-construct">
+<h2><span class="section-number">2.8.2. </span>Single Construct<a class="headerlink" href="#single-construct" title="Link to this heading">#</a></h2>
+<p>The single construct in OpenMP is used to specify that a block of code should be executed by only one thread in a team, while the other threads wait at an implicit barrier until the execution of the single block is completed. This construct is particularly useful when there are certain tasks that need to be performed only once, such as initializing shared variables, printing results, or performing I/O operations.</p>
+<section id="syntax-and-clauses">
+<h3><span class="section-number">2.8.2.1. </span>Syntax and Clauses<a class="headerlink" href="#syntax-and-clauses" title="Link to this heading">#</a></h3>
+<p>The syntax for the single construct in C/C++ is as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp single [clause[[,] clause] ...]</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// Code block to be executed by a single thread</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In Fortran, the syntax is:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">!$omp single [clause[[,] clause] ...]</span>
+<span class="w">  </span><span class="c">! Code block to be executed by a single thread</span>
+<span class="c">!$omp end single</span>
+</pre></div>
+</div>
+<p>The single construct supports the following clauses:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">private(list)</span></code>: Specifies that the listed variables should be private to each thread executing the single block.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firstprivate(list)</span></code>: Initializes the listed private variables with their corresponding values prior to entering the single block.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copyprivate(list)</span></code>: Broadcasts the values of the listed private variables from the thread executing the single block to all other threads in the team.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nowait</span></code>: Specifies that threads completing the single block do not need to wait for other threads at the end of the single construct.</p></li>
+</ul>
+</section>
+<section id="example">
+<h3><span class="section-number">2.8.2.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>Here’s an example that demonstrates the usage of the single construct in C:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">  </span><span class="cp">#pragma omp parallel</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="cp">#pragma omp single</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Initialize the shared variable &#39;result&#39;</span>
+<span class="w">      </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Single thread initialized result to %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// All threads wait here until the single block is executed</span>
+
+<span class="w">    </span><span class="cp">#pragma omp critical</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Each thread increments &#39;result&#39;</span>
+<span class="w">      </span><span class="n">result</span><span class="o">++</span><span class="p">;</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Thread %d incremented result to %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">(),</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Final result: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the single construct is used to initialize the shared variable <code class="docutils literal notranslate"><span class="pre">result</span></code> by a single thread. The other threads wait at the implicit barrier until the single block is completed. After the single block, all threads increment the <code class="docutils literal notranslate"><span class="pre">result</span></code> variable inside a critical section to avoid race conditions. Finally, the program prints the final value of <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p>
+<p>The single construct ensures that the initialization of <code class="docutils literal notranslate"><span class="pre">result</span></code> is performed only once, avoiding redundant or conflicting initializations by multiple threads. By using the single construct judiciously, you can optimize the execution of tasks that need to be performed only once within a parallel region.</p>
+</section>
+</section>
+<section id="sections-construct">
+<h2><span class="section-number">2.8.3. </span>Sections Construct<a class="headerlink" href="#sections-construct" title="Link to this heading">#</a></h2>
+<p>The sections construct in OpenMP allows for the distribution of work among threads in a team, where each thread executes a different code block defined within a section. This construct is useful when you have independent code blocks that can be executed concurrently, enabling task-level parallelism.</p>
+<section id="id1">
+<h3><span class="section-number">2.8.3.1. </span>Syntax and Clauses<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The syntax for the sections construct in C/C++ is as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp sections [clause[[,] clause] ...]</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="cp">#pragma omp section</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Code block 1</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="cp">#pragma omp section</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Code block 2</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// More sections...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In Fortran, the syntax is:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">!$omp sections [clause[[,] clause] ...]</span>
+<span class="w">  </span><span class="c">!$omp section</span>
+<span class="w">    </span><span class="c">! Code block 1</span>
+<span class="w">  </span><span class="c">!$omp section</span>
+<span class="w">    </span><span class="c">! Code block 2</span>
+<span class="w">  </span><span class="c">! More sections...</span>
+<span class="c">!$omp end sections</span>
+</pre></div>
+</div>
+<p>The sections construct supports the following clauses:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">private(list)</span></code>: Specifies that the listed variables should be private to each thread executing a section.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firstprivate(list)</span></code>: Initializes the listed private variables with their corresponding values prior to entering the sections construct.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lastprivate(list)</span></code>: Ensures that the listed variables retain their values from the last iteration of the sections construct.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reduction(operator:list)</span></code>: Specifies a reduction operation to be performed on the listed variables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nowait</span></code>: Specifies that threads completing their sections do not need to wait for other threads at the end of the sections construct.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3><span class="section-number">2.8.3.2. </span>Example<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Here’s an example that illustrates the usage of the sections construct in C:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="cp">#pragma omp parallel</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="cp">#pragma omp sections</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="cp">#pragma omp section</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Thread %d executing section 1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span>
+<span class="w">        </span><span class="c1">// Code block 1</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="cp">#pragma omp section</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Thread %d executing section 2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span>
+<span class="w">        </span><span class="c1">// Code block 2</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="cp">#pragma omp section</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Thread %d executing section 3</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_thread_num</span><span class="p">());</span>
+<span class="w">        </span><span class="c1">// Code block 3</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the sections construct is used to distribute the execution of three code blocks among the available threads. Each section is executed by a different thread, and the <code class="docutils literal notranslate"><span class="pre">omp_get_thread_num()</span></code> function is used to print the thread number executing each section.</p>
+<p>The sections construct allows for the concurrent execution of independent code blocks, improving the overall performance by leveraging task-level parallelism. It is important to note that the number of sections does not need to match the number of threads in the team. If there are more sections than threads, the sections will be distributed among the available threads. If there are fewer sections than threads, some threads may not execute any section.</p>
+<p>By using the sections construct, you can efficiently distribute work among threads and take advantage of the available parallelism in your program.</p>
+</section>
+</section>
+<section id="worksharing-loop-constructs">
+<h2><span class="section-number">2.8.4. </span>Worksharing-Loop Constructs<a class="headerlink" href="#worksharing-loop-constructs" title="Link to this heading">#</a></h2>
+<p>Worksharing-loop constructs in OpenMP, such as <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">do</span></code>, are used to distribute loop iterations among the threads in a team. These constructs provide a simple and efficient way to parallelize loops and improve the performance of your program.</p>
+<section id="id3">
+<h3><span class="section-number">2.8.4.1. </span>Syntax and Clauses<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>The syntax for the worksharing-loop construct in C/C++ is as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp for [clause[[,] clause] ...]</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="cm">/* loop initialization */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* loop condition */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* loop increment */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Loop body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In Fortran, the syntax is:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">!$omp do [clause[[,] clause] ...]</span>
+<span class="k">do</span><span class="w"> </span><span class="o">/*</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="nb">index</span><span class="w"> </span><span class="o">*/</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/*</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">*/</span><span class="p">,</span><span class="w"> </span><span class="o">/*</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="o">*/</span><span class="p">,</span><span class="w"> </span><span class="o">/*</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="o">*/</span>
+<span class="w">  </span><span class="c">! Loop body</span>
+<span class="k">end do</span>
+<span class="c">!$omp end do</span>
+</pre></div>
+</div>
+<p>The worksharing-loop constructs support the following clauses:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">private(list)</span></code>: Specifies that the listed variables should be private to each thread executing the loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firstprivate(list)</span></code>: Initializes the listed private variables with their corresponding values prior to entering the loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lastprivate(list)</span></code>: Ensures that the listed variables retain their values from the last iteration of the loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reduction(operator:list)</span></code>: Specifies a reduction operation to be performed on the listed variables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">schedule(kind[,</span> <span class="pre">chunk_size])</span></code>: Specifies how the loop iterations are divided among the threads. The <code class="docutils literal notranslate"><span class="pre">kind</span></code> can be <code class="docutils literal notranslate"><span class="pre">static</span></code>, <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>, <code class="docutils literal notranslate"><span class="pre">guided</span></code>, or <code class="docutils literal notranslate"><span class="pre">runtime</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">collapse(n)</span></code>: Specifies the number of loops in a nested loop structure that should be collapsed into a single loop for parallelization.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nowait</span></code>: Specifies that threads completing the loop do not need to wait for other threads at the end of the worksharing-loop construct.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3><span class="section-number">2.8.4.2. </span>Example<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Here’s an example that demonstrates the usage of the worksharing-loop construct in C:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
+
+<span class="cp">#define N 100</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+
+<span class="w">  </span><span class="c1">// Initialize the array</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="cp">#pragma omp parallel for reduction(+:sum)</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sum: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the worksharing-loop construct is used to distribute the iterations of the loop that calculates the sum of elements in the array <code class="docutils literal notranslate"><span class="pre">a</span></code> among the available threads. The <code class="docutils literal notranslate"><span class="pre">reduction(+:sum)</span></code> clause is used to specify that the <code class="docutils literal notranslate"><span class="pre">sum</span></code> variable should be reduced using the addition operator.</p>
+<p>By using the worksharing-loop construct, the loop iterations are automatically divided among the threads, and each thread computes a partial sum. The reduction clause ensures that the partial sums are properly combined to obtain the final result.</p>
+<p>Worksharing-loop constructs are highly effective for parallelizing loops that have no dependencies between iterations. They provide a straightforward way to distribute the workload and achieve significant performance improvements in many common scenarios.</p>
+</section>
+<section id="scheduling-clauses">
+<h3><span class="section-number">2.8.4.3. </span>Scheduling Clauses<a class="headerlink" href="#scheduling-clauses" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">schedule</span></code> clause in the worksharing-loop constructs allows you to control how the loop iterations are divided among the threads. The different scheduling kinds are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">static</span></code>: Iterations are divided into chunks of size <code class="docutils literal notranslate"><span class="pre">chunk_size</span></code> and assigned to threads in a round-robin manner. If <code class="docutils literal notranslate"><span class="pre">chunk_size</span></code> is not specified, the iterations are evenly divided among the threads.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dynamic</span></code>: Iterations are divided into chunks of size <code class="docutils literal notranslate"><span class="pre">chunk_size</span></code>, and each thread dynamically takes a chunk when it becomes available. This is useful for loops with varying workload per iteration.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">guided</span></code>: Similar to <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>, but the chunk size starts large and decreases exponentially to a minimum of <code class="docutils literal notranslate"><span class="pre">chunk_size</span></code>. This is useful for loops where the workload decreases over time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">runtime</span></code>: The scheduling kind and chunk size are determined at runtime based on the values of the <code class="docutils literal notranslate"><span class="pre">OMP_SCHEDULE</span></code> environment variable or the <code class="docutils literal notranslate"><span class="pre">omp_set_schedule()</span></code> function.</p></li>
+</ul>
+<p>By choosing the appropriate scheduling kind and chunk size, you can optimize the load balancing and performance of your parallel loops based on the characteristics of your program and the underlying system.</p>
+<p>Worksharing-loop constructs, combined with the scheduling clauses, provide a powerful and flexible mechanism for distributing loop iterations among threads and achieving efficient parallelization in OpenMP.</p>
+</section>
+</section>
+<section id="distribute-construct">
+<h2><span class="section-number">2.8.5. </span>Distribute Construct<a class="headerlink" href="#distribute-construct" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct in OpenMP is used to distribute loop iterations across teams of threads. It is primarily used in conjunction with the <code class="docutils literal notranslate"><span class="pre">teams</span></code> construct to achieve coarse-grained parallelism, especially when offloading computations to accelerators such as GPUs.</p>
+<section id="id5">
+<h3><span class="section-number">2.8.5.1. </span>Syntax and Clauses<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>The syntax for the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct in C/C++ is as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp distribute [clause[[,] clause] ...]</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="cm">/* loop initialization */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* loop condition */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* loop increment */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Loop body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In Fortran, the syntax is:</p>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">!$omp distribute [clause[[,] clause] ...]</span>
+<span class="k">do</span><span class="w"> </span><span class="o">/*</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="nb">index</span><span class="w"> </span><span class="o">*/</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/*</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">*/</span><span class="p">,</span><span class="w"> </span><span class="o">/*</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="o">*/</span><span class="p">,</span><span class="w"> </span><span class="o">/*</span><span class="w"> </span><span class="n">increment</span><span class="w"> </span><span class="o">*/</span>
+<span class="w">  </span><span class="c">! Loop body</span>
+<span class="k">end do</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct supports the following clauses:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">private(list)</span></code>: Specifies that the listed variables should be private to each thread executing the loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">firstprivate(list)</span></code>: Initializes the listed private variables with their corresponding values prior to entering the loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lastprivate(list)</span></code>: Ensures that the listed variables retain their values from the last iteration of the loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">collapse(n)</span></code>: Specifies the number of loops in a nested loop structure that should be collapsed into a single loop for parallelization.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist_schedule(kind[,</span> <span class="pre">chunk_size])</span></code>: Specifies how the loop iterations are divided among the teams of threads. The <code class="docutils literal notranslate"><span class="pre">kind</span></code> can be <code class="docutils literal notranslate"><span class="pre">static</span></code>, <code class="docutils literal notranslate"><span class="pre">static_chunked</span></code>, or <code class="docutils literal notranslate"><span class="pre">static_balanced</span></code>.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3><span class="section-number">2.8.5.2. </span>Example<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Here’s an example that demonstrates the usage of the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct in C:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
+
+<span class="cp">#define N 1000</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+
+<span class="w">  </span><span class="c1">// Initialize the array</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="cp">#pragma omp target teams distribute parallel for reduction(+:sum)</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sum: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct is used in combination with the <code class="docutils literal notranslate"><span class="pre">target</span></code> and <code class="docutils literal notranslate"><span class="pre">teams</span></code> constructs to offload the computation to an accelerator device. The loop iterations are distributed across the teams of threads created by the <code class="docutils literal notranslate"><span class="pre">teams</span></code> construct.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code> construct is used in conjunction with <code class="docutils literal notranslate"><span class="pre">distribute</span></code> to further parallelize the loop iterations within each team. The <code class="docutils literal notranslate"><span class="pre">reduction(+:sum)</span></code> clause is used to perform a reduction operation on the <code class="docutils literal notranslate"><span class="pre">sum</span></code> variable.</p>
+<p>By using the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct, the workload is distributed at a coarse-grained level across the teams of threads, while the <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code> construct enables fine-grained parallelism within each team.</p>
+</section>
+<section id="interaction-with-other-constructs">
+<h3><span class="section-number">2.8.5.3. </span>Interaction with Other Constructs<a class="headerlink" href="#interaction-with-other-constructs" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct is often used in combination with other OpenMP constructs to achieve efficient parallelization and offloading. Some common combinations include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">teams</span> <span class="pre">distribute</span></code>: Offloads the computation to a target device and distributes the loop iterations across teams of threads on the device.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">teams</span> <span class="pre">distribute</span> <span class="pre">parallel</span> <span class="pre">for</span></code>: Offloads the computation to a target device, distributes the loop iterations across teams of threads, and further parallelizes the iterations within each team using a worksharing-loop construct.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">teams</span> <span class="pre">distribute</span> <span class="pre">simd</span></code>: Offloads the computation to a target device, distributes the loop iterations across teams of threads, and applies SIMD (Single Instruction, Multiple Data) parallelism within each iteration.</p></li>
+</ul>
+<p>By combining the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct with other OpenMP constructs, you can create powerful and efficient parallel programs that leverage the capabilities of accelerators and achieve high performance.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct is a key component in the OpenMP programming model for offloading computations to accelerators and distributing work across teams of threads. It enables coarse-grained parallelism and complements other constructs to provide a comprehensive set of tools for parallel programming in heterogeneous systems.</p>
+</section>
+</section>
+<section id="combining-constructs-for-efficient-work-distribution">
+<h2><span class="section-number">2.8.6. </span>Combining Constructs for Efficient Work Distribution<a class="headerlink" href="#combining-constructs-for-efficient-work-distribution" title="Link to this heading">#</a></h2>
+<p>OpenMP provides a rich set of constructs that can be combined to achieve efficient work distribution and maximize parallel performance. By nesting and combining constructs such as <code class="docutils literal notranslate"><span class="pre">single</span></code>, <code class="docutils literal notranslate"><span class="pre">sections</span></code>, worksharing-loop constructs, and <code class="docutils literal notranslate"><span class="pre">distribute</span></code>, you can create sophisticated parallel patterns that adapt to the specific requirements of your application.</p>
+<section id="nested-parallelism-using-single-sections-and-worksharing-loop-constructs">
+<h3><span class="section-number">2.8.6.1. </span>Nested Parallelism using Single, Sections, and Worksharing-Loop Constructs<a class="headerlink" href="#nested-parallelism-using-single-sections-and-worksharing-loop-constructs" title="Link to this heading">#</a></h3>
+<p>One powerful technique for work distribution is nested parallelism, where parallel regions are nested inside other parallel regions. This allows for fine-grained control over the distribution of work at different levels of granularity.</p>
+<p>For example, you can use the <code class="docutils literal notranslate"><span class="pre">single</span></code> construct inside a parallel region to initialize shared variables or perform setup tasks that need to be executed only once. Then, you can use the <code class="docutils literal notranslate"><span class="pre">sections</span></code> construct to distribute independent tasks among the threads, followed by worksharing-loop constructs to parallelize loops within each section.</p>
+<p>Here’s an example that demonstrates nested parallelism using <code class="docutils literal notranslate"><span class="pre">single</span></code>, <code class="docutils literal notranslate"><span class="pre">sections</span></code>, and worksharing-loop constructs in C:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
+
+<span class="cp">#define N 1000</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">process_data</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Process the data in the given range</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">start</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">end</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Perform some computation on data[i]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+
+<span class="w">  </span><span class="cp">#pragma omp parallel</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="cp">#pragma omp single</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Initialize the data array</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cp">#pragma omp sections</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="cp">#pragma omp section</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Process the first half of the data array</span>
+<span class="w">        </span><span class="n">process_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="cp">#pragma omp section</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Process the second half of the data array</span>
+<span class="w">        </span><span class="n">process_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cp">#pragma omp for</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Perform final processing on each element of the data array</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">single</span></code> construct is used to initialize the <code class="docutils literal notranslate"><span class="pre">data</span></code> array by a single thread. Then, the <code class="docutils literal notranslate"><span class="pre">sections</span></code> construct is used to distribute the processing of the first and second halves of the <code class="docutils literal notranslate"><span class="pre">data</span></code> array among different threads. Finally, a worksharing-loop construct is used to perform final processing on each element of the <code class="docutils literal notranslate"><span class="pre">data</span></code> array in parallel.</p>
+</section>
+<section id="using-the-distribute-construct-with-worksharing-loop-constructs">
+<h3><span class="section-number">2.8.6.2. </span>Using the Distribute Construct with Worksharing-Loop Constructs<a class="headerlink" href="#using-the-distribute-construct-with-worksharing-loop-constructs" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct is often used in combination with worksharing-loop constructs to achieve coarse-grained parallelism across teams of threads while enabling fine-grained parallelism within each team.</p>
+<p>Here’s an example that demonstrates the usage of the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct with worksharing-loop constructs in C:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
+
+<span class="cp">#define N 1000</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+
+<span class="w">  </span><span class="c1">// Initialize the array</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="cp">#pragma omp target teams distribute</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">local_sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="cp">#pragma omp parallel for reduction(+:local_sum)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">local_sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="cp">#pragma omp atomic</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">local_sum</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sum: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct is used to distribute the outer loop iterations across teams of threads. Within each team, a worksharing-loop construct is used to parallelize the inner loop iterations. The <code class="docutils literal notranslate"><span class="pre">reduction</span></code> clause is used to compute the local sum within each team, and an <code class="docutils literal notranslate"><span class="pre">atomic</span></code> directive is used to update the global sum to avoid race conditions.</p>
+<p>By combining the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct with worksharing-loop constructs, you can achieve a hierarchical parallelization pattern that leverages the strengths of both coarse-grained and fine-grained parallelism.</p>
+</section>
+<section id="example-demonstrating-the-combination-of-constructs">
+<h3><span class="section-number">2.8.6.3. </span>Example Demonstrating the Combination of Constructs<a class="headerlink" href="#example-demonstrating-the-combination-of-constructs" title="Link to this heading">#</a></h3>
+<p>Here’s an example that demonstrates the combination of <code class="docutils literal notranslate"><span class="pre">single</span></code>, <code class="docutils literal notranslate"><span class="pre">sections</span></code>, worksharing-loop, and <code class="docutils literal notranslate"><span class="pre">distribute</span></code> constructs for efficient work distribution in C:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
+
+<span class="cp">#define N 1000</span>
+<span class="cp">#define M 100</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">process_data</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Process the data in the given range</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">start</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">end</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Perform some computation on data[i]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">M</span><span class="p">];</span>
+
+<span class="w">  </span><span class="cp">#pragma omp target teams distribute</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cp">#pragma omp parallel</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="cp">#pragma omp single</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Initialize the data array for each team</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="cp">#pragma omp sections</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="cp">#pragma omp section</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Process the first half of the data array</span>
+<span class="w">          </span><span class="n">process_data</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="cp">#pragma omp section</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Process the second half of the data array</span>
+<span class="w">          </span><span class="n">process_data</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">M</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="cp">#pragma omp for</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Perform final processing on each element of the data array</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct is used to distribute the outer loop iterations across teams of threads. Within each team, a parallel region is created, and the <code class="docutils literal notranslate"><span class="pre">single</span></code> construct is used to initialize the <code class="docutils literal notranslate"><span class="pre">data</span></code> array for each team. Then, the <code class="docutils literal notranslate"><span class="pre">sections</span></code> construct is used to distribute the processing of the first and second halves of the <code class="docutils literal notranslate"><span class="pre">data</span></code> array among different threads within each team. Finally, a worksharing-loop construct is used to perform final processing on each element of the <code class="docutils literal notranslate"><span class="pre">data</span></code> array in parallel.</p>
+<p>By combining these constructs, you can create a highly optimized parallel program that efficiently distributes work at multiple levels of granularity, taking advantage of the available parallelism in your system.</p>
+<p>The combination of OpenMP constructs provides a powerful and flexible mechanism for work distribution, allowing you to adapt the parallelization strategy to the specific requirements of your application and the underlying hardware architecture. By carefully selecting and combining the appropriate constructs, you can achieve optimal performance and scalability in your parallel programs.</p>
+</section>
+</section>
+<section id="best-practices-and-performance-considerations">
+<h2><span class="section-number">2.8.7. </span>Best Practices and Performance Considerations<a class="headerlink" href="#best-practices-and-performance-considerations" title="Link to this heading">#</a></h2>
+<p>When using OpenMP constructs for explicit work distribution, it’s important to follow best practices and consider performance implications to ensure efficient and scalable parallel execution. Here are some key points to keep in mind:</p>
+<section id="choosing-the-appropriate-construct">
+<h3><span class="section-number">2.8.7.1. </span>Choosing the Appropriate Construct<a class="headerlink" href="#choosing-the-appropriate-construct" title="Link to this heading">#</a></h3>
+<p>Selecting the right construct for work distribution depends on the nature of the problem and the parallelization pattern you want to achieve. Here are some guidelines:</p>
+<ul class="simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">single</span></code> construct for tasks that need to be executed only once, such as initializing shared variables or performing I/O operations.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">sections</span></code> construct when you have independent tasks that can be executed concurrently by different threads.</p></li>
+<li><p>Use worksharing-loop constructs (<code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">do</span></code>) when you have loops with no dependencies between iterations and want to distribute the iterations among threads.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct when you want to distribute loop iterations across teams of threads, especially when offloading computations to accelerators.</p></li>
+</ul>
+<p>Consider the granularity of the tasks and the available parallelism in your application when choosing the appropriate construct.</p>
+</section>
+<section id="load-balancing-and-avoiding-work-imbalance">
+<h3><span class="section-number">2.8.7.2. </span>Load Balancing and Avoiding Work Imbalance<a class="headerlink" href="#load-balancing-and-avoiding-work-imbalance" title="Link to this heading">#</a></h3>
+<p>Ensuring a balanced distribution of work among threads is crucial for achieving good parallel performance. Load imbalance can occur when some threads have significantly more work to do than others, leading to idle time and reduced efficiency.</p>
+<p>To mitigate load imbalance, consider the following techniques:</p>
+<ul class="simple">
+<li><p>Use dynamic scheduling clauses (<code class="docutils literal notranslate"><span class="pre">schedule(dynamic)</span></code> or <code class="docutils literal notranslate"><span class="pre">schedule(guided)</span></code>) for loops with varying workload per iteration.</p></li>
+<li><p>Adjust the chunk size in the scheduling clauses to find the right balance between load balancing and minimizing scheduling overhead.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">dist_schedule</span></code> clause with appropriate scheduling kinds (<code class="docutils literal notranslate"><span class="pre">static</span></code>, <code class="docutils literal notranslate"><span class="pre">static_chunked</span></code>, or <code class="docutils literal notranslate"><span class="pre">static_balanced</span></code>) for distributing work across teams of threads.</p></li>
+<li><p>Implement load balancing strategies, such as work stealing or task queues, to dynamically distribute work among threads.</p></li>
+</ul>
+<p>Experimentwith different load balancing techniques and measure the performance impact to find the optimal approach for your specific application.</p>
+</section>
+<section id="minimizing-synchronization-overhead">
+<h3><span class="section-number">2.8.7.3. </span>Minimizing Synchronization Overhead<a class="headerlink" href="#minimizing-synchronization-overhead" title="Link to this heading">#</a></h3>
+<p>Synchronization constructs, such as barriers and critical sections, are necessary for ensuring correctness in parallel programs. However, excessive synchronization can introduce overhead and limit scalability.</p>
+<p>To minimize synchronization overhead, consider the following:</p>
+<ul class="simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">nowait</span></code> clause with worksharing constructs when possible to avoid unnecessary barriers.</p></li>
+<li><p>Minimize the use of critical sections and atomic operations, and keep the critical regions as small as possible.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">single</span></code> construct with the <code class="docutils literal notranslate"><span class="pre">nowait</span></code> clause to avoid unnecessary synchronization when only one thread needs to execute a task.</p></li>
+<li><p>Consider using lock-free algorithms and data structures to reduce synchronization overhead.</p></li>
+</ul>
+<p>Analyze the synchronization patterns in your code and identify opportunities to reduce or eliminate unnecessary synchronization.</p>
+</section>
+<section id="leveraging-data-locality-and-reducing-data-movement">
+<h3><span class="section-number">2.8.7.4. </span>Leveraging Data Locality and Reducing Data Movement<a class="headerlink" href="#leveraging-data-locality-and-reducing-data-movement" title="Link to this heading">#</a></h3>
+<p>Data locality plays a significant role in the performance of parallel programs. Accessing data that is close to a processor core (e.g., in cache) is much faster than accessing data from main memory.</p>
+<p>To leverage data locality and reduce data movement, consider the following:</p>
+<ul class="simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">firstprivate</span></code> and <code class="docutils literal notranslate"><span class="pre">lastprivate</span></code> clauses to minimize data sharing and promote data locality.</p></li>
+<li><p>Employ techniques like array partitioning, cache blocking, and loop tiling to improve data locality and reduce cache misses.</p></li>
+<li><p>Minimize data transfers between the host and accelerator devices when using offloading constructs like <code class="docutils literal notranslate"><span class="pre">target</span></code> and <code class="docutils literal notranslate"><span class="pre">distribute</span></code>.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">collapse</span></code> clause to combine nested loops and improve data locality.</p></li>
+</ul>
+<p>Analyze the data access patterns in your code and optimize for data locality to minimize data movement and improve performance.</p>
+</section>
+<section id="profiling-and-performance-analysis">
+<h3><span class="section-number">2.8.7.5. </span>Profiling and Performance Analysis<a class="headerlink" href="#profiling-and-performance-analysis" title="Link to this heading">#</a></h3>
+<p>To identify performance bottlenecks and optimize your parallel code, it’s essential to profile and analyze the performance characteristics of your application. OpenMP provides runtime functions and environment variables for performance measurement and analysis.</p>
+<p>Consider the following:</p>
+<ul class="simple">
+<li><p>Use OpenMP runtime functions like <code class="docutils literal notranslate"><span class="pre">omp_get_wtime()</span></code> to measure the execution time of parallel regions and identify performance hotspots.</p></li>
+<li><p>Set the <code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code> environment variable to control the number of threads and experiment with different thread counts to find the optimal configuration.</p></li>
+<li><p>Use profiling tools that support OpenMP, such as Intel VTune Amplifier, HPE Performance Analyzer, or GNU Gprof, to gather detailed performance data and identify bottlenecks.</p></li>
+<li><p>Analyze the performance data to identify load imbalance, synchronization overhead, and data locality issues.</p></li>
+</ul>
+<p>Regularly profile and analyze your parallel code to identify performance issues and guide optimization efforts.</p>
+</section>
+<section id="continuous-optimization-and-tuning">
+<h3><span class="section-number">2.8.7.6. </span>Continuous Optimization and Tuning<a class="headerlink" href="#continuous-optimization-and-tuning" title="Link to this heading">#</a></h3>
+<p>Parallel performance optimization is an iterative process. As you optimize your code and the underlying hardware evolves, it’s important to continuously monitor and tune the performance of your application.</p>
+<p>Consider the following:</p>
+<ul class="simple">
+<li><p>Regularly measure and compare the performance of your parallel code against a baseline to track improvements and regressions.</p></li>
+<li><p>Experiment with different OpenMP constructs, clauses, and runtime configurations to find the optimal settings for your application.</p></li>
+<li><p>Keep up with the latest OpenMP specifications and implementations to leverage new features and optimizations.</p></li>
+<li><p>Collaborate with the OpenMP community, share experiences, and learn from best practices and performance insights shared by others.</p></li>
+</ul>
+<p>Continuous optimization and tuning ensure that your parallel application remains efficient and scalable as the codebase and hardware evolve.</p>
+</section>
+</section>
+<section id="summary">
+<h2><span class="section-number">2.8.8. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>Explicit work distribution using OpenMP constructs like <code class="docutils literal notranslate"><span class="pre">single</span></code>, <code class="docutils literal notranslate"><span class="pre">sections</span></code>, worksharing-loop constructs, and <code class="docutils literal notranslate"><span class="pre">distribute</span></code> is a powerful technique for achieving efficient parallelization. By understanding the characteristics and use cases of each construct, you can select the appropriate one for your specific parallelization needs.</p>
+<p>To maximize performance, it’s crucial to follow best practices such as ensuring load balancing, minimizing synchronization overhead, leveraging data locality, and reducing data movement. Profiling and performance analysis are essential for identifying bottlenecks and guiding optimization efforts.</p>
+<p>Remember that parallel performance optimization is an iterative process, and continuous tuning and adaptation are necessary to maintain optimal performance as your codebase and hardware evolve.</p>
+<p>By mastering the use of OpenMP constructs for explicit work distribution and adhering to best practices, you can harness the power of parallelism to create efficient, scalable, and high-performance applications.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -498,7 +1083,58 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.8.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-construct">2.8.2. Single Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-clauses">2.8.2.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">2.8.2.2. Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections-construct">2.8.3. Sections Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.8.3.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.8.3.2. Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksharing-loop-constructs">2.8.4. Worksharing-Loop Constructs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.8.4.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.8.4.2. Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scheduling-clauses">2.8.4.3. Scheduling Clauses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribute-construct">2.8.5. Distribute Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.8.5.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.8.5.2. Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-with-other-constructs">2.8.5.3. Interaction with Other Constructs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-constructs-for-efficient-work-distribution">2.8.6. Combining Constructs for Efficient Work Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-parallelism-using-single-sections-and-worksharing-loop-constructs">2.8.6.1. Nested Parallelism using Single, Sections, and Worksharing-Loop Constructs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-distribute-construct-with-worksharing-loop-constructs">2.8.6.2. Using the Distribute Construct with Worksharing-Loop Constructs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-demonstrating-the-combination-of-constructs">2.8.6.3. Example Demonstrating the Combination of Constructs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-and-performance-considerations">2.8.7. Best Practices and Performance Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-appropriate-construct">2.8.7.1. Choosing the Appropriate Construct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-avoiding-work-imbalance">2.8.7.2. Load Balancing and Avoiding Work Imbalance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimizing-synchronization-overhead">2.8.7.3. Minimizing Synchronization Overhead</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leveraging-data-locality-and-reducing-data-movement">2.8.7.4. Leveraging Data Locality and Reducing Data Movement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-performance-analysis">2.8.7.5. Profiling and Performance Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-optimization-and-tuning">2.8.7.6. Continuous Optimization and Tuning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.8.8. Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
