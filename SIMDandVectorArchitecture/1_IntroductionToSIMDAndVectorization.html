@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.1. Vector Architectures &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>3.1. Introduction to SIMD and Vectorization &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
   
   
   
@@ -57,12 +57,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'GPUAccelerators/1_architecture';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'SIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="4.2. Data Mapping" href="1_DataMapping.html" />
-    <link rel="prev" title="4. Parallel Programming for GPU Accelerators" href="../Ch4_GPUAccel.html" />
+    <link rel="next" title="3.2. OpenMP SIMD Constructs and Clauses" href="2_OpenMPSIMDConstructsAndClauses.html" />
+    <link rel="prev" title="3. Parallel Programming for SIMD and Vector Architecture" href="../Ch3_SIMDVector.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -201,14 +201,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/6_ExplicitDistribution.html">2.8. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/plan.html">3.1. Parallel Programming for SIMD and Vector Architecture</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.1. Introduction to SIMD and Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_OpenMPSIMDConstructsAndClauses.html">3.2. OpenMP SIMD Constructs and Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_UtilizingSIMDDirectivesForLoopVectorization.html">3.3. Utilizing SIMD Directives for Loop Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_FunctionVectorizationWithdeclaresimd.html">3.4. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_DataAlignmentandLinearClauses.html">3.5. Data Alignment and Linear Clauses</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.1. Vector Architectures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_DataMapping.html">4.2. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Metadirective.html">4.3. Metadirective (possible separate section)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_IntroductionToGPUComputing.html">4.1. Vector Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_OpenMPDirectivesForGPUProgramming.html">4.2. Metadirective (possible separate section)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/3_MemoryManagementOnGPUs.html">4.3. Data Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/4_SynchronizationAndConcurrencyOnGPUs.html">4.4. Data Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/5_OptimizingGPUKernelsWithOpenMP.html">4.5. Data Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/6_IntegratingGPUAccelerationWithMulticoreCPUProcessing.html">4.6. Data Mapping</a></li>
 </ul>
 </li>
 </ul>
@@ -265,7 +272,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/GPUAccelerators/1_architecture.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/SIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -313,7 +320,7 @@
       
       
       
-      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FGPUAccelerators/1_architecture.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FSIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -343,7 +350,7 @@
       
       
       
-      <li><a href="../_sources/GPUAccelerators/1_architecture.ipynb" target="_blank"
+      <li><a href="../_sources/SIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -414,7 +421,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -425,11 +434,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Vector Architectures</h1>
+    <h1>Introduction to SIMD and Vectorization</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-simd-and-vector-processing">3.1.1. Introduction to SIMD and Vector Processing</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -439,14 +456,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="vector-architectures">
-<h1><span class="section-number">4.1. </span>Vector Architectures<a class="headerlink" href="#vector-architectures" title="Link to this heading">#</a></h1>
-<p>The SIMD model is shown in the following figure and usually consists of two parts, a front-end computer, and a processor array.</p>
-<p>A processor array is a collection of identical synchronous processing elements, each processor in the array has a small local memory in which distributed data resides during parallel processing.
-The front end performs the application program in the usual serial method, but the problem commands the processor array to carry out SIMD operations in parallel.</p>
-<p>Vector architectures have advanced and changed significantly in the last decade, particularly from dedicated vector architecture machines to general-purpose CPUs with vector extensions. In 2011, Intel shipped general-purpose CPUs with the second version of the Advanced Vector Extensions (AVX2), followed by the AVX-512 extensions in 2013. The AVX2 extensions contain 256-bit lane widths and are very common in consumer CPUs. The AVX-512 extensions bring 512-bit lane widths into a few high-end consumer CPUs and high-performance CPU product lines. Beyond increasing lane width to 512 bits, AVX-512 brings many advanced features, most notably masking, an ideal solution for stridden loads and stores. The Arm architecture is another notable example of extending general-purpose CPUs to support SIMD. In 2016, Arm announced its Scalable Vector Extension (SVE) vector architecture for its high-end Arm CPUs to extend the aging NEON SIMD extensions.
-The recent Fukagu supercomputer (ranked #1 in the November 2021 Top500 list and uses Fujitsu’s Arm A64FX CPU with 512-bit vector length) represents the adoption of the Arm SVE architecture in production.
-Arm SVE takes a unique approach to support SIMD architecture of different vector lane widths. Rather than creating a new set of extensions for higher lane widths as Intel does, SVE provides a vector length agnostic model, which allows the same code to run on different hardware with varying vector lengths. In other words, vendors can create vectors as long or short as needed, and the same machine code will run on any hardware.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-simd-and-vectorization">
+<h1><span class="section-number">3.1. </span>Introduction to SIMD and Vectorization<a class="headerlink" href="#introduction-to-simd-and-vectorization" title="Link to this heading">#</a></h1>
+<section id="introduction-to-simd-and-vector-processing">
+<h2><span class="section-number">3.1.1. </span>Introduction to SIMD and Vector Processing<a class="headerlink" href="#introduction-to-simd-and-vector-processing" title="Link to this heading">#</a></h2>
+<p>In the realm of parallel computing, SIMD (Single Instruction, Multiple Data) and vector processing play a crucial role in enhancing the performance of applications by exploiting data-level parallelism. SIMD is a parallel processing technique that allows a single instruction to operate on multiple data elements simultaneously, enabling faster execution of certain types of computations.</p>
+<p>SIMD instructions are designed to perform the same operation on multiple data elements in parallel, leveraging the hardware capabilities of modern processors. Instead of processing data elements one at a time, SIMD instructions can process a vector of data elements in a single operation. This parallel processing approach can significantly speed up computations, especially for data-intensive tasks such as multimedia processing, scientific simulations, and machine learning.</p>
+<p>The benefits of utilizing SIMD instructions for performance are manifold:</p>
+<ol class="arabic simple">
+<li><p><strong>Increased Throughput:</strong> SIMD instructions enable the processor to perform multiple computations simultaneously, resulting in higher throughput and faster execution times. By processing multiple data elements in parallel, SIMD can greatly improve the overall performance of the application.</p></li>
+<li><p><strong>Efficient Resource Utilization:</strong> SIMD instructions make efficient use of the processor’s resources by utilizing the available data paths and execution units. By operating on multiple data elements concurrently, SIMD maximizes the utilization of the processor’s capabilities, leading to improved efficiency and performance.</p></li>
+<li><p><strong>Reduced Memory Bandwidth:</strong> SIMD instructions can reduce the memory bandwidth requirements by fetching and storing multiple data elements in a single memory access. This is particularly beneficial when working with large datasets, as it minimizes the overhead of memory transfers and improves cache utilization.</p></li>
+<li><p><strong>Simplified Programming:</strong> SIMD programming models, such as OpenMP’s SIMD constructs, provide a high-level abstraction for expressing data-parallel computations. These constructs allow developers to write SIMD-enabled code more easily, without the need to explicitly manage low-level SIMD instructions.</p></li>
+</ol>
+<p>OpenMP, a widely used parallel programming model, offers SIMD constructs and clauses that enable developers to leverage SIMD capabilities within their parallel programs. By using OpenMP’s SIMD features, developers can express data-level parallelism and take advantage of the hardware’s SIMD instructions to achieve significant performance gains.</p>
+<p>In the following sections, we will delve into the details of OpenMP’s SIMD constructs, clauses, and best practices for effective SIMD programming. By mastering these concepts and techniques, developers can harness the power of SIMD and vector processing to accelerate their parallel applications and achieve optimal performance on modern processors.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -458,16 +483,16 @@ Arm SVE takes a unique approach to support SIMD architecture of different vector
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "native"
         },
         kernelOptions: {
-            name: "python3",
-            path: "./GPUAccelerators"
+            name: "native",
+            path: "./SIMDandVectorArchitecture"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'native'</script>
 
                 </article>
               
@@ -480,20 +505,20 @@ Arm SVE takes a unique approach to support SIMD architecture of different vector
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Ch4_GPUAccel.html"
+       href="../Ch3_SIMDVector.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Parallel Programming for GPU Accelerators</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Parallel Programming for SIMD and Vector Architecture</p>
       </div>
     </a>
     <a class="right-next"
-       href="1_DataMapping.html"
+       href="2_OpenMPSIMDConstructsAndClauses.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.2. </span>Data Mapping</p>
+        <p class="prev-next-title"><span class="section-number">3.2. </span>OpenMP SIMD Constructs and Clauses</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -504,7 +529,20 @@ Arm SVE takes a unique approach to support SIMD architecture of different vector
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-simd-and-vector-processing">3.1.1. Introduction to SIMD and Vector Processing</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

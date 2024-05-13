@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.3. Metadirective (possible separate section) &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>4.5. Data Mapping &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
   
   
   
@@ -57,11 +57,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'GPUAccelerators/2_Metadirective';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'GPUAccelerators/5_OptimizingGPUKernelsWithOpenMP';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="prev" title="4.2. Data Mapping" href="1_DataMapping.html" />
+    <link rel="next" title="4.6. Data Mapping" href="6_IntegratingGPUAccelerationWithMulticoreCPUProcessing.html" />
+    <link rel="prev" title="4.4. Data Mapping" href="4_SynchronizationAndConcurrencyOnGPUs.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -201,13 +202,20 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/plan.html">3.1. Parallel Programming for SIMD and Vector Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization.html">3.1. Introduction to SIMD and Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/2_OpenMPSIMDConstructsAndClauses.html">3.2. OpenMP SIMD Constructs and Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/3_UtilizingSIMDDirectivesForLoopVectorization.html">3.3. Utilizing SIMD Directives for Loop Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.html">3.4. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/5_DataAlignmentandLinearClauses.html">3.5. Data Alignment and Linear Clauses</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_architecture.html">4.1. Vector Architectures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_DataMapping.html">4.2. Data Mapping</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3. Metadirective (possible separate section)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_IntroductionToGPUComputing.html">4.1. Vector Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_OpenMPDirectivesForGPUProgramming.html">4.2. Metadirective (possible separate section)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_MemoryManagementOnGPUs.html">4.3. Data Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationAndConcurrencyOnGPUs.html">4.4. Data Mapping</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.5. Data Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_IntegratingGPUAccelerationWithMulticoreCPUProcessing.html">4.6. Data Mapping</a></li>
 </ul>
 </li>
 </ul>
@@ -264,7 +272,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/GPUAccelerators/2_Metadirective.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/GPUAccelerators/5_OptimizingGPUKernelsWithOpenMP.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -312,7 +320,7 @@
       
       
       
-      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FGPUAccelerators/2_Metadirective.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FGPUAccelerators/5_OptimizingGPUKernelsWithOpenMP.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -342,7 +350,7 @@
       
       
       
-      <li><a href="../_sources/GPUAccelerators/2_Metadirective.ipynb" target="_blank"
+      <li><a href="../_sources/GPUAccelerators/5_OptimizingGPUKernelsWithOpenMP.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -424,7 +432,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Metadirective (possible separate section)</h1>
+    <h1>Data Mapping</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -438,8 +446,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="metadirective-possible-separate-section">
-<h1><span class="section-number">4.3. </span>Metadirective (possible separate section)<a class="headerlink" href="#metadirective-possible-separate-section" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="data-mapping">
+<h1><span class="section-number">4.5. </span>Data Mapping<a class="headerlink" href="#data-mapping" title="Link to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -473,13 +481,22 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="1_DataMapping.html"
+       href="4_SynchronizationAndConcurrencyOnGPUs.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4.2. </span>Data Mapping</p>
+        <p class="prev-next-title"><span class="section-number">4.4. </span>Data Mapping</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="6_IntegratingGPUAccelerationWithMulticoreCPUProcessing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.6. </span>Data Mapping</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
