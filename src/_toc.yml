@@ -28,9 +28,16 @@ parts:
       - file: MultiCoreMultiCPU/6_ExplicitDistribution.ipynb
     - file: Ch3_SIMDVector
       sections: 
-      - file: SIMDandVectorArchitecture/plan.md
+      - file: SIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization.ipynb
+      - file: SIMDandVectorArchitecture/2_OpenMPSIMDConstructsAndClauses.ipynb
+      - file: SIMDandVectorArchitecture/3_UtilizingSIMDDirectivesForLoopVectorization.ipynb
+      - file: SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.ipynb
+      - file: SIMDandVectorArchitecture/5_DataAlignmentandLinearClauses.ipynb
     - file: Ch4_GPUAccel
       sections: 
-      - file: GPUAccelerators/1_architecture.ipynb
-      - file: GPUAccelerators/1_DataMapping.ipynb
-      - file: GPUAccelerators/2_Metadirective.ipynb
+      - file: GPUAccelerators/1_IntroductionToGPUComputing.ipynb
+      - file: GPUAccelerators/2_OpenMPDirectivesForGPUProgramming.ipynb
+      - file: GPUAccelerators/3_MemoryManagementOnGPUs.ipynb
+      - file: GPUAccelerators/4_SynchronizationAndConcurrencyOnGPUs.ipynb
+      - file: GPUAccelerators/5_OptimizingGPUKernelsWithOpenMP.ipynb
+      - file: GPUAccelerators/6_IntegratingGPUAccelerationWithMulticoreCPUProcessing.ipynb
