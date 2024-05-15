@@ -33,6 +33,9 @@ parts:
       - file: SIMDandVectorArchitecture/3_UtilizingSIMDDirectivesForLoopVectorization.ipynb
       - file: SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.ipynb
       - file: SIMDandVectorArchitecture/5_DataAlignmentandLinearClauses.ipynb
+      - file: SIMDandVectorArchitecture/6_SIMDReductionsAndScans.ipynb
+      - file: SIMDandVectorArchitecture/7_BestPracticesAndPerformanceConsiderations.ipynb
+      - file: SIMDandVectorArchitecture/8_RealWorldExamplesAndCaseStudies.ipynb
     - file: Ch4_GPUAccel
       sections: 
       - file: GPUAccelerators/1_IntroductionToGPUComputing.ipynb
