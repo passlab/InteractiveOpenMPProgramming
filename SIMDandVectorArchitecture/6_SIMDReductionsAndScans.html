@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.4. Function Vectorization with declare simd &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>3.6. SIMD Reductions and Scans &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
   
   
   
@@ -57,12 +57,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'SIMDandVectorArchitecture/6_SIMDReductionsAndScans';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="3.5. Data Alignment and Linear Clauses" href="5_DataAlignmentandLinearClauses.html" />
-    <link rel="prev" title="3.3. Utilizing SIMD Directives for Loop Vectorization" href="3_UtilizingSIMDDirectivesForLoopVectorization.html" />
+    <link rel="next" title="3.7. Best Practices and Performance Considerations" href="7_BestPracticesAndPerformanceConsiderations.html" />
+    <link rel="prev" title="3.5. Data Alignment and Linear Clauses" href="5_DataAlignmentandLinearClauses.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,9 +205,9 @@
 <li class="toctree-l2"><a class="reference internal" href="1_IntroductionToSIMDAndVectorization.html">3.1. Introduction to SIMD and Vectorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_OpenMPSIMDConstructsAndClauses.html">3.2. OpenMP SIMD Constructs and Clauses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_UtilizingSIMDDirectivesForLoopVectorization.html">3.3. Utilizing SIMD Directives for Loop Vectorization</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.4. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_FunctionVectorizationWithdeclaresimd.html">3.4. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_DataAlignmentandLinearClauses.html">3.5. Data Alignment and Linear Clauses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_SIMDReductionsAndScans.html">3.6. SIMD Reductions and Scans</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.6. SIMD Reductions and Scans</a></li>
 <li class="toctree-l2"><a class="reference internal" href="7_BestPracticesAndPerformanceConsiderations.html">3.7. Best Practices and Performance Considerations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="8_RealWorldExamplesAndCaseStudies.html">3.8. Real-World Examples and Case Studies</a></li>
 </ul>
@@ -275,7 +275,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/SIMDandVectorArchitecture/6_SIMDReductionsAndScans.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -323,7 +323,7 @@
       
       
       
-      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FSIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FSIMDandVectorArchitecture/6_SIMDReductionsAndScans.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -353,7 +353,7 @@
       
       
       
-      <li><a href="../_sources/SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.ipynb" target="_blank"
+      <li><a href="../_sources/SIMDandVectorArchitecture/6_SIMDReductionsAndScans.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -437,7 +437,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Function Vectorization with declare simd</h1>
+    <h1>SIMD Reductions and Scans</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -447,10 +447,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-benefits-of-function-vectorization">3.4.1. Purpose and Benefits of Function Vectorization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-declare-simd-directive">3.4.2. Using the <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code> Directive</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simd-enabled-math-functions">3.4.3. Example: SIMD-enabled Math Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.4.4. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simd-reductions">3.6.1. SIMD Reductions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-scan-directive">3.6.2. The <code class="docutils literal notranslate"><span class="pre">scan</span></code> Directive</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-benefits-of-simd-reductions-and-scans">3.6.3. Performance Benefits of SIMD Reductions and Scans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.6.4. Conclusion</a></li>
 </ul>
             </nav>
         </div>
@@ -462,95 +462,87 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="function-vectorization-with-declare-simd">
-<h1><span class="section-number">3.4. </span>Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code><a class="headerlink" href="#function-vectorization-with-declare-simd" title="Link to this heading">#</a></h1>
-<p>In addition to loop vectorization, OpenMP provides support for function vectorization using the <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code> directive. Function vectorization allows you to create SIMD-enabled versions of functions that can be called from within SIMD loops. By vectorizing functions, you can take advantage of the SIMD capabilities of the processor and achieve higher performance.</p>
-<section id="purpose-and-benefits-of-function-vectorization">
-<h2><span class="section-number">3.4.1. </span>Purpose and Benefits of Function Vectorization<a class="headerlink" href="#purpose-and-benefits-of-function-vectorization" title="Link to this heading">#</a></h2>
-<p>Function vectorization is particularly useful when you have a function that performs computations on individual elements of an array or on scalar values. By creating a SIMD version of the function, you can process multiple elements simultaneously, taking advantage of the SIMD instructions available on the target processor.</p>
-<p>The benefits of function vectorization include:</p>
-<ol class="arabic simple">
-<li><p><strong>Improved Performance</strong>: Function vectorization allows you to exploit the SIMD capabilities of the processor, enabling faster execution of the function on multiple data elements concurrently.</p></li>
-<li><p><strong>Code Reusability</strong>: With function vectorization, you can create a SIMD version of a function once and reuse it in multiple SIMD loops or contexts, promoting code reusability and maintainability.</p></li>
-<li><p><strong>Abstraction</strong>: Function vectorization provides an abstraction layer, allowing you to focus on the algorithmic aspects of the function while the compiler takes care of generating efficient SIMD code.</p></li>
-</ol>
-</section>
-<section id="using-the-declare-simd-directive">
-<h2><span class="section-number">3.4.2. </span>Using the <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code> Directive<a class="headerlink" href="#using-the-declare-simd-directive" title="Link to this heading">#</a></h2>
-<p>To enable function vectorization in OpenMP, you can use the <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code> directive. The <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code> directive is placed before the function declaration or definition to indicate that the function should be compiled for SIMD execution.</p>
-<p>Here’s an example of using the <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code> directive in C/C++:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp declare simd</span>
-<span class="kt">float</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
-<span class="p">}</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="simd-reductions-and-scans">
+<h1><span class="section-number">3.6. </span>SIMD Reductions and Scans<a class="headerlink" href="#simd-reductions-and-scans" title="Link to this heading">#</a></h1>
+<p>SIMD reductions and scans are powerful operations that allow you to perform data aggregation and prefix sum computations efficiently in SIMD loops. OpenMP provides the <code class="docutils literal notranslate"><span class="pre">reduction</span></code> clause for SIMD reductions and the <code class="docutils literal notranslate"><span class="pre">scan</span></code> directive for prefix sum computations.</p>
+<section id="simd-reductions">
+<h2><span class="section-number">3.6.1. </span>SIMD Reductions<a class="headerlink" href="#simd-reductions" title="Link to this heading">#</a></h2>
+<p>SIMD reductions are operations that combine the elements of an array or a set of variables into a single value using a specified operator, such as addition, multiplication, or finding the maximum or minimum value. SIMD reductions leverage the SIMD capabilities of the processor to perform the reduction operation efficiently, providing significant performance benefits compared to scalar reductions.</p>
+<p>OpenMP provides the <code class="docutils literal notranslate"><span class="pre">reduction</span></code> clause to specify a reduction operation in SIMD loops. The <code class="docutils literal notranslate"><span class="pre">reduction</span></code> clause takes the reduction operator and the list of variables to be reduced as arguments.</p>
+<p>Here’s an example of using the <code class="docutils literal notranslate"><span class="pre">reduction</span></code> clause with a SIMD construct in C/C++:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">vectorized_computation</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="cp">#pragma omp simd</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">compute</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">arr</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Initialize the array</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>In this example, the <code class="docutils literal notranslate"><span class="pre">compute</span></code> function is declared with the <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code> directive, indicating that it should be compiled for SIMD execution. The <code class="docutils literal notranslate"><span class="pre">vectorized_computation</span></code> function contains a SIMD loop that calls the <code class="docutils literal notranslate"><span class="pre">compute</span></code> function for each iteration. The compiler generates a SIMD version of the <code class="docutils literal notranslate"><span class="pre">compute</span></code> function, allowing multiple elements to be processed concurrently.</p>
-<p>Here’s the equivalent example in Fortran:</p>
-<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">interface</span>
-<span class="k">    function </span><span class="n">compute</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="w">        </span><span class="c">!$omp declare simd(compute)</span>
-<span class="w">        </span><span class="kt">real</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
-<span class="w">        </span><span class="kt">real</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">res</span>
-<span class="w">    </span><span class="k">end function </span><span class="n">compute</span>
-<span class="k">end interface</span>
 
-<span class="k">subroutine </span><span class="n">vectorized_computation</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
-<span class="w">    </span><span class="kt">real</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">c</span>
-<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span>
-<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-<span class="w">    </span><span class="c">!$omp simd</span>
-<span class="w">    </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
-<span class="w">        </span><span class="n">c</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">compute</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-<span class="w">    </span><span class="k">end do</span>
-<span class="w">    </span><span class="c">!$omp end simd</span>
-<span class="k">end subroutine </span><span class="n">vectorized_computation</span>
-</pre></div>
-</div>
-</section>
-<section id="example-simd-enabled-math-functions">
-<h2><span class="section-number">3.4.3. </span>Example: SIMD-enabled Math Functions<a class="headerlink" href="#example-simd-enabled-math-functions" title="Link to this heading">#</a></h2>
-<p>Function vectorization is particularly useful for implementing SIMD-enabled versions of common math functions. By creating SIMD versions of math functions, you can achieve significant performance improvements in numerical computations.</p>
-<p>Here’s an example that demonstrates the creation and usage of SIMD-enabled math functions in C/C++:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span>
-
-<span class="cp">#pragma omp declare simd</span>
-<span class="kt">float</span><span class="w"> </span><span class="nf">simd_sqrt</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="cp">#pragma omp declare simd</span>
-<span class="kt">float</span><span class="w"> </span><span class="nf">simd_exp</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">compute_values</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="cp">#pragma omp simd</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simd_sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simd_exp</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">    </span><span class="c1">// Perform SIMD reduction</span>
+<span class="w">    </span><span class="cp">#pragma omp simd reduction(+:sum)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Sum: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In this example, the <code class="docutils literal notranslate"><span class="pre">simd_sqrt</span></code> and <code class="docutils literal notranslate"><span class="pre">simd_exp</span></code> functions are declared with the <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code> directive, indicating that they should be compiled for SIMD execution. These functions are SIMD-enabled versions of the standard <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> and <code class="docutils literal notranslate"><span class="pre">exp</span></code> functions from the <code class="docutils literal notranslate"><span class="pre">math.h</span></code> library.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">compute_values</span></code> function contains a SIMD loop that calls the <code class="docutils literal notranslate"><span class="pre">simd_sqrt</span></code> and <code class="docutils literal notranslate"><span class="pre">simd_exp</span></code> functions for each iteration. The compiler generates SIMD versions of these functions, allowing multiple elements to be processed concurrently.</p>
-<p>By leveraging function vectorization, you can create SIMD-enabled versions of frequently used functions and achieve better performance in SIMD loops that utilize these functions.</p>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">reduction</span></code> clause is used with the addition operator (<code class="docutils literal notranslate"><span class="pre">+</span></code>) to perform a SIMD reduction on the <code class="docutils literal notranslate"><span class="pre">sum</span></code> variable. The SIMD loop efficiently computes the sum of all elements in the <code class="docutils literal notranslate"><span class="pre">arr</span></code> array.</p>
+</section>
+<section id="the-scan-directive">
+<h2><span class="section-number">3.6.2. </span>The <code class="docutils literal notranslate"><span class="pre">scan</span></code> Directive<a class="headerlink" href="#the-scan-directive" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">scan</span></code> directive in OpenMP is used to perform prefix sum computations in SIMD loops. A prefix sum computes the cumulative sum of elements in an array, where each element is the sum of itself and all preceding elements.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">scan</span></code> directive is placed within a SIMD loop and specifies the variables to be scanned and the scan operator. OpenMP provides two types of scans: inclusive and exclusive. An inclusive scan includes the current element in the prefix sum, while an exclusive scan excludes the current element.</p>
+<p>Here’s an example of using the <code class="docutils literal notranslate"><span class="pre">scan</span></code> directive in C/C++:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">prefix_sum</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Perform inclusive scan</span>
+<span class="w">    </span><span class="cp">#pragma omp simd</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">prefix_sum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">        </span><span class="cp">#pragma omp scan inclusive(prefix_sum)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Print the prefix sum</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">prefix_sum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">scan</span></code> directive is used with the <code class="docutils literal notranslate"><span class="pre">inclusive</span></code> clause to perform an inclusive prefix sum on the <code class="docutils literal notranslate"><span class="pre">prefix_sum</span></code> array. The SIMD loop efficiently computes the prefix sum, where each element of <code class="docutils literal notranslate"><span class="pre">prefix_sum</span></code> is the cumulative sum of elements up to the current index.</p>
+</section>
+<section id="performance-benefits-of-simd-reductions-and-scans">
+<h2><span class="section-number">3.6.3. </span>Performance Benefits of SIMD Reductions and Scans<a class="headerlink" href="#performance-benefits-of-simd-reductions-and-scans" title="Link to this heading">#</a></h2>
+<p>SIMD reductions and scans offer significant performance benefits compared to their scalar counterparts. By leveraging the SIMD capabilities of the processor, these operations can perform multiple computations simultaneously, reducing the overall execution time.</p>
+<p>SIMD reductions exploit data-level parallelism by combining multiple elements using a specified operator in a single SIMD instruction. This allows for efficient utilization of SIMD registers and can greatly accelerate the reduction operation, especially for large arrays or datasets.</p>
+<p>Similarly, SIMD scans take advantage of the SIMD instructions to compute prefix sums efficiently. By performing multiple prefix sum computations in parallel, SIMD scans can significantly reduce the number of iterations required compared to a scalar implementation.</p>
+<p>The performance benefits of SIMD reductions and scans become more pronounced as the size of the data increases. By efficiently utilizing the SIMD capabilities of the processor, these operations can achieve substantial speedups and improve the overall performance of SIMD-optimized code.</p>
 </section>
 <section id="conclusion">
-<h2><span class="section-number">3.4.4. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
-<p>Function vectorization using the <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code> directive is a powerful tool for creating SIMD-enabled versions of functions in OpenMP. By vectorizing functions, you can take advantage of the SIMD capabilities of the processor and achieve significant performance improvements in computationally intensive tasks.</p>
-<p>When combined with loop vectorization using the <code class="docutils literal notranslate"><span class="pre">simd</span></code> directive, function vectorization allows you to write efficient and high-performing SIMD code in OpenMP.</p>
-<p>In the next section, we will discuss data alignment and the <code class="docutils literal notranslate"><span class="pre">aligned</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> clauses, which are important for optimal SIMD performance.</p>
+<h2><span class="section-number">3.6.4. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>SIMD reductions and scans are powerful operations that allow you to perform data aggregation and prefix sum computations efficiently in SIMD loops. OpenMP provides the <code class="docutils literal notranslate"><span class="pre">reduction</span></code> clause for SIMD reductions, enabling you to combine elements using a specified operator, such as addition or multiplication.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">scan</span></code> directive, on the other hand, is used to perform prefix sum computations in SIMD loops. OpenMP supports both inclusive and exclusive scans, allowing you to compute cumulative sums efficiently.</p>
+<p>By leveraging SIMD reductions and scans, you can take advantage of the SIMD capabilities of the processor and achieve significant performance improvements in data aggregation and prefix sum computations. These operations are particularly beneficial for large datasets and can greatly accelerate SIMD-optimized code.</p>
+<p>In the next section, we will discuss best practices and performance considerations for writing efficient SIMD code using OpenMP.</p>
 </section>
 </section>
 
@@ -585,20 +577,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="3_UtilizingSIMDDirectivesForLoopVectorization.html"
+       href="5_DataAlignmentandLinearClauses.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3.3. </span>Utilizing SIMD Directives for Loop Vectorization</p>
+        <p class="prev-next-title"><span class="section-number">3.5. </span>Data Alignment and Linear Clauses</p>
       </div>
     </a>
     <a class="right-next"
-       href="5_DataAlignmentandLinearClauses.html"
+       href="7_BestPracticesAndPerformanceConsiderations.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.5. </span>Data Alignment and Linear Clauses</p>
+        <p class="prev-next-title"><span class="section-number">3.7. </span>Best Practices and Performance Considerations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -618,10 +610,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-benefits-of-function-vectorization">3.4.1. Purpose and Benefits of Function Vectorization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-declare-simd-directive">3.4.2. Using the <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code> Directive</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-simd-enabled-math-functions">3.4.3. Example: SIMD-enabled Math Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.4.4. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simd-reductions">3.6.1. SIMD Reductions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-scan-directive">3.6.2. The <code class="docutils literal notranslate"><span class="pre">scan</span></code> Directive</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-benefits-of-simd-reductions-and-scans">3.6.3. Performance Benefits of SIMD Reductions and Scans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.6.4. Conclusion</a></li>
 </ul>
   </nav></div>
 
