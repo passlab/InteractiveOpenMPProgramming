@@ -38,9 +38,12 @@ parts:
       - file: SIMDandVectorArchitecture/8_RealWorldExamplesAndCaseStudies.ipynb
     - file: Ch4_GPUAccel
       sections: 
-      - file: GPUAccelerators/1_IntroductionToGPUComputing.ipynb
-      - file: GPUAccelerators/2_OpenMPDirectivesForGPUProgramming.ipynb
-      - file: GPUAccelerators/3_MemoryManagementOnGPUs.ipynb
-      - file: GPUAccelerators/4_SynchronizationAndConcurrencyOnGPUs.ipynb
-      - file: GPUAccelerators/5_OptimizingGPUKernelsWithOpenMP.ipynb
-      - file: GPUAccelerators/6_IntegratingGPUAccelerationWithMulticoreCPUProcessing.ipynb
+      - file: GPUAccelerators/1_Introduction.ipynb
+      - file: GPUAccelerators/2_OpenMPDeviceConstructs.ipynb
+      - file: GPUAccelerators/3_MappingDataToGPUDevices.ipynb
+      - file: GPUAccelerators/4_AsynchronousExecutionAndDependencies.ipynb
+      - file: GPUAccelerators/5_DeviceMemoryManagement.ipynb
+      - file: GPUAccelerators/6_ParallelExecutionOnGPUDevices.ipynb
+      - file: GPUAccelerators/7_TuningPerformanceForGPUOffloading.ipynb
+      - file: GPUAccelerators/8_AdvancedTopicsAndBestPractices.ipynb
+      - file: GPUAccelerators/9_Conclusion.ipynb
