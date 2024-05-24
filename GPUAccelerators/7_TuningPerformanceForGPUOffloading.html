@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.3. Data Mapping &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>4.7. Tuning Performance for GPU Offloading &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -52,17 +52,17 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'GPUAccelerators/3_MemoryManagementOnGPUs';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'GPUAccelerators/7_TuningPerformanceForGPUOffloading';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="4.4. Data Mapping" href="4_SynchronizationAndConcurrencyOnGPUs.html" />
-    <link rel="prev" title="4.2. Metadirective (possible separate section)" href="2_OpenMPDirectivesForGPUProgramming.html" />
+    <link rel="next" title="4.8. Advanced Topics and Best Practices" href="8_AdvancedTopicsAndBestPractices.html" />
+    <link rel="prev" title="4.6. Parallel Execution on GPU Devices" href="6_ParallelExecutionOnGPUDevices.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -213,12 +213,15 @@
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_IntroductionToGPUComputing.html">4.1. Vector Architectures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_OpenMPDirectivesForGPUProgramming.html">4.2. Metadirective (possible separate section)</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationAndConcurrencyOnGPUs.html">4.4. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_OptimizingGPUKernelsWithOpenMP.html">4.5. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_IntegratingGPUAccelerationWithMulticoreCPUProcessing.html">4.6. Data Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Introduction.html">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_OpenMPDeviceConstructs.html">4.2. OpenMP Device Constructs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_MappingDataToGPUDevices.html">4.3. Mapping Data to GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_AsynchronousExecutionAndDependencies.html">4.4. Asynchronous Execution and Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_DeviceMemoryManagement.html">4.5. Device Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_ParallelExecutionOnGPUDevices.html">4.6. Parallel Execution on GPU Devices</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.7. Tuning Performance for GPU Offloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_AdvancedTopicsAndBestPractices.html">4.8. Advanced Topics and Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_Conclusion.html">4.9. Conclusion</a></li>
 </ul>
 </li>
 </ul>
@@ -275,7 +278,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/GPUAccelerators/3_MemoryManagementOnGPUs.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/GPUAccelerators/7_TuningPerformanceForGPUOffloading.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -323,7 +326,7 @@
       
       
       
-      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FGPUAccelerators/3_MemoryManagementOnGPUs.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FGPUAccelerators/7_TuningPerformanceForGPUOffloading.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -353,7 +356,7 @@
       
       
       
-      <li><a href="../_sources/GPUAccelerators/3_MemoryManagementOnGPUs.ipynb" target="_blank"
+      <li><a href="../_sources/GPUAccelerators/7_TuningPerformanceForGPUOffloading.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -424,7 +427,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -435,11 +440,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Mapping</h1>
+    <h1>Tuning Performance for GPU Offloading</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-right-number-of-teams-and-threads">4.7.1. Choosing the right number of teams and threads</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-data-transfers-and-memory-usage">4.7.2. Optimizing data transfers and memory usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leveraging-device-specific-features">4.7.3. Leveraging device-specific features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-and-profiling-gpu-performance">4.7.4. Measuring and profiling GPU performance</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -449,8 +465,99 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-mapping">
-<h1><span class="section-number">4.3. </span>Data Mapping<a class="headerlink" href="#data-mapping" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tuning-performance-for-gpu-offloading">
+<h1><span class="section-number">4.7. </span>Tuning Performance for GPU Offloading<a class="headerlink" href="#tuning-performance-for-gpu-offloading" title="Link to this heading">#</a></h1>
+<p>Achieving optimal performance when offloading computations to GPU devices requires careful tuning and consideration of various factors. In this section, we will explore techniques for choosing the right number of teams and threads, optimizing data transfers and memory usage, leveraging device-specific features, and measuring and profiling GPU performance.</p>
+<section id="choosing-the-right-number-of-teams-and-threads">
+<h2><span class="section-number">4.7.1. </span>Choosing the right number of teams and threads<a class="headerlink" href="#choosing-the-right-number-of-teams-and-threads" title="Link to this heading">#</a></h2>
+<p>Selecting the appropriate number of teams and threads per team is crucial for maximizing the performance of GPU-offloaded code. The optimal configuration depends on factors such as the device architecture, the problem size, and the nature of the computation.</p>
+<p>Some guidelines for choosing the number of teams and threads include:</p>
+<ul class="simple">
+<li><p>Match the number of teams to the number of streaming multiprocessors (SMs) on the GPU device. Each SM can execute one or more teams concurrently.</p></li>
+<li><p>Adjust the number of threads per team based on the register and shared memory usage of each thread. Higher thread counts may lead to resource contention, while lower thread counts may underutilize the device.</p></li>
+<li><p>Experiment with different combinations of teams and threads to find the sweet spot for your specific application.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp target teams num_teams(64) thread_limit(128) map(to: a[0:n]) map(from: b[0:n])</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// Parallel computation using 64 teams and up to 128 threads per team</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">num_teams</span></code> and <code class="docutils literal notranslate"><span class="pre">thread_limit</span></code> clauses are used to specify the number of teams and the maximum number of threads per team, respectively. Adjusting these values based on the device capabilities and the problem characteristics can help optimize performance.</p>
+</section>
+<section id="optimizing-data-transfers-and-memory-usage">
+<h2><span class="section-number">4.7.2. </span>Optimizing data transfers and memory usage<a class="headerlink" href="#optimizing-data-transfers-and-memory-usage" title="Link to this heading">#</a></h2>
+<p>Minimizing data transfers between the host and the device is critical for achieving high performance in GPU-offloaded code. Some strategies for optimizing data transfers and memory usage include:</p>
+<ul class="simple">
+<li><p>Transfer only the necessary data to the device and keep it on the device as long as possible to avoid redundant transfers.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">data</span></code> directive to create a data region that persists across multiple target regions, reducing the overhead of data transfers.</p></li>
+<li><p>Optimize memory access patterns to ensure coalesced memory accesses and minimize memory bandwidth bottlenecks.</p></li>
+<li><p>Utilize shared memory and registers on the device to reduce global memory accesses and improve data locality.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp target data map(to: a[0:n], b[0:n]) map(from: c[0:n])</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="cp">#pragma omp target teams distribute parallel for</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Reuse the mapped data for another computation</span>
+<span class="w">  </span><span class="cp">#pragma omp target teams distribute parallel for</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">data</span></code> directive is used to create a data region that persists across multiple target regions. The input arrays <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are mapped to the device once and reused for multiple computations, reducing the overhead of data transfers.</p>
+</section>
+<section id="leveraging-device-specific-features">
+<h2><span class="section-number">4.7.3. </span>Leveraging device-specific features<a class="headerlink" href="#leveraging-device-specific-features" title="Link to this heading">#</a></h2>
+<p>Different GPU devices have specific hardware features and capabilities that can be leveraged to optimize performance. Some device-specific features to consider include:</p>
+<ul class="simple">
+<li><p>Using SIMD (Single Instruction, Multiple Data) instructions to exploit data parallelism within each thread.</p></li>
+<li><p>Utilizing device-specific memory hierarchies, such as texture memory or constant memory, for read-only data or frequently accessed data.</p></li>
+<li><p>Exploiting device-specific atomic operations and intrinsics for efficient synchronization and communication between threads.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp target teams distribute parallel for simd</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// SIMD computation</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">simd</span></code> clause is used in combination with the <code class="docutils literal notranslate"><span class="pre">teams</span> <span class="pre">distribute</span> <span class="pre">parallel</span> <span class="pre">for</span></code> directive to enable SIMD parallelism within each thread. This allows the compiler to generate device-specific SIMD instructions to exploit data parallelism and improve performance.</p>
+</section>
+<section id="measuring-and-profiling-gpu-performance">
+<h2><span class="section-number">4.7.4. </span>Measuring and profiling GPU performance<a class="headerlink" href="#measuring-and-profiling-gpu-performance" title="Link to this heading">#</a></h2>
+<p>Measuring and profiling the performance of GPU-offloaded code is essential for identifying performance bottlenecks, guiding optimization efforts, and assessing the effectiveness of tuning strategies. Some techniques for measuring and profiling GPU performance include:</p>
+<ul class="simple">
+<li><p>Using OpenMP runtime functions such as <code class="docutils literal notranslate"><span class="pre">omp_get_wtime()</span></code> to measure the execution time of specific code regions.</p></li>
+<li><p>Utilizing vendor-specific profiling tools, such as NVIDIA Visual Profiler or AMD ROCm Profiler, to analyze GPU performance metrics and identify performance issues.</p></li>
+<li><p>Employing hardware performance counters to gather low-level performance data, such as memory bandwidth utilization or cache hit rates.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_wtime</span><span class="p">();</span>
+
+<span class="cp">#pragma omp target teams distribute parallel for</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Computation to be profiled</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="kt">double</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_wtime</span><span class="p">();</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">elapsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Elapsed time: %f seconds</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">elapsed</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">omp_get_wtime()</span></code> function is used to measure the execution time of the target region. By profiling and analyzing the performance of different code regions, programmers can identify performance bottlenecks and make informed decisions about optimization strategies.</p>
+<p>Tuning the performance of GPU-offloaded code requires an iterative process of experimentation, measurement, and optimization. By choosing the right number of teams and threads, optimizing data transfers and memory usage, leveraging device-specific features, and utilizing profiling tools, programmers can unlock the full performance potential of GPU devices using OpenMP.</p>
+<p>In the next section, we will discuss advanced topics and best practices for GPU offloading with OpenMP, including the Unified Shared Memory (USM) model, interoperability with other GPU programming models, debugging and error handling, and performance portability considerations.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -484,20 +591,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="2_OpenMPDirectivesForGPUProgramming.html"
+       href="6_ParallelExecutionOnGPUDevices.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4.2. </span>Metadirective (possible separate section)</p>
+        <p class="prev-next-title"><span class="section-number">4.6. </span>Parallel Execution on GPU Devices</p>
       </div>
     </a>
     <a class="right-next"
-       href="4_SynchronizationAndConcurrencyOnGPUs.html"
+       href="8_AdvancedTopicsAndBestPractices.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.4. </span>Data Mapping</p>
+        <p class="prev-next-title"><span class="section-number">4.8. </span>Advanced Topics and Best Practices</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -508,7 +615,23 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-right-number-of-teams-and-threads">4.7.1. Choosing the right number of teams and threads</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-data-transfers-and-memory-usage">4.7.2. Optimizing data transfers and memory usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leveraging-device-specific-features">4.7.3. Leveraging device-specific features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-and-profiling-gpu-performance">4.7.4. Measuring and profiling GPU performance</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

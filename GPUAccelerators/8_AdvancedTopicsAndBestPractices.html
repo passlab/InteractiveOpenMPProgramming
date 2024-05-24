@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.1. Vector Architectures &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>4.8. Advanced Topics and Best Practices &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -52,17 +52,17 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'GPUAccelerators/1_IntroductionToGPUComputing';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'GPUAccelerators/8_AdvancedTopicsAndBestPractices';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="4.2. Metadirective (possible separate section)" href="2_OpenMPDirectivesForGPUProgramming.html" />
-    <link rel="prev" title="4. Parallel Programming for GPU Accelerators" href="../Ch4_GPUAccel.html" />
+    <link rel="next" title="4.9. Conclusion" href="9_Conclusion.html" />
+    <link rel="prev" title="4.7. Tuning Performance for GPU Offloading" href="7_TuningPerformanceForGPUOffloading.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -213,12 +213,15 @@
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.1. Vector Architectures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_OpenMPDirectivesForGPUProgramming.html">4.2. Metadirective (possible separate section)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_MemoryManagementOnGPUs.html">4.3. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationAndConcurrencyOnGPUs.html">4.4. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_OptimizingGPUKernelsWithOpenMP.html">4.5. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_IntegratingGPUAccelerationWithMulticoreCPUProcessing.html">4.6. Data Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_Introduction.html">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_OpenMPDeviceConstructs.html">4.2. OpenMP Device Constructs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_MappingDataToGPUDevices.html">4.3. Mapping Data to GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_AsynchronousExecutionAndDependencies.html">4.4. Asynchronous Execution and Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_DeviceMemoryManagement.html">4.5. Device Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_ParallelExecutionOnGPUDevices.html">4.6. Parallel Execution on GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_TuningPerformanceForGPUOffloading.html">4.7. Tuning Performance for GPU Offloading</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.8. Advanced Topics and Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_Conclusion.html">4.9. Conclusion</a></li>
 </ul>
 </li>
 </ul>
@@ -275,7 +278,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/GPUAccelerators/1_IntroductionToGPUComputing.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/GPUAccelerators/8_AdvancedTopicsAndBestPractices.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -323,7 +326,7 @@
       
       
       
-      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FGPUAccelerators/1_IntroductionToGPUComputing.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FGPUAccelerators/8_AdvancedTopicsAndBestPractices.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -353,7 +356,7 @@
       
       
       
-      <li><a href="../_sources/GPUAccelerators/1_IntroductionToGPUComputing.ipynb" target="_blank"
+      <li><a href="../_sources/GPUAccelerators/8_AdvancedTopicsAndBestPractices.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -424,7 +427,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -435,11 +440,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Vector Architectures</h1>
+    <h1>Advanced Topics and Best Practices</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unified-shared-memory-usm-model">4.8.1. Unified Shared Memory (USM) model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interoperability-with-cuda-and-other-gpu-programming-models">4.8.2. Interoperability with CUDA and other GPU programming models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-and-error-handling-for-gpu-offloading">4.8.3. Debugging and error handling for GPU offloading</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -449,14 +464,114 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="vector-architectures">
-<h1><span class="section-number">4.1. </span>Vector Architectures<a class="headerlink" href="#vector-architectures" title="Link to this heading">#</a></h1>
-<p>The SIMD model is shown in the following figure and usually consists of two parts, a front-end computer, and a processor array.</p>
-<p>A processor array is a collection of identical synchronous processing elements, each processor in the array has a small local memory in which distributed data resides during parallel processing.
-The front end performs the application program in the usual serial method, but the problem commands the processor array to carry out SIMD operations in parallel.</p>
-<p>Vector architectures have advanced and changed significantly in the last decade, particularly from dedicated vector architecture machines to general-purpose CPUs with vector extensions. In 2011, Intel shipped general-purpose CPUs with the second version of the Advanced Vector Extensions (AVX2), followed by the AVX-512 extensions in 2013. The AVX2 extensions contain 256-bit lane widths and are very common in consumer CPUs. The AVX-512 extensions bring 512-bit lane widths into a few high-end consumer CPUs and high-performance CPU product lines. Beyond increasing lane width to 512 bits, AVX-512 brings many advanced features, most notably masking, an ideal solution for stridden loads and stores. The Arm architecture is another notable example of extending general-purpose CPUs to support SIMD. In 2016, Arm announced its Scalable Vector Extension (SVE) vector architecture for its high-end Arm CPUs to extend the aging NEON SIMD extensions.
-The recent Fukagu supercomputer (ranked #1 in the November 2021 Top500 list and uses Fujitsu’s Arm A64FX CPU with 512-bit vector length) represents the adoption of the Arm SVE architecture in production.
-Arm SVE takes a unique approach to support SIMD architecture of different vector lane widths. Rather than creating a new set of extensions for higher lane widths as Intel does, SVE provides a vector length agnostic model, which allows the same code to run on different hardware with varying vector lengths. In other words, vendors can create vectors as long or short as needed, and the same machine code will run on any hardware.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="advanced-topics-and-best-practices">
+<h1><span class="section-number">4.8. </span>Advanced Topics and Best Practices<a class="headerlink" href="#advanced-topics-and-best-practices" title="Link to this heading">#</a></h1>
+<p>In this section, we will explore advanced topics and best practices for GPU offloading with OpenMP. We will discuss the Unified Shared Memory (USM) model, interoperability with other GPU programming models like CUDA, debugging and error handling techniques, and performance portability considerations.</p>
+<section id="unified-shared-memory-usm-model">
+<h2><span class="section-number">4.8.1. </span>Unified Shared Memory (USM) model<a class="headerlink" href="#unified-shared-memory-usm-model" title="Link to this heading">#</a></h2>
+<p>OpenMP 5.0 introduced the Unified Shared Memory (USM) model, which provides a unified view of memory across the host and device. USM simplifies memory management and enables more flexible data sharing between the host and device.</p>
+<p>There are three types of USM allocations:</p>
+<ul class="simple">
+<li><p>Device allocations: Memory is allocated on the device and can only be accessed by the device.</p></li>
+<li><p>Host allocations: Memory is allocated on the host and can be accessed by both the host and device.</p></li>
+<li><p>Shared allocations: Memory is accessible by both the host and device, with the allocation being managed by the runtime.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">shared_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_target_alloc_shared</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span><span class="w"> </span><span class="n">omp_get_default_device</span><span class="p">());</span>
+
+<span class="cp">#pragma omp target teams distribute parallel for</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">shared_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Access shared_data on the host</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">shared_data</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="n">omp_target_free</span><span class="p">(</span><span class="n">shared_data</span><span class="p">,</span><span class="w"> </span><span class="n">omp_get_default_device</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">omp_target_alloc_shared</span></code> is used to allocate shared memory that is accessible by both the host and device. The device modifies the shared data, and the host can directly access it without explicit data transfers.</p>
+</section>
+<section id="interoperability-with-cuda-and-other-gpu-programming-models">
+<h2><span class="section-number">4.8.2. </span>Interoperability with CUDA and other GPU programming models<a class="headerlink" href="#interoperability-with-cuda-and-other-gpu-programming-models" title="Link to this heading">#</a></h2>
+<p>OpenMP can interoperate with other GPU programming models, such as CUDA, to leverage existing code or libraries. OpenMP provides mechanisms to integrate with CUDA code and perform seamless data sharing between OpenMP and CUDA.</p>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// CUDA kernel</span>
+<span class="n">__global__</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">cuda_kernel</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">idx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">data</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// OpenMP target region</span>
+<span class="cp">#pragma omp target data map(tofrom: data[0:n])</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// Launch CUDA kernel</span>
+<span class="w">  </span><span class="n">cuda_kernel</span><span class="o">&lt;&lt;&lt;</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// OpenMP parallel loop</span>
+<span class="w">  </span><span class="cp">#pragma omp target teams distribute parallel for</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, a CUDA kernel is launched within an OpenMP target data region. The data is mapped between the host and device using the <code class="docutils literal notranslate"><span class="pre">map</span></code> clause, allowing both the CUDA kernel and the OpenMP parallel loop to operate on the same data.</p>
+</section>
+<section id="debugging-and-error-handling-for-gpu-offloading">
+<h2><span class="section-number">4.8.3. </span>Debugging and error handling for GPU offloading<a class="headerlink" href="#debugging-and-error-handling-for-gpu-offloading" title="Link to this heading">#</a></h2>
+<p>Debugging GPU-offloaded code can be challenging due to the separate execution on the device. OpenMP provides several techniques and best practices for debugging and error handling:</p>
+<ul class="simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">omp_set_default_device</span></code> function to specify the device for debugging purposes.</p></li>
+<li><p>Employ conditional compilation or runtime checks to execute device code on the host for easier debugging.</p></li>
+<li><p>Utilize device-specific debugging tools, such as NVIDIA CUDA-GDB or AMD ROCm GDB, to debug GPU code directly.</p></li>
+<li><p>Implement robust error handling mechanisms to detect and handle errors that may occur during GPU execution.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp target teams distribute parallel for</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cp">#pragma omp critical</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Error: Negative value encountered at index %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="cp">#pragma omp cancel teams</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, error handling is implemented within the target region. If a negative value is encountered in the <code class="docutils literal notranslate"><span class="pre">data</span></code> array, an error message is printed, and the <code class="docutils literal notranslate"><span class="pre">cancel</span></code> directive is used to abort the execution of the target region.</p>
+<p>8.4 Performance portability considerations</p>
+<p>Performance portability is an important aspect of GPU offloading, as it ensures that the code can run efficiently across different GPU architectures and systems. Some considerations for performance portability include:</p>
+<ul class="simple">
+<li><p>Use OpenMP directives and clauses that are supported across different compilers and platforms.</p></li>
+<li><p>Avoid device-specific optimizations that may hinder portability.</p></li>
+<li><p>Employ runtime checks and device-specific code paths to adapt to different GPU capabilities.</p></li>
+<li><p>Utilize OpenMP’s device-specific functions and environment variables to query device information and adjust execution parameters accordingly.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef _OPENMP</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">max_teams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_max_teams</span><span class="p">();</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">max_threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">omp_get_max_threads</span><span class="p">();</span>
+<span class="cp">#else</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">max_teams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">max_threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#pragma omp target teams num_teams(max_teams) thread_limit(max_threads)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the number of teams and threads per team is adjusted based on the device capabilities using OpenMP’s runtime functions. This allows the code to adapt to different devices and achieve better performance portability.</p>
+<p>By leveraging advanced features like USM, interoperability with other GPU programming models, debugging techniques, and considering performance portability, programmers can write efficient and portable GPU-offloaded code using OpenMP.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -490,20 +605,20 @@ Arm SVE takes a unique approach to support SIMD architecture of different vector
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Ch4_GPUAccel.html"
+       href="7_TuningPerformanceForGPUOffloading.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Parallel Programming for GPU Accelerators</p>
+        <p class="prev-next-title"><span class="section-number">4.7. </span>Tuning Performance for GPU Offloading</p>
       </div>
     </a>
     <a class="right-next"
-       href="2_OpenMPDirectivesForGPUProgramming.html"
+       href="9_Conclusion.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.2. </span>Metadirective (possible separate section)</p>
+        <p class="prev-next-title"><span class="section-number">4.9. </span>Conclusion</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -514,7 +629,22 @@ Arm SVE takes a unique approach to support SIMD architecture of different vector
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unified-shared-memory-usm-model">4.8.1. Unified Shared Memory (USM) model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interoperability-with-cuda-and-other-gpu-programming-models">4.8.2. Interoperability with CUDA and other GPU programming models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-and-error-handling-for-gpu-offloading">4.8.3. Debugging and error handling for GPU offloading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

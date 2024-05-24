@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.2. Metadirective (possible separate section) &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>4.1. Introduction &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -52,17 +52,17 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'GPUAccelerators/2_OpenMPDirectivesForGPUProgramming';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'GPUAccelerators/1_Introduction';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="4.3. Data Mapping" href="3_MemoryManagementOnGPUs.html" />
-    <link rel="prev" title="4.1. Vector Architectures" href="1_IntroductionToGPUComputing.html" />
+    <link rel="next" title="4.2. OpenMP Device Constructs" href="2_OpenMPDeviceConstructs.html" />
+    <link rel="prev" title="4. Parallel Programming for GPU Accelerators" href="../Ch4_GPUAccel.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -213,12 +213,15 @@
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_IntroductionToGPUComputing.html">4.1. Vector Architectures</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.2. Metadirective (possible separate section)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_MemoryManagementOnGPUs.html">4.3. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationAndConcurrencyOnGPUs.html">4.4. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_OptimizingGPUKernelsWithOpenMP.html">4.5. Data Mapping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_IntegratingGPUAccelerationWithMulticoreCPUProcessing.html">4.6. Data Mapping</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_OpenMPDeviceConstructs.html">4.2. OpenMP Device Constructs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_MappingDataToGPUDevices.html">4.3. Mapping Data to GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_AsynchronousExecutionAndDependencies.html">4.4. Asynchronous Execution and Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_DeviceMemoryManagement.html">4.5. Device Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_ParallelExecutionOnGPUDevices.html">4.6. Parallel Execution on GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_TuningPerformanceForGPUOffloading.html">4.7. Tuning Performance for GPU Offloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_AdvancedTopicsAndBestPractices.html">4.8. Advanced Topics and Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_Conclusion.html">4.9. Conclusion</a></li>
 </ul>
 </li>
 </ul>
@@ -275,7 +278,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/GPUAccelerators/2_OpenMPDirectivesForGPUProgramming.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/passlab/OpenMPProgrammingBook/main?urlpath=lab/tree/src/GPUAccelerators/1_Introduction.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -323,7 +326,7 @@
       
       
       
-      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FGPUAccelerators/2_OpenMPDirectivesForGPUProgramming.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/passlab/OpenMPProgrammingBook/issues/new?title=Issue%20on%20page%20%2FGPUAccelerators/1_Introduction.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -353,7 +356,7 @@
       
       
       
-      <li><a href="../_sources/GPUAccelerators/2_OpenMPDirectivesForGPUProgramming.ipynb" target="_blank"
+      <li><a href="../_sources/GPUAccelerators/1_Introduction.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -424,7 +427,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -435,11 +440,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Metadirective (possible separate section)</h1>
+    <h1>Introduction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rise-of-gpu-accelerators-in-parallel-computing">4.1.1. The rise of GPU accelerators in parallel computing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openmp-s-support-for-gpu-offloading">4.1.2. OpenMP’s support for GPU offloading</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -449,8 +463,33 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="metadirective-possible-separate-section">
-<h1><span class="section-number">4.2. </span>Metadirective (possible separate section)<a class="headerlink" href="#metadirective-possible-separate-section" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1><span class="section-number">4.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>In recent years, the field of parallel computing has witnessed a significant shift towards the utilization of GPU accelerators to achieve high-performance computing. GPUs, originally designed for graphics rendering, have evolved into powerful parallel processing units capable of executing thousands of threads simultaneously. This section explores the rise of GPU accelerators in parallel computing and how OpenMP, a widely-used API for shared-memory parallel programming, has adapted to support GPU offloading.</p>
+<section id="the-rise-of-gpu-accelerators-in-parallel-computing">
+<h2><span class="section-number">4.1.1. </span>The rise of GPU accelerators in parallel computing<a class="headerlink" href="#the-rise-of-gpu-accelerators-in-parallel-computing" title="Link to this heading">#</a></h2>
+<p>The demand for faster and more efficient computing has driven the adoption of GPU accelerators in various domains, including scientific simulations, machine learning, data analytics, and more. GPUs offer several advantages over traditional CPUs when it comes to parallel processing:</p>
+<ul class="simple">
+<li><p>Massively parallel architecture: GPUs consist of hundreds or even thousands of processing cores, enabling them to execute a large number of threads concurrently.</p></li>
+<li><p>High memory bandwidth: GPUs are equipped with high-bandwidth memory subsystems, allowing for fast data transfer between the device memory and the processing cores.</p></li>
+<li><p>Cost-effectiveness: GPUs provide a cost-effective solution for achieving high performance compared to scaling up CPU-based systems.</p></li>
+</ul>
+<p>The success of GPU accelerators can be attributed to their ability to significantly speed up computationally intensive tasks that exhibit a high degree of parallelism. Many applications have been redesigned to leverage the parallel processing capabilities of GPUs, resulting in substantial performance improvements.</p>
+</section>
+<section id="openmp-s-support-for-gpu-offloading">
+<h2><span class="section-number">4.1.2. </span>OpenMP’s support for GPU offloading<a class="headerlink" href="#openmp-s-support-for-gpu-offloading" title="Link to this heading">#</a></h2>
+<p>OpenMP, a widely-adopted programming model for shared-memory parallel programming, has evolved to address the growing need for GPU acceleration. Starting from OpenMP 4.0, the specification introduced device constructs and clauses specifically designed for offloading computations to GPU devices.</p>
+<p>The key features of OpenMP’s GPU offloading support include:</p>
+<ul class="simple">
+<li><p>Device constructs: OpenMP provides directives such as <code class="docutils literal notranslate"><span class="pre">target</span></code>, <code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">data</span></code>, and <code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">update</span></code> to define regions of code and data that should be offloaded to a GPU device.</p></li>
+<li><p>Data mapping: The <code class="docutils literal notranslate"><span class="pre">map</span></code> clause allows programmers to specify how data should be transferred between the host and the device, ensuring that the necessary data is available on the GPU for computation.</p></li>
+<li><p>Asynchronous execution: OpenMP supports asynchronous offloading using the <code class="docutils literal notranslate"><span class="pre">nowait</span></code> clause, enabling overlapping of computation and data transfers for improved performance.</p></li>
+<li><p>Device memory management: OpenMP offers routines for allocating and freeing device memory, as well as mechanisms for associating host and device memory.</p></li>
+<li><p>Parallel execution on devices: Directives like <code class="docutils literal notranslate"><span class="pre">teams</span></code> and <code class="docutils literal notranslate"><span class="pre">distribute</span></code> enable programmers to express parallelism on GPU devices, exploiting their massively parallel architecture.</p></li>
+</ul>
+<p>By extending its programming model to support GPU offloading, OpenMP has become a powerful tool for developers seeking to accelerate their applications using GPU devices. It provides a high-level, directive-based approach to GPU programming, making it easier to write portable and maintainable code for parallel execution on heterogeneous systems.</p>
+<p>In the following sections, we will delve into the details of OpenMP’s GPU offloading features, exploring device constructs, data mapping, asynchronous execution, device memory management, parallel execution on GPUs, and performance tuning techniques. By the end of this chapter, you will have a solid understanding of how to leverage OpenMP to harness the power of GPU accelerators in your parallel programs.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -484,20 +523,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="1_IntroductionToGPUComputing.html"
+       href="../Ch4_GPUAccel.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4.1. </span>Vector Architectures</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Parallel Programming for GPU Accelerators</p>
       </div>
     </a>
     <a class="right-next"
-       href="3_MemoryManagementOnGPUs.html"
+       href="2_OpenMPDeviceConstructs.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.3. </span>Data Mapping</p>
+        <p class="prev-next-title"><span class="section-number">4.2. </span>OpenMP Device Constructs</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -508,7 +547,21 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rise-of-gpu-accelerators-in-parallel-computing">4.1.1. The rise of GPU accelerators in parallel computing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openmp-s-support-for-gpu-offloading">4.1.2. OpenMP’s support for GPU offloading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
