@@ -1,1 +1,1 @@
-# OpenMPProgrammingBook
+# InteractiveOpenMPProgramming
