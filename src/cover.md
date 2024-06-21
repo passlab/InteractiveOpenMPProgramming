@@ -1,4 +1,4 @@
-# OpenMP Programming Book
+# Interactive OpenMP Programming
 
 ======================================
 
