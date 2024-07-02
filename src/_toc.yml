@@ -5,10 +5,7 @@ format: jb-book
 root: cover
 parts:
   - chapters:
-    - file: copyright
-    - file: book_intro
     - file: foreword
-    - file: preface
   - numbered: True
     chapters:
     - file: Ch1_OpenmpIntro
