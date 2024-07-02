@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Interactive OpenMP Programming &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
+    <title>Interactive OpenMP Programming Book &#8212; Parallel Programming and Performance Optimization With OpenMP</title>
   
   
   
@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
@@ -37,9 +37,9 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -143,6 +143,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="#">
   
@@ -164,7 +166,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -177,7 +179,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Interactive OpenMP Programming
+                    Interactive OpenMP Programming Book
                 </a>
             </li>
         </ul>
@@ -384,10 +386,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -395,12 +397,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -411,11 +415,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Interactive OpenMP Programming</h1>
+    <h1>Interactive OpenMP Programming Book</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-book">About the Book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-audience">Target Audience</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-online-for-free">Available Online For Free</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disclaimer">Disclaimer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -425,10 +442,48 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="interactive-openmp-programming">
-<h1>Interactive OpenMP Programming<a class="headerlink" href="#interactive-openmp-programming" title="Link to this heading">#</a></h1>
-<p>======================================</p>
-<p>Authors:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="interactive-openmp-programming-book">
+<h1>Interactive OpenMP Programming Book<a class="headerlink" href="#interactive-openmp-programming-book" title="Link to this heading">#</a></h1>
+<p><img alt="Cover Image" src="_images/cover_figure.png" /></p>
+<p><strong>Authors:</strong> Xinyao Yi, Anjia Wang, Yonghong Yan, Chunhua Liao</p>
+<p><strong>Emails:</strong> <a class="reference external" href="mailto:xyi2&#37;&#52;&#48;uncc&#46;edu">xyi2<span>&#64;</span>uncc<span>&#46;</span>edu</a>, <a class="reference external" href="mailto:anjia&#46;wang&#37;&#52;&#48;intel&#46;com">anjia<span>&#46;</span>wang<span>&#64;</span>intel<span>&#46;</span>com</a>, <a class="reference external" href="mailto:yyan7&#37;&#52;&#48;uncc&#46;edu">yyan7<span>&#64;</span>uncc<span>&#46;</span>edu</a>, <a class="reference external" href="mailto:liao6&#37;&#52;&#48;llnl&#46;gov">liao6<span>&#64;</span>llnl<span>&#46;</span>gov</a></p>
+<p><strong>Institutions:</strong> University of North Carolina at Charlotte, Lawrence Livermore National Laboratory<br />
+<strong>Publication Date:</strong> 2024</p>
+<hr class="docutils" />
+<section id="about-the-book">
+<h2>About the Book<a class="headerlink" href="#about-the-book" title="Link to this heading">#</a></h2>
+<p><strong>Interactive OpenMP Programming Book</strong> pioneers the integration of Large Language Models (LLMs) such as Gemini Pro 1.5, Claude 3, and ChatGPT-4 into the educational fabric of high-performance computing. This textbook revolutionizes learning by combining cutting-edge AI with traditional educational methodologies to offer a dynamic, interactive experience through Jupyter Books. It enables code execution directly from the web browser, enhancing the learning process with real-time feedback.</p>
+</section>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Interactive Examples:</strong> Each chapter includes practical programming examples that readers can execute directly within the book.</p></li>
+<li><p><strong>Expert Insights and AI Integration:</strong> Learn high-performance computing through a seamless blend of expert knowledge and AI-generated content, ensuring both depth and pedagogical effectiveness.</p></li>
+<li><p><strong>Up-to-Date Content:</strong> Continuously updated with the latest OpenMP specifications to provide the most current learning experience.</p></li>
+<li><p><strong>Open Source and Accessible:</strong> Freely available online, reducing barriers to access and enabling a wider dissemination of knowledge.</p></li>
+</ul>
+</section>
+<section id="target-audience">
+<h2>Target Audience<a class="headerlink" href="#target-audience" title="Link to this heading">#</a></h2>
+<p>This book is designed for students, educators, and professionals in the field of computing who are interested in advancing their understanding of parallel programming using OpenMP.</p>
+</section>
+<section id="available-online-for-free">
+<h2>Available Online For Free<a class="headerlink" href="#available-online-for-free" title="Link to this heading">#</a></h2>
+<p>Available online for free at <a class="reference external" href="https://passlab.github.io/InteractiveOpenMPProgramming/cover.html">https://passlab.github.io/InteractiveOpenMPProgramming/cover.html</a>, this book aims to be accessible to anyone interested in the field of high-performance computing.</p>
+</section>
+<section id="disclaimer">
+<h2>Disclaimer<a class="headerlink" href="#disclaimer" title="Link to this heading">#</a></h2>
+<p>The authors have made every effort to ensure that the information in this book is correct at the time of publication. The code and content are provided for instructional purposes only. The authors do not offer any warranties and expressly disclaim any liability for errors or omissions, whether such errors or omissions result from negligence, accident, or any other cause.</p>
+<hr class="docutils" />
+<p><strong>Book Version:</strong> Interactive OpenMP Programming Book — Version 1.0</p>
+<p><strong>Copyright:</strong> © 2024 Xinyao Yi et al. All rights reserved.</p>
+<p><strong>License:</strong> CC BY-NC-ND 4.0<br />
+This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.</p>
+</section>
+<hr class="docutils" />
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -481,6 +536,26 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-the-book">About the Book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-audience">Target Audience</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#available-online-for-free">Available Online For Free</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disclaimer">Disclaimer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -500,7 +575,7 @@ By Xinyao Yi, Anjia Wang, and Yonghong Yan
 
   <p class="copyright">
     
-      © <a href="copyright.html">Copyright</a> 2023.
+      © <a href="copyright.html">Copyright 2023</a>.
       <br/>
     
   </p>
@@ -524,8 +599,8 @@ By Xinyao Yi, Anjia Wang, and Yonghong Yan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
