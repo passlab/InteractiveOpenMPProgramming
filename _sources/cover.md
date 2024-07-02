@@ -17,10 +17,11 @@ publication_date: "2024"
 book_version: "1.0"
 license: "CC BY-NC-ND 4.0"
 ---
+![Cover Image](cover_figure.png)
 
 # Interactive OpenMP Programming Book
 
-![Cover Image](cover_figure.png)
+
 
 **Authors:** Xinyao Yi, Anjia Wang, Yonghong Yan, Chunhua Liao  
 
