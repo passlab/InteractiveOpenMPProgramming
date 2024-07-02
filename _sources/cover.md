@@ -64,7 +64,9 @@ The authors have made every effort to ensure that the information in this book i
 **Copyright:** © 2024 Xinyao Yi et al. All rights reserved.
 
 **License:** CC BY-NC-ND 4.0  
-This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License[https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en].
+
+**Non-Commercial Use Declaration:** This publication is strictly for educational and scholarly use and is not intended for sale or any form of commercial profit. Any reproduction, adaptation, distribution, or public display of the contents of this book must adhere to the terms set forth by the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. This restriction includes all media, digital or otherwise, and is enforceable under applicable copyright laws.
 
 ---
 ## Acknowledgements
