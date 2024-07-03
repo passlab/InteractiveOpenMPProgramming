@@ -70,4 +70,4 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-NoDer
 
 ---
 ## Acknowledgements
-Put the sponsorship here.
+Funding for this research and development was provided by the National Science Foundation under award number CISE SHF-1551182 and CISE SHF-2015254.

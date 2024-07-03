@@ -3,6 +3,7 @@
 
 title: Interactive OpenMP Programming Book
 author: Xinyao Yi, Anjia Wang, Yonghong Yan and Chunhua Liao
+copyright: "2024"
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
