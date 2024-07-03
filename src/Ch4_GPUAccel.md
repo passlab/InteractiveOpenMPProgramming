@@ -1,4 +1,4 @@
 Parallel Programming for GPU Accelerators
 =========================================
-GPUAccel
-Temporary page indicating start of a section
+
+Graphics Processing Units (GPUs) have revolutionized parallel computing by providing massive computational power for a wide range of applications. This chapter focuses on leveraging OpenMP to program GPU accelerators, covering the concepts of offloading computations to GPUs and managing data transfers between the host CPU and the GPU. You will explore the OpenMP directives and clauses specifically designed for GPU programming, such as `target`, `teams`, and `distribute`, which facilitate the execution of parallel regions on the GPU. Additionally, you will delve into techniques for efficiently transferring data between the host and device, including strategies for minimizing data movement and optimizing memory usage to maximize performance. Through hands-on examples and exercises, you will gain practical experience in managing the complexities of CPU-GPU interaction. By the end of this chapter, you will be equipped with the knowledge and skills to accelerate your applications using GPUs, unlocking new levels of performance for your computational tasks.

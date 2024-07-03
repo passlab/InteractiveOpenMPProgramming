@@ -1,4 +1,4 @@
 Parallel Programming for SIMD and Vector Architecture
 =====================================================
 
-Temporary page indicating start of a section
+Single Instruction, Multiple Data (SIMD) and vector architectures offer significant performance gains by allowing the simultaneous execution of operations across multiple data points. In this chapter, we will explore how OpenMP can be used to harness the power of SIMD and vectorization. You will learn about vector registers, alignment, and memory access patterns that impact performance. Through hands-on examples and exercises, you will practice optimizing your code to fully exploit SIMD capabilities, enabling you to achieve higher computational throughput and efficiency.
