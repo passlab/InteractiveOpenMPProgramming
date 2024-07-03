@@ -2,8 +2,6 @@
 
 Welcome to the "Interactive OpenMP Programming Book," a pioneering educational resource that merges high-performance computing (HPC) education with advanced artificial intelligence (AI) technologies. It aims to address the growing educational demands in parallel computing, particularly within the OpenMP framework used across multi-core and multi-threaded processors.
 
-## Motivation
-
 The impetus for this book stems from two primary needs. First, the rapid evolution of OpenMP specifications has necessitated an educational resource that not only keeps pace with technological advancements but also incorporates the interactivity essential for effective learning. Traditional resources often fall short in updating content and integrating interactive elements, which are critical for engaging modern learners.
 
 Second, this book explores the potential of integrating Large Language Models (LLMs) such as Gemini Pro 1.5, Claude 3, and ChatGPT-4 in educational content creation. These AI tools expedite the initial drafting of educational materials. However, to ensure depth and accuracy, extensive manual revisions and expert insights were indispensable. This iterative process ensures that the final content is both pedagogically effective and technically accurate.
