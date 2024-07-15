@@ -485,8 +485,7 @@ It consists of a set of compiler directives with a “lightweight” syntax, lib
 <section id="openmp-fork-join-excution-model">
 <h2><span class="section-number">1.1.3. </span>OpenMP Fork-Join Excution Model<a class="headerlink" href="#openmp-fork-join-excution-model" title="Link to this heading">#</a></h2>
 <p>The parallel model used by OpenMP is called the fork-join model, as shown in the following figure:
-<img alt="fork-join_model1" src="../_images/20190720101130709.png" />
-<img alt="fork-join_model1" src="../_images/0_13209261094r4F.png" /></p>
+<img alt="fork-join_model1" src="../_images/fork_joint.png" /></p>
 <p>All OpenMP programs start with a single thread which is the master thread. The master thread executes serially until it encounters the first parallel region. Parallel region is a block of code executed by all threads in a team simultaneously.</p>
 <p>When the master thread encounters a parallel region, i.e. when it encounters an OpenMP parallel instruction, it creates a thread group consisting of itself and some additional (possibly zero) worker threads. This process called fork.
 These threads can execute tasks in parallel and are uniformly dispatched by the master thread. There is an implicit barrier at the end of the parallel region. When the thread has finished executing its task, it will wait at the barrier. When all threads have completed their tasks, the threads can leave the barrier. The master thread is left and continues to execute the serial code after the parallel region. This process called join.</p>
