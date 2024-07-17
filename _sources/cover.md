@@ -10,9 +10,6 @@ authors:
   - name: "Yonghong Yan"
     email: "yyan7@uncc.edu"
     institution: "University of North Carolina at Charlotte"
-  - name: "Chunhua Liao"
-    email: "liao6@llnl.gov"
-    institution: "Lawrence Livermore National Laboratory"
 publication_date: "2024"
 book_version: "1.0"
 license: "CC BY-NC-ND 4.0"
@@ -25,9 +22,9 @@ license: "CC BY-NC-ND 4.0"
 
 **Authors:** Xinyao Yi, Anjia Wang, Yonghong Yan, Chunhua Liao  
 
-**Emails:** xyi2@uncc.edu, anjia.wang@intel.com, yyan7@uncc.edu, liao6@llnl.gov
+**Emails:** xyi2@uncc.edu, anjia.wang@intel.com, yyan7@uncc.edu
 
-**Institutions:** University of North Carolina at Charlotte, Lawrence Livermore National Laboratory  
+**Institutions:** University of North Carolina at Charlotte
 **Publication Date:** 2024  
 
 
