@@ -20,11 +20,12 @@ license: "CC BY-NC-ND 4.0"
 
 
 
-**Authors:** Xinyao Yi, Anjia Wang, Yonghong Yan, Chunhua Liao  
+**Authors:** Xinyao Yi, Anjia Wang, Yonghong Yan  
 
 **Emails:** xyi2@uncc.edu, anjia.wang@intel.com, yyan7@uncc.edu
 
 **Institutions:** University of North Carolina at Charlotte
+
 **Publication Date:** 2024  
 
 
