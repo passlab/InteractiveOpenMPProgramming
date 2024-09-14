@@ -1,5 +1,5 @@
 ---
-title: "Interactive OpenMP Programming Book"
+title: "Interactive OpenMP Programming"
 authors:
   - name: "Xinyao Yi"
     email: "xyi2@uncc.edu"
@@ -19,7 +19,7 @@ license: "CC BY-NC-ND 4.0"
 ---
 ![Cover Image](cover_figure.png)
 
-# Interactive OpenMP Programming Book
+# Interactive OpenMP Programming
 
 
 
@@ -37,7 +37,7 @@ license: "CC BY-NC-ND 4.0"
 
 ## About the Book
 
-**Interactive OpenMP Programming Book** pioneers the integration of Large Language Models (LLMs) such as Gemini Pro 1.5, Claude 3, and ChatGPT-4 into the educational fabric of high-performance computing. This textbook revolutionizes learning by combining cutting-edge AI with traditional educational methodologies to offer a dynamic, interactive experience through Jupyter Books. It enables code execution directly from the web browser, enhancing the learning process with real-time feedback.
+**Interactive OpenMP Programming** pioneers the integration of Large Language Models (LLMs) such as Gemini Pro 1.5, Claude 3, and ChatGPT-4 into the educational fabric of high-performance computing. This textbook revolutionizes learning by combining cutting-edge AI with traditional educational methodologies to offer a dynamic, interactive experience through Jupyter Books. It enables code execution directly from the web browser, enhancing the learning process with real-time feedback.
 
 ## Key Features
 
@@ -60,7 +60,7 @@ The authors have made every effort to ensure that the information in this book i
 
 
 ---
-**Book Version:** Interactive OpenMP Programming Book — Version 1.0
+**Book Version:** Interactive OpenMP Programming — Version 1.0
 
 **Copyright:** © 2024 Xinyao Yi et al. All rights reserved.
 
