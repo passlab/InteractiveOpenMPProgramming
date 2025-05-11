@@ -430,9 +430,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -448,18 +446,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember-understand">2.1.1. 1. Remember &amp; Understand</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">2.1.2. 2. Apply</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze">2.1.3. 3. Analyze</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">2.1.4. 4. Evaluate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create">2.1.5. 5. Create</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -473,48 +459,38 @@ document.write(`
 <h1><span class="section-number">2.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h1>
 <p>This chapter enables students to progressively develop their understanding and skills in OpenMP programming. By the end of this chapter, students will be able to:</p>
 <hr class="docutils" />
-<section id="remember-understand">
-<h2><span class="section-number">2.1.1. </span>1. Remember &amp; Understand<a class="headerlink" href="#remember-understand" title="Link to this heading">#</a></h2>
+<p><strong>Remember &amp; Understand</strong></p>
 <ul class="simple">
 <li><p>Describe the structure and principles of MIMD architecture and its relevance to shared-memory parallel computing.</p></li>
 <li><p>Explain the execution model of OpenMP, including the role of threads, teams, and synchronization points.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="apply">
-<h2><span class="section-number">2.1.2. </span>2. Apply<a class="headerlink" href="#apply" title="Link to this heading">#</a></h2>
+<p><strong>Apply</strong></p>
 <ul class="simple">
 <li><p>Implement parallel regions in OpenMP using the <code class="docutils literal notranslate"><span class="pre">parallel</span></code> and <code class="docutils literal notranslate"><span class="pre">teams</span></code> directives to create SPMD-style programs.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">barrier</span></code>, <code class="docutils literal notranslate"><span class="pre">ordered</span></code>, and other synchronization constructs to coordinate thread execution safely and correctly.</p></li>
 <li><p>Apply OpenMP task constructs to express asynchronous and irregular parallelism in C/C++ programs.</p></li>
 <li><p>Distribute workloads explicitly across threads using OpenMP directives like <code class="docutils literal notranslate"><span class="pre">single</span></code>, <code class="docutils literal notranslate"><span class="pre">sections</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, and <code class="docutils literal notranslate"><span class="pre">distribute</span></code>.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="analyze">
-<h2><span class="section-number">2.1.3. </span>3. Analyze<a class="headerlink" href="#analyze" title="Link to this heading">#</a></h2>
+<p><strong>Analyze</strong></p>
 <ul class="simple">
 <li><p>Differentiate between the use cases and performance implications of <code class="docutils literal notranslate"><span class="pre">parallel</span></code>, <code class="docutils literal notranslate"><span class="pre">teams</span></code>, and <code class="docutils literal notranslate"><span class="pre">task</span></code> constructs.</p></li>
 <li><p>Analyze synchronization needs in a parallel program and determine appropriate mechanisms to avoid race conditions.</p></li>
 <li><p>Inspect the impact of various work-sharing strategies on performance and load balance.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="evaluate">
-<h2><span class="section-number">2.1.4. </span>4. Evaluate<a class="headerlink" href="#evaluate" title="Link to this heading">#</a></h2>
+<p><strong>Evaluate</strong></p>
 <ul class="simple">
 <li><p>Evaluate the scalability and correctness of OpenMP programs under different architectural assumptions (e.g., multicore vs. multi-CPU).</p></li>
 <li><p>Critique the suitability of selected OpenMP directives for specific parallel patterns or problem domains.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="create">
-<h2><span class="section-number">2.1.5. </span>5. Create<a class="headerlink" href="#create" title="Link to this heading">#</a></h2>
+<p><strong>Create</strong></p>
 <ul class="simple">
 <li><p>Design parallel solutions for real-world problems by combining OpenMP directives effectively and modularly.</p></li>
 <li><p>Develop optimized OpenMP programs that demonstrate good parallel design, proper synchronization, and balanced workload distribution.</p></li>
 </ul>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -571,25 +547,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember-understand">2.1.1. 1. Remember &amp; Understand</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">2.1.2. 2. Apply</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze">2.1.3. 3. Analyze</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">2.1.4. 4. Evaluate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create">2.1.5. 5. Create</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

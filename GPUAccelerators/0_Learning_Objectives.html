@@ -430,9 +430,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -448,18 +446,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember-understand">4.1.1. Remember &amp; Understand</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">4.1.2. Apply</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze">4.1.3. Analyze</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">4.1.4. Evaluate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create">4.1.5. Create</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -473,18 +459,15 @@ document.write(`
 <h1><span class="section-number">4.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h1>
 <p>This chapter introduces students to GPU offloading with OpenMP, focusing on device constructs, memory management, parallel execution, and performance optimization. By the end of this chapter, students will be able to:</p>
 <hr class="docutils" />
-<section id="remember-understand">
-<h2><span class="section-number">4.1.1. </span>Remember &amp; Understand<a class="headerlink" href="#remember-understand" title="Link to this heading">#</a></h2>
+<p><strong>Remember &amp; Understand</strong></p>
 <ul class="simple">
 <li><p>Describe the role and architectural characteristics of GPU accelerators in modern parallel computing.</p></li>
 <li><p>Explain OpenMP’s device constructs (<code class="docutils literal notranslate"><span class="pre">target</span></code>, <code class="docutils literal notranslate"><span class="pre">teams</span></code>, <code class="docutils literal notranslate"><span class="pre">distribute</span></code>, etc.) and their purpose in offloading computation to GPUs.</p></li>
 <li><p>Understand the concepts of data mapping and the use of <code class="docutils literal notranslate"><span class="pre">map</span></code> clauses for host-device memory transfer.</p></li>
 <li><p>Recognize how OpenMP supports asynchronous execution and explicit memory management on devices.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="apply">
-<h2><span class="section-number">4.1.2. </span>Apply<a class="headerlink" href="#apply" title="Link to this heading">#</a></h2>
+<p><strong>Apply</strong></p>
 <ul class="simple">
 <li><p>Write OpenMP code using <code class="docutils literal notranslate"><span class="pre">target</span></code>, <code class="docutils literal notranslate"><span class="pre">teams</span></code>, and <code class="docutils literal notranslate"><span class="pre">distribute</span></code> to implement GPU offloading for compute-intensive kernels.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">map</span></code>, <code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">data</span></code>, and <code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">update</span></code> clauses to control data movement between host and device memory.</p></li>
@@ -492,33 +475,26 @@ document.write(`
 <li><p>Allocate and deallocate GPU memory using OpenMP runtime functions.</p></li>
 <li><p>Apply best practices for parallel execution and synchronization on GPU devices.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="analyze">
-<h2><span class="section-number">4.1.3. </span>Analyze<a class="headerlink" href="#analyze" title="Link to this heading">#</a></h2>
+<p><strong>Analyze</strong></p>
 <ul class="simple">
 <li><p>Analyze the impact of different memory mapping strategies on data locality and device performance.</p></li>
 <li><p>Compare different parallel constructs (<code class="docutils literal notranslate"><span class="pre">teams</span></code>, <code class="docutils literal notranslate"><span class="pre">distribute</span></code>, <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code>) in terms of their execution behavior and applicability.</p></li>
 <li><p>Investigate the effects of loop scheduling and thread distribution on GPU workload balancing.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="evaluate">
-<h2><span class="section-number">4.1.4. </span>Evaluate<a class="headerlink" href="#evaluate" title="Link to this heading">#</a></h2>
+<p><strong>Evaluate</strong></p>
 <ul class="simple">
 <li><p>Evaluate the performance benefits and trade-offs of GPU offloading for a given problem.</p></li>
 <li><p>Assess the correctness and efficiency of data transfers and asynchronous execution mechanisms.</p></li>
 <li><p>Critique the effectiveness of tuning strategies for memory usage, thread configuration, and offload scope.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="create">
-<h2><span class="section-number">4.1.5. </span>Create<a class="headerlink" href="#create" title="Link to this heading">#</a></h2>
+<p><strong>Create</strong></p>
 <ul class="simple">
 <li><p>Design and implement optimized GPU-offloaded applications using a combination of OpenMP directives and memory management techniques.</p></li>
 <li><p>Develop high-performance OpenMP programs that utilize advanced features such as dependency management, asynchronous execution, and architecture-specific tuning.</p></li>
 </ul>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -575,25 +551,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember-understand">4.1.1. Remember &amp; Understand</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">4.1.2. Apply</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze">4.1.3. Analyze</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">4.1.4. Evaluate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create">4.1.5. Create</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

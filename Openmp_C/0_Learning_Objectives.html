@@ -430,9 +430,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -448,18 +446,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember-understand">1.1.1. Remember &amp; Understand</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">1.1.2. Apply</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze">1.1.3. Analyze</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">1.1.4. Evaluate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create">1.1.5. Create</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -473,46 +459,36 @@ document.write(`
 <h1><span class="section-number">1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h1>
 <p>This chapter introduces the foundational concepts of OpenMP and shared-memory parallelism. By the end of this chapter, students will be able to:</p>
 <hr class="docutils" />
-<section id="remember-understand">
-<h2><span class="section-number">1.1.1. </span>Remember &amp; Understand<a class="headerlink" href="#remember-understand" title="Link to this heading">#</a></h2>
+<p><strong>Remember &amp; Understand</strong></p>
 <ul class="simple">
 <li><p>Understand the motivation for parallel computing and explain the limitations of serial execution in modern computing environments.</p></li>
 <li><p>Describe the shared memory programming model and distinguish between shared and private variables.</p></li>
 <li><p>Explain OpenMP’s fork-join execution model, including the roles of the master thread and worker threads during parallel regions.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="apply">
-<h2><span class="section-number">1.1.2. </span>Apply<a class="headerlink" href="#apply" title="Link to this heading">#</a></h2>
+<p><strong>Apply</strong></p>
 <ul class="simple">
 <li><p>Identify the basic structure of an OpenMP program and correctly insert directives to create parallel regions.</p></li>
 <li><p>Use OpenMP runtime functions and environment variables (e.g., <code class="docutils literal notranslate"><span class="pre">omp_set_num_threads</span></code>, <code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code>) to control and query thread behavior.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="analyze">
-<h2><span class="section-number">1.1.3. </span>Analyze<a class="headerlink" href="#analyze" title="Link to this heading">#</a></h2>
+<p><strong>Analyze</strong></p>
 <ul class="simple">
 <li><p>Analyze simple OpenMP programs to detect data sharing issues such as race conditions.</p></li>
 <li><p>Differentiate between OpenMP and other parallel programming models such as MPI and Pthreads in terms of use cases and memory models.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="evaluate">
-<h2><span class="section-number">1.1.4. </span>Evaluate<a class="headerlink" href="#evaluate" title="Link to this heading">#</a></h2>
+<p><strong>Evaluate</strong></p>
 <ul class="simple">
 <li><p>Assess the suitability of OpenMP for various computational tasks, based on program structure and target architecture.</p></li>
 <li><p>Evaluate the readability, portability, and efficiency of OpenMP programs.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="create">
-<h2><span class="section-number">1.1.5. </span>Create<a class="headerlink" href="#create" title="Link to this heading">#</a></h2>
+<p><strong>Create</strong></p>
 <ul class="simple">
 <li><p>Construct simple OpenMP programs using the parallel directive to demonstrate shared-memory parallelism.</p></li>
 <li><p>Modify existing serial code to introduce parallelism while preserving correctness.</p></li>
 </ul>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -569,25 +545,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember-understand">1.1.1. Remember &amp; Understand</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">1.1.2. Apply</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze">1.1.3. Analyze</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">1.1.4. Evaluate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create">1.1.5. Create</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

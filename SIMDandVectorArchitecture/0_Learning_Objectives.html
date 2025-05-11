@@ -430,9 +430,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -448,18 +446,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember-understand">3.1.1. Remember &amp; Understand</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">3.1.2. Apply</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze">3.1.3. Analyze</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">3.1.4. Evaluate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create">3.1.5. Create</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -473,49 +459,39 @@ document.write(`
 <h1><span class="section-number">3.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h1>
 <p>This chapter enables students to effectively utilize SIMD constructs in OpenMP to exploit data-level parallelism and optimize program performance. By the end of this chapter, students will be able to:</p>
 <hr class="docutils" />
-<section id="remember-understand">
-<h2><span class="section-number">3.1.1. </span>Remember &amp; Understand<a class="headerlink" href="#remember-understand" title="Link to this heading">#</a></h2>
+<p><strong>Remember &amp; Understand</strong></p>
 <ul class="simple">
 <li><p>Describe the principles of SIMD and how it enables data-level parallelism on modern processors.</p></li>
 <li><p>Understand the use of OpenMP SIMD constructs (<code class="docutils literal notranslate"><span class="pre">simd</span></code>, <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code>, etc.) and related clauses (<code class="docutils literal notranslate"><span class="pre">aligned</span></code>, <code class="docutils literal notranslate"><span class="pre">linear</span></code>, etc.).</p></li>
 <li><p>Explain the benefits and challenges of vectorization in high-performance computing.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="apply">
-<h2><span class="section-number">3.1.2. </span>Apply<a class="headerlink" href="#apply" title="Link to this heading">#</a></h2>
+<p><strong>Apply</strong></p>
 <ul class="simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">omp</span> <span class="pre">simd</span></code> to vectorize loops and improve data throughput.</p></li>
 <li><p>Apply <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code> for vectorizing user-defined functions in C/C++.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">aligned</span></code>, <code class="docutils literal notranslate"><span class="pre">linear</span></code>, and <code class="docutils literal notranslate"><span class="pre">private</span></code> clauses to control data access and memory alignment in SIMD loops.</p></li>
 <li><p>Implement SIMD reductions and scan operations using OpenMP constructs.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="analyze">
-<h2><span class="section-number">3.1.3. </span>Analyze<a class="headerlink" href="#analyze" title="Link to this heading">#</a></h2>
+<p><strong>Analyze</strong></p>
 <ul class="simple">
 <li><p>Analyze the performance impact of SIMD vectorization on different types of loops.</p></li>
 <li><p>Investigate memory alignment and its effect on SIMD performance.</p></li>
 <li><p>Differentiate between scalar and vectorized versions of loops to identify optimization opportunities.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="evaluate">
-<h2><span class="section-number">3.1.4. </span>Evaluate<a class="headerlink" href="#evaluate" title="Link to this heading">#</a></h2>
+<p><strong>Evaluate</strong></p>
 <ul class="simple">
 <li><p>Evaluate the effectiveness of SIMD vectorization strategies on performance-critical code.</p></li>
 <li><p>Critically assess the suitability of specific OpenMP SIMD constructs for various data-parallel computation patterns.</p></li>
 </ul>
-</section>
 <hr class="docutils" />
-<section id="create">
-<h2><span class="section-number">3.1.5. </span>Create<a class="headerlink" href="#create" title="Link to this heading">#</a></h2>
+<p><strong>Create</strong></p>
 <ul class="simple">
 <li><p>Design vectorized algorithms using OpenMP SIMD directives that demonstrate high efficiency and correctness.</p></li>
 <li><p>Develop applications that integrate function vectorization, memory alignment, and reductions for maximum SIMD utilization.</p></li>
 </ul>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -572,25 +548,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember-understand">3.1.1. Remember &amp; Understand</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">3.1.2. Apply</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze">3.1.3. Analyze</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">3.1.4. Evaluate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create">3.1.5. Create</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
