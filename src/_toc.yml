@@ -10,6 +10,7 @@ parts:
     chapters:
     - file: Ch1_OpenmpIntro
       sections:
+      - file: Openmp_C/0_Learning_Objectives.ipynb
       - file: Openmp_C/1_IntroductionOfOpenMP.ipynb
       - file: Openmp_C/2_Syntax.ipynb
       - file: Openmp_C/3_Performance.ipynb
