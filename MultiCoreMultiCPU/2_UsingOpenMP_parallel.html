@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -184,9 +184,10 @@
 </ul>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch1_OpenmpIntro.html">1. Overview of OpenMP Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/1_IntroductionOfOpenMP.html">1.1. Introduction of OpenMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/2_Syntax.html">1.2. Creating a Parallel Program with OpenMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/3_Performance.html">1.3. Performance Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/0_Learning_Objectives.html">1.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/1_IntroductionOfOpenMP.html">1.2. Introduction of OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/2_Syntax.html">1.3. Creating a Parallel Program with OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/3_Performance.html">1.4. Performance Analysis</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">2. Parallel Programming for Multicore and Multi-CPU Machines</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -977,7 +978,7 @@ Hello World in case 3 from thread 2
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">//%</span><span class="k">compiler</span>: clang
 <span class="o">//%</span><span class="k">cflags</span>: -fopenmp
-<span class="o">//</span><span class="n">This</span> <span class="n">example</span> <span class="ow">is</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">openmp</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wp</span><span class="o">-</span><span class="n">content</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span><span class="n">openmp</span><span class="o">-</span><span class="n">examples</span><span class="o">-</span><span class="mf">5.1</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span> <span class="n">The</span> <span class="n">size</span> <span class="n">of</span> <span class="n">array</span> <span class="ow">and</span> <span class="n">output</span> <span class="n">are</span> <span class="n">changed</span>
+<span class="o">//</span><span class="n">This</span> <span class="n">example</span> <span class="ow">is</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">openmp</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wp</span><span class="o">-</span><span class="n">content</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span><span class="n">openmp</span><span class="o">-</span><span class="n">examples</span><span class="o">-</span><span class="mf">5.1</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span> <span class="n">The</span> <span class="n">size</span> <span class="n">of</span> <span class="n">array</span> <span class="ow">and</span> <span class="n">output</span> <span class="n">are</span> <span class="n">changed</span>
 
 <span class="c1">#include &lt;stdio.h&gt;</span>
 <span class="c1">#include &lt;stdlib.h&gt;</span>
@@ -1119,7 +1120,7 @@ The <strong>private</strong> clause is used to explicitly specify variables that
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">//%</span><span class="k">compiler</span>: clang
 <span class="o">//%</span><span class="k">cflags</span>: -fopenmp
-<span class="o">//</span><span class="n">This</span> <span class="n">example</span> <span class="ow">is</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">openmp</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wp</span><span class="o">-</span><span class="n">content</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span><span class="n">openmp</span><span class="o">-</span><span class="n">examples</span><span class="o">-</span><span class="mf">5.1</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span>
+<span class="o">//</span><span class="n">This</span> <span class="n">example</span> <span class="ow">is</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">openmp</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wp</span><span class="o">-</span><span class="n">content</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span><span class="n">openmp</span><span class="o">-</span><span class="n">examples</span><span class="o">-</span><span class="mf">5.1</span><span class="o">.</span><span class="n">pdf</span><span class="o">.</span>
 
 <span class="c1">#include &lt;assert.h&gt;</span>
 
