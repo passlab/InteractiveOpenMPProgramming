@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.4. Performance Analysis &#8212; Interactive OpenMP Programming</title>
+    <title>3.1. Learning Objectives &#8212; Interactive OpenMP Programming</title>
   
   
   
@@ -57,13 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Openmp_C/3_Performance';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'SIMDandVectorArchitecture/0_Learning_Objectives';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Parallel Programming for Multicore and Multi-CPU Machines" href="../Ch2_MulticoreMultiCPU.html" />
-    <link rel="prev" title="1.3. Creating a Parallel Program with OpenMP" href="2_Syntax.html" />
+    <link rel="next" title="3.2. Introduction to SIMD and Vectorization" href="1_IntroductionToSIMDAndVectorization.html" />
+    <link rel="prev" title="3. Parallel Programming for SIMD and Vector Architecture" href="../Ch3_SIMDVector.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,11 +183,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../foreword.html">Preface</a></li>
 </ul>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch1_OpenmpIntro.html">1. Overview of OpenMP Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="0_Learning_Objectives.html">1.1. Learning Objectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_IntroductionOfOpenMP.html">1.2. Introduction of OpenMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Syntax.html">1.3. Creating a Parallel Program with OpenMP</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.4. Performance Analysis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch1_OpenmpIntro.html">1. Overview of OpenMP Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/0_Learning_Objectives.html">1.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/1_IntroductionOfOpenMP.html">1.2. Introduction of OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/2_Syntax.html">1.3. Creating a Parallel Program with OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Openmp_C/3_Performance.html">1.4. Performance Analysis</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">2. Parallel Programming for Multicore and Multi-CPU Machines</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -204,16 +202,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/6_ExplicitDistribution.html">2.9. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/0_Learning_Objectives.html">3.1. Learning Objectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization.html">3.2. Introduction to SIMD and Vectorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/2_OpenMPSIMDConstructsAndClauses.html">3.3. OpenMP SIMD Constructs and Clauses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/3_UtilizingSIMDDirectivesForLoopVectorization.html">3.4. Utilizing SIMD Directives for Loop Vectorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.html">3.5. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/5_DataAlignmentandLinearClauses.html">3.6. Data Alignment and Linear Clauses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/6_SIMDReductionsAndScans.html">3.7. SIMD Reductions and Scans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/7_BestPracticesAndPerformanceConsiderations.html">3.8. Best Practices and Performance Considerations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/8_RealWorldExamplesAndCaseStudies.html">3.9. Real-World Examples and Case Studies</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_IntroductionToSIMDAndVectorization.html">3.2. Introduction to SIMD and Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_OpenMPSIMDConstructsAndClauses.html">3.3. OpenMP SIMD Constructs and Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_UtilizingSIMDDirectivesForLoopVectorization.html">3.4. Utilizing SIMD Directives for Loop Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_FunctionVectorizationWithdeclaresimd.html">3.5. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_DataAlignmentandLinearClauses.html">3.6. Data Alignment and Linear Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_SIMDReductionsAndScans.html">3.7. SIMD Reductions and Scans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_BestPracticesAndPerformanceConsiderations.html">3.8. Best Practices and Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_RealWorldExamplesAndCaseStudies.html">3.9. Real-World Examples and Case Studies</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -283,7 +281,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/passlab/InteractiveOpenMPProgramming/main?urlpath=lab/tree/src/Openmp_C/3_Performance.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/passlab/InteractiveOpenMPProgramming/main?urlpath=lab/tree/src/SIMDandVectorArchitecture/0_Learning_Objectives.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +329,7 @@
       
       
       
-      <li><a href="https://github.com/passlab/InteractiveOpenMPProgramming/issues/new?title=Issue%20on%20page%20%2FOpenmp_C/3_Performance.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/passlab/InteractiveOpenMPProgramming/issues/new?title=Issue%20on%20page%20%2FSIMDandVectorArchitecture/0_Learning_Objectives.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -361,7 +359,7 @@
       
       
       
-      <li><a href="../_sources/Openmp_C/3_Performance.ipynb" target="_blank"
+      <li><a href="../_sources/SIMDandVectorArchitecture/0_Learning_Objectives.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -445,7 +443,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Performance Analysis</h1>
+    <h1>Learning Objectives</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -455,8 +453,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors-impacting-performance">1.4.1. Factors Impacting Performance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideas-for-improving-the-performance">1.4.2. Ideas for Improving the performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember-understand">3.1.1. 1. Remember &amp; Understand</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">3.1.2. 2. Apply</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze">3.1.3. 3. Analyze</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">3.1.4. 4. Evaluate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create">3.1.5. 5. Create</a></li>
 </ul>
             </nav>
         </div>
@@ -468,40 +469,52 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="performance-analysis">
-<h1><span class="section-number">1.4. </span>Performance Analysis<a class="headerlink" href="#performance-analysis" title="Link to this heading">#</a></h1>
-<p>For parallel programs, performance is the primary concern.
-The relative ease of using OpenMP is a mixed blessing.
-We can quickly write a correct OpenMP program, but without the desired level of performance.
-Even though there are certain “best practices” to avoid common performance problems, extra work is needed to program with a large thread count.
-In this section, we briefly introduce some factors that affect performance when programming, and some “best practices” to improve performance.</p>
-<section id="factors-impacting-performance">
-<h2><span class="section-number">1.4.1. </span>Factors Impacting Performance<a class="headerlink" href="#factors-impacting-performance" title="Link to this heading">#</a></h2>
-<p>The OpenMP program includes serial regions and parallel regions, firstly, and the performance of the serial regions will affect the performance of the whole program. There are many optimization methods for serial programs, such as eliminating data dependencies, constant folding, copy propagation, removing dead code, etc. Although the compiler has made some optimization efforts for serial programs, in fact, for current compilers the effect of this optimization is minimal. A simpler and more effective method is to parallelize and vectorize the parts that can be parallelized or vectorized. For the purposes of this book, we won’t go into too much detail about the optimization of the serial parts.</p>
-<p>The second factor is the proportion of the serial parts and the parallel parts. It is well understood that the more parts that can be parallelized in a program, the greater the room for program performance improvement.
-Amdahl’s law(or Amdahl’s argument) gives the theoretical speedup in latency of the execution of a task at a fixed workload that can be expected of a system whose resources are improved. This formula is often applied to parallel processing systems.
-For the speedup S describing the effect of parallel processing under a fixed load, Amdahl gave the following formula:</p>
-<div class="math notranslate nohighlight">
-\[ S=1/((1-a)+a/n) \]</div>
-<p>where <strong>a</strong> is the proportion of the parallel computing part, and <strong>n</strong> is the number of parallel processing nodes. In this way, when <strong>1-a=0</strong>, (ie, no serial, only parallel), the maximum speedup ratio <strong>s=n</strong>; when <strong>a=0</strong> (ie, only serial, no parallelism), the minimum speedup ratio <strong>s=1</strong>; when <strong>n→∞</strong>, the limit acceleration ratio <strong>s→1/(1-a)</strong>, which is also the upper limit of the acceleration ratio. For example, 90% of the code of a program is parallel, but there is still 10% of the serial code, the maximum speedup that can be achieved even by an infinite number of processors in the system is still 9. This formula has been accepted by academia， and it can indicate that the maximum speedup that a program can achieve is limited by the serial portion of the program.</p>
-<p>Next, let’s analyze what factors can affect performance in the parallel regions. To analyze this problem, we can consider where the overhead of parallelism is, and then reduce the overhead or balance the overhead and benefits to obtain ideal performance.
-Common parallel overheads are mainly concentrated in two aspects. The first is the overhead of thread management. Thread management usually includes creating, resuming, managing, suspending, destroying and synchronizing. The management overhead of threads is often large compared to computation, especially synchronization. Multiple threads waiting for synchronization cause a lot of computing resources to be wasted. The idea to solve this problem is to distribute tasks as evenly as possible, making the thread load as evenly as possible.</p>
-<p>The second aspect is memory access, usually, memory is the main limiting factor in the performance of shared memory programs. Problems such as memory access conflicts will seriously affect the performance of the program. The access location of data is the key to the latency and bandwidth of memory access. The most commonly used method is to optimize data locality. We can improve this problem by explicitly managing the data which will be introduced in detail in the following chapters.</p>
-</section>
-<section id="ideas-for-improving-the-performance">
-<h2><span class="section-number">1.4.2. </span>Ideas for Improving the performance<a class="headerlink" href="#ideas-for-improving-the-performance" title="Link to this heading">#</a></h2>
-<p>Based on the factors which affect the performance, there are several performance-enhancing efforts that can be considered:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="learning-objectives">
+<h1><span class="section-number">3.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h1>
+<p>This chapter enables students to effectively utilize SIMD constructs in OpenMP to exploit data-level parallelism and optimize program performance. By the end of this chapter, students will be able to:</p>
+<hr class="docutils" />
+<section id="remember-understand">
+<h2><span class="section-number">3.1.1. </span>1. Remember &amp; Understand<a class="headerlink" href="#remember-understand" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Thread load balancing</p></li>
-<li><p>Minimizing synchronization.</p></li>
-<li><p>Using more efficient directives. For example, using PARALLEL DO/FOR instead of worksharing DO/FOR directives in parallel regions.</p></li>
-<li><p>Expansion or merging of parallel regions</p></li>
-<li><p>Improving cache hit rate</p></li>
-<li><p>Optimization of round-robin scheduling</p></li>
-<li><p>Variable property optimization</p></li>
-<li><p>Optimization to reduce false sharing problem</p></li>
+<li><p>Describe the principles of SIMD and how it enables data-level parallelism on modern processors.</p></li>
+<li><p>Understand the use of OpenMP SIMD constructs (<code class="docutils literal notranslate"><span class="pre">simd</span></code>, <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code>, etc.) and related clauses (<code class="docutils literal notranslate"><span class="pre">aligned</span></code>, <code class="docutils literal notranslate"><span class="pre">linear</span></code>, etc.).</p></li>
+<li><p>Explain the benefits and challenges of vectorization in high-performance computing.</p></li>
 </ul>
-<p>In the following chapters of this book, we will introduce how to create parallel programs using OpenMP based on three different architectures, and explain how to optimize performance based on some of the ideas mentioned above.</p>
+</section>
+<hr class="docutils" />
+<section id="apply">
+<h2><span class="section-number">3.1.2. </span>2. Apply<a class="headerlink" href="#apply" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">omp</span> <span class="pre">simd</span></code> to vectorize loops and improve data throughput.</p></li>
+<li><p>Apply <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code> for vectorizing user-defined functions in C/C++.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">aligned</span></code>, <code class="docutils literal notranslate"><span class="pre">linear</span></code>, and <code class="docutils literal notranslate"><span class="pre">private</span></code> clauses to control data access and memory alignment in SIMD loops.</p></li>
+<li><p>Implement SIMD reductions and scan operations using OpenMP constructs.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="analyze">
+<h2><span class="section-number">3.1.3. </span>3. Analyze<a class="headerlink" href="#analyze" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Analyze the performance impact of SIMD vectorization on different types of loops.</p></li>
+<li><p>Investigate memory alignment and its effect on SIMD performance.</p></li>
+<li><p>Differentiate between scalar and vectorized versions of loops to identify optimization opportunities.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="evaluate">
+<h2><span class="section-number">3.1.4. </span>4. Evaluate<a class="headerlink" href="#evaluate" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Evaluate the effectiveness of SIMD vectorization strategies on performance-critical code.</p></li>
+<li><p>Critically assess the suitability of specific OpenMP SIMD constructs for various data-parallel computation patterns.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="create">
+<h2><span class="section-number">3.1.5. </span>5. Create<a class="headerlink" href="#create" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Design vectorized algorithms using OpenMP SIMD directives that demonstrate high efficiency and correctness.</p></li>
+<li><p>Develop applications that integrate function vectorization, memory alignment, and reductions for maximum SIMD utilization.</p></li>
+</ul>
 </section>
 </section>
 
@@ -518,7 +531,7 @@ Common parallel overheads are mainly concentrated in two aspects. The first is t
         },
         kernelOptions: {
             name: "python3",
-            path: "./Openmp_C"
+            path: "./SIMDandVectorArchitecture"
         },
         predefinedOutput: true
     }
@@ -536,20 +549,20 @@ Common parallel overheads are mainly concentrated in two aspects. The first is t
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="2_Syntax.html"
+       href="../Ch3_SIMDVector.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.3. </span>Creating a Parallel Program with OpenMP</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Parallel Programming for SIMD and Vector Architecture</p>
       </div>
     </a>
     <a class="right-next"
-       href="../Ch2_MulticoreMultiCPU.html"
+       href="1_IntroductionToSIMDAndVectorization.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Parallel Programming for Multicore and Multi-CPU Machines</p>
+        <p class="prev-next-title"><span class="section-number">3.2. </span>Introduction to SIMD and Vectorization</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -569,8 +582,11 @@ Common parallel overheads are mainly concentrated in two aspects. The first is t
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors-impacting-performance">1.4.1. Factors Impacting Performance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ideas-for-improving-the-performance">1.4.2. Ideas for Improving the performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember-understand">3.1.1. 1. Remember &amp; Understand</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply">3.1.2. 2. Apply</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze">3.1.3. 3. Analyze</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">3.1.4. 4. Evaluate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create">3.1.5. 5. Create</a></li>
 </ul>
   </nav></div>
 

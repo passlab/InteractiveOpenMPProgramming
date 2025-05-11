@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.7. Asynchronous Tasking &#8212; Interactive OpenMP Programming</title>
+    <title>2.8. Asynchronous Tasking &#8212; Interactive OpenMP Programming</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'MultiCoreMultiCPU/5_AsynchronousTasking';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.8. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct" href="6_ExplicitDistribution.html" />
-    <link rel="prev" title="2.6. Synchronization of Threads Using Barrier and Ordered Directive" href="4_SynchronizationThreads_Claude.html" />
+    <link rel="next" title="2.9. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct" href="6_ExplicitDistribution.html" />
+    <link rel="prev" title="2.7. Synchronization of Threads Using Barrier and Ordered Directive" href="4_SynchronizationThreads_Claude.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -191,37 +191,40 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">2. Parallel Programming for Multicore and Multi-CPU Machines</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_MIMDArchitecture.html">2.1. Multicore and Multi-CPU shared memory systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_UsingOpenMP_parallel.html">2.2. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_UsingOpenMP_teams.html">2.3. Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads.html">2.4. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Gemini.html">2.5. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Claude.html">2.6. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.7. Asynchronous Tasking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_ExplicitDistribution.html">2.8. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0_Learning_Objectives.html">2.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_MIMDArchitecture.html">2.2. Multicore and Multi-CPU shared memory systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_UsingOpenMP_parallel.html">2.3. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_UsingOpenMP_teams.html">2.4. Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads.html">2.5. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Gemini.html">2.6. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Claude.html">2.7. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.8. Asynchronous Tasking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_ExplicitDistribution.html">2.9. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization.html">3.1. Introduction to SIMD and Vectorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/2_OpenMPSIMDConstructsAndClauses.html">3.2. OpenMP SIMD Constructs and Clauses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/3_UtilizingSIMDDirectivesForLoopVectorization.html">3.3. Utilizing SIMD Directives for Loop Vectorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.html">3.4. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/5_DataAlignmentandLinearClauses.html">3.5. Data Alignment and Linear Clauses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/6_SIMDReductionsAndScans.html">3.6. SIMD Reductions and Scans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/7_BestPracticesAndPerformanceConsiderations.html">3.7. Best Practices and Performance Considerations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/8_RealWorldExamplesAndCaseStudies.html">3.8. Real-World Examples and Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/0_Learning_Objectives.html">3.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization.html">3.2. Introduction to SIMD and Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/2_OpenMPSIMDConstructsAndClauses.html">3.3. OpenMP SIMD Constructs and Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/3_UtilizingSIMDDirectivesForLoopVectorization.html">3.4. Utilizing SIMD Directives for Loop Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.html">3.5. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/5_DataAlignmentandLinearClauses.html">3.6. Data Alignment and Linear Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/6_SIMDReductionsAndScans.html">3.7. SIMD Reductions and Scans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/7_BestPracticesAndPerformanceConsiderations.html">3.8. Best Practices and Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/8_RealWorldExamplesAndCaseStudies.html">3.9. Real-World Examples and Case Studies</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_Introduction.html">4.1. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_OpenMPDeviceConstructs.html">4.2. OpenMP Device Constructs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/3_MappingDataToGPUDevices.html">4.3. Mapping Data to GPU Devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/4_AsynchronousExecutionAndDependencies.html">4.4. Asynchronous Execution and Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/5_DeviceMemoryManagement.html">4.5. Device Memory Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/6_ParallelExecutionOnGPUDevices.html">4.6. Parallel Execution on GPU Devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/7_TuningPerformanceForGPUOffloading.html">4.7. Tuning Performance for GPU Offloading</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/8_AdvancedTopicsAndBestPractices.html">4.8. Advanced Topics and Best Practices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/9_Conclusion.html">4.9. Conclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/0_Learning_Objectives.html">4.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_Introduction.html">4.2. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_OpenMPDeviceConstructs.html">4.3. OpenMP Device Constructs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/3_MappingDataToGPUDevices.html">4.4. Mapping Data to GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/4_AsynchronousExecutionAndDependencies.html">4.5. Asynchronous Execution and Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/5_DeviceMemoryManagement.html">4.6. Device Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/6_ParallelExecutionOnGPUDevices.html">4.7. Parallel Execution on GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/7_TuningPerformanceForGPUOffloading.html">4.8. Tuning Performance for GPU Offloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/8_AdvancedTopicsAndBestPractices.html">4.9. Advanced Topics and Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/9_Conclusion.html">4.10. Conclusion</a></li>
 </ul>
 </details></li>
 </ul>
@@ -450,65 +453,65 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-openmp-tasks">2.7.1. Introduction to OpenMP Tasks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-for-using-tasks-in-parallel-programming">2.7.1.1. Motivation for using tasks in parallel programming</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-task-based-parallelism-model-in-openmp">2.7.1.2. Overview of the task-based parallelism model in OpenMP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-openmp-tasks">2.8.1. Introduction to OpenMP Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-for-using-tasks-in-parallel-programming">2.8.1.1. Motivation for using tasks in parallel programming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-task-based-parallelism-model-in-openmp">2.8.1.2. Overview of the task-based parallelism model in OpenMP</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage-of-the-task-directive">2.7.2. Basic Usage of the <code class="docutils literal notranslate"><span class="pre">task</span></code> Directive</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-clauses-of-the-task-directive">2.7.2.1. Syntax and clauses of the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-executing-tasks">2.7.2.2. Creating and executing tasks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-parallel-computation-using-tasks">2.7.2.3. Example: Parallel computation using tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage-of-the-task-directive">2.8.2. Basic Usage of the <code class="docutils literal notranslate"><span class="pre">task</span></code> Directive</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-clauses-of-the-task-directive">2.8.2.1. Syntax and clauses of the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-executing-tasks">2.8.2.2. Creating and executing tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-parallel-computation-using-tasks">2.8.2.3. Example: Parallel computation using tasks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-environment-and-data-sharing">2.7.3. Data Environment and Data Sharing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-data-environment-in-tasks">2.7.3.1. Understanding the data environment in tasks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-and-private-variables">2.7.3.2. Shared and private variables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#firstprivate-and-lastprivate-clauses">2.7.3.3. Firstprivate and lastprivate clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-sharing-in-tasks">2.7.3.4. Example: Data sharing in tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-environment-and-data-sharing">2.8.3. Data Environment and Data Sharing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-data-environment-in-tasks">2.8.3.1. Understanding the data environment in tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-and-private-variables">2.8.3.2. Shared and private variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#firstprivate-and-lastprivate-clauses">2.8.3.3. Firstprivate and lastprivate clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-sharing-in-tasks">2.8.3.4. Example: Data sharing in tasks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-synchronization">2.7.4. Task Synchronization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-taskwait-directive">2.7.4.1. The <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-taskgroup-directive">2.7.4.2. The <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> directive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-dependencies-and-the-depend-clause">2.7.4.3. Task dependencies and the <code class="docutils literal notranslate"><span class="pre">depend</span></code> clause</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-task-synchronization-and-dependencies">2.7.4.4. Example: Task synchronization and dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-synchronization">2.8.4. Task Synchronization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-taskwait-directive">2.8.4.1. The <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-taskgroup-directive">2.8.4.2. The <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> directive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-dependencies-and-the-depend-clause">2.8.4.3. Task dependencies and the <code class="docutils literal notranslate"><span class="pre">depend</span></code> clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-task-synchronization-and-dependencies">2.8.4.4. Example: Task synchronization and dependencies</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-scheduling">2.7.5. Task Scheduling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-task-scheduling-model-in-openmp">2.7.5.1. The task scheduling model in OpenMP</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tied-and-untied-tasks">2.7.5.2. Tied and untied tasks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-final-and-mergeable-clauses">2.7.5.3. The <code class="docutils literal notranslate"><span class="pre">final</span></code> and <code class="docutils literal notranslate"><span class="pre">mergeable</span></code> clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-controlling-task-scheduling">2.7.5.4. Example: Controlling task scheduling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-priority-clause-for-task-prioritization">2.7.5.5. The <code class="docutils literal notranslate"><span class="pre">priority</span></code> clause for task prioritization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-taskloop-directive-for-task-based-loop-parallelism">2.7.5.6. The <code class="docutils literal notranslate"><span class="pre">taskloop</span></code> directive for task-based loop parallelism</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-tasks-with-other-openmp-constructs">2.7.5.7. Combining tasks with other OpenMP constructs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-advanced-task-usage">2.7.5.8. Example: Advanced task usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-scheduling">2.8.5. Task Scheduling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-task-scheduling-model-in-openmp">2.8.5.1. The task scheduling model in OpenMP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tied-and-untied-tasks">2.8.5.2. Tied and untied tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-final-and-mergeable-clauses">2.8.5.3. The <code class="docutils literal notranslate"><span class="pre">final</span></code> and <code class="docutils literal notranslate"><span class="pre">mergeable</span></code> clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-controlling-task-scheduling">2.8.5.4. Example: Controlling task scheduling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-priority-clause-for-task-prioritization">2.8.5.5. The <code class="docutils literal notranslate"><span class="pre">priority</span></code> clause for task prioritization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-taskloop-directive-for-task-based-loop-parallelism">2.8.5.6. The <code class="docutils literal notranslate"><span class="pre">taskloop</span></code> directive for task-based loop parallelism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-tasks-with-other-openmp-constructs">2.8.5.7. Combining tasks with other OpenMP constructs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-advanced-task-usage">2.8.5.8. Example: Advanced task usage</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-considerations-and-best-practices">2.7.6. Performance Considerations and Best Practices</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-granularity-and-overhead">2.7.6.1. Task granularity and overhead</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-task-distribution">2.7.6.2. Load balancing and task distribution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-task-synchronization-bottlenecks">2.7.6.3. Avoiding task synchronization bottlenecks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-optimizing-task-performance">2.7.6.4. Example: Optimizing task performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-considerations-and-best-practices">2.8.6. Performance Considerations and Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-granularity-and-overhead">2.8.6.1. Task granularity and overhead</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-task-distribution">2.8.6.2. Load balancing and task distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-task-synchronization-bottlenecks">2.8.6.3. Avoiding task synchronization bottlenecks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-optimizing-task-performance">2.8.6.4. Example: Optimizing task performance</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-and-profiling-tasks">2.7.7. Debugging and Profiling Tasks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-debugging-techniques-for-tasks">2.7.7.1. Common pitfalls and debugging techniques for tasks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-openmp-debugging-and-profiling-tools">2.7.7.2. Using OpenMP debugging and profiling tools</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-debugging-and-profiling-a-task-based-program">2.7.7.3. Example: Debugging and profiling a task-based program</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-and-profiling-tasks">2.8.7. Debugging and Profiling Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-debugging-techniques-for-tasks">2.8.7.1. Common pitfalls and debugging techniques for tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-openmp-debugging-and-profiling-tools">2.8.7.2. Using OpenMP debugging and profiling tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-debugging-and-profiling-a-task-based-program">2.8.7.3. Example: Debugging and profiling a task-based program</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-applications-and-use-cases">2.7.8. Real-world Applications and Use Cases</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-computing">2.7.8.1. Scientific Computing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">2.7.8.2. Machine Learning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-graphics">2.7.8.3. Computer Graphics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis">2.7.8.4. Data Analysis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-studies">2.7.8.5. Case Studies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-applications-and-use-cases">2.8.8. Real-world Applications and Use Cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-computing">2.8.8.1. Scientific Computing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">2.8.8.2. Machine Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-graphics">2.8.8.3. Computer Graphics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis">2.8.8.4. Data Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-studies">2.8.8.5. Case Studies</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-and-future-directions">2.7.9. Summary and Future Directions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-and-projects">2.7.10. Exercises and Projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-and-future-directions">2.8.9. Summary and Future Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-and-projects">2.8.10. Exercises and Projects</a></li>
 </ul>
             </nav>
         </div>
@@ -521,12 +524,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="asynchronous-tasking">
-<h1><span class="section-number">2.7. </span>Asynchronous Tasking<a class="headerlink" href="#asynchronous-tasking" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">2.8. </span>Asynchronous Tasking<a class="headerlink" href="#asynchronous-tasking" title="Link to this heading">#</a></h1>
 <section id="introduction-to-openmp-tasks">
-<h2><span class="section-number">2.7.1. </span>Introduction to OpenMP Tasks<a class="headerlink" href="#introduction-to-openmp-tasks" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.1. </span>Introduction to OpenMP Tasks<a class="headerlink" href="#introduction-to-openmp-tasks" title="Link to this heading">#</a></h2>
 <p>In the realm of parallel programming, the traditional approach of using parallel loops and regions has been widely adopted for exploiting parallelism in applications. However, as the complexity of parallel algorithms and the scale of parallel systems continue to grow, the need for more flexible and expressive parallelism models has become increasingly apparent. This is where task-based parallelism comes into play, and OpenMP, as a prominent parallel programming framework, provides robust support for task-based programming through the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive.</p>
 <section id="motivation-for-using-tasks-in-parallel-programming">
-<h3><span class="section-number">2.7.1.1. </span>Motivation for using tasks in parallel programming<a class="headerlink" href="#motivation-for-using-tasks-in-parallel-programming" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.1.1. </span>Motivation for using tasks in parallel programming<a class="headerlink" href="#motivation-for-using-tasks-in-parallel-programming" title="Link to this heading">#</a></h3>
 <p>Task-based parallelism offers several compelling advantages over traditional loop-based parallelism:</p>
 <ol class="arabic simple">
 <li><p><strong>Irregular parallelism:</strong> Many real-world problems exhibit irregular parallelism, where the workload is not evenly distributed among parallel units. Tasks allow you to express and exploit this irregular parallelism by dynamically creating and executing units of work as needed.</p></li>
@@ -537,7 +540,7 @@ document.write(`
 </ol>
 </section>
 <section id="overview-of-the-task-based-parallelism-model-in-openmp">
-<h3><span class="section-number">2.7.1.2. </span>Overview of the task-based parallelism model in OpenMP<a class="headerlink" href="#overview-of-the-task-based-parallelism-model-in-openmp" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.1.2. </span>Overview of the task-based parallelism model in OpenMP<a class="headerlink" href="#overview-of-the-task-based-parallelism-model-in-openmp" title="Link to this heading">#</a></h3>
 <p>OpenMP provides a flexible and intuitive model for task-based parallelism through the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive. The key concepts in OpenMP’s task-based parallelism model are as follows:</p>
 <ol class="arabic simple">
 <li><p><strong>Task creation:</strong> The <code class="docutils literal notranslate"><span class="pre">task</span></code> directive is used to define a unit of work that can be executed asynchronously. When a thread encounters a <code class="docutils literal notranslate"><span class="pre">task</span></code> directive, it creates a new task and adds it to a pool of tasks that are ready for execution.</p></li>
@@ -550,10 +553,10 @@ document.write(`
 </section>
 </section>
 <section id="basic-usage-of-the-task-directive">
-<h2><span class="section-number">2.7.2. </span>Basic Usage of the <code class="docutils literal notranslate"><span class="pre">task</span></code> Directive<a class="headerlink" href="#basic-usage-of-the-task-directive" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.2. </span>Basic Usage of the <code class="docutils literal notranslate"><span class="pre">task</span></code> Directive<a class="headerlink" href="#basic-usage-of-the-task-directive" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">task</span></code> directive is the fundamental building block for task-based programming in OpenMP. It allows you to define a unit of work that can be executed asynchronously by available threads in the thread team. In this section, we will explore the syntax and clauses of the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive and provide examples of how to create and execute tasks.</p>
 <section id="syntax-and-clauses-of-the-task-directive">
-<h3><span class="section-number">2.7.2.1. </span>Syntax and clauses of the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive<a class="headerlink" href="#syntax-and-clauses-of-the-task-directive" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.2.1. </span>Syntax and clauses of the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive<a class="headerlink" href="#syntax-and-clauses-of-the-task-directive" title="Link to this heading">#</a></h3>
 <p>The basic syntax of the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive in C/C++ is as follows:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp task [clause[[,] clause] ...]</span>
 <span class="p">{</span>
@@ -580,7 +583,7 @@ document.write(`
 <p>These clauses provide fine-grained control over the data environment and execution behavior of tasks.</p>
 </section>
 <section id="creating-and-executing-tasks">
-<h3><span class="section-number">2.7.2.2. </span>Creating and executing tasks<a class="headerlink" href="#creating-and-executing-tasks" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.2.2. </span>Creating and executing tasks<a class="headerlink" href="#creating-and-executing-tasks" title="Link to this heading">#</a></h3>
 <p>To create a task, simply enclose the code block representing the task within the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive. Here’s a basic example:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp parallel</span>
 <span class="p">{</span>
@@ -596,7 +599,7 @@ document.write(`
 <p>It’s important to note that the creation of a task does not guarantee its immediate execution. The actual execution of tasks is determined by the OpenMP runtime and the available threads in the team.</p>
 </section>
 <section id="example-parallel-computation-using-tasks">
-<h3><span class="section-number">2.7.2.3. </span>Example: Parallel computation using tasks<a class="headerlink" href="#example-parallel-computation-using-tasks" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.2.3. </span>Example: Parallel computation using tasks<a class="headerlink" href="#example-parallel-computation-using-tasks" title="Link to this heading">#</a></h3>
 <p>Let’s consider a more practical example where tasks are used to perform parallel computation. Suppose we have an array of integers and we want to compute the sum of its elements using tasks.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -637,15 +640,15 @@ document.write(`
 </section>
 </section>
 <section id="data-environment-and-data-sharing">
-<h2><span class="section-number">2.7.3. </span>Data Environment and Data Sharing<a class="headerlink" href="#data-environment-and-data-sharing" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.3. </span>Data Environment and Data Sharing<a class="headerlink" href="#data-environment-and-data-sharing" title="Link to this heading">#</a></h2>
 <p>When using tasks in OpenMP, it’s crucial to understand how data is shared and accessed by tasks. OpenMP provides mechanisms to control the data environment and data sharing among tasks, ensuring data consistency and avoiding race conditions. In this section, we will discuss the data environment in tasks, shared and private variables, and the usage of the <code class="docutils literal notranslate"><span class="pre">firstprivate</span></code> and <code class="docutils literal notranslate"><span class="pre">lastprivate</span></code> clauses.</p>
 <section id="understanding-the-data-environment-in-tasks">
-<h3><span class="section-number">2.7.3.1. </span>Understanding the data environment in tasks<a class="headerlink" href="#understanding-the-data-environment-in-tasks" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.3.1. </span>Understanding the data environment in tasks<a class="headerlink" href="#understanding-the-data-environment-in-tasks" title="Link to this heading">#</a></h3>
 <p>Each task in OpenMP has its own data environment, which consists of variables that are private to the task and variables that are shared among tasks. The data environment of a task is determined by the data-sharing attributes of variables, which can be explicitly specified using clauses or defaulted based on the OpenMP default data-sharing rules.</p>
 <p>By default, variables declared outside the task construct are shared among tasks, while variables declared inside the task construct are private to each task. However, these default behaviors can be overridden using data-sharing clauses.</p>
 </section>
 <section id="shared-and-private-variables">
-<h3><span class="section-number">2.7.3.2. </span>Shared and private variables<a class="headerlink" href="#shared-and-private-variables" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.3.2. </span>Shared and private variables<a class="headerlink" href="#shared-and-private-variables" title="Link to this heading">#</a></h3>
 <p>Shared variables are accessible by all tasks and have a single storage location. Changes made to a shared variable by one task are visible to other tasks. To specify that a variable should be shared among tasks, you can use the <code class="docutils literal notranslate"><span class="pre">shared</span></code> clause. For example:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="cp">#pragma omp task shared(x)</span>
@@ -664,7 +667,7 @@ document.write(`
 </div>
 </section>
 <section id="firstprivate-and-lastprivate-clauses">
-<h3><span class="section-number">2.7.3.3. </span>Firstprivate and lastprivate clauses<a class="headerlink" href="#firstprivate-and-lastprivate-clauses" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.3.3. </span>Firstprivate and lastprivate clauses<a class="headerlink" href="#firstprivate-and-lastprivate-clauses" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">firstprivate</span></code> and <code class="docutils literal notranslate"><span class="pre">lastprivate</span></code> clauses provide additional control over the initialization and final value of variables in tasks.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">firstprivate</span></code> clause specifies that each task should have its own private copy of a variable, initialized with the value of the corresponding variable at the time of task creation. This is useful when you want each task to start with the same initial value of a variable. For example:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
@@ -686,7 +689,7 @@ document.write(`
 </div>
 </section>
 <section id="example-data-sharing-in-tasks">
-<h3><span class="section-number">2.7.3.4. </span>Example: Data sharing in tasks<a class="headerlink" href="#example-data-sharing-in-tasks" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.3.4. </span>Example: Data sharing in tasks<a class="headerlink" href="#example-data-sharing-in-tasks" title="Link to this heading">#</a></h3>
 <p>Let’s consider an example that demonstrates data sharing in tasks:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -725,10 +728,10 @@ document.write(`
 </section>
 </section>
 <section id="task-synchronization">
-<h2><span class="section-number">2.7.4. </span>Task Synchronization<a class="headerlink" href="#task-synchronization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.4. </span>Task Synchronization<a class="headerlink" href="#task-synchronization" title="Link to this heading">#</a></h2>
 <p>When working with tasks in OpenMP, synchronization is often necessary to coordinate the execution of tasks and ensure proper order and data consistency. OpenMP provides several constructs and clauses for task synchronization, including the <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive, the <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> directive, and the <code class="docutils literal notranslate"><span class="pre">depend</span></code> clause. In this section, we will explore these synchronization mechanisms and discuss how to use them effectively.</p>
 <section id="the-taskwait-directive">
-<h3><span class="section-number">2.7.4.1. </span>The <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive<a class="headerlink" href="#the-taskwait-directive" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.4.1. </span>The <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive<a class="headerlink" href="#the-taskwait-directive" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive is used to specify a wait point where the current task waits for the completion of all its child tasks before proceeding. When a task encounters a <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive, it suspends its execution until all the tasks it has created have finished.</p>
 <p>The syntax for the <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive in C/C++ is as follows:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp taskwait</span>
@@ -741,7 +744,7 @@ document.write(`
 <p>The <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive ensures that the execution of the current task does not proceed until all its child tasks have completed. This is useful when you need to enforce a specific order of execution or when you want to ensure that certain tasks have finished before continuing.</p>
 </section>
 <section id="the-taskgroup-directive">
-<h3><span class="section-number">2.7.4.2. </span>The <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> directive<a class="headerlink" href="#the-taskgroup-directive" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.4.2. </span>The <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> directive<a class="headerlink" href="#the-taskgroup-directive" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> directive is used to define a block of code where all tasks created within that block are part of the same task group. The <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> directive ensures that all tasks within the group complete before the execution of the code continues beyond the <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> block.</p>
 <p>The syntax for the <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> directive in C/C++ is as follows:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp taskgroup</span>
@@ -759,7 +762,7 @@ document.write(`
 <p>The <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> directive is helpful when you have a set of related tasks that need to be synchronized as a unit. It allows you to create a synchronization point where all tasks within the group must complete before proceeding.</p>
 </section>
 <section id="task-dependencies-and-the-depend-clause">
-<h3><span class="section-number">2.7.4.3. </span>Task dependencies and the <code class="docutils literal notranslate"><span class="pre">depend</span></code> clause<a class="headerlink" href="#task-dependencies-and-the-depend-clause" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.4.3. </span>Task dependencies and the <code class="docutils literal notranslate"><span class="pre">depend</span></code> clause<a class="headerlink" href="#task-dependencies-and-the-depend-clause" title="Link to this heading">#</a></h3>
 <p>OpenMP introduced the concept of task dependencies, which allows you to specify the order in which tasks should be executed based on their data dependencies. The <code class="docutils literal notranslate"><span class="pre">depend</span></code> clause is used to express the dependencies between tasks.</p>
 <p>The syntax for the <code class="docutils literal notranslate"><span class="pre">depend</span></code> clause in C/C++ is as follows:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp task depend(dependency-type: var-list)</span>
@@ -778,7 +781,7 @@ document.write(`
 <p>By specifying task dependencies, you can create a task graph where tasks are executed based on their data dependencies. This ensures that tasks are executed in the correct order and avoids data races.</p>
 </section>
 <section id="example-task-synchronization-and-dependencies">
-<h3><span class="section-number">2.7.4.4. </span>Example: Task synchronization and dependencies<a class="headerlink" href="#example-task-synchronization-and-dependencies" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.4.4. </span>Example: Task synchronization and dependencies<a class="headerlink" href="#example-task-synchronization-and-dependencies" title="Link to this heading">#</a></h3>
 <p>Let’s consider an example that demonstrates task synchronization and dependencies:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -832,16 +835,16 @@ document.write(`
 </section>
 </section>
 <section id="task-scheduling">
-<h2><span class="section-number">2.7.5. </span>Task Scheduling<a class="headerlink" href="#task-scheduling" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.5. </span>Task Scheduling<a class="headerlink" href="#task-scheduling" title="Link to this heading">#</a></h2>
 <p>OpenMP provides a flexible task scheduling model that allows the runtime system to efficiently distribute tasks among threads for execution. The task scheduling model determines how and when tasks are assigned to threads, taking into account factors such as load balancing, task dependencies, and resource utilization. In this section, we will discuss the task scheduling model in OpenMP, tied and untied tasks, and the <code class="docutils literal notranslate"><span class="pre">final</span></code> and <code class="docutils literal notranslate"><span class="pre">mergeable</span></code> clauses.</p>
 <section id="the-task-scheduling-model-in-openmp">
-<h3><span class="section-number">2.7.5.1. </span>The task scheduling model in OpenMP<a class="headerlink" href="#the-task-scheduling-model-in-openmp" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.5.1. </span>The task scheduling model in OpenMP<a class="headerlink" href="#the-task-scheduling-model-in-openmp" title="Link to this heading">#</a></h3>
 <p>OpenMP uses a task scheduling model that is based on a task queue and a pool of worker threads. When a task is created using the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive, it is placed into a task queue. The worker threads then pick tasks from the queue and execute them.</p>
 <p>The specific scheduling policy used to assign tasks to threads is implementation-defined and may vary between different OpenMP runtimes. However, OpenMP provides certain guarantees and mechanisms to control the scheduling behavior.</p>
 <p>By default, OpenMP uses a work-stealing approach, where idle threads can steal tasks from the task queues of other threads. This helps in achieving load balancing and efficient utilization of resources.</p>
 </section>
 <section id="tied-and-untied-tasks">
-<h3><span class="section-number">2.7.5.2. </span>Tied and untied tasks<a class="headerlink" href="#tied-and-untied-tasks" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.5.2. </span>Tied and untied tasks<a class="headerlink" href="#tied-and-untied-tasks" title="Link to this heading">#</a></h3>
 <p>OpenMP introduces the concept of tied and untied tasks to control the relationship between tasks and the threads that execute them.</p>
 <p>A tied task is a task that is tied to the thread that started its execution. Once a tied task starts executing on a particular thread, it can only be resumed by the same thread after a suspension point (e.g., a <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive). Tied tasks provide certain guarantees, such as the preservation of thread-specific state and the ability to use thread-specific resources.</p>
 <p>On the other hand, an untied task is not tied to any specific thread and can be resumed by any available thread after a suspension point. Untied tasks offer more flexibility in terms of scheduling and load balancing, as they can be freely moved between threads.</p>
@@ -854,7 +857,7 @@ document.write(`
 </div>
 </section>
 <section id="the-final-and-mergeable-clauses">
-<h3><span class="section-number">2.7.5.3. </span>The <code class="docutils literal notranslate"><span class="pre">final</span></code> and <code class="docutils literal notranslate"><span class="pre">mergeable</span></code> clauses<a class="headerlink" href="#the-final-and-mergeable-clauses" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.5.3. </span>The <code class="docutils literal notranslate"><span class="pre">final</span></code> and <code class="docutils literal notranslate"><span class="pre">mergeable</span></code> clauses<a class="headerlink" href="#the-final-and-mergeable-clauses" title="Link to this heading">#</a></h3>
 <p>OpenMP provides two additional clauses that can be used to control the behavior of tasks: <code class="docutils literal notranslate"><span class="pre">final</span></code> and <code class="docutils literal notranslate"><span class="pre">mergeable</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">final</span></code> clause is used to specify that a task is a final task. A final task is a task that is guaranteed to be the last task created in a task region. When a final task is encountered, the runtime system stops creating new tasks and executes the final task immediately. The <code class="docutils literal notranslate"><span class="pre">final</span></code> clause takes a scalar expression as its argument, and if the expression evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the task is treated as a final task.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp task final(expression)</span>
@@ -872,7 +875,7 @@ document.write(`
 </div>
 </section>
 <section id="example-controlling-task-scheduling">
-<h3><span class="section-number">2.7.5.4. </span>Example: Controlling task scheduling<a class="headerlink" href="#example-controlling-task-scheduling" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.5.4. </span>Example: Controlling task scheduling<a class="headerlink" href="#example-controlling-task-scheduling" title="Link to this heading">#</a></h3>
 <p>Let’s consider an example that demonstrates the use of tied and untied tasks and the <code class="docutils literal notranslate"><span class="pre">final</span></code> clause:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -913,7 +916,7 @@ document.write(`
 <p>OpenMP offers several advanced features that enhance the functionality and flexibility of tasks. In this section, we will explore the <code class="docutils literal notranslate"><span class="pre">priority</span></code> clause for task prioritization, the <code class="docutils literal notranslate"><span class="pre">taskloop</span></code> directive for task-based loop parallelism, and the combination of tasks with other OpenMP constructs.</p>
 </section>
 <section id="the-priority-clause-for-task-prioritization">
-<h3><span class="section-number">2.7.5.5. </span>The <code class="docutils literal notranslate"><span class="pre">priority</span></code> clause for task prioritization<a class="headerlink" href="#the-priority-clause-for-task-prioritization" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.5.5. </span>The <code class="docutils literal notranslate"><span class="pre">priority</span></code> clause for task prioritization<a class="headerlink" href="#the-priority-clause-for-task-prioritization" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">priority</span></code> clause allows you to assign a priority value to a task, indicating its relative importance or urgency. The priority value is a hint to the OpenMP runtime system, suggesting the order in which tasks should be executed. Tasks with higher priority values are recommended to be executed before tasks with lower priority values.</p>
 <p>The syntax for the <code class="docutils literal notranslate"><span class="pre">priority</span></code> clause in C/C++ is as follows:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp task priority(priority-value)</span>
@@ -927,7 +930,7 @@ document.write(`
 <p>It’s important to note that the <code class="docutils literal notranslate"><span class="pre">priority</span></code> clause is a hint and does not guarantee a specific execution order. The actual scheduling of tasks depends on the OpenMP runtime system and may be influenced by other factors such as load balancing and resource availability.</p>
 </section>
 <section id="the-taskloop-directive-for-task-based-loop-parallelism">
-<h3><span class="section-number">2.7.5.6. </span>The <code class="docutils literal notranslate"><span class="pre">taskloop</span></code> directive for task-based loop parallelism<a class="headerlink" href="#the-taskloop-directive-for-task-based-loop-parallelism" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.5.6. </span>The <code class="docutils literal notranslate"><span class="pre">taskloop</span></code> directive for task-based loop parallelism<a class="headerlink" href="#the-taskloop-directive-for-task-based-loop-parallelism" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">taskloop</span></code> directive is used to create tasks for loop iterations in a more convenient and efficient way compared to manually creating tasks for each iteration. The <code class="docutils literal notranslate"><span class="pre">taskloop</span></code> directive automatically divides the loop iterations into tasks, reducing the overhead of task creation and management.</p>
 <p>The syntax for the <code class="docutils literal notranslate"><span class="pre">taskloop</span></code> directive in C/C++ is as follows:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp taskloop [clause[[,] clause] ...]</span>
@@ -944,7 +947,7 @@ document.write(`
 <p>The <code class="docutils literal notranslate"><span class="pre">grainsize</span></code> clause specifies the minimum number of loop iterations that should be executed by each task. This allows you to control the granularity of the tasks and optimize performance based on the characteristics of the loop and the target system.</p>
 </section>
 <section id="combining-tasks-with-other-openmp-constructs">
-<h3><span class="section-number">2.7.5.7. </span>Combining tasks with other OpenMP constructs<a class="headerlink" href="#combining-tasks-with-other-openmp-constructs" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.5.7. </span>Combining tasks with other OpenMP constructs<a class="headerlink" href="#combining-tasks-with-other-openmp-constructs" title="Link to this heading">#</a></h3>
 <p>Tasks can be combined with other OpenMP constructs to create more complex and flexible parallel patterns. For example, you can use tasks within <code class="docutils literal notranslate"><span class="pre">parallel</span></code> regions, <code class="docutils literal notranslate"><span class="pre">section</span></code> constructs, or <code class="docutils literal notranslate"><span class="pre">master</span></code> constructs to express hierarchical parallelism or to delegate specific computations to tasks.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp parallel</span>
 <span class="p">{</span>
@@ -974,7 +977,7 @@ document.write(`
 <p>In this example, tasks are created within <code class="docutils literal notranslate"><span class="pre">section</span></code> constructs inside a <code class="docutils literal notranslate"><span class="pre">parallel</span></code> region. Each section represents a different task, allowing for parallel execution of the tasks.</p>
 </section>
 <section id="example-advanced-task-usage">
-<h3><span class="section-number">2.7.5.8. </span>Example: Advanced task usage<a class="headerlink" href="#example-advanced-task-usage" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.5.8. </span>Example: Advanced task usage<a class="headerlink" href="#example-advanced-task-usage" title="Link to this heading">#</a></h3>
 <p>Let’s consider an example that demonstrates the usage of task priorities and the <code class="docutils literal notranslate"><span class="pre">taskloop</span></code> directive:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -1024,10 +1027,10 @@ document.write(`
 </section>
 </section>
 <section id="performance-considerations-and-best-practices">
-<h2><span class="section-number">2.7.6. </span>Performance Considerations and Best Practices<a class="headerlink" href="#performance-considerations-and-best-practices" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.6. </span>Performance Considerations and Best Practices<a class="headerlink" href="#performance-considerations-and-best-practices" title="Link to this heading">#</a></h2>
 <p>When using tasks in OpenMP, it’s important to consider performance aspects and follow best practices to ensure efficient and scalable parallel execution. In this section, we will discuss task granularity, overhead, load balancing, task distribution, and synchronization bottlenecks. We’ll also provide an example of optimizing task performance.</p>
 <section id="task-granularity-and-overhead">
-<h3><span class="section-number">2.7.6.1. </span>Task granularity and overhead<a class="headerlink" href="#task-granularity-and-overhead" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.6.1. </span>Task granularity and overhead<a class="headerlink" href="#task-granularity-and-overhead" title="Link to this heading">#</a></h3>
 <p>Task granularity refers to the amount of work performed by a single task. Choosing the right task granularity is crucial for achieving optimal performance. If tasks are too fine-grained (i.e., they perform a small amount of work), the overhead of task creation and management can outweigh the benefits of parallelism. On the other hand, if tasks are too coarse-grained (i.e., they perform a large amount of work), they may limit the potential for parallelism and lead to load imbalance.</p>
 <p>Finding the right balance in task granularity is important. As a general guideline, the work performed by a task should be significantly larger than the overhead of creating and managing the task. This ensures that the benefits of parallel execution outweigh the associated overhead.</p>
 <p>To minimize task overhead, consider the following:</p>
@@ -1038,7 +1041,7 @@ document.write(`
 </ul>
 </section>
 <section id="load-balancing-and-task-distribution">
-<h3><span class="section-number">2.7.6.2. </span>Load balancing and task distribution<a class="headerlink" href="#load-balancing-and-task-distribution" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.6.2. </span>Load balancing and task distribution<a class="headerlink" href="#load-balancing-and-task-distribution" title="Link to this heading">#</a></h3>
 <p>Load balancing is critical for achieving efficient parallel execution. OpenMP’s task scheduling model aims to distribute tasks evenly among the available threads to maximize resource utilization and minimize idle time.</p>
 <p>To promote load balancing, consider the following:</p>
 <ul class="simple">
@@ -1049,7 +1052,7 @@ document.write(`
 <p>In some cases, you may need to explicitly control the distribution of tasks to achieve better load balancing. This can be done by using techniques such as work stealing, where idle threads actively steal tasks from the queues of other threads.</p>
 </section>
 <section id="avoiding-task-synchronization-bottlenecks">
-<h3><span class="section-number">2.7.6.3. </span>Avoiding task synchronization bottlenecks<a class="headerlink" href="#avoiding-task-synchronization-bottlenecks" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.6.3. </span>Avoiding task synchronization bottlenecks<a class="headerlink" href="#avoiding-task-synchronization-bottlenecks" title="Link to this heading">#</a></h3>
 <p>Task synchronization, such as using the <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive or task dependencies, is necessary to ensure correct execution order and data consistency. However, excessive or unnecessary synchronization can lead to bottlenecks and hinder performance.</p>
 <p>To minimize synchronization bottlenecks, consider the following:</p>
 <ul class="simple">
@@ -1060,7 +1063,7 @@ document.write(`
 <p>By carefully designing your task synchronization strategy and minimizing unnecessary synchronization, you can avoid bottlenecks and improve the overall performance of your parallel code.</p>
 </section>
 <section id="example-optimizing-task-performance">
-<h3><span class="section-number">2.7.6.4. </span>Example: Optimizing task performance<a class="headerlink" href="#example-optimizing-task-performance" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.6.4. </span>Example: Optimizing task performance<a class="headerlink" href="#example-optimizing-task-performance" title="Link to this heading">#</a></h3>
 <p>Let’s consider an example that demonstrates optimization techniques for task performance:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -1107,10 +1110,10 @@ document.write(`
 </section>
 </section>
 <section id="debugging-and-profiling-tasks">
-<h2><span class="section-number">2.7.7. </span>Debugging and Profiling Tasks<a class="headerlink" href="#debugging-and-profiling-tasks" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.7. </span>Debugging and Profiling Tasks<a class="headerlink" href="#debugging-and-profiling-tasks" title="Link to this heading">#</a></h2>
 <p>Debugging and profiling are essential practices when developing task-based parallel programs in OpenMP. Debugging helps identify and fix logical errors and race conditions, while profiling assists in identifying performance bottlenecks and opportunities for optimization. In this section, we will discuss common pitfalls, debugging techniques, and the use of OpenMP debugging and profiling tools.</p>
 <section id="common-pitfalls-and-debugging-techniques-for-tasks">
-<h3><span class="section-number">2.7.7.1. </span>Common pitfalls and debugging techniques for tasks<a class="headerlink" href="#common-pitfalls-and-debugging-techniques-for-tasks" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.7.1. </span>Common pitfalls and debugging techniques for tasks<a class="headerlink" href="#common-pitfalls-and-debugging-techniques-for-tasks" title="Link to this heading">#</a></h3>
 <p>When working with tasks in OpenMP, there are several common pitfalls that can lead to incorrect behavior or performance issues. Some of these pitfalls include:</p>
 <ol class="arabic simple">
 <li><p>Data races: Data races occur when multiple tasks access shared data concurrently, and at least one of the accesses is a write. Data races can lead to unpredictable behavior and incorrect results. To avoid data races, ensure proper synchronization and use appropriate data-sharing clauses (<code class="docutils literal notranslate"><span class="pre">shared</span></code>, <code class="docutils literal notranslate"><span class="pre">private</span></code>, <code class="docutils literal notranslate"><span class="pre">firstprivate</span></code>, <code class="docutils literal notranslate"><span class="pre">lastprivate</span></code>) to manage data access.</p></li>
@@ -1127,7 +1130,7 @@ document.write(`
 </ol>
 </section>
 <section id="using-openmp-debugging-and-profiling-tools">
-<h3><span class="section-number">2.7.7.2. </span>Using OpenMP debugging and profiling tools<a class="headerlink" href="#using-openmp-debugging-and-profiling-tools" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.7.2. </span>Using OpenMP debugging and profiling tools<a class="headerlink" href="#using-openmp-debugging-and-profiling-tools" title="Link to this heading">#</a></h3>
 <p>OpenMP-aware debugging and profiling tools can greatly assist in identifying and resolving issues in task-based parallel programs. These tools provide specialized features and visualizations to understand the behavior and performance of OpenMP tasks.</p>
 <p>Some popular OpenMP debugging and profiling tools include:</p>
 <ol class="arabic simple">
@@ -1139,7 +1142,7 @@ document.write(`
 <p>These tools offer various features and capabilities to help diagnose and optimize task-based OpenMP programs. They can provide insights into task creation, scheduling, synchronization, and performance metrics, enabling you to identify and resolve issues effectively.</p>
 </section>
 <section id="example-debugging-and-profiling-a-task-based-program">
-<h3><span class="section-number">2.7.7.3. </span>Example: Debugging and profiling a task-based program<a class="headerlink" href="#example-debugging-and-profiling-a-task-based-program" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.7.3. </span>Example: Debugging and profiling a task-based program<a class="headerlink" href="#example-debugging-and-profiling-a-task-based-program" title="Link to this heading">#</a></h3>
 <p>Let’s consider an example of debugging and profiling a task-based OpenMP program:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -1189,10 +1192,10 @@ document.write(`
 </section>
 </section>
 <section id="real-world-applications-and-use-cases">
-<h2><span class="section-number">2.7.8. </span>Real-world Applications and Use Cases<a class="headerlink" href="#real-world-applications-and-use-cases" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.8. </span>Real-world Applications and Use Cases<a class="headerlink" href="#real-world-applications-and-use-cases" title="Link to this heading">#</a></h2>
 <p>Task-based programming with OpenMP finds applications in various domains, ranging from scientific computing and machine learning to computer graphics and data analysis. In this section, we will explore some real-world applications and use cases where task-based parallelism with OpenMP has been successfully employed to achieve performance improvements and solve complex problems.</p>
 <section id="scientific-computing">
-<h3><span class="section-number">2.7.8.1. </span>Scientific Computing<a class="headerlink" href="#scientific-computing" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.8.1. </span>Scientific Computing<a class="headerlink" href="#scientific-computing" title="Link to this heading">#</a></h3>
 <p>Scientific computing often involves complex algorithms and large-scale simulations that can benefit from task-based parallelism. Some examples include:</p>
 <ol class="arabic simple">
 <li><p>Molecular Dynamics Simulations: Molecular dynamics simulations model the interactions and movements of particles in a system over time. Task-based parallelism can be used to distribute the computation of forces and positions of particles among tasks, allowing for efficient parallel execution.</p></li>
@@ -1201,7 +1204,7 @@ document.write(`
 </ol>
 </section>
 <section id="machine-learning">
-<h3><span class="section-number">2.7.8.2. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.8.2. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h3>
 <p>Machine learning algorithms often involve computationally intensive tasks that can benefit from task-based parallelism. Some examples include:</p>
 <ol class="arabic simple">
 <li><p>Neural Network Training: Training deep neural networks requires a significant amount of computation. Task-based parallelism can be used to distribute the computation of forward and backward propagation, weight updates, and data loading among tasks, accelerating the training process.</p></li>
@@ -1210,7 +1213,7 @@ document.write(`
 </ol>
 </section>
 <section id="computer-graphics">
-<h3><span class="section-number">2.7.8.3. </span>Computer Graphics<a class="headerlink" href="#computer-graphics" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.8.3. </span>Computer Graphics<a class="headerlink" href="#computer-graphics" title="Link to this heading">#</a></h3>
 <p>Computer graphics applications often involve complex rendering and simulation tasks that can leverage task-based parallelism. Some examples include:</p>
 <ol class="arabic simple">
 <li><p>Ray Tracing: Ray tracing is a rendering technique used to generate realistic images by simulating the interaction of light with objects in a scene. Task-based parallelism can be used to distribute the computation of individual rays among tasks, allowing for faster rendering times.</p></li>
@@ -1219,7 +1222,7 @@ document.write(`
 </ol>
 </section>
 <section id="data-analysis">
-<h3><span class="section-number">2.7.8.4. </span>Data Analysis<a class="headerlink" href="#data-analysis" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.8.4. </span>Data Analysis<a class="headerlink" href="#data-analysis" title="Link to this heading">#</a></h3>
 <p>Data analysis tasks often involve processing large datasets and performing computationally intensive operations. Task-based parallelism can be leveraged to speed up data analysis pipelines. Some examples include:</p>
 <ol class="arabic simple">
 <li><p>Data Preprocessing: Data preprocessing tasks, such as data cleaning, normalization, and feature scaling, can be parallelized using tasks. Each task can handle a subset of the data, allowing for faster preprocessing of large datasets.</p></li>
@@ -1228,7 +1231,7 @@ document.write(`
 </ol>
 </section>
 <section id="case-studies">
-<h3><span class="section-number">2.7.8.5. </span>Case Studies<a class="headerlink" href="#case-studies" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.8.8.5. </span>Case Studies<a class="headerlink" href="#case-studies" title="Link to this heading">#</a></h3>
 <p>There are numerous case studies showcasing the successful application of task-based parallelism with OpenMP in various domains. Here are a few examples:</p>
 <ol class="arabic simple">
 <li><p>Molecular Dynamics Simulation: A study by Wei et al. [1] demonstrated the use of task-based parallelism with OpenMP to accelerate molecular dynamics simulations. By employing a task-based approach, they achieved significant speedups compared to traditional loop-based parallelism.</p></li>
@@ -1241,7 +1244,7 @@ document.write(`
 </section>
 </section>
 <section id="summary-and-future-directions">
-<h2><span class="section-number">2.7.9. </span>Summary and Future Directions<a class="headerlink" href="#summary-and-future-directions" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.9. </span>Summary and Future Directions<a class="headerlink" href="#summary-and-future-directions" title="Link to this heading">#</a></h2>
 <p>In this chapter, we have explored the concept of task-based programming with OpenMP and its application in various domains. We started by introducing the motivation behind using tasks and the task-based parallelism model in OpenMP. We then delved into the basic usage of the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive, including its syntax, clauses, and the creation and execution of tasks.</p>
 <p>We discussed the data environment and data sharing in tasks, highlighting the importance of understanding shared and private variables, as well as the <code class="docutils literal notranslate"><span class="pre">firstprivate</span></code> and <code class="docutils literal notranslate"><span class="pre">lastprivate</span></code> clauses. Task synchronization was covered, including the use of the <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive, the <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> directive, and task dependencies with the <code class="docutils literal notranslate"><span class="pre">depend</span></code> clause.</p>
 <p>We explored the task scheduling model in OpenMP, including tied and untied tasks, and the <code class="docutils literal notranslate"><span class="pre">final</span></code> and <code class="docutils literal notranslate"><span class="pre">mergeable</span></code> clauses. Advanced task features, such as the <code class="docutils literal notranslate"><span class="pre">priority</span></code> clause and the <code class="docutils literal notranslate"><span class="pre">taskloop</span></code> directive, were introduced to provide additional control and optimization opportunities.</p>
@@ -1258,7 +1261,7 @@ document.write(`
 <p>As parallel computing continues to evolve, task-based programming with OpenMP will play a vital role in harnessing the power of parallel systems and enabling the development of efficient and scalable parallel applications.</p>
 </section>
 <section id="exercises-and-projects">
-<h2><span class="section-number">2.7.10. </span>Exercises and Projects<a class="headerlink" href="#exercises-and-projects" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.8.10. </span>Exercises and Projects<a class="headerlink" href="#exercises-and-projects" title="Link to this heading">#</a></h2>
 <p>To reinforce your understanding of task-based programming with OpenMP and apply the concepts learned in this chapter, here are some exercises and project ideas:</p>
 <ol class="arabic simple">
 <li><p>Fibonacci Sequence: Implement a recursive function to compute the Fibonacci sequence using OpenMP tasks. Explore the impact of task granularity on performance by varying the threshold at which tasks are created.</p></li>
@@ -1314,7 +1317,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.6. </span>Synchronization of Threads Using Barrier and Ordered Directive</p>
+        <p class="prev-next-title"><span class="section-number">2.7. </span>Synchronization of Threads Using Barrier and Ordered Directive</p>
       </div>
     </a>
     <a class="right-next"
@@ -1322,7 +1325,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.8. </span>Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct</p>
+        <p class="prev-next-title"><span class="section-number">2.9. </span>Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1342,65 +1345,65 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-openmp-tasks">2.7.1. Introduction to OpenMP Tasks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-for-using-tasks-in-parallel-programming">2.7.1.1. Motivation for using tasks in parallel programming</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-task-based-parallelism-model-in-openmp">2.7.1.2. Overview of the task-based parallelism model in OpenMP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-openmp-tasks">2.8.1. Introduction to OpenMP Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-for-using-tasks-in-parallel-programming">2.8.1.1. Motivation for using tasks in parallel programming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-task-based-parallelism-model-in-openmp">2.8.1.2. Overview of the task-based parallelism model in OpenMP</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage-of-the-task-directive">2.7.2. Basic Usage of the <code class="docutils literal notranslate"><span class="pre">task</span></code> Directive</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-clauses-of-the-task-directive">2.7.2.1. Syntax and clauses of the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-executing-tasks">2.7.2.2. Creating and executing tasks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-parallel-computation-using-tasks">2.7.2.3. Example: Parallel computation using tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage-of-the-task-directive">2.8.2. Basic Usage of the <code class="docutils literal notranslate"><span class="pre">task</span></code> Directive</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-clauses-of-the-task-directive">2.8.2.1. Syntax and clauses of the <code class="docutils literal notranslate"><span class="pre">task</span></code> directive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-executing-tasks">2.8.2.2. Creating and executing tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-parallel-computation-using-tasks">2.8.2.3. Example: Parallel computation using tasks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-environment-and-data-sharing">2.7.3. Data Environment and Data Sharing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-data-environment-in-tasks">2.7.3.1. Understanding the data environment in tasks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-and-private-variables">2.7.3.2. Shared and private variables</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#firstprivate-and-lastprivate-clauses">2.7.3.3. Firstprivate and lastprivate clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-sharing-in-tasks">2.7.3.4. Example: Data sharing in tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-environment-and-data-sharing">2.8.3. Data Environment and Data Sharing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-data-environment-in-tasks">2.8.3.1. Understanding the data environment in tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-and-private-variables">2.8.3.2. Shared and private variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#firstprivate-and-lastprivate-clauses">2.8.3.3. Firstprivate and lastprivate clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-sharing-in-tasks">2.8.3.4. Example: Data sharing in tasks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-synchronization">2.7.4. Task Synchronization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-taskwait-directive">2.7.4.1. The <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-taskgroup-directive">2.7.4.2. The <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> directive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-dependencies-and-the-depend-clause">2.7.4.3. Task dependencies and the <code class="docutils literal notranslate"><span class="pre">depend</span></code> clause</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-task-synchronization-and-dependencies">2.7.4.4. Example: Task synchronization and dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-synchronization">2.8.4. Task Synchronization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-taskwait-directive">2.8.4.1. The <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> directive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-taskgroup-directive">2.8.4.2. The <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> directive</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-dependencies-and-the-depend-clause">2.8.4.3. Task dependencies and the <code class="docutils literal notranslate"><span class="pre">depend</span></code> clause</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-task-synchronization-and-dependencies">2.8.4.4. Example: Task synchronization and dependencies</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-scheduling">2.7.5. Task Scheduling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-task-scheduling-model-in-openmp">2.7.5.1. The task scheduling model in OpenMP</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tied-and-untied-tasks">2.7.5.2. Tied and untied tasks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-final-and-mergeable-clauses">2.7.5.3. The <code class="docutils literal notranslate"><span class="pre">final</span></code> and <code class="docutils literal notranslate"><span class="pre">mergeable</span></code> clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-controlling-task-scheduling">2.7.5.4. Example: Controlling task scheduling</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-priority-clause-for-task-prioritization">2.7.5.5. The <code class="docutils literal notranslate"><span class="pre">priority</span></code> clause for task prioritization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-taskloop-directive-for-task-based-loop-parallelism">2.7.5.6. The <code class="docutils literal notranslate"><span class="pre">taskloop</span></code> directive for task-based loop parallelism</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-tasks-with-other-openmp-constructs">2.7.5.7. Combining tasks with other OpenMP constructs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-advanced-task-usage">2.7.5.8. Example: Advanced task usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-scheduling">2.8.5. Task Scheduling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-task-scheduling-model-in-openmp">2.8.5.1. The task scheduling model in OpenMP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tied-and-untied-tasks">2.8.5.2. Tied and untied tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-final-and-mergeable-clauses">2.8.5.3. The <code class="docutils literal notranslate"><span class="pre">final</span></code> and <code class="docutils literal notranslate"><span class="pre">mergeable</span></code> clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-controlling-task-scheduling">2.8.5.4. Example: Controlling task scheduling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-priority-clause-for-task-prioritization">2.8.5.5. The <code class="docutils literal notranslate"><span class="pre">priority</span></code> clause for task prioritization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-taskloop-directive-for-task-based-loop-parallelism">2.8.5.6. The <code class="docutils literal notranslate"><span class="pre">taskloop</span></code> directive for task-based loop parallelism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-tasks-with-other-openmp-constructs">2.8.5.7. Combining tasks with other OpenMP constructs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-advanced-task-usage">2.8.5.8. Example: Advanced task usage</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-considerations-and-best-practices">2.7.6. Performance Considerations and Best Practices</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-granularity-and-overhead">2.7.6.1. Task granularity and overhead</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-task-distribution">2.7.6.2. Load balancing and task distribution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-task-synchronization-bottlenecks">2.7.6.3. Avoiding task synchronization bottlenecks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-optimizing-task-performance">2.7.6.4. Example: Optimizing task performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-considerations-and-best-practices">2.8.6. Performance Considerations and Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-granularity-and-overhead">2.8.6.1. Task granularity and overhead</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-task-distribution">2.8.6.2. Load balancing and task distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-task-synchronization-bottlenecks">2.8.6.3. Avoiding task synchronization bottlenecks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-optimizing-task-performance">2.8.6.4. Example: Optimizing task performance</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-and-profiling-tasks">2.7.7. Debugging and Profiling Tasks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-debugging-techniques-for-tasks">2.7.7.1. Common pitfalls and debugging techniques for tasks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-openmp-debugging-and-profiling-tools">2.7.7.2. Using OpenMP debugging and profiling tools</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-debugging-and-profiling-a-task-based-program">2.7.7.3. Example: Debugging and profiling a task-based program</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-and-profiling-tasks">2.8.7. Debugging and Profiling Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-debugging-techniques-for-tasks">2.8.7.1. Common pitfalls and debugging techniques for tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-openmp-debugging-and-profiling-tools">2.8.7.2. Using OpenMP debugging and profiling tools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-debugging-and-profiling-a-task-based-program">2.8.7.3. Example: Debugging and profiling a task-based program</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-applications-and-use-cases">2.7.8. Real-world Applications and Use Cases</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-computing">2.7.8.1. Scientific Computing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">2.7.8.2. Machine Learning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-graphics">2.7.8.3. Computer Graphics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis">2.7.8.4. Data Analysis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-studies">2.7.8.5. Case Studies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-applications-and-use-cases">2.8.8. Real-world Applications and Use Cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-computing">2.8.8.1. Scientific Computing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning">2.8.8.2. Machine Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-graphics">2.8.8.3. Computer Graphics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis">2.8.8.4. Data Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-studies">2.8.8.5. Case Studies</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-and-future-directions">2.7.9. Summary and Future Directions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-and-projects">2.7.10. Exercises and Projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-and-future-directions">2.8.9. Summary and Future Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-and-projects">2.8.10. Exercises and Projects</a></li>
 </ul>
   </nav></div>
 

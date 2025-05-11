@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.6. Synchronization of Threads Using Barrier and Ordered Directive &#8212; Interactive OpenMP Programming</title>
+    <title>2.7. Synchronization of Threads Using Barrier and Ordered Directive &#8212; Interactive OpenMP Programming</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'MultiCoreMultiCPU/4_SynchronizationThreads_Claude';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.7. Asynchronous Tasking" href="5_AsynchronousTasking.html" />
-    <link rel="prev" title="2.5. Synchronization of Threads Using Barrier and Ordered Directive" href="4_SynchronizationThreads_Gemini.html" />
+    <link rel="next" title="2.8. Asynchronous Tasking" href="5_AsynchronousTasking.html" />
+    <link rel="prev" title="2.6. Synchronization of Threads Using Barrier and Ordered Directive" href="4_SynchronizationThreads_Gemini.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -191,37 +191,40 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">2. Parallel Programming for Multicore and Multi-CPU Machines</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_MIMDArchitecture.html">2.1. Multicore and Multi-CPU shared memory systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_UsingOpenMP_parallel.html">2.2. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_UsingOpenMP_teams.html">2.3. Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads.html">2.4. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Gemini.html">2.5. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.6. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_AsynchronousTasking.html">2.7. Asynchronous Tasking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_ExplicitDistribution.html">2.8. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0_Learning_Objectives.html">2.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_MIMDArchitecture.html">2.2. Multicore and Multi-CPU shared memory systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_UsingOpenMP_parallel.html">2.3. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_UsingOpenMP_teams.html">2.4. Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads.html">2.5. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Gemini.html">2.6. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.7. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_AsynchronousTasking.html">2.8. Asynchronous Tasking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_ExplicitDistribution.html">2.9. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization.html">3.1. Introduction to SIMD and Vectorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/2_OpenMPSIMDConstructsAndClauses.html">3.2. OpenMP SIMD Constructs and Clauses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/3_UtilizingSIMDDirectivesForLoopVectorization.html">3.3. Utilizing SIMD Directives for Loop Vectorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.html">3.4. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/5_DataAlignmentandLinearClauses.html">3.5. Data Alignment and Linear Clauses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/6_SIMDReductionsAndScans.html">3.6. SIMD Reductions and Scans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/7_BestPracticesAndPerformanceConsiderations.html">3.7. Best Practices and Performance Considerations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/8_RealWorldExamplesAndCaseStudies.html">3.8. Real-World Examples and Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/0_Learning_Objectives.html">3.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization.html">3.2. Introduction to SIMD and Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/2_OpenMPSIMDConstructsAndClauses.html">3.3. OpenMP SIMD Constructs and Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/3_UtilizingSIMDDirectivesForLoopVectorization.html">3.4. Utilizing SIMD Directives for Loop Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.html">3.5. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/5_DataAlignmentandLinearClauses.html">3.6. Data Alignment and Linear Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/6_SIMDReductionsAndScans.html">3.7. SIMD Reductions and Scans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/7_BestPracticesAndPerformanceConsiderations.html">3.8. Best Practices and Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/8_RealWorldExamplesAndCaseStudies.html">3.9. Real-World Examples and Case Studies</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_Introduction.html">4.1. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_OpenMPDeviceConstructs.html">4.2. OpenMP Device Constructs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/3_MappingDataToGPUDevices.html">4.3. Mapping Data to GPU Devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/4_AsynchronousExecutionAndDependencies.html">4.4. Asynchronous Execution and Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/5_DeviceMemoryManagement.html">4.5. Device Memory Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/6_ParallelExecutionOnGPUDevices.html">4.6. Parallel Execution on GPU Devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/7_TuningPerformanceForGPUOffloading.html">4.7. Tuning Performance for GPU Offloading</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/8_AdvancedTopicsAndBestPractices.html">4.8. Advanced Topics and Best Practices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/9_Conclusion.html">4.9. Conclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/0_Learning_Objectives.html">4.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_Introduction.html">4.2. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_OpenMPDeviceConstructs.html">4.3. OpenMP Device Constructs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/3_MappingDataToGPUDevices.html">4.4. Mapping Data to GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/4_AsynchronousExecutionAndDependencies.html">4.5. Asynchronous Execution and Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/5_DeviceMemoryManagement.html">4.6. Device Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/6_ParallelExecutionOnGPUDevices.html">4.7. Parallel Execution on GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/7_TuningPerformanceForGPUOffloading.html">4.8. Tuning Performance for GPU Offloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/8_AdvancedTopicsAndBestPractices.html">4.9. Advanced Topics and Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/9_Conclusion.html">4.10. Conclusion</a></li>
 </ul>
 </details></li>
 </ul>
@@ -450,68 +453,68 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.6.1. Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-thread-synchronization">2.6.1.1. Importance of Thread Synchronization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-barrier-and-ordered-directives">2.6.1.2. Overview of the Barrier and Ordered Directives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.7.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-thread-synchronization">2.7.1.1. Importance of Thread Synchronization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-barrier-and-ordered-directives">2.7.1.2. Overview of the Barrier and Ordered Directives</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barrier-directive">2.6.2. Barrier Directive</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-usage">2.6.2.1. Purpose and Usage</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-examples">2.6.2.2. Syntax and Examples</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barrier-regions">2.6.2.3. Barrier Regions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-points">2.6.2.4. Synchronization Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barrier-directive">2.7.2. Barrier Directive</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-usage">2.7.2.1. Purpose and Usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-examples">2.7.2.2. Syntax and Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barrier-regions">2.7.2.3. Barrier Regions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-points">2.7.2.4. Synchronization Points</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-directive">2.6.3. 3. Ordered Directive</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.6.3.1. 3.1. Purpose and Usage</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.6.3.2. 3.2. Syntax and Examples</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enforcing-execution-order">2.6.3.3. 3.3. Enforcing Execution Order</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-regions">2.6.3.4. 3.4. Ordered Regions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stand-alone-ordered-construct">2.6.3.5. 3.5. Stand-alone Ordered Construct</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#semantics">2.6.3.5.1. 3.5.1. Semantics</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-model-events-and-tool-callbacks">2.6.3.5.2. 3.5.2. Execution Model Events and Tool Callbacks</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#restrictions">2.6.3.5.3. 3.5.3. Restrictions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-directive">2.7.3. 3. Ordered Directive</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.7.3.1. 3.1. Purpose and Usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.7.3.2. 3.2. Syntax and Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enforcing-execution-order">2.7.3.3. 3.3. Enforcing Execution Order</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-regions">2.7.3.4. 3.4. Ordered Regions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stand-alone-ordered-construct">2.7.3.5. 3.5. Stand-alone Ordered Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#semantics">2.7.3.5.1. 3.5.1. Semantics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-model-events-and-tool-callbacks">2.7.3.5.2. 3.5.2. Execution Model Events and Tool Callbacks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#restrictions">2.7.3.5.3. 3.5.3. Restrictions</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-associated-ordered-construct">2.6.3.6. 3.6. Block-associated Ordered Construct</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.6.3.6.1. 3.6.1. Semantics</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelization-level-clauses">2.6.3.6.2. 3.6.2. parallelization-level Clauses</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.6.3.6.3. 3.6.3. Restrictions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-associated-ordered-construct">2.7.3.6. 3.6. Block-associated Ordered Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.7.3.6.1. 3.6.1. Semantics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelization-level-clauses">2.7.3.6.2. 3.6.2. parallelization-level Clauses</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.7.3.6.3. 3.6.3. Restrictions</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-with-loop-constructs-and-clauses">2.6.3.7. 3.7. Interaction with Loop Constructs and Clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">2.6.3.8. 3.8. Best Practices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-with-loop-constructs-and-clauses">2.7.3.7. 3.7. Interaction with Loop Constructs and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">2.7.3.8. 3.8. Best Practices</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-barrier-and-ordered-directives">2.6.4. 4. Combining Barrier and Ordered Directives</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-for-combining-directives">2.6.4.1. 4.1. Use Cases for Combining Directives</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-and-code-snippets">2.6.4.2. 4.2. Examples and Code Snippets</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-and-potential-issues">2.6.4.3. 4.3. Considerations and Potential Issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-barrier-and-ordered-directives">2.7.4. 4. Combining Barrier and Ordered Directives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-for-combining-directives">2.7.4.1. 4.1. Use Cases for Combining Directives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-and-code-snippets">2.7.4.2. 4.2. Examples and Code Snippets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-and-potential-issues">2.7.4.3. 4.3. Considerations and Potential Issues</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-barriers">2.6.5. 5. Implicit Barriers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-barrier-regions">2.6.5.1. 5.1. Implicit Barrier Regions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.6.5.2. 5.2. Execution Model Events and Tool Callbacks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-barriers">2.7.5. 5. Implicit Barriers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-barrier-regions">2.7.5.1. 5.1. Implicit Barrier Regions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.7.5.2. 5.2. Execution Model Events and Tool Callbacks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-topics">2.6.6. 6. Advanced Topics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-barrier-and-ordered-directives">2.6.6.1. 6.1. Nested Barrier and Ordered Directives</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-barriers">2.6.6.1.1. 6.1.1. Nested Barriers</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-ordered-directives">2.6.6.1.2. 6.1.2. Nested Ordered Directives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-topics">2.7.6. 6. Advanced Topics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-barrier-and-ordered-directives">2.7.6.1. 6.1. Nested Barrier and Ordered Directives</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-barriers">2.7.6.1.1. 6.1.1. Nested Barriers</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-ordered-directives">2.7.6.1.2. 6.1.2. Nested Ordered Directives</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interoperability-with-other-synchronization-mechanisms">2.6.6.2. 6.2. Interoperability with Other Synchronization Mechanisms</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-in-the-context-of-tasking">2.6.6.3. 6.3. Synchronization in the Context of Tasking</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-and-profiling-synchronization-issues">2.6.6.4. 6.4. Debugging and Profiling Synchronization Issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interoperability-with-other-synchronization-mechanisms">2.7.6.2. 6.2. Interoperability with Other Synchronization Mechanisms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-in-the-context-of-tasking">2.7.6.3. 6.3. Synchronization in the Context of Tasking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-and-profiling-synchronization-issues">2.7.6.4. 6.4. Debugging and Profiling Synchronization Issues</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-considerations">2.6.7. 7. Performance Considerations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overhead-and-scalability">2.6.7.1. 7.1. Overhead and Scalability</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-synchronization-granularity">2.6.7.2. 7.2. Load Balancing and Synchronization Granularity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-tuning-and-optimization">2.6.7.3. 7.3. Performance Tuning and Optimization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-considerations">2.7.7. 7. Performance Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overhead-and-scalability">2.7.7.1. 7.1. Overhead and Scalability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-synchronization-granularity">2.7.7.2. 7.2. Load Balancing and Synchronization Granularity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-tuning-and-optimization">2.7.7.3. 7.3. Performance Tuning and Optimization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-and-conclusion">2.6.8. 9. Summary and Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-and-conclusion">2.7.8. 9. Summary and Conclusion</a></li>
 </ul>
             </nav>
         </div>
@@ -524,13 +527,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="synchronization-of-threads-using-barrier-and-ordered-directive">
-<h1><span class="section-number">2.6. </span>Synchronization of Threads Using Barrier and Ordered Directive<a class="headerlink" href="#synchronization-of-threads-using-barrier-and-ordered-directive" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">2.7. </span>Synchronization of Threads Using Barrier and Ordered Directive<a class="headerlink" href="#synchronization-of-threads-using-barrier-and-ordered-directive" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2><span class="section-number">2.6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.7.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>Parallel programming involves dividing a task into smaller subtasks and executing them concurrently on multiple processing units, such as CPU cores or GPU threads. While parallelism can significantly improve performance, it also introduces challenges related to synchronization and coordination among the parallel threads or tasks.</p>
 <p>In OpenMP, the <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives provide mechanisms for synchronizing the execution of parallel threads. These directives ensure that certain operations are performed in a specific order, preventing potential race conditions and ensuring the correctness of parallel computations.</p>
 <section id="importance-of-thread-synchronization">
-<h3><span class="section-number">2.6.1.1. </span>Importance of Thread Synchronization<a class="headerlink" href="#importance-of-thread-synchronization" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.1.1. </span>Importance of Thread Synchronization<a class="headerlink" href="#importance-of-thread-synchronization" title="Link to this heading">#</a></h3>
 <p>In parallel programming, threads often need to coordinate their activities and share data or resources. Without proper synchronization, race conditions can occur, leading to incorrect results or program crashes. Race conditions arise when two or more threads access a shared resource concurrently, and the final result depends on the relative timing of their execution.</p>
 <p>Thread synchronization is essential for ensuring the following:</p>
 <ol class="arabic simple">
@@ -541,7 +544,7 @@ document.write(`
 <p>By using synchronization mechanisms like barriers and ordered directives, developers can control the execution flow of parallel threads, ensuring data integrity and program correctness.</p>
 </section>
 <section id="overview-of-the-barrier-and-ordered-directives">
-<h3><span class="section-number">2.6.1.2. </span>Overview of the Barrier and Ordered Directives<a class="headerlink" href="#overview-of-the-barrier-and-ordered-directives" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.1.2. </span>Overview of the Barrier and Ordered Directives<a class="headerlink" href="#overview-of-the-barrier-and-ordered-directives" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives in OpenMP provide different mechanisms for synchronizing threads:</p>
 <ol class="arabic simple">
 <li><p><strong>Barrier Directive</strong>: The <code class="docutils literal notranslate"><span class="pre">barrier</span></code> directive introduces a synchronization point where all threads in a parallel region must wait until all threads have reached the barrier. This ensures that all threads have completed their work before proceeding to the next phase of computation.</p></li>
@@ -551,10 +554,10 @@ document.write(`
 </section>
 </section>
 <section id="barrier-directive">
-<h2><span class="section-number">2.6.2. </span>Barrier Directive<a class="headerlink" href="#barrier-directive" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.7.2. </span>Barrier Directive<a class="headerlink" href="#barrier-directive" title="Link to this heading">#</a></h2>
 <p>The barrier directive in OpenMP is a powerful synchronization mechanism that ensures all threads in a parallel region have completed their work before proceeding to the next phase of computation.</p>
 <section id="purpose-and-usage">
-<h3><span class="section-number">2.6.2.1. </span>Purpose and Usage<a class="headerlink" href="#purpose-and-usage" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.2.1. </span>Purpose and Usage<a class="headerlink" href="#purpose-and-usage" title="Link to this heading">#</a></h3>
 <p>The primary purpose of the barrier directive is to introduce a synchronization point where all threads must wait until every thread in the parallel region has reached the barrier. This synchronization is essential in scenarios where threads need to exchange data, access shared resources, or coordinate their activities before moving to the next stage of computation.</p>
 <p>Barriers are commonly used in parallel programming to:</p>
 <ol class="arabic simple">
@@ -564,7 +567,7 @@ document.write(`
 </ol>
 </section>
 <section id="syntax-and-examples">
-<h3><span class="section-number">2.6.2.2. </span>Syntax and Examples<a class="headerlink" href="#syntax-and-examples" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.2.2. </span>Syntax and Examples<a class="headerlink" href="#syntax-and-examples" title="Link to this heading">#</a></h3>
 <p>The syntax for the barrier directive in C/C++ is:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp barrier</span>
 </pre></div>
@@ -601,12 +604,12 @@ document.write(`
 <p>In this example, each thread performs some work and prints a message before reaching the barrier. After all threads have reached the barrier, they proceed to execute the code after the barrier.</p>
 </section>
 <section id="barrier-regions">
-<h3><span class="section-number">2.6.2.3. </span>Barrier Regions<a class="headerlink" href="#barrier-regions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.2.3. </span>Barrier Regions<a class="headerlink" href="#barrier-regions" title="Link to this heading">#</a></h3>
 <p>The barrier directive can be used within a parallel region, which is a block of code enclosed by the <code class="docutils literal notranslate"><span class="pre">parallel</span></code> directive or other parallel constructs like <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">sections</span></code>. When a thread encounters a barrier within a parallel region, it must wait at that point until all other threads in the same parallel region have also reached the barrier.</p>
 <p>It’s important to note that barriers only synchronize threads within the same parallel region. Threads in different parallel regions or nested parallel regions are not affected by barriers in other regions.</p>
 </section>
 <section id="synchronization-points">
-<h3><span class="section-number">2.6.2.4. </span>Synchronization Points<a class="headerlink" href="#synchronization-points" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.2.4. </span>Synchronization Points<a class="headerlink" href="#synchronization-points" title="Link to this heading">#</a></h3>
 <p>The barrier directive introduces a synchronization point where all threads must wait until every thread has reached the barrier. This synchronization ensures that:</p>
 <ol class="arabic simple">
 <li><p>All threads have completed their work before the barrier.</p></li>
@@ -617,10 +620,10 @@ document.write(`
 </section>
 </section>
 <section id="ordered-directive">
-<h2><span class="section-number">2.6.3. </span>3. Ordered Directive<a class="headerlink" href="#ordered-directive" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.7.3. </span>3. Ordered Directive<a class="headerlink" href="#ordered-directive" title="Link to this heading">#</a></h2>
 <p>The ordered directive in OpenMP is a synchronization construct that enforces the execution order of loop iterations in a parallel region. It ensures that the iterations are executed in the same order as they would be in a sequential loop, even when executed in parallel. OpenMP provides two forms of the ordered directive: the stand-alone ordered construct and the block-associated ordered construct.</p>
 <section id="id1">
-<h3><span class="section-number">2.6.3.1. </span>3.1. Purpose and Usage<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.3.1. </span>3.1. Purpose and Usage<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>The primary purpose of the ordered directive is to maintain the correct ordering of loop iterations when executing them in parallel. This is crucial in situations where the order of execution affects the correctness of the results or when there are cross-iteration dependencies.</p>
 <p>The ordered directive is commonly used in the following scenarios:</p>
 <ol class="arabic simple">
@@ -630,7 +633,7 @@ document.write(`
 </ol>
 </section>
 <section id="id2">
-<h3><span class="section-number">2.6.3.2. </span>3.2. Syntax and Examples<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.3.2. </span>3.2. Syntax and Examples<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>The syntax for the ordered directive in C/C++ is:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp ordered</span>
 </pre></div>
@@ -661,24 +664,24 @@ document.write(`
 <p>In this example, the loop iterations are executed in parallel, but the output from each iteration is printed in the correct order (0, 1, 2, …, 9) due to the ordered directive.</p>
 </section>
 <section id="enforcing-execution-order">
-<h3><span class="section-number">2.6.3.3. </span>3.3. Enforcing Execution Order<a class="headerlink" href="#enforcing-execution-order" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.3.3. </span>3.3. Enforcing Execution Order<a class="headerlink" href="#enforcing-execution-order" title="Link to this heading">#</a></h3>
 <p>The ordered directive ensures that the execution order of loop iterations in a parallel region follows the same order as the sequential loop execution. This is achieved by introducing an implicit barrier at the beginning of each ordered region, where threads must wait for their turn to execute the ordered region.</p>
 <p>When a thread encounters an ordered region, it waits until all preceding iterations have completed their ordered regions before executing its own ordered region. This guarantees that the ordered regions are executed in the correct sequential order, even though the loop iterations themselves may be executed in parallel.</p>
 </section>
 <section id="ordered-regions">
-<h3><span class="section-number">2.6.3.4. </span>3.4. Ordered Regions<a class="headerlink" href="#ordered-regions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.3.4. </span>3.4. Ordered Regions<a class="headerlink" href="#ordered-regions" title="Link to this heading">#</a></h3>
 <p>An ordered region is a block of code enclosed by the ordered directive. Within an ordered region, the code is executed in the correct sequential order by the threads executing the loop iterations.</p>
 <p>The ordered directive can be placed inside a parallel loop construct (e.g., <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code>) or within a worksharing loop construct (e.g., <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">do</span></code>). When a thread encounters an ordered region, it waits at the implicit barrier until it is its turn to execute the ordered region, ensuring the correct ordering of loop iterations.</p>
 </section>
 <section id="stand-alone-ordered-construct">
-<h3><span class="section-number">2.6.3.5. </span>3.5. Stand-alone Ordered Construct<a class="headerlink" href="#stand-alone-ordered-construct" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.3.5. </span>3.5. Stand-alone Ordered Construct<a class="headerlink" href="#stand-alone-ordered-construct" title="Link to this heading">#</a></h3>
 <p>The stand-alone ordered construct is a form of the ordered directive that specifies execution must not violate cross-iteration dependences as specified by the <code class="docutils literal notranslate"><span class="pre">doacross</span></code> clauses.</p>
 <section id="semantics">
-<h4><span class="section-number">2.6.3.5.1. </span>3.5.1. Semantics<a class="headerlink" href="#semantics" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.7.3.5.1. </span>3.5.1. Semantics<a class="headerlink" href="#semantics" title="Link to this heading">#</a></h4>
 <p>When a thread executing an iteration encounters a stand-alone ordered construct with one or more <code class="docutils literal notranslate"><span class="pre">doacross</span></code> clauses for which the <code class="docutils literal notranslate"><span class="pre">sink</span></code> dependence-type is specified, the thread waits until its dependences on all valid iterations specified by the <code class="docutils literal notranslate"><span class="pre">doacross</span></code> clauses are satisfied before continuing execution. A specific dependence is satisfied when a thread executing the corresponding iteration encounters an ordered construct with a <code class="docutils literal notranslate"><span class="pre">doacross</span></code> clause for which the <code class="docutils literal notranslate"><span class="pre">source</span></code> dependence-type is specified.</p>
 </section>
 <section id="execution-model-events-and-tool-callbacks">
-<h4><span class="section-number">2.6.3.5.2. </span>3.5.2. Execution Model Events and Tool Callbacks<a class="headerlink" href="#execution-model-events-and-tool-callbacks" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.7.3.5.2. </span>3.5.2. Execution Model Events and Tool Callbacks<a class="headerlink" href="#execution-model-events-and-tool-callbacks" title="Link to this heading">#</a></h4>
 <p>The OpenMP specification defines two execution model events and associated tool callbacks for the stand-alone ordered construct:</p>
 <ol class="arabic simple">
 <li><p><strong>doacross-sink Event</strong>: Occurs in the task that encounters an ordered construct for each <code class="docutils literal notranslate"><span class="pre">doacross</span></code> clause with the <code class="docutils literal notranslate"><span class="pre">sink</span></code> dependence-type after the dependence is fulfilled.</p></li>
@@ -686,7 +689,7 @@ document.write(`
 </ol>
 </section>
 <section id="restrictions">
-<h4><span class="section-number">2.6.3.5.3. </span>3.5.3. Restrictions<a class="headerlink" href="#restrictions" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.7.3.5.3. </span>3.5.3. Restrictions<a class="headerlink" href="#restrictions" title="Link to this heading">#</a></h4>
 <p>The stand-alone ordered construct has the following restrictions:</p>
 <ul class="simple">
 <li><p>At most one <code class="docutils literal notranslate"><span class="pre">doacross</span></code> clause may appear on the construct with <code class="docutils literal notranslate"><span class="pre">source</span></code> as the dependence-type.</p></li>
@@ -696,20 +699,20 @@ document.write(`
 </section>
 </section>
 <section id="block-associated-ordered-construct">
-<h3><span class="section-number">2.6.3.6. </span>3.6. Block-associated Ordered Construct<a class="headerlink" href="#block-associated-ordered-construct" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.3.6. </span>3.6. Block-associated Ordered Construct<a class="headerlink" href="#block-associated-ordered-construct" title="Link to this heading">#</a></h3>
 <p>The block-associated ordered construct is a form of the ordered directive that is associated with a block of code within a loop construct.</p>
 <section id="id3">
-<h4><span class="section-number">2.6.3.6.1. </span>3.6.1. Semantics<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.7.3.6.1. </span>3.6.1. Semantics<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
 <p>If no clauses are specified, the effect is as if the <code class="docutils literal notranslate"><span class="pre">threads</span></code> parallelization-level clause was specified. If the <code class="docutils literal notranslate"><span class="pre">threads</span></code> clause is specified, the threads in the team executing the worksharing-loop region execute ordered regions sequentially in the order of the loop iterations.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">simd</span></code> parallelization-level clause is specified, the ordered regions encountered by any thread will execute one at a time in the order of the loop iterations. With either parallelization-level, execution of code outside the region for different iterations can run in parallel, but execution within the same iteration must observe any constraints imposed by the base-language semantics.</p>
 <p>When the thread executing the first iteration of the loop encounters a block-associated ordered construct, it can enter the ordered region without waiting. For subsequent iterations, a thread waits at the beginning of the ordered region until execution of all ordered regions that belong to all previous iterations has completed.</p>
 </section>
 <section id="parallelization-level-clauses">
-<h4><span class="section-number">2.6.3.6.2. </span>3.6.2. parallelization-level Clauses<a class="headerlink" href="#parallelization-level-clauses" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.7.3.6.2. </span>3.6.2. parallelization-level Clauses<a class="headerlink" href="#parallelization-level-clauses" title="Link to this heading">#</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">parallelization-level</span></code> clause group consists of the <code class="docutils literal notranslate"><span class="pre">simd</span></code> and <code class="docutils literal notranslate"><span class="pre">threads</span></code> clauses, which indicate the level of parallelization associated with the ordered construct.</p>
 </section>
 <section id="id4">
-<h4><span class="section-number">2.6.3.6.3. </span>3.6.3. Restrictions<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.7.3.6.3. </span>3.6.3. Restrictions<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
 <p>The block-associated ordered construct has the following restrictions:</p>
 <ul class="simple">
 <li><p>The construct is simdizable only if the <code class="docutils literal notranslate"><span class="pre">simd</span></code> parallelization-level is specified.</p></li>
@@ -722,7 +725,7 @@ document.write(`
 </section>
 </section>
 <section id="interaction-with-loop-constructs-and-clauses">
-<h3><span class="section-number">2.6.3.7. </span>3.7. Interaction with Loop Constructs and Clauses<a class="headerlink" href="#interaction-with-loop-constructs-and-clauses" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.3.7. </span>3.7. Interaction with Loop Constructs and Clauses<a class="headerlink" href="#interaction-with-loop-constructs-and-clauses" title="Link to this heading">#</a></h3>
 <p>The ordered directive is closely related to and often used in conjunction with loop constructs and clauses in OpenMP. Here are some key interactions:</p>
 <ul class="simple">
 <li><p>The ordered directive can be used within parallel loop constructs (e.g., <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code>) or worksharing loop constructs (e.g., <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">do</span></code>).</p></li>
@@ -731,7 +734,7 @@ document.write(`
 </ul>
 </section>
 <section id="best-practices">
-<h3><span class="section-number">2.6.3.8. </span>3.8. Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.3.8. </span>3.8. Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h3>
 <p>When using the ordered directive, consider the following best practices:</p>
 <ul class="simple">
 <li><p>Use the ordered directive judiciously, as it can introduce overhead and potentially limit parallelism.</p></li>
@@ -745,10 +748,10 @@ document.write(`
 </section>
 </section>
 <section id="combining-barrier-and-ordered-directives">
-<h2><span class="section-number">2.6.4. </span>4. Combining Barrier and Ordered Directives<a class="headerlink" href="#combining-barrier-and-ordered-directives" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.7.4. </span>4. Combining Barrier and Ordered Directives<a class="headerlink" href="#combining-barrier-and-ordered-directives" title="Link to this heading">#</a></h2>
 <p>While the <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives in OpenMP serve different purposes, there are scenarios where combining them can be beneficial or even necessary. This section explores the use cases for combining these directives and provides examples and considerations.</p>
 <section id="use-cases-for-combining-directives">
-<h3><span class="section-number">2.6.4.1. </span>4.1. Use Cases for Combining Directives<a class="headerlink" href="#use-cases-for-combining-directives" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.4.1. </span>4.1. Use Cases for Combining Directives<a class="headerlink" href="#use-cases-for-combining-directives" title="Link to this heading">#</a></h3>
 <p>Combining the <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives can be useful in the following situations:</p>
 <ol class="arabic simple">
 <li><p><strong>Enforcing Synchronization and Order</strong>: In some algorithms or computations, it may be necessary to ensure that all threads have reached a specific point (barrier) and that subsequent operations are executed in a specific order (ordered). This combination can help maintain correctness and avoid race conditions or data inconsistencies.</p></li>
@@ -758,7 +761,7 @@ document.write(`
 </ol>
 </section>
 <section id="examples-and-code-snippets">
-<h3><span class="section-number">2.6.4.2. </span>4.2. Examples and Code Snippets<a class="headerlink" href="#examples-and-code-snippets" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.4.2. </span>4.2. Examples and Code Snippets<a class="headerlink" href="#examples-and-code-snippets" title="Link to this heading">#</a></h3>
 <p>Here’s an example that combines the <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives in a parallel computation:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -800,7 +803,7 @@ document.write(`
 <p>In this example, the parallel loop is executed with the <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directive, ensuring that the iterations are executed in the correct order. Within each iteration, there are two phases of computation separated by a barrier. The ordered directive is used to print a message indicating the completion of each phase for each iteration, ensuring that the output is generated in the correct sequence.</p>
 </section>
 <section id="considerations-and-potential-issues">
-<h3><span class="section-number">2.6.4.3. </span>4.3. Considerations and Potential Issues<a class="headerlink" href="#considerations-and-potential-issues" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.4.3. </span>4.3. Considerations and Potential Issues<a class="headerlink" href="#considerations-and-potential-issues" title="Link to this heading">#</a></h3>
 <p>When combining the <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives, consider the following:</p>
 <ol class="arabic simple">
 <li><p><strong>Overhead</strong>: Both directives introduce synchronization overhead, which can potentially impact performance. Use them judiciously and only when necessary for correctness or required semantics.</p></li>
@@ -812,10 +815,10 @@ document.write(`
 </section>
 </section>
 <section id="implicit-barriers">
-<h2><span class="section-number">2.6.5. </span>5. Implicit Barriers<a class="headerlink" href="#implicit-barriers" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.7.5. </span>5. Implicit Barriers<a class="headerlink" href="#implicit-barriers" title="Link to this heading">#</a></h2>
 <p>In addition to the explicit <code class="docutils literal notranslate"><span class="pre">barrier</span></code> directive, OpenMP also defines implicit barriers that occur at the end of various regions, such as worksharing regions and parallel regions. This section discusses implicit barrier regions, their execution model events, and associated tool callbacks.</p>
 <section id="implicit-barrier-regions">
-<h3><span class="section-number">2.6.5.1. </span>5.1. Implicit Barrier Regions<a class="headerlink" href="#implicit-barrier-regions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.5.1. </span>5.1. Implicit Barrier Regions<a class="headerlink" href="#implicit-barrier-regions" title="Link to this heading">#</a></h3>
 <p>Implicit barriers are task scheduling points that occur at the end of certain OpenMP constructs, as defined in the description of those constructs. These implicit barriers ensure that all threads have completed their work within the corresponding region before proceeding further.</p>
 <p>Implicit barriers occur in the following situations:</p>
 <ol class="arabic simple">
@@ -826,7 +829,7 @@ document.write(`
 </ol>
 </section>
 <section id="id5">
-<h3><span class="section-number">2.6.5.2. </span>5.2. Execution Model Events and Tool Callbacks<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.5.2. </span>5.2. Execution Model Events and Tool Callbacks<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>The OpenMP specification defines execution model events and associated tool callbacks for implicit barriers, similar to those for explicit barriers. These events and callbacks enable tools and libraries to monitor and analyze the behavior of implicit barriers.</p>
 <p>Execution Model Events:</p>
 <ol class="arabic simple">
@@ -846,13 +849,13 @@ document.write(`
 </section>
 </section>
 <section id="advanced-topics">
-<h2><span class="section-number">2.6.6. </span>6. Advanced Topics<a class="headerlink" href="#advanced-topics" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.7.6. </span>6. Advanced Topics<a class="headerlink" href="#advanced-topics" title="Link to this heading">#</a></h2>
 <p>While the basic usage of the <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives provides a solid foundation for synchronizing threads in OpenMP programs, there are several advanced topics that can further enhance the flexibility and efficiency of your applications. This section explores some of these advanced topics.</p>
 <section id="nested-barrier-and-ordered-directives">
-<h3><span class="section-number">2.6.6.1. </span>6.1. Nested Barrier and Ordered Directives<a class="headerlink" href="#nested-barrier-and-ordered-directives" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.6.1. </span>6.1. Nested Barrier and Ordered Directives<a class="headerlink" href="#nested-barrier-and-ordered-directives" title="Link to this heading">#</a></h3>
 <p>OpenMP supports nested parallelism, where parallel regions can be defined within other parallel regions. In such scenarios, the <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives can also be nested, allowing for more complex synchronization patterns.</p>
 <section id="nested-barriers">
-<h4><span class="section-number">2.6.6.1.1. </span>6.1.1. Nested Barriers<a class="headerlink" href="#nested-barriers" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.7.6.1.1. </span>6.1.1. Nested Barriers<a class="headerlink" href="#nested-barriers" title="Link to this heading">#</a></h4>
 <p>Nested barriers can be used to synchronize threads within a specific level of nested parallelism. For example, you can use a barrier to synchronize threads within an inner parallel region, without affecting the threads in the outer parallel region.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp parallel</span>
 <span class="p">{</span>
@@ -874,7 +877,7 @@ document.write(`
 <p>Proper use of nested barriers can help manage complex synchronization scenarios and ensure that threads are synchronized at the appropriate levels of parallelism.</p>
 </section>
 <section id="nested-ordered-directives">
-<h4><span class="section-number">2.6.6.1.2. </span>6.1.2. Nested Ordered Directives<a class="headerlink" href="#nested-ordered-directives" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">2.7.6.1.2. </span>6.1.2. Nested Ordered Directives<a class="headerlink" href="#nested-ordered-directives" title="Link to this heading">#</a></h4>
 <p>Similar to nested barriers, the <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directive can also be nested within parallel regions. This can be useful when enforcing the correct execution order of loop iterations at different levels of parallelism.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp parallel for ordered</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -896,38 +899,38 @@ document.write(`
 </section>
 </section>
 <section id="interoperability-with-other-synchronization-mechanisms">
-<h3><span class="section-number">2.6.6.2. </span>6.2. Interoperability with Other Synchronization Mechanisms<a class="headerlink" href="#interoperability-with-other-synchronization-mechanisms" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.6.2. </span>6.2. Interoperability with Other Synchronization Mechanisms<a class="headerlink" href="#interoperability-with-other-synchronization-mechanisms" title="Link to this heading">#</a></h3>
 <p>OpenMP supports interoperability with other synchronization mechanisms, such as POSIX threads (Pthreads) or system-specific synchronization primitives. This interoperability allows you to combine the benefits of OpenMP’s high-level synchronization constructs with lower-level synchronization mechanisms when needed.</p>
 <p>For example, you can use OpenMP barriers in combination with Pthreads mutexes or condition variables to implement complex synchronization protocols or to ensure correct interaction between OpenMP threads and non-OpenMP threads.</p>
 </section>
 <section id="synchronization-in-the-context-of-tasking">
-<h3><span class="section-number">2.6.6.3. </span>6.3. Synchronization in the Context of Tasking<a class="headerlink" href="#synchronization-in-the-context-of-tasking" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.6.3. </span>6.3. Synchronization in the Context of Tasking<a class="headerlink" href="#synchronization-in-the-context-of-tasking" title="Link to this heading">#</a></h3>
 <p>OpenMP’s tasking model introduces additional synchronization challenges and opportunities. While the <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives operate at the level of parallel regions and loop iterations, tasks may require different synchronization mechanisms.</p>
 <p>OpenMP provides constructs like <code class="docutils literal notranslate"><span class="pre">taskgroup</span></code> and <code class="docutils literal notranslate"><span class="pre">taskwait</span></code> to synchronize tasks, as well as task dependencies and data dependencies to enforce ordering and synchronization between tasks. These task-level synchronization mechanisms can be combined with the <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives to achieve complex synchronization patterns in task-parallel applications.</p>
 </section>
 <section id="debugging-and-profiling-synchronization-issues">
-<h3><span class="section-number">2.6.6.4. </span>6.4. Debugging and Profiling Synchronization Issues<a class="headerlink" href="#debugging-and-profiling-synchronization-issues" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.6.4. </span>6.4. Debugging and Profiling Synchronization Issues<a class="headerlink" href="#debugging-and-profiling-synchronization-issues" title="Link to this heading">#</a></h3>
 <p>Debugging and profiling synchronization issues in parallel programs can be challenging due to the non-deterministic nature of thread execution and potential race conditions. OpenMP provides tool callbacks and execution model events that can be leveraged by debugging and profiling tools to analyze and understand the behavior of synchronization constructs like barriers and ordered directives.</p>
 <p>By using OpenMP-aware debugging and profiling tools, you can identify potential issues such as deadlocks, race conditions, or performance bottlenecks related to synchronization. These tools can provide valuable insights into the execution order of threads, the duration of synchronization operations, and other relevant metrics.</p>
 <p>Effective use of debugging and profiling tools can help you optimize the performance of your OpenMP applications and ensure the correct synchronization of threads, especially in complex parallel scenarios.</p>
 </section>
 </section>
 <section id="performance-considerations">
-<h2><span class="section-number">2.6.7. </span>7. Performance Considerations<a class="headerlink" href="#performance-considerations" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.7.7. </span>7. Performance Considerations<a class="headerlink" href="#performance-considerations" title="Link to this heading">#</a></h2>
 <p>While the <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives are essential for ensuring the correct execution of parallel programs, they can also introduce overhead and potential performance bottlenecks. In this section, we explore various performance considerations related to the use of these synchronization constructs.</p>
 <section id="overhead-and-scalability">
-<h3><span class="section-number">2.6.7.1. </span>7.1. Overhead and Scalability<a class="headerlink" href="#overhead-and-scalability" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.7.1. </span>7.1. Overhead and Scalability<a class="headerlink" href="#overhead-and-scalability" title="Link to this heading">#</a></h3>
 <p>Synchronization operations, such as barriers and ordered execution, can add significant overhead to parallel programs. This overhead arises from the need for threads to coordinate and wait for each other, potentially leading to idle time and reduced efficiency.</p>
 <p>The performance impact of synchronization overhead can become more pronounced as the number of threads or the size of the problem increases. It is important to carefully analyze the scalability of your parallel program and assess the trade-off between synchronization overhead and the benefits of parallelism.</p>
 </section>
 <section id="load-balancing-and-synchronization-granularity">
-<h3><span class="section-number">2.6.7.2. </span>7.2. Load Balancing and Synchronization Granularity<a class="headerlink" href="#load-balancing-and-synchronization-granularity" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.7.2. </span>7.2. Load Balancing and Synchronization Granularity<a class="headerlink" href="#load-balancing-and-synchronization-granularity" title="Link to this heading">#</a></h3>
 <p>Effective load balancing is crucial for achieving optimal performance in parallel programs. However, synchronization constructs like barriers and ordered directives can introduce load imbalances if not used judiciously.</p>
 <p>For example, if threads reach a barrier at different times, some threads may have to wait for others, leading to idle time and reduced efficiency. Similarly, if the granularity of ordered execution is too fine-grained, the overhead of enforcing the correct order can outweigh the benefits of parallelism.</p>
 <p>To mitigate these issues, it is essential to strike a balance between the granularity of synchronization and the potential for load imbalance. Techniques like dynamic load balancing, work stealing, or coarser-grained synchronization can help reduce the impact of load imbalances and improve overall performance.</p>
 </section>
 <section id="performance-tuning-and-optimization">
-<h3><span class="section-number">2.6.7.3. </span>7.3. Performance Tuning and Optimization<a class="headerlink" href="#performance-tuning-and-optimization" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.7.7.3. </span>7.3. Performance Tuning and Optimization<a class="headerlink" href="#performance-tuning-and-optimization" title="Link to this heading">#</a></h3>
 <p>Optimizing the performance of parallel programs that use synchronization constructs often requires a combination of analysis, profiling, and careful tuning. Here are some strategies that can help improve performance:</p>
 <ol class="arabic simple">
 <li><p><strong>Profiling and Identifying Bottlenecks</strong>: Use profiling tools and OpenMP-aware debugging tools to identify performance bottlenecks related to synchronization. Look for hotspots where threads spend significant time waiting at barriers or ordered regions.</p></li>
@@ -941,7 +944,7 @@ document.write(`
 </section>
 </section>
 <section id="summary-and-conclusion">
-<h2><span class="section-number">2.6.8. </span>9. Summary and Conclusion<a class="headerlink" href="#summary-and-conclusion" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.7.8. </span>9. Summary and Conclusion<a class="headerlink" href="#summary-and-conclusion" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">barrier</span></code> and <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directives in OpenMP are essential synchronization constructs that enable the correct and efficient coordination of threads in parallel programs. They provide mechanisms to enforce synchronization points, ensure the correct execution order, and maintain data consistency in shared-memory parallel programming.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">barrier</span></code> directive introduces an explicit synchronization point where all threads in a team must wait until every thread has reached the barrier. This construct is crucial for separating parallel regions, coordinating access to shared resources, and ensuring that all threads have completed their work before proceeding to the next phase of computation.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directive, on the other hand, enforces the execution order of loop iterations in a parallel region. It guarantees that the iterations are executed in the same order as they would be in a sequential loop, even when executed in parallel. The <code class="docutils literal notranslate"><span class="pre">ordered</span></code> directive is particularly useful in scenarios where the order of execution affects the correctness of the results or when there are cross-iteration dependencies.</p>
@@ -990,7 +993,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.5. </span>Synchronization of Threads Using Barrier and Ordered Directive</p>
+        <p class="prev-next-title"><span class="section-number">2.6. </span>Synchronization of Threads Using Barrier and Ordered Directive</p>
       </div>
     </a>
     <a class="right-next"
@@ -998,7 +1001,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.7. </span>Asynchronous Tasking</p>
+        <p class="prev-next-title"><span class="section-number">2.8. </span>Asynchronous Tasking</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1018,68 +1021,68 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.6.1. Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-thread-synchronization">2.6.1.1. Importance of Thread Synchronization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-barrier-and-ordered-directives">2.6.1.2. Overview of the Barrier and Ordered Directives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.7.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-thread-synchronization">2.7.1.1. Importance of Thread Synchronization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-barrier-and-ordered-directives">2.7.1.2. Overview of the Barrier and Ordered Directives</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barrier-directive">2.6.2. Barrier Directive</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-usage">2.6.2.1. Purpose and Usage</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-examples">2.6.2.2. Syntax and Examples</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barrier-regions">2.6.2.3. Barrier Regions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-points">2.6.2.4. Synchronization Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#barrier-directive">2.7.2. Barrier Directive</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-usage">2.7.2.1. Purpose and Usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-examples">2.7.2.2. Syntax and Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barrier-regions">2.7.2.3. Barrier Regions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-points">2.7.2.4. Synchronization Points</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-directive">2.6.3. 3. Ordered Directive</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.6.3.1. 3.1. Purpose and Usage</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.6.3.2. 3.2. Syntax and Examples</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enforcing-execution-order">2.6.3.3. 3.3. Enforcing Execution Order</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-regions">2.6.3.4. 3.4. Ordered Regions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stand-alone-ordered-construct">2.6.3.5. 3.5. Stand-alone Ordered Construct</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#semantics">2.6.3.5.1. 3.5.1. Semantics</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-model-events-and-tool-callbacks">2.6.3.5.2. 3.5.2. Execution Model Events and Tool Callbacks</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#restrictions">2.6.3.5.3. 3.5.3. Restrictions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-directive">2.7.3. 3. Ordered Directive</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.7.3.1. 3.1. Purpose and Usage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.7.3.2. 3.2. Syntax and Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enforcing-execution-order">2.7.3.3. 3.3. Enforcing Execution Order</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-regions">2.7.3.4. 3.4. Ordered Regions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stand-alone-ordered-construct">2.7.3.5. 3.5. Stand-alone Ordered Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#semantics">2.7.3.5.1. 3.5.1. Semantics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#execution-model-events-and-tool-callbacks">2.7.3.5.2. 3.5.2. Execution Model Events and Tool Callbacks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#restrictions">2.7.3.5.3. 3.5.3. Restrictions</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-associated-ordered-construct">2.6.3.6. 3.6. Block-associated Ordered Construct</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.6.3.6.1. 3.6.1. Semantics</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelization-level-clauses">2.6.3.6.2. 3.6.2. parallelization-level Clauses</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.6.3.6.3. 3.6.3. Restrictions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-associated-ordered-construct">2.7.3.6. 3.6. Block-associated Ordered Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.7.3.6.1. 3.6.1. Semantics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelization-level-clauses">2.7.3.6.2. 3.6.2. parallelization-level Clauses</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.7.3.6.3. 3.6.3. Restrictions</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-with-loop-constructs-and-clauses">2.6.3.7. 3.7. Interaction with Loop Constructs and Clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">2.6.3.8. 3.8. Best Practices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-with-loop-constructs-and-clauses">2.7.3.7. 3.7. Interaction with Loop Constructs and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">2.7.3.8. 3.8. Best Practices</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-barrier-and-ordered-directives">2.6.4. 4. Combining Barrier and Ordered Directives</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-for-combining-directives">2.6.4.1. 4.1. Use Cases for Combining Directives</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-and-code-snippets">2.6.4.2. 4.2. Examples and Code Snippets</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-and-potential-issues">2.6.4.3. 4.3. Considerations and Potential Issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-barrier-and-ordered-directives">2.7.4. 4. Combining Barrier and Ordered Directives</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-for-combining-directives">2.7.4.1. 4.1. Use Cases for Combining Directives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-and-code-snippets">2.7.4.2. 4.2. Examples and Code Snippets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#considerations-and-potential-issues">2.7.4.3. 4.3. Considerations and Potential Issues</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-barriers">2.6.5. 5. Implicit Barriers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-barrier-regions">2.6.5.1. 5.1. Implicit Barrier Regions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.6.5.2. 5.2. Execution Model Events and Tool Callbacks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-barriers">2.7.5. 5. Implicit Barriers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-barrier-regions">2.7.5.1. 5.1. Implicit Barrier Regions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.7.5.2. 5.2. Execution Model Events and Tool Callbacks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-topics">2.6.6. 6. Advanced Topics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-barrier-and-ordered-directives">2.6.6.1. 6.1. Nested Barrier and Ordered Directives</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-barriers">2.6.6.1.1. 6.1.1. Nested Barriers</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-ordered-directives">2.6.6.1.2. 6.1.2. Nested Ordered Directives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-topics">2.7.6. 6. Advanced Topics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-barrier-and-ordered-directives">2.7.6.1. 6.1. Nested Barrier and Ordered Directives</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-barriers">2.7.6.1.1. 6.1.1. Nested Barriers</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-ordered-directives">2.7.6.1.2. 6.1.2. Nested Ordered Directives</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interoperability-with-other-synchronization-mechanisms">2.6.6.2. 6.2. Interoperability with Other Synchronization Mechanisms</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-in-the-context-of-tasking">2.6.6.3. 6.3. Synchronization in the Context of Tasking</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-and-profiling-synchronization-issues">2.6.6.4. 6.4. Debugging and Profiling Synchronization Issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interoperability-with-other-synchronization-mechanisms">2.7.6.2. 6.2. Interoperability with Other Synchronization Mechanisms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synchronization-in-the-context-of-tasking">2.7.6.3. 6.3. Synchronization in the Context of Tasking</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-and-profiling-synchronization-issues">2.7.6.4. 6.4. Debugging and Profiling Synchronization Issues</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-considerations">2.6.7. 7. Performance Considerations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overhead-and-scalability">2.6.7.1. 7.1. Overhead and Scalability</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-synchronization-granularity">2.6.7.2. 7.2. Load Balancing and Synchronization Granularity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-tuning-and-optimization">2.6.7.3. 7.3. Performance Tuning and Optimization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-considerations">2.7.7. 7. Performance Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overhead-and-scalability">2.7.7.1. 7.1. Overhead and Scalability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-synchronization-granularity">2.7.7.2. 7.2. Load Balancing and Synchronization Granularity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-tuning-and-optimization">2.7.7.3. 7.3. Performance Tuning and Optimization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-and-conclusion">2.6.8. 9. Summary and Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-and-conclusion">2.7.8. 9. Summary and Conclusion</a></li>
 </ul>
   </nav></div>
 

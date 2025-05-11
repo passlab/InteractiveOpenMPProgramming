@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3.5. Data Alignment and Linear Clauses &#8212; Interactive OpenMP Programming</title>
+    <title>3.6. Data Alignment and Linear Clauses &#8212; Interactive OpenMP Programming</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'SIMDandVectorArchitecture/5_DataAlignmentandLinearClauses';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.6. SIMD Reductions and Scans" href="6_SIMDReductionsAndScans.html" />
-    <link rel="prev" title="3.4. Function Vectorization with declare simd" href="4_FunctionVectorizationWithdeclaresimd.html" />
+    <link rel="next" title="3.7. SIMD Reductions and Scans" href="6_SIMDReductionsAndScans.html" />
+    <link rel="prev" title="3.5. Function Vectorization with declare simd" href="4_FunctionVectorizationWithdeclaresimd.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -191,37 +191,40 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">2. Parallel Programming for Multicore and Multi-CPU Machines</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/1_MIMDArchitecture.html">2.1. Multicore and Multi-CPU shared memory systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/2_UsingOpenMP_parallel.html">2.2. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/3_UsingOpenMP_teams.html">2.3. Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/4_SynchronizationThreads.html">2.4. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/4_SynchronizationThreads_Gemini.html">2.5. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/4_SynchronizationThreads_Claude.html">2.6. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/5_AsynchronousTasking.html">2.7. Asynchronous Tasking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/6_ExplicitDistribution.html">2.8. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/0_Learning_Objectives.html">2.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/1_MIMDArchitecture.html">2.2. Multicore and Multi-CPU shared memory systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/2_UsingOpenMP_parallel.html">2.3. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/3_UsingOpenMP_teams.html">2.4. Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/4_SynchronizationThreads.html">2.5. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/4_SynchronizationThreads_Gemini.html">2.6. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/4_SynchronizationThreads_Claude.html">2.7. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/5_AsynchronousTasking.html">2.8. Asynchronous Tasking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MultiCoreMultiCPU/6_ExplicitDistribution.html">2.9. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_IntroductionToSIMDAndVectorization.html">3.1. Introduction to SIMD and Vectorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_OpenMPSIMDConstructsAndClauses.html">3.2. OpenMP SIMD Constructs and Clauses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_UtilizingSIMDDirectivesForLoopVectorization.html">3.3. Utilizing SIMD Directives for Loop Vectorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_FunctionVectorizationWithdeclaresimd.html">3.4. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.5. Data Alignment and Linear Clauses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_SIMDReductionsAndScans.html">3.6. SIMD Reductions and Scans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="7_BestPracticesAndPerformanceConsiderations.html">3.7. Best Practices and Performance Considerations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="8_RealWorldExamplesAndCaseStudies.html">3.8. Real-World Examples and Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0_Learning_Objectives.html">3.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_IntroductionToSIMDAndVectorization.html">3.2. Introduction to SIMD and Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_OpenMPSIMDConstructsAndClauses.html">3.3. OpenMP SIMD Constructs and Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_UtilizingSIMDDirectivesForLoopVectorization.html">3.4. Utilizing SIMD Directives for Loop Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_FunctionVectorizationWithdeclaresimd.html">3.5. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.6. Data Alignment and Linear Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_SIMDReductionsAndScans.html">3.7. SIMD Reductions and Scans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_BestPracticesAndPerformanceConsiderations.html">3.8. Best Practices and Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_RealWorldExamplesAndCaseStudies.html">3.9. Real-World Examples and Case Studies</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_Introduction.html">4.1. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_OpenMPDeviceConstructs.html">4.2. OpenMP Device Constructs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/3_MappingDataToGPUDevices.html">4.3. Mapping Data to GPU Devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/4_AsynchronousExecutionAndDependencies.html">4.4. Asynchronous Execution and Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/5_DeviceMemoryManagement.html">4.5. Device Memory Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/6_ParallelExecutionOnGPUDevices.html">4.6. Parallel Execution on GPU Devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/7_TuningPerformanceForGPUOffloading.html">4.7. Tuning Performance for GPU Offloading</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/8_AdvancedTopicsAndBestPractices.html">4.8. Advanced Topics and Best Practices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/9_Conclusion.html">4.9. Conclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/0_Learning_Objectives.html">4.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_Introduction.html">4.2. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_OpenMPDeviceConstructs.html">4.3. OpenMP Device Constructs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/3_MappingDataToGPUDevices.html">4.4. Mapping Data to GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/4_AsynchronousExecutionAndDependencies.html">4.5. Asynchronous Execution and Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/5_DeviceMemoryManagement.html">4.6. Device Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/6_ParallelExecutionOnGPUDevices.html">4.7. Parallel Execution on GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/7_TuningPerformanceForGPUOffloading.html">4.8. Tuning Performance for GPU Offloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/8_AdvancedTopicsAndBestPractices.html">4.9. Advanced Topics and Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/9_Conclusion.html">4.10. Conclusion</a></li>
 </ul>
 </details></li>
 </ul>
@@ -450,11 +453,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-data-alignment">3.5.1. Importance of Data Alignment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-aligned-clause">3.5.2. The <code class="docutils literal notranslate"><span class="pre">aligned</span></code> Clause</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-clause">3.5.3. The <code class="docutils literal notranslate"><span class="pre">linear</span></code> Clause</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-aligned-and-linear-clauses">3.5.4. Combining <code class="docutils literal notranslate"><span class="pre">aligned</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> Clauses</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.5.5. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-data-alignment">3.6.1. Importance of Data Alignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-aligned-clause">3.6.2. The <code class="docutils literal notranslate"><span class="pre">aligned</span></code> Clause</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-clause">3.6.3. The <code class="docutils literal notranslate"><span class="pre">linear</span></code> Clause</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-aligned-and-linear-clauses">3.6.4. Combining <code class="docutils literal notranslate"><span class="pre">aligned</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> Clauses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.6.5. Conclusion</a></li>
 </ul>
             </nav>
         </div>
@@ -467,16 +470,16 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-alignment-and-linear-clauses">
-<h1><span class="section-number">3.5. </span>Data Alignment and Linear Clauses<a class="headerlink" href="#data-alignment-and-linear-clauses" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">3.6. </span>Data Alignment and Linear Clauses<a class="headerlink" href="#data-alignment-and-linear-clauses" title="Link to this heading">#</a></h1>
 <p>Data alignment and memory access patterns play a crucial role in achieving optimal performance with SIMD instructions. Properly aligned data allows SIMD operations to access memory efficiently, reducing memory access latency and enabling faster execution. OpenMP provides clauses like <code class="docutils literal notranslate"><span class="pre">aligned</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> to help manage data alignment and access patterns in SIMD loops.</p>
 <section id="importance-of-data-alignment">
-<h2><span class="section-number">3.5.1. </span>Importance of Data Alignment<a class="headerlink" href="#importance-of-data-alignment" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.6.1. </span>Importance of Data Alignment<a class="headerlink" href="#importance-of-data-alignment" title="Link to this heading">#</a></h2>
 <p>Data alignment refers to the memory address at which data elements are stored. SIMD instructions typically require data to be aligned to specific memory boundaries (e.g., 16-byte or 32-byte boundaries) for optimal performance. Misaligned data can lead to performance penalties or even incorrect results.</p>
 <p>When data is properly aligned, SIMD instructions can load and store multiple elements efficiently in a single operation. This reduces the number of memory accesses and improves the overall performance of SIMD code. Aligned data access enables the processor to utilize its SIMD capabilities fully, resulting in faster execution and better resource utilization.</p>
 <p>On the other hand, misaligned data access can introduce additional overhead. When SIMD instructions encounter misaligned data, they may need to perform extra memory accesses or use specialized instructions to handle the misalignment. This can lead to performance degradation and suboptimal utilization of SIMD resources.</p>
 </section>
 <section id="the-aligned-clause">
-<h2><span class="section-number">3.5.2. </span>The <code class="docutils literal notranslate"><span class="pre">aligned</span></code> Clause<a class="headerlink" href="#the-aligned-clause" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.6.2. </span>The <code class="docutils literal notranslate"><span class="pre">aligned</span></code> Clause<a class="headerlink" href="#the-aligned-clause" title="Link to this heading">#</a></h2>
 <p>OpenMP provides the <code class="docutils literal notranslate"><span class="pre">aligned</span></code> clause to specify that certain data elements are aligned in memory. By using the <code class="docutils literal notranslate"><span class="pre">aligned</span></code> clause, you can inform the compiler about the alignment of data, enabling it to generate more efficient SIMD code.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">aligned</span></code> clause takes one or more variables as arguments and optionally accepts an alignment size. The alignment size specifies the byte boundary to which the variables are aligned. If the alignment size is not provided, the compiler assumes a default alignment based on the size of the data type.</p>
 <p>Here’s an example of using the <code class="docutils literal notranslate"><span class="pre">aligned</span></code> clause in C/C++:</p>
@@ -492,7 +495,7 @@ document.write(`
 <p>It’s important to note that the <code class="docutils literal notranslate"><span class="pre">aligned</span></code> clause is a hint to the compiler and does not enforce data alignment. It is the programmer’s responsibility to ensure that the specified variables are indeed aligned to the indicated byte boundary. Incorrectly specifying alignment can lead to undefined behavior.</p>
 </section>
 <section id="the-linear-clause">
-<h2><span class="section-number">3.5.3. </span>The <code class="docutils literal notranslate"><span class="pre">linear</span></code> Clause<a class="headerlink" href="#the-linear-clause" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.6.3. </span>The <code class="docutils literal notranslate"><span class="pre">linear</span></code> Clause<a class="headerlink" href="#the-linear-clause" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">linear</span></code> clause is used to indicate that the value of a variable is incremented by a constant amount for each iteration of the SIMD loop. This information helps the compiler optimize memory access patterns and generate efficient SIMD code.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">linear</span></code> clause takes one or more variables as arguments and specifies the step size by which the variables are incremented. The step size is a compile-time constant expression.</p>
 <p>Here’s an example of using the <code class="docutils literal notranslate"><span class="pre">linear</span></code> clause in C/C++:</p>
@@ -510,7 +513,7 @@ document.write(`
 <p>The <code class="docutils literal notranslate"><span class="pre">linear</span></code> clause is particularly useful in scenarios where the value of a variable follows a predictable linear pattern across SIMD iterations. By providing this information to the compiler, it can generate more optimized SIMD code and improve performance.</p>
 </section>
 <section id="combining-aligned-and-linear-clauses">
-<h2><span class="section-number">3.5.4. </span>Combining <code class="docutils literal notranslate"><span class="pre">aligned</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> Clauses<a class="headerlink" href="#combining-aligned-and-linear-clauses" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.6.4. </span>Combining <code class="docutils literal notranslate"><span class="pre">aligned</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> Clauses<a class="headerlink" href="#combining-aligned-and-linear-clauses" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">aligned</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> clauses can be used together to achieve optimal SIMD performance. By aligning data and specifying linear access patterns, you can enable the compiler to generate highly efficient SIMD code.</p>
 <p>Here’s an example that demonstrates the combination of <code class="docutils literal notranslate"><span class="pre">aligned</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> clauses:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">step</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -526,7 +529,7 @@ document.write(`
 <p>In this example, the <code class="docutils literal notranslate"><span class="pre">aligned</span></code> clause is used to specify the alignment of the arrays <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>, while the <code class="docutils literal notranslate"><span class="pre">linear</span></code> clause is used to indicate the linear increment of the variable <code class="docutils literal notranslate"><span class="pre">x</span></code>. By providing both alignment and linear access information, the compiler can generate highly optimized SIMD code that leverages the full potential of SIMD instructions.</p>
 </section>
 <section id="conclusion">
-<h2><span class="section-number">3.5.5. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.6.5. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <p>Data alignment and linear memory access patterns are critical considerations for achieving optimal performance with SIMD instructions. OpenMP provides the <code class="docutils literal notranslate"><span class="pre">aligned</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> clauses to help manage data alignment and access patterns in SIMD loops.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">aligned</span></code> clause allows you to inform the compiler about the alignment of data, enabling it to generate more efficient SIMD code. By ensuring that data is properly aligned, you can maximize the performance benefits of SIMD instructions and avoid the overhead of misaligned memory accesses.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">linear</span></code> clause, on the other hand, enables you to specify variables that are incremented by a constant amount in each iteration of the SIMD loop. By providing this information to the compiler, it can optimize memory access patterns and generate efficient SIMD code.</p>
@@ -572,7 +575,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3.4. </span>Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></p>
+        <p class="prev-next-title"><span class="section-number">3.5. </span>Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></p>
       </div>
     </a>
     <a class="right-next"
@@ -580,7 +583,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.6. </span>SIMD Reductions and Scans</p>
+        <p class="prev-next-title"><span class="section-number">3.7. </span>SIMD Reductions and Scans</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -600,11 +603,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-data-alignment">3.5.1. Importance of Data Alignment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-aligned-clause">3.5.2. The <code class="docutils literal notranslate"><span class="pre">aligned</span></code> Clause</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-clause">3.5.3. The <code class="docutils literal notranslate"><span class="pre">linear</span></code> Clause</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-aligned-and-linear-clauses">3.5.4. Combining <code class="docutils literal notranslate"><span class="pre">aligned</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> Clauses</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.5.5. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-data-alignment">3.6.1. Importance of Data Alignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-aligned-clause">3.6.2. The <code class="docutils literal notranslate"><span class="pre">aligned</span></code> Clause</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-clause">3.6.3. The <code class="docutils literal notranslate"><span class="pre">linear</span></code> Clause</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-aligned-and-linear-clauses">3.6.4. Combining <code class="docutils literal notranslate"><span class="pre">aligned</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> Clauses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">3.6.5. Conclusion</a></li>
 </ul>
   </nav></div>
 

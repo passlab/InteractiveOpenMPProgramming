@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.8. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct &#8212; Interactive OpenMP Programming</title>
+    <title>2.9. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct &#8212; Interactive OpenMP Programming</title>
   
   
   
@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3. Parallel Programming for SIMD and Vector Architecture" href="../Ch3_SIMDVector.html" />
-    <link rel="prev" title="2.7. Asynchronous Tasking" href="5_AsynchronousTasking.html" />
+    <link rel="prev" title="2.8. Asynchronous Tasking" href="5_AsynchronousTasking.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -191,37 +191,40 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Ch2_MulticoreMultiCPU.html">2. Parallel Programming for Multicore and Multi-CPU Machines</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1_MIMDArchitecture.html">2.1. Multicore and Multi-CPU shared memory systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_UsingOpenMP_parallel.html">2.2. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_UsingOpenMP_teams.html">2.3. Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads.html">2.4. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Gemini.html">2.5. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Claude.html">2.6. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_AsynchronousTasking.html">2.7. Asynchronous Tasking</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.8. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0_Learning_Objectives.html">2.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_MIMDArchitecture.html">2.2. Multicore and Multi-CPU shared memory systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_UsingOpenMP_parallel.html">2.3. Creating SPMD parallelism using OpenMP <strong>parallel</strong> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_UsingOpenMP_teams.html">2.4. Creating SPMD parallelism using OpenMP <code class="docutils literal notranslate"><span class="pre">teams</span></code> directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads.html">2.5. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Gemini.html">2.6. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SynchronizationThreads_Claude.html">2.7. Synchronization of Threads Using Barrier and Ordered Directive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_AsynchronousTasking.html">2.8. Asynchronous Tasking</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.9. Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch3_SIMDVector.html">3. Parallel Programming for SIMD and Vector Architecture</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization.html">3.1. Introduction to SIMD and Vectorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/2_OpenMPSIMDConstructsAndClauses.html">3.2. OpenMP SIMD Constructs and Clauses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/3_UtilizingSIMDDirectivesForLoopVectorization.html">3.3. Utilizing SIMD Directives for Loop Vectorization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.html">3.4. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/5_DataAlignmentandLinearClauses.html">3.5. Data Alignment and Linear Clauses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/6_SIMDReductionsAndScans.html">3.6. SIMD Reductions and Scans</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/7_BestPracticesAndPerformanceConsiderations.html">3.7. Best Practices and Performance Considerations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/8_RealWorldExamplesAndCaseStudies.html">3.8. Real-World Examples and Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/0_Learning_Objectives.html">3.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/1_IntroductionToSIMDAndVectorization.html">3.2. Introduction to SIMD and Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/2_OpenMPSIMDConstructsAndClauses.html">3.3. OpenMP SIMD Constructs and Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/3_UtilizingSIMDDirectivesForLoopVectorization.html">3.4. Utilizing SIMD Directives for Loop Vectorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/4_FunctionVectorizationWithdeclaresimd.html">3.5. Function Vectorization with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">simd</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/5_DataAlignmentandLinearClauses.html">3.6. Data Alignment and Linear Clauses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/6_SIMDReductionsAndScans.html">3.7. SIMD Reductions and Scans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/7_BestPracticesAndPerformanceConsiderations.html">3.8. Best Practices and Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SIMDandVectorArchitecture/8_RealWorldExamplesAndCaseStudies.html">3.9. Real-World Examples and Case Studies</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Ch4_GPUAccel.html">4. Parallel Programming for GPU Accelerators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_Introduction.html">4.1. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_OpenMPDeviceConstructs.html">4.2. OpenMP Device Constructs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/3_MappingDataToGPUDevices.html">4.3. Mapping Data to GPU Devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/4_AsynchronousExecutionAndDependencies.html">4.4. Asynchronous Execution and Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/5_DeviceMemoryManagement.html">4.5. Device Memory Management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/6_ParallelExecutionOnGPUDevices.html">4.6. Parallel Execution on GPU Devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/7_TuningPerformanceForGPUOffloading.html">4.7. Tuning Performance for GPU Offloading</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/8_AdvancedTopicsAndBestPractices.html">4.8. Advanced Topics and Best Practices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/9_Conclusion.html">4.9. Conclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/0_Learning_Objectives.html">4.1. Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/1_Introduction.html">4.2. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/2_OpenMPDeviceConstructs.html">4.3. OpenMP Device Constructs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/3_MappingDataToGPUDevices.html">4.4. Mapping Data to GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/4_AsynchronousExecutionAndDependencies.html">4.5. Asynchronous Execution and Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/5_DeviceMemoryManagement.html">4.6. Device Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/6_ParallelExecutionOnGPUDevices.html">4.7. Parallel Execution on GPU Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/7_TuningPerformanceForGPUOffloading.html">4.8. Tuning Performance for GPU Offloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/8_AdvancedTopicsAndBestPractices.html">4.9. Advanced Topics and Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GPUAccelerators/9_Conclusion.html">4.10. Conclusion</a></li>
 </ul>
 </details></li>
 </ul>
@@ -450,45 +453,45 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.8.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-construct">2.8.2. Single Construct</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-clauses">2.8.2.1. Syntax and Clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">2.8.2.2. Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.9.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-construct">2.9.2. Single Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-clauses">2.9.2.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">2.9.2.2. Example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections-construct">2.8.3. Sections Construct</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.8.3.1. Syntax and Clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.8.3.2. Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections-construct">2.9.3. Sections Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.9.3.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.9.3.2. Example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksharing-loop-constructs">2.8.4. Worksharing-Loop Constructs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.8.4.1. Syntax and Clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.8.4.2. Example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scheduling-clauses">2.8.4.3. Scheduling Clauses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksharing-loop-constructs">2.9.4. Worksharing-Loop Constructs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.9.4.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.9.4.2. Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scheduling-clauses">2.9.4.3. Scheduling Clauses</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribute-construct">2.8.5. Distribute Construct</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.8.5.1. Syntax and Clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.8.5.2. Example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-with-other-constructs">2.8.5.3. Interaction with Other Constructs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribute-construct">2.9.5. Distribute Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.9.5.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.9.5.2. Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-with-other-constructs">2.9.5.3. Interaction with Other Constructs</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-constructs-for-efficient-work-distribution">2.8.6. Combining Constructs for Efficient Work Distribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-parallelism-using-single-sections-and-worksharing-loop-constructs">2.8.6.1. Nested Parallelism using Single, Sections, and Worksharing-Loop Constructs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-distribute-construct-with-worksharing-loop-constructs">2.8.6.2. Using the Distribute Construct with Worksharing-Loop Constructs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-demonstrating-the-combination-of-constructs">2.8.6.3. Example Demonstrating the Combination of Constructs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-constructs-for-efficient-work-distribution">2.9.6. Combining Constructs for Efficient Work Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-parallelism-using-single-sections-and-worksharing-loop-constructs">2.9.6.1. Nested Parallelism using Single, Sections, and Worksharing-Loop Constructs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-distribute-construct-with-worksharing-loop-constructs">2.9.6.2. Using the Distribute Construct with Worksharing-Loop Constructs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-demonstrating-the-combination-of-constructs">2.9.6.3. Example Demonstrating the Combination of Constructs</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-and-performance-considerations">2.8.7. Best Practices and Performance Considerations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-appropriate-construct">2.8.7.1. Choosing the Appropriate Construct</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-avoiding-work-imbalance">2.8.7.2. Load Balancing and Avoiding Work Imbalance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimizing-synchronization-overhead">2.8.7.3. Minimizing Synchronization Overhead</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leveraging-data-locality-and-reducing-data-movement">2.8.7.4. Leveraging Data Locality and Reducing Data Movement</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-performance-analysis">2.8.7.5. Profiling and Performance Analysis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-optimization-and-tuning">2.8.7.6. Continuous Optimization and Tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-and-performance-considerations">2.9.7. Best Practices and Performance Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-appropriate-construct">2.9.7.1. Choosing the Appropriate Construct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-avoiding-work-imbalance">2.9.7.2. Load Balancing and Avoiding Work Imbalance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimizing-synchronization-overhead">2.9.7.3. Minimizing Synchronization Overhead</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leveraging-data-locality-and-reducing-data-movement">2.9.7.4. Leveraging Data Locality and Reducing Data Movement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-performance-analysis">2.9.7.5. Profiling and Performance Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-optimization-and-tuning">2.9.7.6. Continuous Optimization and Tuning</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.8.8. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.9.8. Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -501,9 +504,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="explicit-distribution-of-work-using-single-sections-workshring-loop-and-distribute-construct">
-<h1><span class="section-number">2.8. </span>Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct<a class="headerlink" href="#explicit-distribution-of-work-using-single-sections-workshring-loop-and-distribute-construct" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">2.9. </span>Explicit Distribution of Work Using Single, Sections, Workshring-Loop, and Distribute Construct<a class="headerlink" href="#explicit-distribution-of-work-using-single-sections-workshring-loop-and-distribute-construct" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2><span class="section-number">2.8.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.9.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>Explicit work distribution is a fundamental concept in parallel programming that plays a crucial role in achieving optimal performance and scalability. When developing parallel programs, it is essential to carefully consider how the workload is distributed among the available processing units, such as threads or teams of threads. Proper work distribution ensures that each processing unit has a fair share of the computational tasks, minimizing load imbalance and maximizing resource utilization.</p>
 <p>OpenMP provides several constructs that facilitate explicit work distribution. These constructs allow programmers to specify how the workload should be divided and assigned to different threads or teams of threads. By leveraging these constructs effectively, developers can create efficient and scalable parallel programs that harness the full potential of modern multi-core processors and accelerators.</p>
 <p>In this section, we will explore four key OpenMP constructs for explicit work distribution: single, sections, worksharing-loop, and distribute. Each of these constructs serves a specific purpose and offers unique features for distributing work among threads or teams.</p>
@@ -511,10 +514,10 @@ document.write(`
 <p>Throughout this section, we will delve into the syntax, clauses, and usage of each construct, providing examples to illustrate their application in real-world scenarios. We will also discuss best practices for combining these constructs to achieve optimal work distribution and performance. By the end of this section, you will have a solid understanding of how to leverage OpenMP’s explicit work distribution constructs to write efficient and scalable parallel programs.</p>
 </section>
 <section id="single-construct">
-<h2><span class="section-number">2.8.2. </span>Single Construct<a class="headerlink" href="#single-construct" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.9.2. </span>Single Construct<a class="headerlink" href="#single-construct" title="Link to this heading">#</a></h2>
 <p>The single construct in OpenMP is used to specify that a block of code should be executed by only one thread in a team, while the other threads wait at an implicit barrier until the execution of the single block is completed. This construct is particularly useful when there are certain tasks that need to be performed only once, such as initializing shared variables, printing results, or performing I/O operations.</p>
 <section id="syntax-and-clauses">
-<h3><span class="section-number">2.8.2.1. </span>Syntax and Clauses<a class="headerlink" href="#syntax-and-clauses" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.2.1. </span>Syntax and Clauses<a class="headerlink" href="#syntax-and-clauses" title="Link to this heading">#</a></h3>
 <p>The syntax for the single construct in C/C++ is as follows:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp single [clause[[,] clause] ...]</span>
 <span class="p">{</span>
@@ -537,7 +540,7 @@ document.write(`
 </ul>
 </section>
 <section id="example">
-<h3><span class="section-number">2.8.2.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.2.2. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
 <p>Here’s an example that demonstrates the usage of the single construct in C:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -575,10 +578,10 @@ document.write(`
 </section>
 </section>
 <section id="sections-construct">
-<h2><span class="section-number">2.8.3. </span>Sections Construct<a class="headerlink" href="#sections-construct" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.9.3. </span>Sections Construct<a class="headerlink" href="#sections-construct" title="Link to this heading">#</a></h2>
 <p>The sections construct in OpenMP allows for the distribution of work among threads in a team, where each thread executes a different code block defined within a section. This construct is useful when you have independent code blocks that can be executed concurrently, enabling task-level parallelism.</p>
 <section id="id1">
-<h3><span class="section-number">2.8.3.1. </span>Syntax and Clauses<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.3.1. </span>Syntax and Clauses<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>The syntax for the sections construct in C/C++ is as follows:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp sections [clause[[,] clause] ...]</span>
 <span class="p">{</span>
@@ -614,7 +617,7 @@ document.write(`
 </ul>
 </section>
 <section id="id2">
-<h3><span class="section-number">2.8.3.2. </span>Example<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.3.2. </span>Example<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Here’s an example that illustrates the usage of the sections construct in C:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -652,10 +655,10 @@ document.write(`
 </section>
 </section>
 <section id="worksharing-loop-constructs">
-<h2><span class="section-number">2.8.4. </span>Worksharing-Loop Constructs<a class="headerlink" href="#worksharing-loop-constructs" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.9.4. </span>Worksharing-Loop Constructs<a class="headerlink" href="#worksharing-loop-constructs" title="Link to this heading">#</a></h2>
 <p>Worksharing-loop constructs in OpenMP, such as <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">do</span></code>, are used to distribute loop iterations among the threads in a team. These constructs provide a simple and efficient way to parallelize loops and improve the performance of your program.</p>
 <section id="id3">
-<h3><span class="section-number">2.8.4.1. </span>Syntax and Clauses<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.4.1. </span>Syntax and Clauses<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>The syntax for the worksharing-loop construct in C/C++ is as follows:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp for [clause[[,] clause] ...]</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="cm">/* loop initialization */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* loop condition */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* loop increment */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -683,7 +686,7 @@ document.write(`
 </ul>
 </section>
 <section id="id4">
-<h3><span class="section-number">2.8.4.2. </span>Example<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.4.2. </span>Example<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Here’s an example that demonstrates the usage of the worksharing-loop construct in C:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -715,7 +718,7 @@ document.write(`
 <p>Worksharing-loop constructs are highly effective for parallelizing loops that have no dependencies between iterations. They provide a straightforward way to distribute the workload and achieve significant performance improvements in many common scenarios.</p>
 </section>
 <section id="scheduling-clauses">
-<h3><span class="section-number">2.8.4.3. </span>Scheduling Clauses<a class="headerlink" href="#scheduling-clauses" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.4.3. </span>Scheduling Clauses<a class="headerlink" href="#scheduling-clauses" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">schedule</span></code> clause in the worksharing-loop constructs allows you to control how the loop iterations are divided among the threads. The different scheduling kinds are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">static</span></code>: Iterations are divided into chunks of size <code class="docutils literal notranslate"><span class="pre">chunk_size</span></code> and assigned to threads in a round-robin manner. If <code class="docutils literal notranslate"><span class="pre">chunk_size</span></code> is not specified, the iterations are evenly divided among the threads.</p></li>
@@ -728,10 +731,10 @@ document.write(`
 </section>
 </section>
 <section id="distribute-construct">
-<h2><span class="section-number">2.8.5. </span>Distribute Construct<a class="headerlink" href="#distribute-construct" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.9.5. </span>Distribute Construct<a class="headerlink" href="#distribute-construct" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct in OpenMP is used to distribute loop iterations across teams of threads. It is primarily used in conjunction with the <code class="docutils literal notranslate"><span class="pre">teams</span></code> construct to achieve coarse-grained parallelism, especially when offloading computations to accelerators such as GPUs.</p>
 <section id="id5">
-<h3><span class="section-number">2.8.5.1. </span>Syntax and Clauses<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.5.1. </span>Syntax and Clauses<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>The syntax for the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct in C/C++ is as follows:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp distribute [clause[[,] clause] ...]</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="cm">/* loop initialization */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* loop condition */</span><span class="p">;</span><span class="w"> </span><span class="cm">/* loop increment */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -756,7 +759,7 @@ document.write(`
 </ul>
 </section>
 <section id="id6">
-<h3><span class="section-number">2.8.5.2. </span>Example<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.5.2. </span>Example<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>Here’s an example that demonstrates the usage of the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct in C:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -788,7 +791,7 @@ document.write(`
 <p>By using the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct, the workload is distributed at a coarse-grained level across the teams of threads, while the <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code> construct enables fine-grained parallelism within each team.</p>
 </section>
 <section id="interaction-with-other-constructs">
-<h3><span class="section-number">2.8.5.3. </span>Interaction with Other Constructs<a class="headerlink" href="#interaction-with-other-constructs" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.5.3. </span>Interaction with Other Constructs<a class="headerlink" href="#interaction-with-other-constructs" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct is often used in combination with other OpenMP constructs to achieve efficient parallelization and offloading. Some common combinations include:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">teams</span> <span class="pre">distribute</span></code>: Offloads the computation to a target device and distributes the loop iterations across teams of threads on the device.</p></li>
@@ -800,10 +803,10 @@ document.write(`
 </section>
 </section>
 <section id="combining-constructs-for-efficient-work-distribution">
-<h2><span class="section-number">2.8.6. </span>Combining Constructs for Efficient Work Distribution<a class="headerlink" href="#combining-constructs-for-efficient-work-distribution" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.9.6. </span>Combining Constructs for Efficient Work Distribution<a class="headerlink" href="#combining-constructs-for-efficient-work-distribution" title="Link to this heading">#</a></h2>
 <p>OpenMP provides a rich set of constructs that can be combined to achieve efficient work distribution and maximize parallel performance. By nesting and combining constructs such as <code class="docutils literal notranslate"><span class="pre">single</span></code>, <code class="docutils literal notranslate"><span class="pre">sections</span></code>, worksharing-loop constructs, and <code class="docutils literal notranslate"><span class="pre">distribute</span></code>, you can create sophisticated parallel patterns that adapt to the specific requirements of your application.</p>
 <section id="nested-parallelism-using-single-sections-and-worksharing-loop-constructs">
-<h3><span class="section-number">2.8.6.1. </span>Nested Parallelism using Single, Sections, and Worksharing-Loop Constructs<a class="headerlink" href="#nested-parallelism-using-single-sections-and-worksharing-loop-constructs" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.6.1. </span>Nested Parallelism using Single, Sections, and Worksharing-Loop Constructs<a class="headerlink" href="#nested-parallelism-using-single-sections-and-worksharing-loop-constructs" title="Link to this heading">#</a></h3>
 <p>One powerful technique for work distribution is nested parallelism, where parallel regions are nested inside other parallel regions. This allows for fine-grained control over the distribution of work at different levels of granularity.</p>
 <p>For example, you can use the <code class="docutils literal notranslate"><span class="pre">single</span></code> construct inside a parallel region to initialize shared variables or perform setup tasks that need to be executed only once. Then, you can use the <code class="docutils literal notranslate"><span class="pre">sections</span></code> construct to distribute independent tasks among the threads, followed by worksharing-loop constructs to parallelize loops within each section.</p>
 <p>Here’s an example that demonstrates nested parallelism using <code class="docutils literal notranslate"><span class="pre">single</span></code>, <code class="docutils literal notranslate"><span class="pre">sections</span></code>, and worksharing-loop constructs in C:</p>
@@ -859,7 +862,7 @@ document.write(`
 <p>In this example, the <code class="docutils literal notranslate"><span class="pre">single</span></code> construct is used to initialize the <code class="docutils literal notranslate"><span class="pre">data</span></code> array by a single thread. Then, the <code class="docutils literal notranslate"><span class="pre">sections</span></code> construct is used to distribute the processing of the first and second halves of the <code class="docutils literal notranslate"><span class="pre">data</span></code> array among different threads. Finally, a worksharing-loop construct is used to perform final processing on each element of the <code class="docutils literal notranslate"><span class="pre">data</span></code> array in parallel.</p>
 </section>
 <section id="using-the-distribute-construct-with-worksharing-loop-constructs">
-<h3><span class="section-number">2.8.6.2. </span>Using the Distribute Construct with Worksharing-Loop Constructs<a class="headerlink" href="#using-the-distribute-construct-with-worksharing-loop-constructs" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.6.2. </span>Using the Distribute Construct with Worksharing-Loop Constructs<a class="headerlink" href="#using-the-distribute-construct-with-worksharing-loop-constructs" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct is often used in combination with worksharing-loop constructs to achieve coarse-grained parallelism across teams of threads while enabling fine-grained parallelism within each team.</p>
 <p>Here’s an example that demonstrates the usage of the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct with worksharing-loop constructs in C:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -897,7 +900,7 @@ document.write(`
 <p>By combining the <code class="docutils literal notranslate"><span class="pre">distribute</span></code> construct with worksharing-loop constructs, you can achieve a hierarchical parallelization pattern that leverages the strengths of both coarse-grained and fine-grained parallelism.</p>
 </section>
 <section id="example-demonstrating-the-combination-of-constructs">
-<h3><span class="section-number">2.8.6.3. </span>Example Demonstrating the Combination of Constructs<a class="headerlink" href="#example-demonstrating-the-combination-of-constructs" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.6.3. </span>Example Demonstrating the Combination of Constructs<a class="headerlink" href="#example-demonstrating-the-combination-of-constructs" title="Link to this heading">#</a></h3>
 <p>Here’s an example that demonstrates the combination of <code class="docutils literal notranslate"><span class="pre">single</span></code>, <code class="docutils literal notranslate"><span class="pre">sections</span></code>, worksharing-loop, and <code class="docutils literal notranslate"><span class="pre">distribute</span></code> constructs for efficient work distribution in C:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span>
@@ -958,10 +961,10 @@ document.write(`
 </section>
 </section>
 <section id="best-practices-and-performance-considerations">
-<h2><span class="section-number">2.8.7. </span>Best Practices and Performance Considerations<a class="headerlink" href="#best-practices-and-performance-considerations" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.9.7. </span>Best Practices and Performance Considerations<a class="headerlink" href="#best-practices-and-performance-considerations" title="Link to this heading">#</a></h2>
 <p>When using OpenMP constructs for explicit work distribution, it’s important to follow best practices and consider performance implications to ensure efficient and scalable parallel execution. Here are some key points to keep in mind:</p>
 <section id="choosing-the-appropriate-construct">
-<h3><span class="section-number">2.8.7.1. </span>Choosing the Appropriate Construct<a class="headerlink" href="#choosing-the-appropriate-construct" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.7.1. </span>Choosing the Appropriate Construct<a class="headerlink" href="#choosing-the-appropriate-construct" title="Link to this heading">#</a></h3>
 <p>Selecting the right construct for work distribution depends on the nature of the problem and the parallelization pattern you want to achieve. Here are some guidelines:</p>
 <ul class="simple">
 <li><p>Use the <code class="docutils literal notranslate"><span class="pre">single</span></code> construct for tasks that need to be executed only once, such as initializing shared variables or performing I/O operations.</p></li>
@@ -972,7 +975,7 @@ document.write(`
 <p>Consider the granularity of the tasks and the available parallelism in your application when choosing the appropriate construct.</p>
 </section>
 <section id="load-balancing-and-avoiding-work-imbalance">
-<h3><span class="section-number">2.8.7.2. </span>Load Balancing and Avoiding Work Imbalance<a class="headerlink" href="#load-balancing-and-avoiding-work-imbalance" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.7.2. </span>Load Balancing and Avoiding Work Imbalance<a class="headerlink" href="#load-balancing-and-avoiding-work-imbalance" title="Link to this heading">#</a></h3>
 <p>Ensuring a balanced distribution of work among threads is crucial for achieving good parallel performance. Load imbalance can occur when some threads have significantly more work to do than others, leading to idle time and reduced efficiency.</p>
 <p>To mitigate load imbalance, consider the following techniques:</p>
 <ul class="simple">
@@ -984,7 +987,7 @@ document.write(`
 <p>Experimentwith different load balancing techniques and measure the performance impact to find the optimal approach for your specific application.</p>
 </section>
 <section id="minimizing-synchronization-overhead">
-<h3><span class="section-number">2.8.7.3. </span>Minimizing Synchronization Overhead<a class="headerlink" href="#minimizing-synchronization-overhead" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.7.3. </span>Minimizing Synchronization Overhead<a class="headerlink" href="#minimizing-synchronization-overhead" title="Link to this heading">#</a></h3>
 <p>Synchronization constructs, such as barriers and critical sections, are necessary for ensuring correctness in parallel programs. However, excessive synchronization can introduce overhead and limit scalability.</p>
 <p>To minimize synchronization overhead, consider the following:</p>
 <ul class="simple">
@@ -996,7 +999,7 @@ document.write(`
 <p>Analyze the synchronization patterns in your code and identify opportunities to reduce or eliminate unnecessary synchronization.</p>
 </section>
 <section id="leveraging-data-locality-and-reducing-data-movement">
-<h3><span class="section-number">2.8.7.4. </span>Leveraging Data Locality and Reducing Data Movement<a class="headerlink" href="#leveraging-data-locality-and-reducing-data-movement" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.7.4. </span>Leveraging Data Locality and Reducing Data Movement<a class="headerlink" href="#leveraging-data-locality-and-reducing-data-movement" title="Link to this heading">#</a></h3>
 <p>Data locality plays a significant role in the performance of parallel programs. Accessing data that is close to a processor core (e.g., in cache) is much faster than accessing data from main memory.</p>
 <p>To leverage data locality and reduce data movement, consider the following:</p>
 <ul class="simple">
@@ -1008,7 +1011,7 @@ document.write(`
 <p>Analyze the data access patterns in your code and optimize for data locality to minimize data movement and improve performance.</p>
 </section>
 <section id="profiling-and-performance-analysis">
-<h3><span class="section-number">2.8.7.5. </span>Profiling and Performance Analysis<a class="headerlink" href="#profiling-and-performance-analysis" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.7.5. </span>Profiling and Performance Analysis<a class="headerlink" href="#profiling-and-performance-analysis" title="Link to this heading">#</a></h3>
 <p>To identify performance bottlenecks and optimize your parallel code, it’s essential to profile and analyze the performance characteristics of your application. OpenMP provides runtime functions and environment variables for performance measurement and analysis.</p>
 <p>Consider the following:</p>
 <ul class="simple">
@@ -1020,7 +1023,7 @@ document.write(`
 <p>Regularly profile and analyze your parallel code to identify performance issues and guide optimization efforts.</p>
 </section>
 <section id="continuous-optimization-and-tuning">
-<h3><span class="section-number">2.8.7.6. </span>Continuous Optimization and Tuning<a class="headerlink" href="#continuous-optimization-and-tuning" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.9.7.6. </span>Continuous Optimization and Tuning<a class="headerlink" href="#continuous-optimization-and-tuning" title="Link to this heading">#</a></h3>
 <p>Parallel performance optimization is an iterative process. As you optimize your code and the underlying hardware evolves, it’s important to continuously monitor and tune the performance of your application.</p>
 <p>Consider the following:</p>
 <ul class="simple">
@@ -1033,7 +1036,7 @@ document.write(`
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">2.8.8. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.9.8. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>Explicit work distribution using OpenMP constructs like <code class="docutils literal notranslate"><span class="pre">single</span></code>, <code class="docutils literal notranslate"><span class="pre">sections</span></code>, worksharing-loop constructs, and <code class="docutils literal notranslate"><span class="pre">distribute</span></code> is a powerful technique for achieving efficient parallelization. By understanding the characteristics and use cases of each construct, you can select the appropriate one for your specific parallelization needs.</p>
 <p>To maximize performance, it’s crucial to follow best practices such as ensuring load balancing, minimizing synchronization overhead, leveraging data locality, and reducing data movement. Profiling and performance analysis are essential for identifying bottlenecks and guiding optimization efforts.</p>
 <p>Remember that parallel performance optimization is an iterative process, and continuous tuning and adaptation are necessary to maintain optimal performance as your codebase and hardware evolve.</p>
@@ -1077,7 +1080,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.7. </span>Asynchronous Tasking</p>
+        <p class="prev-next-title"><span class="section-number">2.8. </span>Asynchronous Tasking</p>
       </div>
     </a>
     <a class="right-next"
@@ -1105,45 +1108,45 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.8.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-construct">2.8.2. Single Construct</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-clauses">2.8.2.1. Syntax and Clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">2.8.2.2. Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">2.9.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-construct">2.9.2. Single Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-and-clauses">2.9.2.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">2.9.2.2. Example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections-construct">2.8.3. Sections Construct</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.8.3.1. Syntax and Clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.8.3.2. Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections-construct">2.9.3. Sections Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.9.3.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.9.3.2. Example</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksharing-loop-constructs">2.8.4. Worksharing-Loop Constructs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.8.4.1. Syntax and Clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.8.4.2. Example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scheduling-clauses">2.8.4.3. Scheduling Clauses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#worksharing-loop-constructs">2.9.4. Worksharing-Loop Constructs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.9.4.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.9.4.2. Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scheduling-clauses">2.9.4.3. Scheduling Clauses</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribute-construct">2.8.5. Distribute Construct</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.8.5.1. Syntax and Clauses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.8.5.2. Example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-with-other-constructs">2.8.5.3. Interaction with Other Constructs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribute-construct">2.9.5. Distribute Construct</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.9.5.1. Syntax and Clauses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.9.5.2. Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interaction-with-other-constructs">2.9.5.3. Interaction with Other Constructs</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-constructs-for-efficient-work-distribution">2.8.6. Combining Constructs for Efficient Work Distribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-parallelism-using-single-sections-and-worksharing-loop-constructs">2.8.6.1. Nested Parallelism using Single, Sections, and Worksharing-Loop Constructs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-distribute-construct-with-worksharing-loop-constructs">2.8.6.2. Using the Distribute Construct with Worksharing-Loop Constructs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-demonstrating-the-combination-of-constructs">2.8.6.3. Example Demonstrating the Combination of Constructs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-constructs-for-efficient-work-distribution">2.9.6. Combining Constructs for Efficient Work Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-parallelism-using-single-sections-and-worksharing-loop-constructs">2.9.6.1. Nested Parallelism using Single, Sections, and Worksharing-Loop Constructs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-distribute-construct-with-worksharing-loop-constructs">2.9.6.2. Using the Distribute Construct with Worksharing-Loop Constructs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-demonstrating-the-combination-of-constructs">2.9.6.3. Example Demonstrating the Combination of Constructs</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-and-performance-considerations">2.8.7. Best Practices and Performance Considerations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-appropriate-construct">2.8.7.1. Choosing the Appropriate Construct</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-avoiding-work-imbalance">2.8.7.2. Load Balancing and Avoiding Work Imbalance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimizing-synchronization-overhead">2.8.7.3. Minimizing Synchronization Overhead</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leveraging-data-locality-and-reducing-data-movement">2.8.7.4. Leveraging Data Locality and Reducing Data Movement</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-performance-analysis">2.8.7.5. Profiling and Performance Analysis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-optimization-and-tuning">2.8.7.6. Continuous Optimization and Tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-and-performance-considerations">2.9.7. Best Practices and Performance Considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-appropriate-construct">2.9.7.1. Choosing the Appropriate Construct</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-balancing-and-avoiding-work-imbalance">2.9.7.2. Load Balancing and Avoiding Work Imbalance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimizing-synchronization-overhead">2.9.7.3. Minimizing Synchronization Overhead</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leveraging-data-locality-and-reducing-data-movement">2.9.7.4. Leveraging Data Locality and Reducing Data Movement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-and-performance-analysis">2.9.7.5. Profiling and Performance Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-optimization-and-tuning">2.9.7.6. Continuous Optimization and Tuning</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.8.8. Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">2.9.8. Summary</a></li>
 </ul>
   </nav></div>
 
